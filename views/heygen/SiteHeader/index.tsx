@@ -10,7 +10,6 @@ export function SiteHeader() {
 
   return (
     <header className={`sticky top-0 z-40 h-[76px] transition-[padding] ${HEADER_EASE} ${scrolled ? "px-3 py-2.5" : "px-0 py-0"}`}>
-      <div aria-hidden className={`pointer-events-none absolute inset-0 bg-white transition-opacity ${HEADER_EASE} ${scrolled ? "opacity-100" : "opacity-0"}`} />
       <div
         className={`relative mx-auto flex h-full items-center justify-between gap-6 rounded-lg border transition-[max-width,padding,background-color,border-color,box-shadow,backdrop-filter] ${HEADER_EASE} ${
           scrolled
@@ -19,14 +18,14 @@ export function SiteHeader() {
         }`}
       >
         <a href={EVERASK.site} aria-label={`${EVERASK.name} home`}>
-          <ProductLockup className="text-[15px]" />
+          <ProductLockup className="text-[15px]" tone={scrolled ? "ink" : "white"} />
         </a>
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
           {EVERASK_NAV.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="inline-flex h-9 items-center rounded-pill px-3.5 text-[15px] text-body transition-colors hover:bg-fill-1 hover:text-ink"
+              className={`inline-flex h-9 items-center rounded-pill px-3.5 text-[15px] transition-colors ${scrolled ? "text-body hover:bg-fill-1 hover:text-ink" : "text-white/90 hover:bg-white/15 hover:text-white"}`}
             >
               {item.label}
             </a>

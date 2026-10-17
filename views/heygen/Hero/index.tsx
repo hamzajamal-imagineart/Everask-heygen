@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { CtaButton } from "../CtaButton";
 import { heygenConfig } from "../config";
+import { HG_MEDIA } from "../media.constants";
 import { HERO_ARC_DEPTH, HERO_ARC_TURN, HERO_CARDS } from "./Hero.constants";
 import { HeroCardOverlay } from "./HeroCardOverlay";
 
@@ -8,21 +9,27 @@ const CENTRE = (HERO_CARDS.length - 1) / 2;
 
 export function Hero() {
   return (
-    <section
-      className="relative isolate -mt-[76px] overflow-hidden pt-[calc(76px+4rem)] pb-14 lg:pt-[calc(76px+5rem)] lg:pb-20"
-      style={{
-        background:
-          "radial-gradient(ellipse 70% 55% at 50% 0%, rgba(40,131,251,0.20), transparent 70%), radial-gradient(ellipse 60% 45% at 50% 72%, rgba(40,131,251,0.12), transparent 70%), linear-gradient(180deg, #e9f2ff 0%, #f3f8ff 55%, #ffffff 100%)",
-      }}
-    >
+    <section className="relative isolate -mt-[76px] overflow-hidden bg-[#2a86f5] pt-[calc(76px+4rem)] pb-14 lg:pt-[calc(76px+5rem)] lg:pb-20">
+      <video
+        className="pointer-events-none absolute inset-0 -z-20 size-full object-cover object-[50%_35%]"
+        src={HG_MEDIA.heroSkyVideo}
+        poster={HG_MEDIA.heroSky}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+      />
+      <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[28%] bg-gradient-to-b from-transparent to-white" />
       <div className="hg-container flex flex-col items-center text-center">
-        <h1 className="hg-h1 text-hg-ink" style={{ fontSize: "clamp(36px, 4.4vw, 60px)", lineHeight: 1.06 }}>
+        <h1 className="hg-h1 text-white [text-shadow:0_2px_24px_rgba(0,40,110,0.25)]" style={{ fontSize: "clamp(36px, 4.4vw, 60px)", lineHeight: 1.06 }}>
           AI videos starring you,
           <br /> made in minutes
         </h1>
-        <p className="mt-5 max-w-[440px] text-[18px] font-medium tracking-[-0.01em] text-hg-ink">Be your best self, every time.</p>
+        <p className="mt-5 max-w-[440px] text-[18px] font-medium tracking-[-0.01em] text-white/90">Be your best self, every time.</p>
         <div className="mt-8">
-          <CtaButton href={heygenConfig.links.start} label="Get started for free" size="lg" />
+          <CtaButton href={heygenConfig.links.start} label="Get started for free" size="lg" background="#ffffff" color="#0a6fe0" />
         </div>
       </div>
 

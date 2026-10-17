@@ -5,7 +5,7 @@ export const HERO_CARDS: HeroCard[] = [
   { title: "Buying your first home?", subtitle: "Real Estate", image: HG_MEDIA.heroHome, focus: "50% 50%" },
   { title: "How to improve productivity?", subtitle: "Coaching", image: HG_MEDIA.heroProductivity, focus: "50% 40%" },
   { title: "Interview with the CEO", subtitle: "Company", image: HG_MEDIA.heroInterview, focus: "50% 60%" },
-  { title: "Top 10 tips to reduce Stress", subtitle: "Dr. Jenni Jacobsen", image: HG_MEDIA.heroStress, focus: "50% 50%" },
+  { title: "3 ways to calm down in 60 seconds", subtitle: "Wellness", image: HG_MEDIA.heroStress, focus: "50% 50%", captioned: true },
   { title: "How to choose a therapist?", subtitle: "Wellness", image: HG_MEDIA.heroTherapist, focus: "50% 50%" },
   { title: "Welcome to Loft 12", subtitle: "Real Estate", image: HG_MEDIA.heroLoft, focus: "50% 50%", captioned: true },
   { title: "Your portfolio, explained", subtitle: "Finance", image: HG_MEDIA.heroPortfolio, focus: "50% 45%" },

@@ -53,18 +53,28 @@ Push only when Hamza says so.
 
 ## 17 Oct 2026, later
 
-- **Hero background**: soft blue gradient (tints of `#2883fb` only) fading to white. The hero is
-  pulled up under the sticky header (`-mt-[76px]`), so the transparent navbar shows the gradient
-  in its default state instead of white page background.
-- **Hero tiles**: eight now. "Welcome to Loft 12" (`hero-loft.jpg`) is a social-video style frame
+- **Hero background**: a looping cloud-sea video (`hero-sky.mp4`, Kling 2.6 Pro image-to-video from
+  the GPT Image 2 still `hero-sky.jpg`, which is also the poster). It is 10 s, 1080p, ~10 MB with a
+  silent AAC track; compress it and strip audio with ffmpeg before production (not installed here).
+  A white fade covers the bottom 28%. Headline and subhead are white, the CTA is a white pill.
+  The hero is pulled up under the sticky header (`-mt-[76px]`); until scrolled, the header has no
+  background and white lockup and links, then it becomes the floating white panel (the old
+  full-width white strip behind it was removed).
+- **Hero tiles**: eight now. The stress tile is now a captioned social-video frame too
+  ("3 ways to calm down in 60 seconds"). "Welcome to Loft 12" (`hero-loft.jpg`) is a social-video style frame
   with burned-in captions, so its card sets `captioned: true` and draws no title or play button.
   A matching legal tile ("it's not complicated.") failed to generate and could not be retried:
   the ImagineArt (Official) org ran out of credits.
 - **Badge icons**: the six section badges use 3D clay icons (blue `#2883fb`, cream, one vermilion
   accent) generated with GPT Image 2: `badge-{avatar,research,agent,studio,translation,tools}.png`,
   160px, cut out locally with sharp (flood-fill of the white, neutral backdrop from the edges),
-  because ImagineArt background removal had no credits. Badge icon size is 32px. The old SVG
+  because ImagineArt background removal had no credits. Badge icons render at 44px (`-my-2 size-11`). The old SVG
   icons were deleted.
 - **Copy**: every visible "HeyGen" now reads "EverAsk" (Research badge, Tools and Trust intros, FAQ).
 - **Research heading** sized inline at `clamp(28px, 2.5vw, 36px)`; the `text-[..]` utilities lost to
   `.hg-h2`.
+- **Feature-card icons**: the nine text-only cards (Video Agent, Translation, AI Studio) show a
+  64px 3D clay icon above the title via `FeatureItem.icon`: pencil, puzzle, camcorder, globe,
+  microphone, rocket, checklist, spotlight, gears (`card-*.png`, cut out locally the same way).
+- **Trust background**: the airbrush texture is replaced by a soft `#2883fb`-tint gradient; the
+  texture is no longer used anywhere and was deleted.

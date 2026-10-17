@@ -1,6 +1,6 @@
 import type { FeatureCardProps } from "./FeatureCard.types";
 
-export function FeatureCard({ title, text, image }: FeatureCardProps) {
+export function FeatureCard({ title, text, image, icon }: FeatureCardProps) {
   return (
     <div className="card group flex h-full flex-col p-3">
       {image ? (
@@ -9,6 +9,7 @@ export function FeatureCard({ title, text, image }: FeatureCardProps) {
         </div>
       ) : null}
       <div className="flex flex-1 flex-col gap-4 p-5 pt-6 md:p-6">
+        {icon ? <img src={icon} alt="" className="-mt-1 -ml-1 size-16 object-contain" /> : null}
         <h3 className="hg-h3 text-[24px] leading-[1.12] text-ink md:text-[26px]">{title}</h3>
         <p className="text-[15px] leading-relaxed text-body">{text}</p>
       </div>
