@@ -14,7 +14,7 @@ export function FinalCta() {
           <p className="pt-5 pb-[30px] text-[16px] leading-[1.6] text-white/80">
             See how businesses like yours scale content creation and drive growth with the most innovative AI video.
           </p>
-          <CtaButton href={heygenConfig.links.start} label="Get started for free" background="#ffffff" color="#0046e7" size="lg" />
+          <CtaButton href={heygenConfig.links.start} label="Get started for free" background="#ffffff" color="#131318" size="lg" />
         </div></div>
       </div>
     </section>

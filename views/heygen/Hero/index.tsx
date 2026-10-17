@@ -29,7 +29,7 @@ export function Hero() {
         </h1>
         <p className="mt-5 max-w-[440px] text-[18px] font-medium tracking-[-0.01em] text-white/90">Be your best self, every time.</p>
         <div className="mt-8">
-          <CtaButton href={heygenConfig.links.start} label="Get started for free" size="lg" background="#ffffff" color="#0a6fe0" />
+          <CtaButton href={heygenConfig.links.start} label="Get started for free" size="lg" background="#ffffff" color="#131318" />
         </div>
       </div>
 
