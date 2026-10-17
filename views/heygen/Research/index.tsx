@@ -7,7 +7,7 @@ export function Research() {
       <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-[60px]">
         <div className="flex flex-col items-start gap-[30px]">
             <Badge icon={HG_MEDIA.iconMagicpen} tint="#edf3ff">
-              HeyGen Research
+              EverAsk Research
             </Badge>
             <h2 className="hg-h2 max-w-[420px]" style={{ fontSize: "clamp(28px, 2.5vw, 36px)", lineHeight: 1.1 }}>
               Avatar V: Scaling video-reference avatar generation
