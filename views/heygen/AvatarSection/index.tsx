@@ -11,7 +11,7 @@ export function AvatarSection() {
     <section id="avatar" className="hg-container py-20 lg:py-[120px]">
       <SectionHead
         badge="AI Avatar Generator"
-        icon={HG_MEDIA.iconUser}
+        icon={HG_MEDIA.badgeAvatar}
         tint="#edf3ff"
         title="The most lifelike avatars in AI video"
         action={<CtaButton href={heygenConfig.links.start} label="Get started for free" background="#131318" color="#fff" />}

@@ -50,3 +50,21 @@ on its main pages, so DM Sans is what renders there too. The `computer-creative`
 rules; it only covers imagery.
 
 Push only when Hamza says so.
+
+## 17 Oct 2026, later
+
+- **Hero background**: soft blue gradient (tints of `#2883fb` only) fading to white. The hero is
+  pulled up under the sticky header (`-mt-[76px]`), so the transparent navbar shows the gradient
+  in its default state instead of white page background.
+- **Hero tiles**: eight now. "Welcome to Loft 12" (`hero-loft.jpg`) is a social-video style frame
+  with burned-in captions, so its card sets `captioned: true` and draws no title or play button.
+  A matching legal tile ("it's not complicated.") failed to generate and could not be retried:
+  the ImagineArt (Official) org ran out of credits.
+- **Badge icons**: the six section badges use 3D clay icons (blue `#2883fb`, cream, one vermilion
+  accent) generated with GPT Image 2: `badge-{avatar,research,agent,studio,translation,tools}.png`,
+  160px, cut out locally with sharp (flood-fill of the white, neutral backdrop from the edges),
+  because ImagineArt background removal had no credits. Badge icon size is 32px. The old SVG
+  icons were deleted.
+- **Copy**: every visible "HeyGen" now reads "EverAsk" (Research badge, Tools and Trust intros, FAQ).
+- **Research heading** sized inline at `clamp(28px, 2.5vw, 36px)`; the `text-[..]` utilities lost to
+  `.hg-h2`.

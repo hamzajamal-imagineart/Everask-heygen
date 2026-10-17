@@ -9,7 +9,7 @@ export function Tools() {
     <section id="tools" className="relative isolate overflow-hidden bg-hg-cyan-soft">
       <div className="hg-container relative py-20 lg:py-[120px]">
         <div className="flex flex-col gap-5">
-          <Badge icon={HG_MEDIA.iconGift} tint="#fff">
+          <Badge icon={HG_MEDIA.badgeTools} tint="#fff">
             AI Tools
           </Badge>
           <h2 className="hg-h2 max-w-[800px] text-hg-ink">Powerful AI tools for any creator</h2>

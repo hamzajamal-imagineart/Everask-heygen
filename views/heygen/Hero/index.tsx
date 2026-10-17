@@ -8,7 +8,13 @@ const CENTRE = (HERO_CARDS.length - 1) / 2;
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-hg-page pt-16 pb-14 lg:pt-20 lg:pb-20">
+    <section
+      className="relative isolate -mt-[76px] overflow-hidden pt-[calc(76px+4rem)] pb-14 lg:pt-[calc(76px+5rem)] lg:pb-20"
+      style={{
+        background:
+          "radial-gradient(ellipse 70% 55% at 50% 0%, rgba(40,131,251,0.20), transparent 70%), radial-gradient(ellipse 60% 45% at 50% 72%, rgba(40,131,251,0.12), transparent 70%), linear-gradient(180deg, #e9f2ff 0%, #f3f8ff 55%, #ffffff 100%)",
+      }}
+    >
       <div className="hg-container flex flex-col items-center text-center">
         <h1 className="hg-h1 text-hg-ink" style={{ fontSize: "clamp(36px, 4.4vw, 60px)", lineHeight: 1.06 }}>
           AI videos starring you,
@@ -33,7 +39,7 @@ export function Hero() {
               style={{ transform: `perspective(900px) translateZ(${step * step * HERO_ARC_DEPTH}px) rotateY(${-step * HERO_ARC_TURN}deg)` } as CSSProperties}
             >
               <img src={card.image} alt={`${card.title}, ${card.subtitle}`} className="size-full object-cover" style={{ objectPosition: card.focus }} />
-              <HeroCardOverlay card={card} />
+              {card.captioned ? null : <HeroCardOverlay card={card} />}
             </li>
           );
         })}
