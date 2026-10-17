@@ -9,7 +9,7 @@ export function Research() {
             <Badge icon={HG_MEDIA.iconMagicpen} tint="#edf3ff">
               HeyGen Research
             </Badge>
-            <h2 className="hg-h2 max-w-[420px] text-[34px] md:text-[42px]">
+            <h2 className="hg-h2 max-w-[420px]" style={{ fontSize: "clamp(28px, 2.5vw, 36px)", lineHeight: 1.1 }}>
               Avatar V: Scaling video-reference avatar generation
             </h2>
             <p className="max-w-[450px] text-[15px] leading-[1.5] text-hg-ink-2">
