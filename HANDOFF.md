@@ -60,8 +60,9 @@ Push only when Hamza says so.
   The hero is pulled up under the sticky header (`-mt-[76px]`); until scrolled, the header has no
   background and white lockup and links, then it becomes the floating white panel (the old
   full-width white strip behind it was removed).
-- **Hero tiles**: eight now. The stress tile is now a captioned social-video frame too
-  ("3 ways to calm down in 60 seconds"). "Welcome to Loft 12" (`hero-loft.jpg`) is a social-video style frame
+- **Hero tiles**: eight now. The old stress tile (curly-haired woman, navy sofa) is replaced by a captioned
+  social-video frame of a different presenter, "Stress less, breathe more" (`hero-breathe.jpg`).
+  Replaced images get new filenames so browsers cannot show a cached copy. "Welcome to Loft 12" (`hero-loft.jpg`) is a social-video style frame
   with burned-in captions, so its card sets `captioned: true` and draws no title or play button.
   A matching legal tile ("it's not complicated.") failed to generate and could not be retried:
   the ImagineArt (Official) org ran out of credits.
@@ -78,3 +79,5 @@ Push only when Hamza says so.
   microphone, rocket, checklist, spotlight, gears (`card-*.png`, cut out locally the same way).
 - **Trust background**: the airbrush texture is replaced by a soft `#2883fb`-tint gradient; the
   texture is no longer used anywhere and was deleted.
+- **Compliance badges**: GDPR, SOC 2 Type II, CCPA, AI Act and DPF are 3D clay versions of the
+  original marks (`compliance-*.png`); the old SVGs were deleted.
