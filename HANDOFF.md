@@ -83,3 +83,19 @@ Push only when Hamza says so.
   light blue tint at the top replaces the old blue gradient (`FinalCta.constants.ts` deleted).
 - **Compliance badges**: GDPR, SOC 2 Type II, CCPA, AI Act and DPF are 3D clay versions of the
   original marks (`compliance-*.png`); the old SVGs were deleted.
+
+## /magnific route (17 Oct 2026)
+
+The Mag page (formerly the standalone `mag-landing` folder) now lives in this repo at `/magnific`.
+Each page has its own root layout through route groups, so their global CSS never mixes:
+
+- `app/(heygen)/layout.tsx` + `page.tsx` -> `/`, imports `app/globals.css`.
+- `app/(magnific)/layout.tsx` + `magnific/page.tsx` -> `/magnific`, imports `app/magnific.css` (Mag's
+  old globals) and `views/mag/styles.css`. Fonts come from `lib/fonts.ts` (adds Instrument Serif).
+- Mag code is in `views/mag/`, its assets in `public/assets/mag/` (paths in `views/mag/media.constants.ts`),
+  its mark in `public/brand/everask-mark.svg`. Mag's own notes: see the "Mag" section history in
+  `mag-landing/HANDOFF.md` (that folder is now superseded; edit the page here).
+- `/magnific` is noindex like `/`; the old canonical pointed at Magnific's site.
+- Moving between `/` and `/magnific` is a full page load (different root layouts), by design.
+- `next build` passes with both routes as static pages (checked in a scratch copy so the dev server
+  on 3400 kept its `.next`).

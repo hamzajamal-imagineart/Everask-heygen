@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-clash), "Clash Grotesk", var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --color-action: #0088ff;
+  --color-action-hover: #0b7ae4;
+  --color-ink: #131318;
+  --color-neutral-10: #f7f7f7;
+  --color-neutral-20: #ededed;
+  --color-neutral-60: #575757;
+  --color-neutral-80: #292929;
+  --color-neutral-90: #212121;
+  --color-body: #575757;
+  --color-fill-1: #f7f7f7;
+  --color-fill-2: #ededed;
+  --radius-pill: 999px;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --animate-hero-drift: hero-drift 32s ease-in-out infinite alternate;
+  --animate-sky-rise: sky-rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes sky-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes hero-drift {
+  0% {
+    transform: scale(1.04) translate3d(0.8%, 0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(-0.8%, 0, 0);
+  }
+}
+
+@utility t-hero {
+  font-size: clamp(2.375rem, 4.4vw, 4.25rem);
+  line-height: 1.05;
+}
+
+@utility glass {
+  color: var(--color-ink);
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.78) 0%, rgb(255 255 255 / 0.58) 100%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgb(255 255 255 / 0.75);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.9),
+    inset 0 -1px 0 rgb(0 40 120 / 0.06),
+    0 6px 18px -8px rgb(0 28 96 / 0.4);
+  &:hover {
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.92) 0%, rgb(255 255 255 / 0.76) 100%);
+  }
+}
+
+@utility grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 78rem;
+  padding-inline: 1.5rem;
+}
+
+@utility kicker {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+}
+
+@utility t-title {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 3rem;
+  padding-inline: 1.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-action);
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  transition: background 200ms ease, transform 150ms ease;
+  &:hover {
+    background: var(--color-action-hover);
+  }
+  &:active {
+    background: var(--color-action-hover);
+    transform: translateY(1px);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    text-wrap: balance;
+  }
+  h1 {
+    letter-spacing: -0.04em;
+  }
+  h2 {
+    letter-spacing: -0.03em;
+  }
+  h3 {
+    letter-spacing: -0.02em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  background: #f4f3ef;
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
