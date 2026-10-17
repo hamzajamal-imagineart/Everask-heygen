@@ -77,8 +77,9 @@ Push only when Hamza says so.
 - **Feature-card icons**: the nine text-only cards (Video Agent, Translation, AI Studio) show a
   64px 3D clay icon above the title via `FeatureItem.icon`: pencil, puzzle, camcorder, globe,
   microphone, rocket, checklist, spotlight, gears (`card-*.png`, cut out locally the same way).
-- **Trust + Compliance background**: one wrapper in `views/heygen/index.tsx` shows the hero's cloud
-  still (`hero-sky.jpg`) under a white wash (white at the edges, ~45% in the middle) behind both
-  sections; both sections are transparent. The old airbrush texture was deleted.
+- **Trust + Compliance background**: one soft `#2883fb`-tint gradient on a wrapper around both
+  sections in `views/heygen/index.tsx`; both sections are transparent. The airbrush texture was deleted.
+- **Final CTA** ("Start creating videos with AI"): the hero's cloud still (`hero-sky.jpg`) under a
+  light blue tint at the top replaces the old blue gradient (`FinalCta.constants.ts` deleted).
 - **Compliance badges**: GDPR, SOC 2 Type II, CCPA, AI Act and DPF are 3D clay versions of the
   original marks (`compliance-*.png`); the old SVGs were deleted.
