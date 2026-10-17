@@ -63,7 +63,7 @@ Push only when Hamza says so.
 - **Hero tiles**: eight now. The old stress tile (curly-haired woman, navy sofa) is replaced by a captioned
   social-video frame of a different presenter, "Stress less, breathe more" (`hero-breathe.jpg`).
   Replaced images get new filenames so browsers cannot show a cached copy. "Welcome to Loft 12" (`hero-loft.jpg`) is a social-video style frame
-  with burned-in captions, so its card sets `captioned: true` and draws no title or play button.
+  with burned-in captions, so its card sets `captioned: true` and skips the drawn title; it still gets the play button.
   A matching legal tile ("it's not complicated.") failed to generate and could not be retried:
   the ImagineArt (Official) org ran out of credits.
 - **Badge icons**: the six section badges use 3D clay icons (blue `#2883fb`, cream, one vermilion

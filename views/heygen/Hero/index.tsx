@@ -46,7 +46,7 @@ export function Hero() {
               style={{ transform: `perspective(900px) translateZ(${step * step * HERO_ARC_DEPTH}px) rotateY(${-step * HERO_ARC_TURN}deg)` } as CSSProperties}
             >
               <img src={card.image} alt={`${card.title}, ${card.subtitle}`} className="size-full object-cover" style={{ objectPosition: card.focus }} />
-              {card.captioned ? null : <HeroCardOverlay card={card} />}
+              <HeroCardOverlay card={card} />
             </li>
           );
         })}
