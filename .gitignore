@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+
+# Local Claude tooling and brand skill (not page code)
+.claude/
