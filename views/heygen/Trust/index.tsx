@@ -3,14 +3,7 @@ import { TRUST_ITEMS } from "./Trust.constants";
 
 export function Trust() {
   return (
-    <section
-      id="trust"
-      className="relative isolate overflow-hidden"
-      style={{
-        background:
-          "radial-gradient(ellipse 60% 50% at 15% 20%, rgba(40,131,251,0.16), transparent 70%), radial-gradient(ellipse 55% 50% at 90% 85%, rgba(40,131,251,0.12), transparent 70%), linear-gradient(180deg, #ffffff 0%, #eef5ff 50%, #ffffff 100%)",
-      }}
-    >
+    <section id="trust" className="relative isolate overflow-hidden">
       <div className="hg-container relative py-20 lg:py-[120px]">
         <div className="mx-auto flex max-w-[660px] flex-col items-center gap-5 text-center">
           <Badge outlined>Fast, secure, and ethical by design</Badge>
