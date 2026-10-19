@@ -11,7 +11,9 @@ const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:anima
 /* EverAsk's sky hero (components/landing/Hero.tsx, SkyHero): a tall rounded
    frame under the header and breadcrumb (contained again, Hamza 19 Oct), a draggable before/after upscaling comparison (HeroCompare.tsx) filling it,
    its two layers made from one generated still in sharp (scratchpad layers.js),
-   the copy and its white button centred in the frame, the clip graded cooler in ffmpeg. */
+   the copy and its white button centred in the frame. The copy block passes
+   pointer events through (Hamza: "I can't click on it"), so the slider handle
+   is reachable everywhere except on the button. */
 export function Hero() {
   return (
     <>
@@ -20,7 +22,7 @@ export function Hero() {
           className="relative isolate flex min-h-[max(640px,calc(100svh-140px))] flex-col overflow-hidden rounded-[24px] sm:rounded-[36px]"
           style={{ backgroundColor: HERO_TONE }}
         >
-          <HeroCompare before={MAG_MEDIA.heroBefore} after={MAG_MEDIA.heroAfter} />
+          <HeroCompare before={MAG_MEDIA.heroBefore} after={MAG_MEDIA.heroAfter} demoDelay={1000} />
           {/* A neutral dark overlay (Hamza, 19 Oct: a tinted one read as a white veil, none left the copy
               barely visible): flat black at 35%, a little deeper through the middle where the copy sits. */}
           <span aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-black/35" />
@@ -29,7 +31,7 @@ export function Hero() {
             className="pointer-events-none absolute inset-0 -z-10"
             style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.22) 40%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0) 100%)" }}
           />
-          <div className="container-page flex flex-1 flex-col items-center justify-center py-[clamp(48px,6vw,88px)] text-center">
+          <div className="pointer-events-none container-page flex flex-1 flex-col items-center justify-center py-[clamp(48px,6vw,88px)] text-center">
             {/* The headline (Hamza, 19 Oct): Magnific's wordmark, then "inside EverAsk" with EverAsk in
                 the serif italic, all white on one line. */}
             <h1
@@ -46,7 +48,7 @@ export function Hero() {
             <p {...rise(HERO_RISE_DELAYS.subhead)}>
               <span className="mx-auto mt-5 block max-w-2xl text-[17px] leading-relaxed text-white [text-shadow:0_1px_16px_rgba(0,30,80,0.6)]">{HERO_SUBHEAD}</span>
             </p>
-            <div {...rise(HERO_RISE_DELAYS.actions)} className="mt-8">
+            <div {...rise(HERO_RISE_DELAYS.actions)} className="pointer-events-auto mt-8">
               <a href={magConfig.links.start} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
                 Start upscaling
               </a>

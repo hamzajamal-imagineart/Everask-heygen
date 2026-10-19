@@ -9,12 +9,13 @@ import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type Poin
    drag keeps going past it), or focus it and use the arrow keys. The handle
    sits low in the frame, under the copy.
 
-   Idle demo (Hamza, 19 Oct): 1.5 s after the slider scrolls into view it
+   Idle demo (Hamza, 19 Oct): `demoDelay` ms (1.5 s by default, 1 s on the
+   Magnific hero) after the slider scrolls into view it
    glides to the edge, showing the whole enhanced picture, holds, and comes
    back to where it started, on timers with a CSS transition (no animation
    frames, so it also runs in throttled tabs). Any drag or key press ends
    it. Off under reduced motion. */
-export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = true }: { before: string; after: string; initial?: number; handleY?: number; demo?: boolean }) {
+export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = true, demoDelay = 1500 }: { before: string; after: string; initial?: number; handleY?: number; demo?: boolean; /** ms after the slider is in view before the sweep starts */ demoDelay?: number }) {
   const [pos, setPos] = useState(initial);
   const frame = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -42,7 +43,7 @@ export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = 
           setPos(initial);
           later(() => setGliding(false), 1300);
         }, 1400 + 900);
-      }, 1500);
+      }, demoDelay);
     };
     const inView = () => {
       const r = el.getBoundingClientRect();
@@ -77,7 +78,7 @@ export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = 
       timers.current.forEach((t) => window.clearTimeout(t));
       timers.current = [];
     };
-  }, [demo, initial]);
+  }, [demo, demoDelay, initial]);
 
   const stopDemo = () => {
     touched.current = true;
