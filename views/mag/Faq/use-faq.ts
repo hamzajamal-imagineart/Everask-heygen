@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { FAQ_ITEMS } from "./Faq.constants";
 
-/** All answers start open, as on the reference page; each row toggles on its own. */
+/** The first answer starts open, as on EverAsk pages; each row toggles on its own. */
 export function useFaq() {
-  const [open, setOpen] = useState<boolean[]>(() => FAQ_ITEMS.map(() => true));
+  const [open, setOpen] = useState<boolean[]>(() => FAQ_ITEMS.map((_, index) => index === 0));
   const toggle = (index: number) => setOpen((current) => current.map((value, i) => (i === index ? !value : value)));
   return { open, toggle };
 }

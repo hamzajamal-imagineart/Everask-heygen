@@ -1,25 +1,22 @@
 import { Cta } from "../Cta";
 import { magConfig } from "../config";
 import { MAG_MEDIA } from "../media.constants";
+import { SectionHead } from "../SectionHead";
 
 export function StartSimple() {
   return (
-    <section id="start" className="py-20 md:py-[105px]">
+    <section id="start" className="border-t border-[#ededed] py-20">
       <div className="mag-container">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8">
-          <div className="max-w-[672px]">
-            <h2 className="mag-h2">
-              Start simple.
-              <br />
-              Scale when you&apos;re ready
-            </h2>
-            <p className="mag-lede pt-4">From a single tool to a complete workflow, at your own pace.</p>
-          </div>
-          <Cta href={magConfig.links.start} size="md" icon={MAG_MEDIA.iconArrowRightXs}>
-            Start creating
-          </Cta>
-        </div>
-        <div className="grid gap-4 pt-14 lg:grid-cols-[403fr_798fr]">
+        <SectionHead
+          title="Start simple. Scale when you're ready"
+          description="From a single tool to a complete workflow, at your own pace."
+          action={
+            <Cta href={magConfig.links.start} size="sm" icon={MAG_MEDIA.iconArrowRightXs}>
+              Start creating
+            </Cta>
+          }
+        />
+        <div className="grid gap-4 pt-12 lg:grid-cols-[403fr_798fr]">
           <article className="relative flex flex-col gap-6 overflow-hidden rounded-xl bg-[#e3e3e3] text-[#292928] lg:h-[846px]">
             <header className="flex flex-col gap-4 p-8 lg:p-10">
               <h3 className="text-2xl leading-[1.5] font-medium">Every tool, ready to go</h3>

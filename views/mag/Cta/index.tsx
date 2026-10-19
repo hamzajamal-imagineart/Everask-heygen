@@ -7,7 +7,7 @@ export function Cta({ href, children, variant = "dark", icon, iconSize = 13, ico
   return (
     <a
       href={href}
-      className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-lg font-medium leading-none whitespace-nowrap transition-opacity hover:opacity-85 ${CTA_VARIANT_CLASSES[variant]} ${CTA_SIZE_CLASSES[size]} ${className}`}
+      className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-medium leading-none whitespace-nowrap transition-opacity hover:opacity-85 ${CTA_VARIANT_CLASSES[variant]} ${CTA_SIZE_CLASSES[size]} ${className}`}
     >
       {iconPosition === "start" && iconNode}
       {children}

@@ -4,20 +4,19 @@ import type { CSSProperties } from "react";
 import { ORIGINALS } from "./Originals.constants";
 import { OriginalsVideo } from "./OriginalsVideo";
 import { useOriginals } from "./use-originals";
+import { SectionHead } from "../SectionHead";
 
 export function Originals() {
   const { active, setActive } = useOriginals();
   const trackStyle = { transform: `translateX(calc(50cqw - ${active + 0.5} * var(--mag-slide-w)))` } as CSSProperties;
 
   return (
-    <section id="originals" className="py-20 md:py-24">
+    <section id="originals" className="border-t border-[#ededed] py-20">
       <div className="mag-container">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8">
-          <div className="max-w-[672px]">
-            <h2 className="mag-h2">Made with Magnific</h2>
-            <p className="mag-lede pt-4">Original productions made with Magnific by talented creatives around the world, now available to create with inside EverAsk.</p>
-          </div>
-        </div>
+        <SectionHead
+          title="Made with Magnific"
+          description="Original productions made with Magnific by talented creatives around the world, now available to create with inside EverAsk."
+        />
       </div>
       <div className="mag-originals mt-12 w-full overflow-hidden">
         <ul className="mag-originals-track flex" style={trackStyle}>

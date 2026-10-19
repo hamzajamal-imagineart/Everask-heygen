@@ -158,3 +158,11 @@ HeyGen/Magnific; EverAsk is the platform you use it in. No "official partner" wo
   magnific.ai/magnific.com were dropped; SEO title "Magnific inside EverAsk: ...".
 - `/magnific` Suite section ("One place to create anything") removed at Hamza's request, with its
   folder and 18 now-unreferenced assets.
+- **/magnific matched to the EverAsk page system** (19 Oct, from everask.ai/features/website/ai-landing-page-builder
+  and two PDF captures): white page (was Magnific cream `#f4f3ef`); a shared `views/mag/SectionHead`
+  (24px Clash heading left, 15px `text-black/50` description `max-w-md` right, optional action) on Models,
+  Start simple, Tools, Use cases and Originals; sections `py-20` with `border-t #ededed` dividers; `Cta`
+  is a pill and its dark variant is action blue; FAQ uses EverAsk's two-column hairline rows (no cards,
+  first answer open, ink plus/minus). Kept on purpose: the left-copy hero with the ticker, the dark Teams
+  band, the cloud final CTA. Not added: EverAsk's breadcrumb, prompt composer in the hero, "How it works"
+  and the iPhone/Mac app block (they would need EverAsk content for Magnific).

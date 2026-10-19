@@ -3,19 +3,15 @@
 import { MAG_MEDIA } from "../media.constants";
 import { TOOL_FILTERS } from "./Tools.constants";
 import { useTools } from "./use-tools";
+import { SectionHead } from "../SectionHead";
 
 export function Tools() {
   const { railRef, activeFilter, setActiveFilter, tools, scrollRail } = useTools();
 
   return (
-    <section id="tools" className="py-20 md:py-24">
+    <section id="tools" className="border-t border-[#ededed] py-20">
       <div className="mag-container">
-        <div className="flex flex-col gap-4">
-          <h2 className="mag-h2 max-w-[576px] text-[#2c0000]">Pick a tool, start creating</h2>
-          <p className="max-w-[672px] text-base leading-[1.6] text-[#131318]">
-            Generate, upscale, edit—your creative workflow starts here.
-          </p>
-        </div>
+        <SectionHead title="Pick a tool, start creating" description="Generate, upscale, edit—your creative workflow starts here." />
         <div className="flex items-center justify-between gap-4 pt-10">
           <div className="max-w-full overflow-x-auto">
             <div className="mag-pill-group" role="group" aria-label="Filter tools">
