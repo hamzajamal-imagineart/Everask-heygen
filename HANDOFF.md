@@ -448,3 +448,41 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   Trustpilot review cards and the "Every pixel. Perfect." band (`bd869f5` has it). With the band gone the heron Sharpen pair had no
   place left, so `hero-sharpen-*.jpg` and its constant were removed (asset `4c0c0671` in the workspace).
 - Checked in the browser at 1024px and 375px; no HeyGen/Magnific files changed.
+
+## /genspark: Genspark inside EverAsk (19 Oct 2026)
+
+Hamza: "build Genspark page… research in detail and create a page for it". genspark.ai itself is the app
+(a composer and app tiles; Cloudflare blocks curl, read through the browser pane). The marketing copy lives
+on genspark.ai/business and its product pages (/business/products, /super-agent, /sheets-slides), and the
+brand rules on genspark.ai/brand/genspark: black, white and one blue accent `#0F7FFF`; the logo is always the
+full lockup (icon + wordmark, never either alone, no effects); backgrounds should be solid colours, simple
+gradients or "minimalist images with an ethereal, futuristic atmosphere". Their visuals are coded UI, not
+photos or clips. Route `app/(magnific)/genspark/page.tsx` (same route group and CSS as /magnific and /topaz),
+view `views/genspark/`. Reused from `views/mag`: `SiteHeader`, `SectionHead`, `AppTouchpoints`, `SiteFooter`,
+`Lockup.constants`, `Faq/use-faq` + `Faq.types`.
+
+- **Section order** (genspark.ai/business's, minus pricing and the blog): Breadcrumbs (Features › Agents ›
+  Genspark; EverAsk has no Agents cluster page, href by pattern, check later) → **Hero** (the Magnific hero's
+  layout: rounded frame, a generated still, the Genspark lockup (`Hero/GensparkLockup.tsx`, their
+  dark-background SVG in currentColor, 534×121, `h-[1.1em]`) + "inside *EverAsk*", their hero line + ours,
+  white "Start with Genspark") → **Proof** (7,000+ teams / 200+ connections / 70+ models, their figures) →
+  **Surfaces** ("One workspace. Every job to be done." six soft cards, Genspark's own line per surface and a
+  small coded picture of each in EverAsk tokens, `Surfaces/Mocks.tsx`: Super Agent trace, =ASK() sheet,
+  slides storyboard, AI Browser trace, GenMail inbox, GenTeam roles; the numbers in the mocks are the ones on
+  Genspark's pages) → **Connections** ("200+ connections…", their paragraph, tool names as chips) →
+  **Capabilities** ("Everything a modern team needs…", six rows verbatim, hairline list) → **Teams**
+  ("Purpose-built for the work each team owns.", only Finance has public copy, shown with their month-end
+  table mock; the other four tabs are inert) → **Trust** ("Enterprise-grade from day one.", four cards
+  verbatim, credited to Genspark in the intro) → "Start with Genspark" pill → **Faq** (Magnific layout, six:
+  ours first, then Super Agent, Sheets & Slides, cloud sandboxes, training, models and tools, from their
+  pages) → FinalCta (sky band, Genspark's "One workspace. *Every job to be done.*") → AppTouchpoints → footer.
+- **Assets**: `hero-sphere.jpg`, GPT Image 2 (21:9, 2K, asset `14ec72ee`): a frosted glass sphere low over a
+  hazy azure-to-blue gradient, after Genspark's background rule; the final CTA reuses `cta-sky-2.jpg`. Logo
+  files and the research pages are in the session scratchpad (`genspark/`).
+- **Copy**: Genspark's lines verbatim wherever a section has them (em-dashes replaced per the house rule).
+  Ours: the hero's last sentence, the Surfaces intro's last sentence, the Trust intro, the first FAQ answer,
+  the final CTA line, the SEO title/description, "Start with Genspark" CTAs. SecondBrain (their hardware
+  device) is left out; GenMail and GenTeam are separate Genspark products (genmail.ai, genteam.ai) and are
+  shown as surfaces because their Business page does.
+- **Review**: whether EverAsk's Genspark integration really reaches all six surfaces (the page says
+  "through Genspark's API"); the Agents breadcrumb href.
