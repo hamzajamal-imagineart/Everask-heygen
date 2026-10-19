@@ -382,7 +382,8 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   cards; their "Trusted by major companies" names as type on the right: Google, Coca-Cola, Target, NVIDIA,
   Tesla, Quora; no marks)
   → **Toolbox** ("Crystal clear. Highly detailed. Super focused." + their intro, then Topaz's own
-  video-upscale clip as a muted loop in a square frame, max 900px wide, where their app window sits (Hamza:
+  video-upscale clip as a muted loop in a full-width 16:9 frame (Hamza; the clip is square, so it crops
+  top and bottom) where their app window sits (Hamza:
   "use the video here"; `tz-video-upscale.mp4`, from his `video-upscale-hero-opt.mp4`, 1920×1920, 13 s,
   9.5 MB → 1280², 30 fps, no audio, 3.3 MB, poster `tz-video-upscale-poster.jpg`); the six tool chips with line icons
   that sat above it were removed by Hamza, and `HERO_TOOLS` with them; the Meet grid's Color/Upscale tiles
