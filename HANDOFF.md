@@ -486,3 +486,42 @@ view `views/genspark/`. Reused from `views/mag`: `SiteHeader`, `SectionHead`, `A
   shown as surfaces because their Business page does.
 - **Review**: whether EverAsk's Genspark integration really reaches all six surfaces (the page says
   "through Genspark's API"); the Agents breadcrumb href.
+
+## /manus: Manus inside EverAsk (19 Oct 2026)
+
+Hamza: "similarly for Manus". manus.im serves to curl; its homepage is the app ("What can I do for you?"
+with a composer and Create slides / Build website / Create games / Video / Design chips), so the copy comes
+from manus.im/features (the index: Build, Create, Research, Automate, Connectors) and the feature pages
+(/features/wide-research, /automations, /cloud-computer, /manus-browser-operator, /connectors, /projects,
+/webapp), the Manus 2.0 launch post (28 Sep 2026) and manus.im/brand (black `#34322D`, gray `#F8F8F8`,
+white; Libre Baskerville serif + DM Sans; the lockup is the hand glyph with the serif wordmark, never
+rotated, flipped, stroked, outlined, filled or recoloured). Their visuals are coded UI and YouTube embeds,
+no photos. Route `app/(magnific)/manus/page.tsx` (same route group and CSS as the other pages), view
+`views/manus/`. Reused from `views/mag`: `SiteHeader`, `SectionHead`, `AppTouchpoints`, `SiteFooter`,
+`Lockup.constants`, `Faq/use-faq` + `Faq.types`.
+
+- **Section order**: Breadcrumbs (Features › Agents › Manus, href by pattern) → **Hero** (the Magnific
+  hero's layout, a generated still, `Hero/ManusLockup.tsx` = their glyph SVG (60×60, from the brand page)
+  + the serif wordmark paths from manus.im's header (88×38 box, cropped to the letters), `text-[1.12em]`
+  on the line + "inside *EverAsk*", their tagline "Less structure, more intelligence." + their features
+  line + ours, white "Start with Manus") → **Proof** (8,000+ apps via Zapier; hundreds of parallel
+  sub-agents; Cascade's 28.2% less time / 32% less cost "in one tested configuration", all their
+  figures) → **Features** (manus.im/features verbatim: five columns, Build / Create / Research /
+  Automate / Connectors, each item's name and line) → **Deep** (z-fold of four feature pages, their
+  headline and paragraph beside a coded picture in `Deep/Mocks.tsx`: Wide Research fan-out, Automations'
+  Updates list, Cloud Computer status, Browser Operator steps; the numbers in the mocks are illustrative
+  except the Updates rows, which are the examples on their page) → **Connectors** (their connectors
+  page line and intro, catalogue names as chips) → **Studio** ("Introducing Manus 2.0": Cascade, Video
+  Editor, Game Dev, verbatim lines from the post) → "Start with Manus" pill → **Faq** (Magnific layout,
+  six: ours first, then Wide Research, Automations, Cloud Computer, Browser Operator passwords, which
+  apps, from their pages) → FinalCta (sky band, their "Less structure, *more intelligence.*") →
+  AppTouchpoints → footer.
+- **Assets**: `hero-hand.jpg`, GPT Image 2 (21:9, 2K, asset `51df747e`): a white plaster hand reaching
+  into an azure gradient, after their "Hands On AI" line and hand glyph; the final CTA reuses
+  `cta-sky-2.jpg`. Brand SVGs and the research pages are in the session scratchpad (`manus/`).
+- **Copy**: Manus's lines verbatim wherever a section has them (em-dashes replaced). Ours: the hero's last
+  sentence, the Features and Deep intros' EverAsk lines, the Deep section title, the first FAQ answer, the
+  final CTA line, the SEO title/description, "Start with Manus" CTAs. Left out: pricing, Cue, SecondBrain-
+  style hardware, Remote Control, the comparison tables, tool SEO pages.
+- **Review**: whether EverAsk's Manus integration reaches all of this ("through Manus's API"); the Agents
+  breadcrumb href.

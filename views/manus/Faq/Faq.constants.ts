@@ -1,0 +1,11 @@
+import type { FaqItem } from "@/views/mag/Faq/Faq.types";
+
+/* Answers from manus.im's feature pages, credited to Manus; the first is ours. */
+export const FAQ_ITEMS: FaqItem[] = [
+  { question: "Can I use Manus inside EverAsk?", answer: "Yes. EverAsk connects to Manus through its API, so you can hand Manus a job from your EverAsk workspace, from a research run to an app build or an automation, and get the finished work back there, alongside the other models you use." },
+  { question: "How is Wide Research different from asking a chatbot to research 50 items?", answer: "Traditional AI accumulates context, so by item 20 descriptions get suspiciously brief and by item 50 you get generic filler. Wide Research gives each item its own sub-agent with a clean slate, its own VM, tools and internet access, and a main agent that distributes tasks and collects results. Consistent, thorough analysis at any scale." },
+  { question: "What can Automations start from?", answer: "A time, an app event, or a plain description of the routine. A new email, a change in ad performance, a calendar event, a Slack message, or a Notion update can all trigger a task. You can test before it goes live, keep confirmation on for anything that sends or publishes, and pause or change it anytime." },
+  { question: "What is a Cloud Computer?", answer: "A dedicated environment in the cloud for the projects that need it: a Telegram bot that stays online when your laptop is closed, a website check every morning, an hourly Python job, or the server behind a multiplayer game. Files and installed tools stay between tasks." },
+  { question: "Will Manus see my passwords in the browser?", answer: "Manus Browser Operator works within your current browser session, using your existing logins and active tabs on sites you already use and trust. It runs from your trusted local environment and IP, and you grant it access before it acts." },
+  { question: "Which apps can Manus connect to?", answer: "Gmail, Outlook, Google Calendar, Google Drive, Google Sheets, Slack, Notion, GitHub, Linear, Shopify, HubSpot, Figma and Mobbin through app connectors, 8,000+ apps through Zapier, plus any custom MCP server by URL or command, or a saved API key." },
+];
