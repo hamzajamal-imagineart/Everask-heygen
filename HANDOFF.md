@@ -401,7 +401,9 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   Creators & editors, Marketing teams, Families & archivists) on Topaz's own before/after clip pairs as
   **VideoCompare** sliders (`views/topaz/VideoCompare/`, client: two muted loops kept in step, the before
   clipped to the handle, same handle, keys and idle sweep as HeroCompare, the sweep only on the first tile),
-  portrait pairs on 5 columns, landscape on 7, each at the clip's own ratio; then "Why Topaz's video
+  as two rows, each a portrait clip beside a landscape one with the column widths set to the clips'
+  ratios (`0.8fr 1.78fr`, mirrored on the second row) so both tiles in a row share one height, nothing
+  cropped (Hamza: the 5/7-column bento "looks imbalanced"; phones stack them); then "Why Topaz's video
   upscaler" (their paragraph and three lines) beside their five key features as a hairline list, and a
   "Start upscaling video" button. Clips: `tz-v-{record,drone}-{before,after}.mp4` 1280×1600 and
   `tz-v-{sheep,skater}-*.mp4` 1280×720, all 6 s, 30 fps (from 60), crf 27, no audio, 0.5 to 2 MB each, with

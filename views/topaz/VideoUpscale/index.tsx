@@ -6,8 +6,9 @@ import { VIDEO_FEATURES, VIDEO_PAIRS } from "./VideoUpscale.constants";
 /* The video half (Hamza, 19 Oct: "we are offering both image and video
    upscales"): Topaz's video-upscale page in EverAsk's register. Their
    "Upscale almost any video." line and intro, then their four audiences on
-   their own before/after clips as synced video sliders (portrait pairs tall,
-   landscape pairs wide, each at the clip's own ratio), then their key
+   their own before/after clips as synced video sliders, two rows of a
+   portrait beside a landscape clip with equal heights (Hamza: the 5/7-column
+   bento "looks imbalanced"), each at the clip's own ratio, then their key
    features as a hairline list beside the "Why" lines. */
 export function VideoUpscale() {
   return (
@@ -17,17 +18,25 @@ export function VideoUpscale() {
           title="Upscale almost any video."
           description="Our AI video upscaling technology is built from the ground up to deliver premium results. With millions of video frames processed, our video upscaler makes it easy to enhance your footage to 1080p or 4K. Preserve detail, improve clarity, and enhance motion."
         />
-        <ul className="mt-10 grid gap-4 md:grid-cols-12">
-          {VIDEO_PAIRS.map((v, i) => {
-            const tall = v.pair.ratio < 1;
-            return (
-              <li key={v.label} className={tall ? "md:col-span-5" : "md:col-span-7"}>
-                <VideoCompare before={v.pair.before} after={v.pair.after} poster={v.pair.poster} ratio={v.pair.ratio} label={v.label} handleY={tall ? 60 : 50} demo={i === 0} />
-                <p className="mt-3 px-1 text-[14px] text-black/50">{v.line}</p>
-              </li>
-            );
-          })}
-        </ul>
+        {/* Two rows, each a portrait clip beside a landscape one. The column widths are the clips'
+            ratios (0.8fr : 1.78fr), so both tiles in a row come out the same height with nothing
+            cropped; the second row is mirrored. Phones stack them. */}
+        <div className="mt-10 flex flex-col gap-4">
+          {[VIDEO_PAIRS.slice(0, 2), [...VIDEO_PAIRS.slice(2, 4)].reverse()].map((row, r) => (
+            <ul
+              key={r}
+              className="grid grid-cols-1 gap-4 md:[grid-template-columns:var(--cols)]"
+              style={{ "--cols": row.map((v) => `${v.pair.ratio}fr`).join(" ") } as React.CSSProperties}
+            >
+              {row.map((v, i) => (
+                <li key={v.label} className="min-w-0">
+                  <VideoCompare before={v.pair.before} after={v.pair.after} poster={v.pair.poster} ratio={v.pair.ratio} label={v.label} handleY={v.pair.ratio < 1 ? 60 : 50} demo={r === 0 && i === 0} />
+                  <p className="mt-3 px-1 text-[14px] text-black/50">{v.line}</p>
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
 
         <div className="mt-16 grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
