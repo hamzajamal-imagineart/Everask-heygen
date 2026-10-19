@@ -11,7 +11,6 @@ export function AvatarSection() {
       <SectionHead
         badge="AI Avatar Generator"
         icon="avatar"
-        tint="#edf3ff"
         title="The most lifelike avatars in AI video"
         action={<CtaButton href={heygenConfig.links.start} label="Get started for free" background="#131318" color="#fff" />}
       >

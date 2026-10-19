@@ -6,7 +6,7 @@ export function Research() {
     <section id="research" className="hg-container py-20 lg:py-[120px]">
       <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-[60px]">
         <div className="flex flex-col items-start gap-[30px]">
-            <Badge icon="research" tint="#edf3ff">
+            <Badge icon="research">
               HeyGen Research
             </Badge>
             <h2 className="hg-h2 max-w-[420px]" style={{ fontSize: "clamp(28px, 2.5vw, 36px)", lineHeight: 1.1 }}>

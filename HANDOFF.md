@@ -66,12 +66,15 @@ Push only when Hamza says so.
   with burned-in captions, so its card sets `captioned: true` and skips the drawn title; it still gets the play button.
   A matching legal tile ("it's not complicated.") failed to generate and could not be retried:
   the ImagineArt (Official) org ran out of credits.
-- **Badge icons** (19 Oct 2026, Hamza: "replace these 3d icons with simple 2d filled icons"): the six
-  section badges now draw inline filled SVG glyphs in cobalt (`views/heygen/Badge/BadgeIcon.tsx`, 24-unit
-  grid, 20px, currentColor): person, magnifier, robot, clapperboard, speech bubbles, toolbox. `Badge` and
-  `SectionHead` take `icon` as a `BadgeIconName`. The clay `badge-*.png` set (GPT Image 2, blue/cream/vermilion,
-  rendered at 44px) is in commit `72823c9`. The clay `card-*.png` icons on the feature cards and the
-  compliance badges are unchanged.
+- **Badge icons** (19 Oct 2026, Hamza: "replace these 3d icons with simple 2d filled icons", then "don't use
+  filled icons, let's use line icons, also the pill background is too bluish"): the six section badges now
+  draw inline line glyphs (`views/heygen/Badge/BadgeIcon.tsx`, 24-unit grid, 1.6 stroke, round caps, 20px,
+  currentColor): person, magnifier, robot, clapperboard, speech bubbles, toolbox. `Badge` follows EverAsk's
+  `chip` (tint `#edf3ff` panel, action-blue label) everywhere; the per-section tints (mist `#bfd5ff` on AI
+  Studio, cream on Video Agent) are gone, only Tools keeps a white pill on its tint band. `Badge` and
+  `SectionHead` take `icon` as a `BadgeIconName`. The clay `badge-*.png` set (GPT Image 2, blue/cream/
+  vermilion, 44px) is in commit `72823c9`. The clay `card-*.png` icons on the feature cards and the compliance
+  badges are unchanged.
 - **Copy**: every visible "HeyGen" now reads "EverAsk" (Research badge, Tools and Trust intros, FAQ).
 - **Research heading** sized inline at `clamp(28px, 2.5vw, 36px)`; the `text-[..]` utilities lost to
   `.hg-h2`.

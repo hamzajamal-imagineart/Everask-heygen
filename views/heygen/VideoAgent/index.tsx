@@ -13,7 +13,7 @@ export function VideoAgent() {
 
   return (
     <section id="video-agent" className="hg-container py-20 lg:py-[120px]">
-      <SectionHead badge="Video Agent" icon="agent" tint="#f3f1eb" title="From idea to finished video with just a prompt">
+      <SectionHead badge="Video Agent" icon="agent" title="From idea to finished video with just a prompt">
         Type your idea. Click generate. Get a share-ready video faster than you can think. No camera, editing software, or
         production skills needed. Download it, edit it, and share it instantly.
       </SectionHead>
