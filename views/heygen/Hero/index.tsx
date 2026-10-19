@@ -4,12 +4,14 @@ import { heygenConfig } from "../config";
 import { HG_MEDIA } from "../media.constants";
 import { HERO_ARC_DEPTH, HERO_ARC_TURN, HERO_CARDS } from "./Hero.constants";
 import { HeroCardOverlay } from "./HeroCardOverlay";
+import { Breadcrumbs } from "../Breadcrumbs";
 
 const CENTRE = (HERO_CARDS.length - 1) / 2;
 
 export function Hero() {
   return (
-    <section className="relative isolate -mt-[76px] overflow-hidden bg-[#2a86f5] pt-[calc(76px+4rem)] pb-14 lg:pt-[calc(76px+5rem)] lg:pb-20">
+    <section id="top" className="relative isolate -mt-[76px] overflow-hidden bg-[#2a86f5] pt-[calc(76px+4rem)] pb-14 lg:pt-[calc(76px+5rem)] lg:pb-20">
+      <Breadcrumbs />
       <video
         className="pointer-events-none absolute inset-0 -z-20 size-full object-cover object-[50%_35%]"
         src={HG_MEDIA.heroSkyVideo}

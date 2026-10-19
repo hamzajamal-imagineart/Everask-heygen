@@ -8,8 +8,8 @@ import { magConfig } from "../config";
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
 
 /* EverAsk's sky hero (components/landing/Hero.tsx, SkyHero): a tall rounded
-   frame under the header and breadcrumb, Hamza's portrait clip of a boy hopping across
-   cloud puffs over a mirror lake filling it (muted loop, first frame as poster, cropped to the frame by object-cover with the boy kept mid-frame),
+   frame under the header and breadcrumb, Hamza's wide clip of a boy leaping across
+   cloud puffs over a mirror sea filling it (muted loop, first frame as poster, graded blue in ffmpeg),
    the copy and its white button centred in the frame, the clip graded cooler in ffmpeg. */
 export function Hero() {
   return (
@@ -29,7 +29,7 @@ export function Hero() {
               playsInline
               preload="auto"
               aria-hidden="true"
-              className="size-full object-cover object-[50%_45%]"
+              className="size-full object-cover object-bottom"
             />
           </div>
           <span aria-hidden className="grain pointer-events-none absolute inset-0 -z-10 opacity-40 mix-blend-overlay" />
@@ -37,12 +37,6 @@ export function Hero() {
             aria-hidden
             className="pointer-events-none absolute inset-0 -z-10"
             style={{ backgroundImage: `linear-gradient(to bottom, ${HERO_TONE}e6 0%, ${HERO_TONE}b3 35%, ${HERO_TONE}59 65%, ${HERO_TONE}1a 100%)` }}
-          />
-          {/* A soft dark pool behind the centred copy so white type holds over the clouds (Hamza, 19 Oct). */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-0 -z-10"
-            style={{ backgroundImage: "radial-gradient(55% 50% at 50% 50%, rgba(10,40,90,0.55), rgba(10,40,90,0.25) 55%, transparent 80%)" }}
           />
           <div className="container-page flex flex-1 flex-col items-center justify-center py-[clamp(48px,6vw,88px)] text-center">
             {/* The headline (Hamza, 19 Oct): Magnific's wordmark, then "inside EverAsk" with EverAsk in

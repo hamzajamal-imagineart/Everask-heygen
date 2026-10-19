@@ -24,8 +24,8 @@ export default function MagView() {
         <Hero />
         <Models />
         <Steps />
-        <Features />
         <Suite />
+        <Features />
         <StartSimple />
         <UseCases />
         <Originals />

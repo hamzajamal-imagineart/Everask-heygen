@@ -192,7 +192,7 @@ assets that already existed. Hamza: **no prompt box in the hero.**
 - `app/magnific.css` is now a copy of EverAsk's `app/globals.css` (full design system: tokens, `t-hero`,
   `t-title`, `t-item`, `t-statement`, `btn-primary`, `glass`, `grain`, `container-page`, `app-mock`).
 - Page order (`views/mag/index.tsx`): SiteHeader → Breadcrumbs → Hero → logo row → Models → Steps ("How it
-  works") → Features (tiles) → StartSimple → UseCases (z-fold) → Originals → Teams → StartBuilding pill →
+  works") → Suite (z-fold) → Features (tiles; moved below the z-fold at Hamza's request, 19 Oct) → StartSimple → UseCases (z-fold) → Originals → Teams → StartBuilding pill →
   Faq → FinalCta (sky band) → AppTouchpoints → SiteFooter.
 - **Header** (`SiteHeader`): always ink on white, no transparent-over-hero mode; still lifts into the floating
   panel on scroll. **Breadcrumbs** (new, from `components/landing/Breadcrumbs.tsx`): Features › Upscaling models ›
@@ -218,7 +218,7 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   titles (the EverAsk globals' `h1-h4` ink rule had made them dark over the photos).
   `panel-sky.webp` (Hamza's above-the-clouds photo) was deleted (still in commit `1e84595`).
 - **StartBuilding** (new): centred action-blue pill "Start creating" into EverAsk, after Teams.
-- **FinalCta**: EverAsk's sky band (rounded, `t-statement` "Be Magnific, / *inside EverAsk.*", hero subhead,
+- **FinalCta**: EverAsk's sky band (rounded, `t-statement` "Be *Magnific.*" (Hamza dropped "inside EverAsk", 19 Oct), hero subhead,
   white "Start creating" + glass "See pricing" → everask.ai/pricing) over the dusk image. `cta-sky.jpg` deleted.
 - **AppTouchpoints** (ported, "image-models" copy verbatim, devices from the EverAsk CDN, iPhone "Coming soon
   to the App Store", Mac links to the .dmg) now renders before the footer. **SiteFooter** refreshed to
@@ -237,20 +237,18 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   Remove background, Reframe, Relight, copy verbatim from Magnific (it still says "your timeline" / "your
   editor", the plugins framing). **The five clips are hotlinked from media.magnific.com
   (`destacado_1-5.webm`)**; copy them into `public/assets/mag` (and compress) before production.
-- **Hero background video** (19 Oct, Hamza): first his wide clip (boy leaping across cloud puffs over a
-  mirror sea, 1280×720), then his portrait clip `01a152f2-e26e-7451-bfbc-bf47071c2301.mp4` (boy hopping
-  across cloud puffs over a mirror lake under a towering cumulus, 1284×1612, 7 s, 24 fps, 18.8 MB), which
-  is what the page uses now. A CSS `mix-blend-color` azure wash "looked super bad", and a gentle baked grade
-  was invisible to him ("you need to apply the filter"), so a strong cool grade is baked in with
-  `ffmpeg-static`: `eq=saturation=1.35:contrast=1.06:brightness=-0.02`, `colorbalance` toward blue
-  (rs=-0.22 gs=-0.06 bs=0.30 rm=-0.14 gm=-0.02 bm=0.22 rh=-0.10 gh=-0.02 bh=0.12),
-  `colorchannelmixer=rr=0.92:bb=1.08`, `scale=1280:-2`, `-an -c:v libx264 -crf 24 -preset slow`. Files:
-  `hero-leap-blue.mp4` (2.4 MB, 1280×1606) and its first frame `hero-leap-blue-poster.jpg` (160 KB). The
-  clip is portrait, so `object-cover object-[50%_45%]` crops it to the wide frame with the boy kept
-  mid-frame (the final CTA band uses the same crop on the poster). The copy is vertically centred in the
-  frame. `HERO_TONE` is the graded sky top `#63a4e5`. Replaced files, all in git history: `hero-leap*`
-  (gentle grade, `771fa40`), `hero-loop-blue*` (the wide clip, `41c58c8`), `hero-loop*` (`6e28df2`),
-  `hero-dusk-wide.jpg` (`e9ed4f2`); the orphan `hero-bg.jpg` was deleted too.
+- **Hero background video** (19 Oct, Hamza): his wide clip `02423b90-726b-466e-9a3d-d637cbbf7fcf.mp4`
+  (boy leaping across cloud puffs over a mirror sea, 1280×720, 8 s, 24 fps, 9.4 MB). He tried his portrait
+  clip (`01a152f2…`, 1284×1612) in between and came back: "this video was better". A CSS `mix-blend-color`
+  azure wash "looked super bad", and a gentle baked grade was invisible to him, so a strong cool grade is
+  baked in with `ffmpeg-static`: `eq=saturation=1.35:contrast=1.06:brightness=-0.02`, `colorbalance`
+  toward blue (rs=-0.22 gs=-0.06 bs=0.30 rm=-0.14 gm=-0.02 bm=0.22 rh=-0.10 gh=-0.02 bh=0.12),
+  `colorchannelmixer=rr=0.92:bb=1.08`, `-an -c:v libx264 -crf 24 -preset slow`. Files: `hero-wide-blue.mp4`
+  (1.5 MB) and its first frame `hero-wide-blue-poster.jpg` (178 KB). `<video>` is a muted autoplay loop,
+  `object-cover object-bottom`; the final CTA band uses the poster at 50% 70%. The copy is vertically
+  centred in the frame, so the boy sits behind it. `HERO_TONE` is the graded sky top `#3792f4`. Replaced
+  files, all in git history: `hero-leap-blue*` (portrait, `daef238`), `hero-leap*` (`771fa40`),
+  `hero-loop-blue*` (`41c58c8`), `hero-loop*` (`6e28df2`), `hero-dusk-wide.jpg` (`e9ed4f2`), `hero-bg.jpg`.
 - **Recreation attempts, not used** (19 Oct): Hamza asked for the clip recreated with a bluer sky, then
   gloomier, then "like these clouds" (EverAsk's above-the-clouds hero). Stills made with GPT Image 2 /
   2.5 Flare and two Kling 2.6 Pro animations exist in the ImagineArt (Official) workspace: still
@@ -272,9 +270,12 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   headline moved into the subhead: "The creative platform to direct your best work. Every Magnific model
   for video, image and audio, with intelligent workflows for professional control, right inside EverAsk."
   (new copy; review).
-- **Hero legibility** (19 Oct, Hamza: "text is barely visible because of the video"): the copy is centred over
-  the clouds, so three things changed: the top-down tone gradient now runs through the whole frame
-  (`e6` → `b3` at 35% → `59` at 65% → `1a`), a radial scrim `rgba(10,40,90,0.55)` sits behind the centre
-  (55% × 50% ellipse fading out by 80%), and the text shadows are heavier (`0_2px_24px rgba(0,30,80,0.55)`
-  on the h1, `0_1px_16px rgba(0,30,80,0.6)` on the subhead, now full white). The clip reads darker in the
-  middle as a result; if Hamza wants it brighter, lower the scrim first.
+- **Hero legibility** (19 Oct, Hamza: "text is barely visible because of the video", then the radial
+  scrim "is not fitting well" and was removed): the top-down tone gradient runs through the whole frame
+  (`e6` → `b3` at 35% → `59` at 65% → `1a`) and the text shadows are heavy (`0_2px_24px rgba(0,30,80,0.55)`
+  on the h1, `0_1px_16px rgba(0,30,80,0.6)` on the subhead, full white). No other overlay.
+- **HeyGen breadcrumbs** (19 Oct, Hamza: "it'll be under Avatar Models"): `views/heygen/Breadcrumbs/`, EverAsk's
+  `onFilm` variant (white over the hero video, under the transparent header, `absolute top-[76px]` inside the
+  hero `section`, which now has `id="top"`): Features › Avatar models › HeyGen. The "Avatar models" href is
+  `/features/avatar/models` by the model-cluster pattern; that cluster is not on everask.ai yet, so check it
+  when it ships.
