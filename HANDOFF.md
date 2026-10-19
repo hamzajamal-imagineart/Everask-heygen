@@ -259,10 +259,20 @@ assets that already existed. Hamza: **no prompt box in the hero.**
 - **Em-dashes removed** (19 Oct, Hamza, both pages): the HeyGen page had none; eleven on the Magnific page
   (FAQ, Features intro, Suite rows, Teams, logo-row line, Start simple) became colons, commas, full stops or
   parentheses. Rule from now on: no em-dashes in copy.
-- **Magnific wordmark in the hero headline** (19 Oct, Hamza pasted magnific.com's nav SVG; a first
-  placement on the badge line was "bad"): `views/mag/Hero/MagnificWordmark.tsx`, the path in `currentColor`.
-  The headline is now the wordmark (0.8em tall, inline, soft drop shadow) followed by "inside *EverAsk*"
-  (`HERO_HEADLINE = "inside EverAsk"`, last word in Instrument Serif italic), the way EverAsk's model pages
-  lead the h1 with the model's logo. The badge pill is gone. The old headline moved into the subhead:
-  "The creative platform to direct your best work. Every Magnific model for video, image and audio, with
-  intelligent workflows for professional control, right inside EverAsk." (new copy; review).
+- **Hero headline is the two marks** (19 Oct, Hamza pasted magnific.com's nav SVG, then asked for the
+  EverAsk logo too; a first placement on the badge line was "bad", then the two marks "looked imbalanced",
+  and it must stay on one line): `views/mag/Hero/MagnificWordmark.tsx` (the path in `currentColor`) +
+  "inside" (`HERO_HEADLINE`) + an inline EverAsk lockup (mask mark at 0.95em, the word in the h1's own
+  font), all white on one `flex-nowrap whitespace-nowrap` line. The three pieces share one size: the h1 is
+  `clamp(22px, 4.4vw, 68px)` (its own style, not `t-hero`, so the line fits a 375px phone), and the
+  Magnific SVG is `h-[1.14em]` because its glyphs span 27 of its 44 viewBox units, which puts their cap
+  height on the line's. The shared `Lockup` component is not used here (its word rendered smaller than
+  the line). The serif-italic `Accented` helper and the badge pill are gone. The old headline moved into
+  the subhead: "The creative platform to direct your best work. Every Magnific model for video, image and
+  audio, with intelligent workflows for professional control, right inside EverAsk." (new copy; review).
+- **Hero legibility** (19 Oct, Hamza: "text is barely visible because of the video"): the copy is centred over
+  the clouds, so three things changed: the top-down tone gradient now runs through the whole frame
+  (`e6` → `b3` at 35% → `59` at 65% → `1a`), a radial scrim `rgba(10,40,90,0.55)` sits behind the centre
+  (55% × 50% ellipse fading out by 80%), and the text shadows are heavier (`0_2px_24px rgba(0,30,80,0.55)`
+  on the h1, `0_1px_16px rgba(0,30,80,0.6)` on the subhead, now full white). The clip reads darker in the
+  middle as a result; if Hamza wants it brighter, lower the scrim first.

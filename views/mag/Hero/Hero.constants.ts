@@ -4,8 +4,8 @@ import { MAG_MEDIA } from "../media.constants";
 export const HERO_TONE = "#559cd0";
 
 
-/** The words after the Magnific wordmark in the headline; the last one is set in the serif italic. */
-export const HERO_HEADLINE = "inside EverAsk";
+/** The word between the Magnific wordmark and the EverAsk lockup in the headline. */
+export const HERO_HEADLINE = "inside";
 
 export const HERO_SUBHEAD =
   "The creative platform to direct your best work. Every Magnific model for video, image and audio, with intelligent workflows for professional control, right inside EverAsk.";

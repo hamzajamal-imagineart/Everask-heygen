@@ -1,21 +1,11 @@
 import type { CSSProperties } from "react";
 import { MAG_MEDIA } from "../media.constants";
+import { EVERASK_BRAND, LOCKUP_MARK_STYLE } from "../Lockup/Lockup.constants";
 import { MagnificWordmark } from "./MagnificWordmark";
 import { HERO_HEADLINE, HERO_LOGOS, HERO_RISE_DELAYS, HERO_SUBHEAD, HERO_TONE } from "./Hero.constants";
 import { magConfig } from "../config";
 
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
-
-/* The headline's last word in the serif italic, as EverAsk's hero sets it. */
-function Accented({ text }: { text: string }) {
-  const words = text.split(" ");
-  const last = words.pop();
-  return (
-    <>
-      {words.join(" ")} <span className="font-serif text-[1.08em] font-normal italic tracking-[-0.01em]">{last}</span>
-    </>
-  );
-}
 
 /* EverAsk's sky hero (components/landing/Hero.tsx, SkyHero): a tall rounded
    frame under the header and breadcrumb, Hamza's clip of a boy leaping across
@@ -46,19 +36,32 @@ export function Hero() {
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 -z-10"
-            style={{ backgroundImage: `linear-gradient(to bottom, ${HERO_TONE}d9 0%, ${HERO_TONE}80 28%, transparent 55%)` }}
+            style={{ backgroundImage: `linear-gradient(to bottom, ${HERO_TONE}e6 0%, ${HERO_TONE}b3 35%, ${HERO_TONE}59 65%, ${HERO_TONE}1a 100%)` }}
+          />
+          {/* A soft dark pool behind the centred copy so white type holds over the clouds (Hamza, 19 Oct). */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-10"
+            style={{ backgroundImage: "radial-gradient(55% 50% at 50% 50%, rgba(10,40,90,0.55), rgba(10,40,90,0.25) 55%, transparent 80%)" }}
           />
           <div className="container-page flex flex-1 flex-col items-center justify-center py-[clamp(48px,6vw,88px)] text-center">
-            {/* The headline, as EverAsk's model pages set it: the product's own mark leads the line,
-                then the words, the last in the serif italic (Hamza, 19 Oct). */}
-            <h1 {...rise(HERO_RISE_DELAYS.headline)} className="t-hero flex max-w-4xl flex-wrap items-center justify-center gap-x-[0.3em] gap-y-2 font-display font-medium text-balance text-white [text-shadow:0_2px_30px_rgba(0,40,110,0.25)]">
-              <MagnificWordmark className="h-[0.8em] w-auto shrink-0 drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]" />
-              <span>
-                <Accented text={HERO_HEADLINE} />
+            {/* The headline (Hamza, 19 Oct): Magnific's wordmark, "inside", the EverAsk lockup, all
+                in white, the two marks sized to the line. */}
+            <h1
+              {...rise(HERO_RISE_DELAYS.headline)}
+              className="flex max-w-full flex-nowrap items-center justify-center gap-x-[0.3em] whitespace-nowrap font-display font-medium leading-none tracking-[-0.03em] text-white [text-shadow:0_2px_24px_rgba(0,30,80,0.55)]"
+              style={{ fontSize: "clamp(22px, 4.4vw, 68px)" }}
+            >
+              {/* Magnific's glyphs span 27 of the SVG's 44 units, so 1.14em puts their cap height on the line's. */}
+              <MagnificWordmark className="h-[1.14em] w-auto shrink-0 drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]" />
+              <span>{HERO_HEADLINE}</span>
+              <span className="inline-flex shrink-0 items-center gap-x-[0.22em] drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]">
+                <span role="img" aria-label={EVERASK_BRAND.name} className="block size-[0.95em]" style={LOCKUP_MARK_STYLE} />
+                <span aria-hidden>{EVERASK_BRAND.name}</span>
               </span>
             </h1>
             <p {...rise(HERO_RISE_DELAYS.subhead)}>
-              <span className="mx-auto mt-5 block max-w-2xl text-[17px] leading-relaxed text-white/90">{HERO_SUBHEAD}</span>
+              <span className="mx-auto mt-5 block max-w-2xl text-[17px] leading-relaxed text-white [text-shadow:0_1px_16px_rgba(0,30,80,0.6)]">{HERO_SUBHEAD}</span>
             </p>
             <div {...rise(HERO_RISE_DELAYS.actions)} className="mt-8">
               <a href={magConfig.links.start} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
