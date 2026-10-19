@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { MAG_MEDIA } from "../media.constants";
 import { EVERASK_BRAND } from "../Lockup/Lockup.constants";
+import { HeroCompare } from "./HeroCompare";
 import { MagnificWordmark } from "./MagnificWordmark";
 import { HERO_HEADLINE, HERO_LOGOS, HERO_RISE_DELAYS, HERO_SUBHEAD, HERO_TONE } from "./Hero.constants";
 import { magConfig } from "../config";
@@ -8,8 +9,8 @@ import { magConfig } from "../config";
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
 
 /* EverAsk's sky hero (components/landing/Hero.tsx, SkyHero): a tall rounded
-   frame under the header and breadcrumb (contained again, Hamza 19 Oct), a before/after upscaling split (soft left, sharp right, a white divider)
-   filling it, made from a generated still in sharp (scratchpad split.js),
+   frame under the header and breadcrumb (contained again, Hamza 19 Oct), a draggable before/after upscaling comparison (HeroCompare.tsx) filling it,
+   its two layers made from one generated still in sharp (scratchpad layers.js),
    the copy and its white button centred in the frame, the clip graded cooler in ffmpeg. */
 export function Hero() {
   return (
@@ -19,9 +20,7 @@ export function Hero() {
           className="relative isolate flex min-h-[max(640px,calc(100svh-140px))] flex-col overflow-hidden rounded-[24px] sm:rounded-[36px]"
           style={{ backgroundColor: HERO_TONE }}
         >
-          <div className="absolute inset-x-0 bottom-0 -z-10 h-[52%] [mask-image:linear-gradient(to_bottom,transparent,#000_30%)] sm:inset-0 sm:h-auto sm:[mask-image:none]">
-            <img src={MAG_MEDIA.heroImage} alt="" fetchPriority="high" className="size-full object-cover object-[60%_50%]" />
-          </div>
+          <HeroCompare before={MAG_MEDIA.heroBefore} after={MAG_MEDIA.heroAfter} />
           {/* A neutral dark overlay (Hamza, 19 Oct: a tinted one read as a white veil, none left the copy
               barely visible): flat black at 35%, a little deeper through the middle where the copy sits. */}
           <span aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-black/35" />

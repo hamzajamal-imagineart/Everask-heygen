@@ -239,26 +239,23 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   editor", the plugins framing). **The five clips are hotlinked from media.magnific.com
   (`destacado_1-5.webm`)**; copy them into `public/assets/mag` (and compress) before production.
 - **Hero background** (19 Oct, Hamza shared magnific.com's own upscaler hero, a before/after split of a
-  woman reading a diner menu, soft left and sharp right with a divider and pink arrows: "create a hero
-  background image like this"): `hero-split.jpg` (2048×864, 199 KB). Same idea, different scene per his
-  recreation rule: a GPT Image 2 still (21:9, 2K; asset `cbccd10f`), a woman in a cobalt work jacket at a
-  photo-lab light table holding negatives to a tall window, azure palette, a red grease pencil as the one
-  warm accent, 1980s grain. The split is built in sharp (`scratchpad/split/split.js`, kept in the session
-  scratchpad only): left half (the "before", Hamza: "should be blur as well as low quality") is a 1/4-scale copy
-  JPEG-encoded at quality 22 and scaled back up (soft blocks and ringing, the scene still legible; a 1/9
-  quality-9 pass was unrecognisable), blurred 2.4, a little
-  desaturated; right half lightly sharpened; a thick white divider (width/420) and a round white handle (r = 5.2% of height, soft shadow) with
-  two dark arrows inside, at 80% of the frame's height (Hamza: "move this slider down", then "make these
-  prominent too"; `split.js` takes the split and the handle height as arguments). `object-cover object-[60%_50%]`
-  keeps the subject in frame. The final CTA band no longer reuses it (Hamza: "use a different image here"):
-  `cta-sky-2.jpg`, a GPT Image 2 cloud sea under a deep azure sky, no people (asset `e4defbf6`), under a
-  flat `black/20`. The
-  sampled-tone gradient and the overlay-blend grain are gone (Hamza: "why did you add a white overlay";
+  woman reading a diner menu: "create a hero background image like this", then "move this slider down",
+  "make these prominent too", "could you make them draggable too?"): a real comparison slider,
+  `views/mag/Hero/HeroCompare.tsx` (client). Two full-frame layers from one GPT Image 2 still (21:9, 2K,
+  asset `cbccd10f`: a woman in a cobalt work jacket at a photo-lab light table holding negatives to a tall
+  window, azure palette, a red grease pencil as the one warm accent, 1980s grain): `hero-after.jpg` (the
+  still, lightly sharpened, 246 KB) and `hero-before.jpg` (a 1/4-scale copy JPEG-encoded at quality 22 and
+  scaled back up, blurred 2.4, slightly desaturated, 112 KB), made by `scratchpad/split/layers.js` (session
+  scratchpad only; `split.js` there bakes a static split if ever wanted). The before layer is clipped with
+  `clip-path: inset(0 <100-pos>% 0 0)`; a 3px white divider and a 48/56px round white handle with two dark
+  arrows follow `pos` (starts at 50%, handle at 80% of the frame height, under the copy). Drag the handle
+  (pointer capture, `touch-none`), or focus it and use the arrow keys (Shift for 10%), Home/End. Both layers
+  are `object-cover object-[60%_50%]`. `HERO_TONE` `#61727a` only fills the frame before the images load.
+  The sampled-tone gradient and the overlay-blend grain are gone (Hamza: "why did you add a white overlay";
   they read as a veil); in their place a neutral `bg-black/35` plus a vertical band of a further 22% black
-  through the middle, because with no overlay "the text is barely visible". The "before" half is no longer
-  lightened, only softened and slightly desaturated. `HERO_TONE` `#61727a` only fills the frame before the image loads. Before this: Magnific's Upscale clip `hero-upscale.webm` (`93a7781`), and the cloud clips
-  (`hero-wide-blue*` `548c5d0`, `hero-leap-blue*` `daef238`, `hero-leap*` `771fa40`, `hero-loop-blue*`
-  `41c58c8`, `hero-loop*` `6e28df2`), `hero-dusk-wide.jpg` (`e9ed4f2`); all in git history.
+  through the middle, because with no overlay "the text is barely visible". Earlier hero media, all in git
+  history: the baked `hero-split.jpg` (`5247567`), Magnific's Upscale clip (`93a7781`), the cloud clips
+  (`548c5d0`, `daef238`, `771fa40`, `41c58c8`, `6e28df2`), `hero-dusk-wide.jpg` (`e9ed4f2`).
 - **Recreation attempts, not used** (19 Oct): Hamza asked for the clip recreated with a bluer sky, then
   gloomier, then "like these clouds" (EverAsk's above-the-clouds hero). Stills made with GPT Image 2 /
   2.5 Flare and two Kling 2.6 Pro animations exist in the ImagineArt (Official) workspace: still
@@ -345,7 +342,8 @@ the copy and media URLs were read through the browser pane. Everything not about
   (`up2-textures`, then dropped: Hamza asked for the old "Contextual textures and details" too, so
   `up-textures.jpg`, Magnific's pie with the focus bracket, is back), fanned cards of an amber eye (`up2-bulk`, then dropped: Hamza asked for "the original bulk upscaling
   image", so `up-bulk.jpg`, Magnific's stacked-eyes photo, is back for that card), a train timetable with the divider and arrows
-  (`up2-magnific-model`), matcha cake with stacked variants (`up2-creative`), an East Asian man with
+  (`up2-magnific-model`), matcha cake with stacked variants (`up2-creative`, then dropped: Hamza asked for the previous "Creative
+  control with AI" image, so `up-creative.jpg`, Magnific's stacked pie slices, is back), an East Asian man with
   Sharpness/Grain sliders (`up2-classic`), a skateboarder with a detail inset (`up2-video-4k`), a woman in a
   mustard coat with 1080p/4K frames (`up2-video-uhd`). ImagineArt assets `3ae47fb4`, `9f191659`, `6c8eaab7`,
   `752c78a1`, `48b0fb8a`, `ffeb7862`, `6d5a6db5`, `0138b99f`. The other Magnific-sourced `up-*.jpg` are in commit

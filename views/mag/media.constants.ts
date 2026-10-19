@@ -1,5 +1,6 @@
 export const MAG_MEDIA = {
-  heroImage: "/assets/mag/hero-split.jpg",
+  heroAfter: "/assets/mag/hero-after.jpg",
+  heroBefore: "/assets/mag/hero-before.jpg",
   ctaImage: "/assets/mag/cta-sky-2.jpg",
   iconArrowRight13: "/assets/mag/icon-arrow-right-13.svg",
   iconArrowRight16: "/assets/mag/icon-arrow-right-16.svg",
@@ -15,7 +16,7 @@ export const MAG_MEDIA = {
   upTextures: "/assets/mag/up-textures.jpg",
   upBulk: "/assets/mag/up-bulk.jpg",
   upMagnificModel: "/assets/mag/up2-magnific-model.jpg",
-  upCreative: "/assets/mag/up2-creative.jpg",
+  upCreative: "/assets/mag/up-creative.jpg",
   upClassic: "/assets/mag/up2-classic.jpg",
   upVideo4k: "/assets/mag/up2-video-4k.jpg",
   upVideoUhd: "/assets/mag/up2-video-uhd.jpg",
