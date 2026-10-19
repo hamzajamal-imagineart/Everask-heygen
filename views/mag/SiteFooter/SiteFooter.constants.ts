@@ -2,7 +2,12 @@ import { EVERASK_BRAND } from "../Lockup/Lockup.constants";
 
 const site = EVERASK_BRAND.site;
 
-export const FOOTER_COLUMNS = [
+export type FooterLink = { label: string; href: string };
+
+/* The source's clusters (lib/site.ts) in its footer order, then Product and
+   Legal; its relative paths and appHref() resolved against https://everask.ai. */
+
+export const FOOTER_COLUMNS: { title: string; links: FooterLink[] }[] = [
   {
     title: "Features",
     links: [

@@ -181,3 +181,42 @@ HeyGen/Magnific; EverAsk is the platform you use it in. No "official partner" wo
   that create together." is new copy written for this layout; review it.
 - **/magnific hero ticker removed** (19 Oct, Hamza): `Hero/HeroTicker` and the `HERO_TICKER*`/`HERO_ACCENT` constants are deleted; the hero keeps the left copy over the dusk image.
 - **/magnific hero video reverted** (19 Oct, Hamza: "bring back the background image"): the dusk image `hero-dusk-wide.jpg` and its tint are back; the leap video files are removed (still in commit history).
+
+## /magnific rebuilt on EverAsk's page system (19 Oct 2026)
+
+Hamza shared full-page captures of three EverAsk feature pages (AI landing page builder, GPT Image 2, AI
+pitch deck generator) and asked for the Magnific page to match that vibe. The page is now built from
+EverAsk's component shapes (ported from `everask-landing-pages`), filled with the Magnific content and
+assets that already existed. Hamza: **no prompt box in the hero.**
+
+- `app/magnific.css` is now a copy of EverAsk's `app/globals.css` (full design system: tokens, `t-hero`,
+  `t-title`, `t-item`, `t-statement`, `btn-primary`, `glass`, `grain`, `container-page`, `app-mock`).
+- Page order (`views/mag/index.tsx`): SiteHeader → Breadcrumbs → Hero → logo row → Models → Steps ("How it
+  works") → Features (tiles) → StartSimple → UseCases (z-fold) → Originals → Teams → StartBuilding pill →
+  Faq → FinalCta (sky band) → AppTouchpoints → SiteFooter.
+- **Header** (`SiteHeader`): always ink on white, no transparent-over-hero mode; still lifts into the floating
+  panel on scroll. **Breadcrumbs** (new, from `components/landing/Breadcrumbs.tsx`): Features › Image models ›
+  Magnific, links absolute to everask.ai (`/features`, `/features/image/models`).
+- **Hero** (`SkyHero` shape): rounded frame `min-h-[max(640px,calc(100svh-140px))]` under the breadcrumb,
+  dusk image + grain + top-down tone gradient, everything centred: glass badge "Magnific, now inside
+  EverAsk", `t-hero` headline with the last word ("work") in Instrument Serif italic, subhead, white "Start
+  creating". Bottom padding leaves the sketching figure visible. A composer shell with starter chips was
+  built and removed at Hamza's request (not in git).
+- **Steps** (new, from `Steps.tsx`): three steps on one line, clay icons (editor, camera, upscale) in
+  `bg-fill-1` tiles, thin arrows between. Copy is new, written from the page's own lines: "Describe or drop
+  in" / "Direct the result" / "Export at full scale". **Review it.**
+- **Features** (new, replaces the Tools rail; from `Features.tsx`): six tools as EverAsk gradient tiles
+  (azure, sky, paper, royal, paper, navy), two-tone titles, "Learn more" arrow into EverAsk, grain on the
+  dark blues. "Change camera angle" dropped (seven tiles don't grid). `views/mag/Tools/` deleted with
+  `tool-all-tools.svg` and the chevron icons.
+- **UseCases**: now a `ZFold` (rows of image beside text, swapping sides, scroll-driven ease-in via
+  `.mag-zfold-row` in `styles.css`); the three portrait `usecase-*-v2.jpg` are shown at 16:10, Filmmaking at
+  21:9. Same four titles and lines as before.
+- **StartBuilding** (new): centred action-blue pill "Start creating" into EverAsk, after Teams.
+- **FinalCta**: EverAsk's sky band (rounded, `t-statement` "Be Magnific, / *inside EverAsk.*", hero subhead,
+  white "Start creating" + glass "See pricing" → everask.ai/pricing) over the dusk image. `cta-sky.jpg` deleted.
+- **AppTouchpoints** (ported, "image-models" copy verbatim, devices from the EverAsk CDN, iPhone "Coming soon
+  to the App Store", Mac links to the .dmg) now renders before the footer. **SiteFooter** refreshed to
+  EverAsk's current footer (giant wordmark, absolute links).
+- Verified: `tsc` clean (the only errors are stale `.next/types` for the HeyGen route group); no console or
+  server errors; no horizontal overflow at 1024 or 375; h1 is 45px at 1024 and 38px at 375.

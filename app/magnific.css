@@ -1,71 +1,244 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+/*
+ * EverAsk design system.
+ *
+ * Two sources, each authoritative over its own layer:
+ *
+ *   Brand book ("EverAsk brand identity final", 25pp) - the seven swatches, the
+ *   gradient, the type, the graphic language. Nothing here overrides those.
+ *
+ *   ImagineArt Design System V3 (Figma 18496-33074, mirrored in
+ *   imagine-one-web/packages/ui/src/styles/globals.css) - the neutral ramp,
+ *   elevation, radius, control sizing and every interaction state. The brand
+ *   book fixes the seven brand colours but says nothing about greys, focus
+ *   rings or control heights, so those come from the DS verbatim and the site
+ *   matches the product UI.
+ *
+ * Proportion (07 - Colour): 70% canvas (Cream + Tint) · 20% blues · 10% ink.
+ */
+@theme {
+  /* 08 - Typography. Clash Grotesk displays, Google Sans works.
+     DM Sans is the book's named web fallback for Google Sans. */
   --font-display: var(--font-clash), "Clash Grotesk", var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Google Sans", var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+
+  /* 07 - Seven swatches. Zero exceptions. */
+  --color-cobalt: #0046e7;   /* Primary */
+  --color-core: #0f6aee;     /* Interactive */
+  --color-sky: #518bff;      /* Gradient start */
+  --color-mist: #bfd5ff;     /* Accents on blue */
+  --color-tint: #edf3ff;     /* Panels & fills */
+  --color-cream: #f3f1eb;    /* Canvas */
+
+  /* Action. The colour of anything you press. It is deliberately brighter than
+     Cobalt: Cobalt is the brand's ground colour and Action is its foreground,
+     so a button never reads as part of whatever it is sitting on.
+
+     Note the contrast: white on #0088FF is 3.5:1, which clears AA for UI
+     components and large text but not for a 16px label. The labels are set at
+     500 to claw some of that back; if this needs to pass 4.5:1, darkening to
+     about #0072DB does it without changing the hue. */
   --color-action: #0088ff;
   --color-action-hover: #0b7ae4;
-  --color-ink: #131318;
+  --color-ink: #131318;      /* Type & dark surfaces */
+
+  /*
+   * DS neutral ramp - primitive tokens, taken 1:1 from the design system.
+   * Every grey on the site resolves to one of these.
+   */
   --color-neutral-10: #f7f7f7;
   --color-neutral-20: #ededed;
+  --color-neutral-30: #e0e0e0;
+  --color-neutral-40: #d1d1d1;
+  --color-neutral-50: #bdbdbd;
   --color-neutral-60: #575757;
+  --color-neutral-70: #3d3d3d;
   --color-neutral-80: #292929;
   --color-neutral-90: #212121;
-  --color-body: #575757;
-  --color-fill-1: #f7f7f7;
-  --color-fill-2: #ededed;
+  --color-neutral-100: #171717;
+  --color-neutral-110: #0f0f0f;
+
+  /*
+   * DS semantic tokens, resolved onto the ramp above.
+   * content-secondary · content-tertiary · border-primary · border-secondary
+   * · fill-primary · fill-secondary · fill-tertiary.
+   */
+  --color-body: var(--color-neutral-60);        /* content-secondary */
+  --color-muted: rgba(15, 15, 15, 0.5);         /* content-tertiary */
+  --color-line: var(--color-neutral-30);        /* border-secondary */
+  --color-line-soft: var(--color-neutral-20);   /* border-primary */
+  --color-fill-1: var(--color-neutral-10);      /* fill-primary */
+  --color-fill-2: var(--color-neutral-20);      /* fill-secondary */
+  --color-fill-3: var(--color-neutral-30);      /* fill-tertiary */
+
+  /* DS radius scale. Control radii are multiples of the 4px spacing step:
+     rounded-3 = 12 · rounded-4 = 16 · rounded-5 = 20 · rounded-6 = 24. */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
   --radius-pill: 999px;
-  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+
+  /* DS elevation. One neutral shadow colour, four steps. */
+  --shadow-xs: 0 2px 4px rgba(176, 175, 175, 0.16);
+  --shadow-sm: 0 4px 8px rgba(176, 175, 175, 0.2);
+  --shadow-md: 0 8px 16px rgba(176, 175, 175, 0.22);
+  --shadow-lg: 0 12px 24px rgba(176, 175, 175, 0.25);
+
+  /* Hero motion. Each bloom travels a closed path across the field, so the
+     light genuinely moves around rather than breathing in place. The three
+     periods share no common factor, so the composition never repeats. */
+  --animate-drift-a: drift-a 46s ease-in-out infinite;
+  --animate-drift-b: drift-b 61s ease-in-out infinite;
+  --animate-drift-c: drift-c 79s ease-in-out infinite;
+  --animate-breathe: breathe 34s ease-in-out infinite;
+  --animate-caret: caret 1.1s steps(1) infinite;
   --animate-hero-drift: hero-drift 32s ease-in-out infinite alternate;
   --animate-sky-rise: sky-rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-run-step: run-step 9s ease-in-out infinite;
+  /* The feature tour's clock: a hairline filling along the active row. The
+     duration is set inline to the tour's hold. */
+  --animate-tour-progress: tour-progress 5s linear both;
 }
 
+@keyframes tour-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* The sky hero's entrance: copy rises a few pixels out of a soft blur, once. */
 @keyframes sky-rise {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 14px, 0);
-    filter: blur(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-    filter: none;
-  }
+  from { opacity: 0; transform: translate3d(0, 14px, 0); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: none; }
 }
 
+/* The run card: each step lights in turn over a 9s cycle (delays 0/3/6s). */
+@keyframes run-step {
+  0%, 4%    { opacity: 0.45; }
+  10%, 30%  { opacity: 1; }
+  38%, 100% { opacity: 0.45; }
+}
+
+/* The art hero's slow drift: a gentle push-in with a slight pan, scaled from
+   the bottom edge (origin-bottom on the image) so the hill never lifts off the
+   frame. Alternating, so it eases back instead of jumping to the start. */
+/* The zoom always overhangs each side by more than the pan (a scale of s
+   leaves (s - 1) / 2 spare per side), so no edge of the frame's fill shows. */
 @keyframes hero-drift {
-  0% {
-    transform: scale(1.04) translate3d(0.8%, 0, 0);
-  }
-  100% {
-    transform: scale(1.08) translate3d(-0.8%, 0, 0);
-  }
+  0%   { transform: scale(1.04) translate3d(0.8%, 0, 0); }
+  100% { transform: scale(1.08) translate3d(-0.8%, 0, 0); }
 }
 
-@utility t-hero {
-  font-size: clamp(2.375rem, 4.4vw, 4.25rem);
-  line-height: 1.05;
+/* Translations are a share of each bloom's own box, which is 52-78vw wide, so
+   a 30% step moves the light roughly a fifth of the way across the viewport. */
+/* The core bloom breathes in place rather than travelling. It has one job -
+   sit under the composer - and a bloom that wanders off it stops being a glow
+   coming from the input and becomes weather. */
+@keyframes breathe {
+  0%   { transform: scale(1);    opacity: 0.82; }
+  50%  { transform: scale(1.14); opacity: 1; }
+  100% { transform: scale(1);    opacity: 0.82; }
 }
 
-@utility glass {
-  color: var(--color-ink);
-  background: linear-gradient(180deg, rgb(255 255 255 / 0.78) 0%, rgb(255 255 255 / 0.58) 100%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  backdrop-filter: blur(18px) saturate(140%);
-  border: 1px solid rgb(255 255 255 / 0.75);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.9),
-    inset 0 -1px 0 rgb(0 40 120 / 0.06),
-    0 6px 18px -8px rgb(0 28 96 / 0.4);
-  &:hover {
-    background: linear-gradient(180deg, rgb(255 255 255 / 0.92) 0%, rgb(255 255 255 / 0.76) 100%);
+@keyframes drift-a {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  25%  { transform: translate3d(-34%, 16%, 0) scale(1.14); }
+  50%  { transform: translate3d(-52%, 44%, 0) scale(0.92); }
+  75%  { transform: translate3d(-18%, 26%, 0) scale(1.08); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes drift-b {
+  0%   { transform: translate3d(0, 0, 0) scale(1.06); }
+  25%  { transform: translate3d(38%, -22%, 0) scale(0.9); }
+  50%  { transform: translate3d(62%, -46%, 0) scale(1.16); }
+  75%  { transform: translate3d(26%, -16%, 0) scale(0.96); }
+  100% { transform: translate3d(0, 0, 0) scale(1.06); }
+}
+@keyframes caret {
+  0%, 50%   { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+@keyframes drift-c {
+  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0.6; }
+  25%  { transform: translate3d(-28%, 30%, 0) scale(1.2); opacity: 0.85; }
+  50%  { transform: translate3d(-46%, -12%, 0) scale(0.88); opacity: 0.55; }
+  75%  { transform: translate3d(-12%, -34%, 0) scale(1.14); opacity: 0.8; }
+  100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.6; }
+}
+
+@layer base {
+  :root { color-scheme: light; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    /* `clip` rather than `hidden` - `hidden` would kill the sticky header. */
+    overflow-x: clip;
+    /* White, not Cream. The hero is white, so a Cream canvas under it drew a
+       tonal band across the page immediately below the fold. Sections separate
+       on their `line` rules and their cards' borders instead of on a change of
+       ground. Cream is held in reserve for a place where a change of ground
+       is the point; the footer index that used it is gone. */
+    background: #ffffff;
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.7;          /* 08 - Body 15 / 1.7 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
-}
 
-@utility grain {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 180px 180px;
+  /* 08 - Display: Clash Grotesk, 300-500, tracking -0.02 to -0.05em,
+     never below 20px. Sentence case everywhere. */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    font-weight: 500;
+    text-wrap: balance;
+  }
+  h1 { letter-spacing: -0.04em; }
+  h2 { letter-spacing: -0.03em; }
+  h3 { letter-spacing: -0.02em; }
+
+  p { text-wrap: pretty; }
+
+  /* Tailwind v4's preflight resets buttons to `cursor: default`; everything
+     pressable on this site shows the hand, and disabled controls say so. */
+  button:not(:disabled),
+  [role="button"],
+  [role="option"],
+  [role="menuitem"],
+  [role="menuitemcheckbox"],
+  summary,
+  select,
+  label[for] {
+    cursor: pointer;
+  }
+  button:disabled { cursor: not-allowed; }
+  ::selection { background: var(--color-action); color: #fff; }
+
+  /* DS focus model: a 2px ring at a 2px offset on every interactive element.
+     Dark sections flip it to white so it stays visible on Cobalt and Ink. */
+  :focus-visible {
+    outline: 2px solid var(--color-core);
+    outline-offset: 2px;
+  }
+  [data-tone="dark"] :focus-visible { outline-color: #fff; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html { scroll-behavior: auto; }
+  }
 }
 
 @utility container-page {
@@ -75,6 +248,7 @@
   padding-inline: 1.5rem;
 }
 
+/* 08 - Kicker 11, caps only for kickers, +0.1em tracking on uppercase labels. */
 @utility kicker {
   font-size: 11px;
   font-weight: 500;
@@ -83,72 +257,554 @@
   line-height: 1.4;
 }
 
-@utility t-title {
-  font-size: 1.5rem;
-  line-height: 1.3;
+/* Type scale - Headline 42-86 · Title 24 · Body 15/1.7 */
+@utility t-headline { font-size: clamp(2.625rem, 5.4vw, 5.375rem); line-height: 1.04; }
+/* The feature-page hero h1: a step under t-headline, so name, subhead,
+   composer and chips fit one laptop screen with the art still in view. */
+@utility t-hero     { font-size: clamp(2.375rem, 4.4vw, 4.25rem); line-height: 1.05; }
+@utility t-title    { font-size: 1.5rem; line-height: 1.3; }
+@utility t-section   { font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.2; }
+@utility t-statement { font-size: clamp(2.25rem, 4.2vw, 3rem); line-height: 1.1; }
+@utility t-lead      { font-size: 17px; line-height: 1.65; }
+/* Item titles inside a section - a step, a feature, a question. Display type is
+   never below 20px, so these are set in the body face at a heavier weight. */
+@utility t-item {
+  font-family: var(--font-sans);
+  font-size: 16px; font-weight: 500; line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--color-ink);
+  /* Wrap like the body copy under it, not balanced like a headline - balance
+     squeezes a short title into two narrow lines inside a wide card. */
+  text-wrap: pretty;
+}
+
+/*
+ * Controls - DS sizing and states.
+ * lg = 48px tall · md = 40px · sm = 32px. Pill is a DS shape variant, and the
+ * brand book asks for it, so every marketing CTA runs pill-shaped at DS heights.
+ */
+/* Glass for controls that sit on the art: the hero's starter chips and the
+   model chips on example tiles and model-page cards. Real frosting - the art
+   blurs and brightens through it - a lit top edge, a faint lower rim and a
+   soft drop, so it reads as a pane over the picture, not a tinted pill.
+   Ink labels, not white: a white label vanishes over clouds, billboards and
+   anything else pale in the art. */
+@utility glass {
+  color: var(--color-ink);
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.78) 0%, rgb(255 255 255 / 0.58) 100%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgb(255 255 255 / 0.75);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.9),
+    inset 0 -1px 0 rgb(0 40 120 / 0.06),
+    0 6px 18px -8px rgb(0 28 96 / 0.40);
+  &:hover { background: linear-gradient(180deg, rgb(255 255 255 / 0.92) 0%, rgb(255 255 255 / 0.76) 100%); }
+}
+
+/* The same pane, smoked: for labels on photographs, where a white pane would
+   vanish into bright sky or snow. */
+@utility glass-dark {
+  color: #fff;
+  background: linear-gradient(180deg, rgb(10 16 32 / 0.42) 0%, rgb(10 16 32 / 0.30) 100%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgb(255 255 255 / 0.22);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.28),
+    0 4px 14px -6px rgb(0 0 0 / 0.35);
 }
 
 @utility btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  height: 3rem;
-  padding-inline: 1.75rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  height: 3rem; padding-inline: 1.75rem;
   border-radius: var(--radius-pill);
   background: var(--color-action);
-  font-size: 16px;
-  font-weight: 500;
-  color: #fff;
+  font-size: 16px; font-weight: 500; color: #fff;
   white-space: nowrap;
   transition: background 200ms ease, transform 150ms ease;
-  &:hover {
-    background: var(--color-action-hover);
+  &:hover  { background: var(--color-action-hover); }
+  &:active { background: var(--color-action-hover); transform: translateY(1px); }
+}
+@utility btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  height: 3rem; padding-inline: 1.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-line);
+  background: transparent;
+  font-size: 16px; font-weight: 500; color: var(--color-ink);
+  white-space: nowrap;
+  transition: background 200ms ease, border-color 200ms ease, transform 150ms ease;
+  &:hover  { background: var(--color-fill-2); border-color: transparent; }
+  &:active { transform: translateY(1px); }
+}
+
+/* Chips - Tint panel, Cobalt label. */
+@utility chip {
+  display: inline-flex; align-items: center;
+  border-radius: var(--radius-pill);
+  background: var(--color-tint);
+  padding: .375rem .875rem;
+  color: var(--color-action);
+  font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.14em;
+}
+
+/*
+ * Segmented controls - DS blocks/segmented-controls.
+ * Track is fill-secondary; the selected trigger is fill-inverse with inverse
+ * content, which is the only pairing in the DS that clears contrast at 14px.
+ */
+@utility seg {
+  /* DS segmented-controls md: 8px between triggers, so each reads as its own
+     target instead of a run of words. */
+  display: inline-flex; align-items: center; gap: .5rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-fill-2);
+  padding: .25rem;
+}
+@utility seg-item {
+  /* DS trigger md: 12px sides, a 16px icon 6px from its label. */
+  display: inline-flex; align-items: center; justify-content: center; gap: .375rem;
+  height: 2rem; padding-inline: .75rem;
+  & > svg { width: 1rem; height: 1rem; }
+  border-radius: var(--radius-md);
+  font-size: 14px; font-weight: 500; white-space: nowrap;
+  color: var(--color-muted);
+  transition: background 200ms ease, color 200ms ease;
+  /* DS tabs: an inactive trigger fills on hover, one step up from the track. */
+  &:hover { background: var(--color-fill-3); color: var(--color-neutral-110); }
+}
+@utility seg-item-on {
+  background: var(--color-ink);
+  color: #fff;
+  /* Restated under :hover - the inactive hover rule is one specificity step
+     higher and would otherwise repaint the selected trigger. */
+  &:hover { background: var(--color-ink); color: #fff; }
+}
+
+/* Glass track: the /features jump bar, which sits on the hero's aurora and
+   then floats over the cards once stuck. Frosted enough that the triggers
+   stay legible over any card art scrolling beneath it. */
+@utility seg-glass {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.72) 0%, rgb(255 255 255 / 0.52) 100%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgb(255 255 255 / 0.8);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9);
+}
+
+/* The jump bar's responsive collapse. Under lg the triggers drop to their
+   icons and only the selected one keeps its label; on phones that goes too,
+   so all ten fit across a 360px screen. The name stays on the trigger's
+   aria-label and title. */
+@utility seg-collapse {
+  @media (width < 64rem) {
+    & .seg-item { padding-inline: .5rem; }
+    & .seg-label { display: none; }
+    & .seg-item-on .seg-label { display: inline; }
   }
-  &:active {
-    background: var(--color-action-hover);
-    transform: translateY(1px);
+  @media (width < 40rem) {
+    /* Doubled up to outrank seg's own 8px gap. */
+    &.seg { gap: 2px; }
+    & .seg-item { width: 28px; padding-inline: 0; }
+    & .seg-item-on .seg-label { display: none; }
   }
 }
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: var(--font-display);
-    font-weight: 500;
-    text-wrap: balance;
-  }
-  h1 {
-    letter-spacing: -0.04em;
-  }
-  h2 {
-    letter-spacing: -0.03em;
-  }
-  h3 {
-    letter-spacing: -0.02em;
-  }
-  p {
-    text-wrap: pretty;
-  }
+/* Dark track, for the segmented control sitting on the Cobalt field. */
+@utility seg-dark {
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+}
+@utility seg-item-dark {
+  color: rgba(255, 255, 255, 0.72);
+  &:hover { background: rgba(255, 255, 255, 0.16); color: #fff; }
+}
+@utility seg-item-dark-on {
+  background: #fff;
+  color: var(--color-action);
+  &:hover { background: #fff; color: var(--color-action); }
 }
 
-body {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1.7;
-  background: #ffffff;
-  color: var(--color-ink);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+/*
+ * 07 - THE GRADIENT. Sky to Cobalt. 135 degrees. Always.
+ * One gradient, one angle, two stops. It signals "the agent is working" -
+ * app icon, primary actions, hero moments. NEVER behind body text.
+ */
+@utility grad-signal {
+  background-image: linear-gradient(135deg, #518bff 0%, #0046e7 100%);
 }
+
+/*
+ * 07 - THE FIELD. White canvas, blue as accent.
+ *
+ * The hero used to be a full-bleed Cobalt wall. It read as one enormous brand
+ * asset rather than as a page, so the ground is now paper and the blue is
+ * light gathering on it - the Gemini composer pattern, and the 70/20/10 mix
+ * read literally: 70% canvas, 20% blue, 10% Ink.
+ */
+@utility light-field {
+  background-color: #ffffff;
+}
+
+/* The body of light behind the composer. This is the one saturated moment in
+   the band, and it sits directly under the prompt box so the blue reads as
+   something the input is emitting rather than as a backdrop. */
+@utility bloom-core {
+  background-image: radial-gradient(closest-side,
+    rgba(0, 136, 255, 0.36) 0%,
+    rgba(0, 136, 255, 0.24) 24%,
+    rgba(0, 136, 255, 0.13) 52%,
+    rgba(0, 136, 255, 0) 100%);
+}
+
+/* The two drifting companions. Much weaker than the core - on white, alpha
+   that would be invisible on Cobalt is plenty. */
+@utility bloom-mist {
+  background-image: radial-gradient(closest-side,
+    rgba(0, 136, 255, 0.1) 0%,
+    rgba(0, 136, 255, 0.045) 40%,
+    rgba(0, 136, 255, 0) 100%);
+}
+@utility bloom-tint {
+  background-image: radial-gradient(closest-side,
+    rgba(0, 136, 255, 0.13) 0%,
+    rgba(0, 136, 255, 0.025) 44%,
+    rgba(0, 136, 255, 0) 100%);
+}
+
+/*
+ * The WebGL aurora (see HeroAurora). react-bits ships the container rule as a
+ * component stylesheet; it is four lines, so it lives here with everything
+ * else rather than as a separate import.
+ *
+ * The mask is what keeps this a hero band and not a page-wide blue wash: the
+ * shader is at full strength through the middle and gone well before the
+ * edges, so the field meets the header and the next section at paper white.
+ */
+.molten-metal-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-aurora {
+  opacity: 0.9;
+  -webkit-mask-image: radial-gradient(90% 80% at 50% 50%,
+    #000 0%, #000 22%, rgba(0, 0, 0, 0.6) 52%, rgba(0, 0, 0, 0) 82%);
+  mask-image: radial-gradient(90% 80% at 50% 50%,
+    #000 0%, #000 22%, rgba(0, 0, 0, 0.6) 52%, rgba(0, 0, 0, 0) 82%);
+}
+
+
+/*
+ * Grain. A tiled fractal-noise tile at low opacity, laid over the field so the
+ * large soft areas of light have some tooth and the bloom stops stop banding on
+ * wide displays - which they will, on white, far more readily than on Cobalt.
+ */
+@utility grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+/*
+ * Motion. Two pieces, both quiet: pages settle in when you navigate between
+ * them, and blocks below the fold rise into place the first time they scroll
+ * into view (FadeContent, after React Bits) - opacity and a short travel, no
+ * blur. Neither runs on the first paint of a landing - the hero art is the
+ * LCP element and must not wait on an animation - and neither runs under
+ * reduced motion.
+ */
+@keyframes page-enter {
+  from { opacity: 0; transform: translate3d(0, 10px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+html[data-navigated] .page-enter {
+  animation: page-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+html.js [data-fade] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 900ms cubic-bezier(0.16, 1, 0.3, 1) var(--fade-delay, 0ms),
+    transform 1100ms cubic-bezier(0.16, 1, 0.3, 1) var(--fade-delay, 0ms);
+}
+html.js [data-fade="in"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-navigated] .page-enter { animation: none; }
+  html.js [data-fade] { opacity: 1; transform: none; transition: none; }
+}
+
+/*
+ * Send glow - the product composer's submit (packages/ui/src/styles/
+ * animations.css, `submit-button-glow-*`): a soft brand halo under the button
+ * and a single highlight orbiting its rim. Shown only when there is something
+ * to send.
+ */
+@keyframes send-glow-spin { to { transform: rotate(360deg); } }
+.send-glow { isolation: isolate; box-shadow: var(--shadow-md); }
+.send-glow-halo {
+  position: absolute; inset: -6px; z-index: -2;
+  border-radius: 9999px;
+  background: var(--color-action);
+  opacity: 0.35;
+  filter: blur(12px);
+  pointer-events: none;
+  animation: send-glow-in 500ms ease-out both;
+}
+.send-glow-spot {
+  position: absolute; inset: -4px; z-index: -1;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg, transparent 50deg,
+    rgb(230 244 255 / 0.95) 90deg,
+    transparent 130deg, transparent 360deg
+  );
+  filter: blur(5px);
+  pointer-events: none;
+  animation: send-glow-spin 4s linear infinite, send-glow-in 500ms ease-out both;
+  will-change: transform;
+}
+@keyframes send-glow-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .send-glow-spot { animation: none; }
+}
+
+/* The presenter view's auto-advance bar (slides/Presenter.tsx). */
+@keyframes slide-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Dark pages: a page whose hero carries data-page-tone="dark" (the cinema
+   hero on video model pages) turns the whole page dark - the colour tokens
+   flip here, so every section's text, lines and fills follow without their
+   own dark styles. Pure CSS (:has), so it is dark from the first paint. */
+html:has([data-page-tone="dark"]) {
+  color-scheme: dark;
+  background: #05070c;
+  --color-ink: #f2f4f8;
+  --color-body: rgb(255 255 255 / 0.66);
+  --color-muted: rgb(255 255 255 / 0.46);
+  --color-line: rgb(255 255 255 / 0.12);
+  --color-line-soft: rgb(255 255 255 / 0.08);
+  --color-fill-1: rgb(255 255 255 / 0.05);
+  --color-fill-2: rgb(255 255 255 / 0.1);
+  --color-fill-3: rgb(255 255 255 / 0.14);
+  --color-tint: rgb(0 136 255 / 0.14);
+  --color-cream: #0b0e14;
+}
+html:has([data-page-tone="dark"]) body { background: #05070c; color: var(--color-body); }
+html:has([data-page-tone="dark"]) main .bg-cream { background-color: #0b0e14; }
+html:has([data-page-tone="dark"]) main .bg-tint { background-color: rgb(0 136 255 / 0.12); }
+/* White surfaces (buttons, cards) and the footer, whose dark band is drawn
+   in ink, keep the light tokens inside them, so their type stays readable. */
+html:has([data-page-tone="dark"]) .bg-white,
+html:has([data-page-tone="dark"]) [class~="!bg-white"],
+html:has([data-page-tone="dark"]) .light-surface,
+html:has([data-page-tone="dark"]) footer {
+  --color-ink: #131318;
+  --color-body: #575757;
+  --color-muted: rgba(15, 15, 15, 0.5);
+  --color-line: #e0e0e0;
+  --color-line-soft: #ededed;
+  --color-fill-1: #f7f7f7;
+  --color-fill-2: #ededed;
+}
+/* Ink pills with white type (the app download buttons) turn into white
+   pills with ink type, the dark page's own contrast. */
+html:has([data-page-tone="dark"]) main .bg-ink.text-white { background-color: #fff; color: #131318; }
+/* ...except on a light card (Features' sky and paper tones), which keeps its ink pill. */
+html:has([data-page-tone="dark"]) main .light-surface .bg-ink.text-white { background-color: #131318; color: #fff; }
+/* The app mockups' screens (AppTouchpoints.tsx) go dark with the page:
+   the app's own dark surfaces inside the photographed devices. */
+html:has([data-page-tone="dark"]) .app-mock.app-mock {
+  background-color: #12151c;
+  --color-ink: #eef1f6;
+  --color-body: rgb(255 255 255 / 0.7);
+  --color-muted: rgb(255 255 255 / 0.48);
+  --color-line: rgb(255 255 255 / 0.16);
+  --color-line-soft: rgb(255 255 255 / 0.1);
+  --color-fill-1: rgb(255 255 255 / 0.07);
+  --color-fill-2: rgb(255 255 255 / 0.1);
+}
+/* The phone's screen a shade darker, its bubbles and pills soft fills. */
+html:has([data-page-tone="dark"]) .app-mock-screen.app-mock-screen {
+  background-color: #0a0c11;
+  --color-line: rgb(255 255 255 / 0.1);
+  --color-line-soft: rgb(255 255 255 / 0.07);
+  --color-fill-1: rgb(255 255 255 / 0.08);
+}
+html:has([data-page-tone="dark"]) .app-mock-screen .border { background-color: rgb(255 255 255 / 0.04); }
+html:has([data-page-tone="dark"]) .app-mock .mac-light { display: none; }
+html:has([data-page-tone="dark"]) .app-mock .mac-dark { display: block; }
+html:has([data-page-tone="dark"]) .app-mock .bg-white { background-color: rgb(255 255 255 / 0.06); }
+
+/* AppTouchpoints: the phone drifts up and down, on its own property so the
+   tilt (a transform) is left alone. */
+@keyframes device-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -9px; } }
+
+/* FAQ accordion (Faq.tsx): the answer slides open and shut and fades in.
+   Where a browser cannot animate to the answer's height it simply opens. */
+.faq-list { interpolate-size: allow-keywords; }
+.faq-item::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition: block-size 0.35s cubic-bezier(0.32, 0.72, 0, 1), content-visibility 0.35s allow-discrete;
+}
+.faq-item[open]::details-content { block-size: auto; }
+.faq-item > p { transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.32, 0.72, 0, 1); }
+.faq-item:not([open]) > p { opacity: 0; transform: translateY(-4px); }
+@media (prefers-reduced-motion: reduce) {
+  .faq-item::details-content, .faq-item > p { transition: none; }
+}
+/* CinemaReel: the row slides by one of its two copies, then repeats. */
+/* CinemaReel's popup: the backdrop fades, the clip rises in. */
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop-in { from { opacity: 0; transform: translateY(12px) scale(0.97); } to { opacity: 1; transform: none; } }
+/* CinemaAbout's shapes: each frame takes the blue in turn (6s round). */
+.cinema-shape { stroke: rgb(255 255 255 / 0.22); animation: cinema-shape 6s ease-in-out infinite; }
+.cinema-shape-label { animation: cinema-shape-label 6s ease-in-out infinite; }
+@keyframes cinema-shape { 0%, 22%, 100% { stroke: rgb(255 255 255 / 0.22); filter: none; } 6%, 16% { stroke: #4aa8ff; filter: drop-shadow(0 0 6px rgb(0 136 255 / 0.8)); } }
+@keyframes cinema-shape-label { 0%, 22%, 100% { color: rgb(255 255 255 / 0.45); } 6%, 16% { color: #8fcaff; } }
+@media (prefers-reduced-motion: reduce) { .cinema-shape, .cinema-shape-label { animation: none; } }
+/* Dark pages: the brand blue glows in from alternating sides all the way
+   down the page. The hero paints over its own part with the film, so the
+   glow only shows in the sections below it. */
+html:has([data-page-tone="dark"]) main {
+  background:
+    radial-gradient(42% 9% at 0% 24%, rgb(0 136 255 / 0.14), transparent 70%),
+    radial-gradient(40% 9% at 100% 40%, rgb(0 136 255 / 0.11), transparent 70%),
+    radial-gradient(42% 9% at 0% 57%, rgb(0 136 255 / 0.13), transparent 70%),
+    radial-gradient(40% 9% at 100% 74%, rgb(0 136 255 / 0.11), transparent 70%),
+    radial-gradient(42% 9% at 0% 90%, rgb(0 136 255 / 0.12), transparent 70%),
+    #05070c;
+}
+
+/* ToolStudioHero: its two blue lights drift slowly, out of step. */
+@keyframes studio-drift-a { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(260px, 80px) scale(1.18); } 100% { transform: translate(-160px, 40px) scale(0.92); } }
+@keyframes studio-drift-b { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-280px, 100px) scale(0.9); } 100% { transform: translate(120px, -30px) scale(1.16); } }
+.studio-drift-a { animation: studio-drift-a 7s ease-in-out infinite alternate; }
+.studio-drift-b { animation: studio-drift-b 9s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .studio-drift-a, .studio-drift-b { animation: none; } }
+
+/* ProductVideoBento: the voiceover's waveform, the script's playhead, the
+   catalogue tile still rendering. */
+@keyframes wave-bar { 0%, 100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
+.wave-bar { animation: wave-bar 1.1s ease-in-out infinite; transform-origin: center; }
+@keyframes script-playhead { from { left: 0%; } to { left: calc(100% - 1px); } }
+.script-playhead { animation: script-playhead 7s linear infinite; }
+@keyframes catalogue-shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+.catalogue-shimmer { background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.14), transparent); animation: catalogue-shimmer 1.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .wave-bar, .script-playhead, .catalogue-shimmer { animation: none; } }
+/* PromptBox, on its way into the app: a bar sliding along the box's top edge. */
+@keyframes leave-bar { from { left: -33%; } to { left: 100%; } }
+.leave-bar { animation: leave-bar 1.1s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+@media (prefers-reduced-motion: reduce) { .leave-bar { animation: none; left: 0; width: 100%; opacity: 0.6; } }
+
+/*
+ * Video tool pages (ToolStudioHero): one continuous dark ground, so the hard
+ * hairline between sections becomes a soft line that fades out at both ends,
+ * and the sections rise in on scroll (FadeContent) rather than cutting in.
+ */
+html:has([data-studio-tool]) main section.border-t {
+  position: relative;
+  border-top-color: transparent;
+}
+html:has([data-studio-tool]) main section.border-t::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1120px, 88%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.1) 30%, rgb(255 255 255 / 0.1) 70%, transparent);
+  pointer-events: none;
+}
+
+/*
+ * Video and image tool pages: the scroll reveal after OpenArt's feature
+ * pages. A block rises 100px from 92% scale as it comes into view, on a long
+ * front-loaded ease, so it is mostly in place within a third of a second and
+ * settles over the next. Siblings stagger by FadeContent's delay.
+ */
+html.js:has([data-studio-tool]) main [data-fade] {
+  transform: translate3d(0, 100px, 0) scale(0.92);
+  transition:
+    opacity 1100ms cubic-bezier(0.22, 1, 0.36, 1) var(--fade-delay, 0ms),
+    transform 1100ms cubic-bezier(0.22, 1, 0.36, 1) var(--fade-delay, 0ms);
+}
+html.js:has([data-studio-tool]) main [data-fade="in"] {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js:has([data-studio-tool]) main [data-fade] { opacity: 1; transform: none; transition: none; }
+}
+
+/* A still in the studio hero develops in: from blurred and slightly large
+   to sharp, like a render finishing (ToolStudioHero, image pages). */
+@keyframes studio-develop {
+  from { filter: blur(18px) saturate(0.6); transform: scale(1.04); }
+  to { filter: none; transform: none; }
+}
+.studio-develop { animation: studio-develop 1.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .studio-develop { animation: none; }
+}
+
+/* BlurUpImage: blurred and slightly large until it loads, then sharp. */
+.blur-up {
+  filter: blur(12px);
+  transform: scale(1.05);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+.blur-up[data-loaded] { filter: none; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .blur-up { transition: none; }
+}
+
+/*
+ * The run places (RunStudio's PlaceView: a LinkedIn profile, a listing, a
+ * post, a site, a print dialog, an app store) in their dark-mode looks, for
+ * the image bento on the dark studio pages (ImageFeatureBento.tsx).
+ */
+.place-dark .bg-white { background-color: #12161e; }
+/* A listing in the dark bento is the tile itself: no second card inside it,
+   the store's name a quiet line over the product. */
+.place-dark .place-listing.place-listing { background: transparent; box-shadow: none; border-radius: 0; }
+.place-dark .place-listing > :first-child { height: auto; border: 0; padding: 0 0 12px; color: rgb(255 255 255 / 0.6); }
+.place-dark .place-listing > :last-child { padding: 0; gap: 28px; }
+@media (min-width: 640px) { .place-dark .place-listing .sm\:h-\[250px\] { height: 300px; } }
+.place-dark .ring-black\/\[0\.06\] { --tw-ring-color: rgb(255 255 255 / 0.08); }
+.place-dark .border-black\/\[0\.06\] { border-color: rgb(255 255 255 / 0.08); }
+.place-dark .bg-black\/\[0\.04\] { background-color: rgb(255 255 255 / 0.06); }
+.place-dark .bg-black\/15 { background-color: rgb(255 255 255 / 0.2); }
+.place-dark .text-\[\#1d2939\],
+.place-dark .text-\[\#0b1730\] { color: rgb(255 255 255 / 0.92); }
+.place-dark .text-\[\#3b4a60\] { color: rgb(255 255 255 / 0.7); }
+.place-dark .text-\[\#5b6b82\],
+.place-dark .text-\[\#7a879a\] { color: rgb(255 255 255 / 0.5); }
+.place-dark .text-\[\#0a66c2\] { color: #71b7fb; }
+.place-dark .ring-\[\#0a66c2\] { --tw-ring-color: #71b7fb; }
+.place-dark .bg-\[\#dfe3e8\],
+.place-dark .bg-\[\#e9eef6\],
+.place-dark .bg-\[\#e9edf2\] { background-color: #1b212b; }
+.place-dark .bg-\[\#0b1730\] { background-color: #fff; color: #0b1730; }
+/* The profile banner, darker so the white ring of the photo still reads. */
+.place-dark .from-\[\#0a66c2\] { --tw-gradient-from: #0a4f96 var(--tw-gradient-from-position); --tw-gradient-to: rgb(10 79 150 / 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+.place-dark .via-\[\#4a95e0\] { --tw-gradient-via: #1d5f9f; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to); }
+.place-dark .to-\[\#a9d0f5\] { --tw-gradient-to: #22344d; }
+.place-dark .rounded-full.bg-white.p-1 { background-color: #12161e; }
+/* The phone's own frame stays a dark bezel, only lighter than the tile. */
+.place-dark .rounded-\[30px\].bg-\[\#0b1730\] { background-color: #2a303b; color: inherit; }

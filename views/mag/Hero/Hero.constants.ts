@@ -5,6 +5,9 @@ export const HERO_TONE = "#5b79be";
 
 export const HERO_HEADLINE = "The creative platform to direct your best work";
 
+export const HERO_SUBHEAD =
+  "Use Magnific's AI models for video, image, and audio right inside EverAsk. Intelligent workflows for professional control and collaboration. On-brand production at any scale.";
+
 export const HERO_RISE_DELAYS = { badge: 0, headline: 80, subhead: 160, actions: 240 };
 
 export const HERO_LOGOS = [

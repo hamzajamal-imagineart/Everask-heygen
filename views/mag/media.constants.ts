@@ -1,5 +1,4 @@
 export const MAG_MEDIA = {
-  ctaBg: "/assets/mag/cta-sky.jpg",
   featureAdmin: "/assets/mag/clay-toggles.png",
   featureLegal: "/assets/mag/clay-legal.png",
   featureOwn: "/assets/mag/clay-key.png",
@@ -10,8 +9,6 @@ export const MAG_MEDIA = {
   iconArrowRight13: "/assets/mag/icon-arrow-right-13.svg",
   iconArrowRight16: "/assets/mag/icon-arrow-right-16.svg",
   iconArrowRightXs: "/assets/mag/icon-arrow-right-xs.svg",
-  iconChevronLeft: "/assets/mag/icon-chevron-left.svg",
-  iconChevronRight: "/assets/mag/icon-chevron-right.svg",
   logoCocaCola: "/assets/mag/logo-coca-cola.svg",
   logoDeliveryhero: "/assets/mag/logo-deliveryhero.svg",
   logoGuess: "/assets/mag/logo-guess.svg",
@@ -41,7 +38,6 @@ export const MAG_MEDIA = {
   startCanvas: "/assets/mag/start-canvas-v2.png",
   startTeam: "/assets/mag/start-team-v2.png",
   startTools: "/assets/mag/start-tools-v2.png",
-  toolAllTools: "/assets/mag/tool-all-tools.svg",
   toolBackgroundRemover: "/assets/mag/clay-eraser.png",
   toolCameraAngle: "/assets/mag/clay-camera.png",
   toolImageEditor: "/assets/mag/clay-editor.png",
