@@ -338,7 +338,8 @@ the copy and media URLs were read through the browser pane. Everything not about
   merged into one answer, video output options + length merged, train/ownership merged across image and
   video. Magnific's plan and credit questions were left out (EverAsk pricing unknown). "16×" was added to
   the "What is Magnific Upscaler?" answer where the source says "up to resolution" (a gap in their copy).
-- **SEO** (`config.ts`): title "Magnific Upscaler inside EverAsk: images to 16×, video to 4K".
+- **SEO** (`config.ts`, Topaz): title "Topaz inside EverAsk: image and video upscaling, fix blur, noise and low
+  resolution". (Magnific:) title "Magnific Upscaler inside EverAsk: images to 16×, video to 4K".
 - **Assets** (19 Oct, Hamza: "regenerate all images slightly differently, different person, change in color so
   it is not a duplicate of magnific"): the eight section images are now `up2-*.jpg`, GPT Image 2 recreations
   of Magnific's compositions with different people, subjects and a cool EverAsk palette (one vermilion
@@ -367,7 +368,7 @@ curl; the page HTML, text and their before/after pairs are in the session scratc
 The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fold, model cards) is commit
 `7bc538b`.
 
-- **Section order** (`views/topaz/index.tsx`), each mirroring Topaz's: Breadcrumbs (Features › Upscaling
+- **Section order** (`views/topaz/index.tsx`), each mirroring Topaz's photo page, with the video block added: Breadcrumbs (Features › Upscaling
   models › Topaz) → **Hero** (the Magnific hero's layout, Hamza 19 Oct, after a two-column and then a full-width version:
   the rounded frame `min-h-[max(640px,calc(100svh-140px))]`, Topaz's parrot clarity pair filling it with
   **EnhanceLoupe** (`Hero/EnhanceLoupe.tsx`, client, `fill` mode) live underneath: Topaz's
@@ -377,7 +378,7 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   neutral dark overlay: Topaz wordmark + "inside *EverAsk*" on one line, Topaz's "Fix blur, noise and low
   resolution in one click." + our line as the subhead, white "Start enhancing"; the copy block passes
   pointer events through to the loupe except on the button. The image is cropped by the frame here, as on
-  /magnific) → **Trusted** ("Over 2 billion images processed." on the left, moved here when Hamza removed the review
+  /magnific) → **Trusted** ("Over 2 billion images processed." + the video page's "3 million users." on the left, moved here when Hamza removed the review
   cards; their "Trusted by major companies" names as type on the right: Google, Coca-Cola, Target, NVIDIA,
   Tesla, Quora; no marks)
   → **Toolbox** ("Crystal clear. Highly detailed. Super focused." + their intro, then Topaz's own
@@ -393,13 +394,23 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   Cook quote 2×2, Upscale 2×2 on the left; Recover Faces 2×3, Lighting 2×2, Color 1×3 and Remove 1×3 on
   the right; phones stack the tiles at 4:3, then two cards: "Unlimited cloud
   rendering." (their copy + one line of ours) and "A seamless addition to your workflow." (ours; their
-  plugin list and "Private local rendering" do not apply to the API)) → **Years** ("Trusted by pro
+  plugin list and "Private local rendering" do not apply to the API)) → **VideoUpscale** (Hamza, 19 Oct: "we are offering both image and video upscales", from
+  topazlabs.com/tools/video-upscale, which also serves to curl; its HTML and text are in the scratchpad):
+  "Upscale almost any video." + their intro, then their four "Compare" audiences (Low-res or old video,
+  Creators & editors, Marketing teams, Families & archivists) on Topaz's own before/after clip pairs as
+  **VideoCompare** sliders (`views/topaz/VideoCompare/`, client: two muted loops kept in step, the before
+  clipped to the handle, same handle, keys and idle sweep as HeroCompare, the sweep only on the first tile),
+  portrait pairs on 5 columns, landscape on 7, each at the clip's own ratio; then "Why Topaz's video
+  upscaler" (their paragraph and three lines) beside their five key features as a hairline list, and a
+  "Start upscaling video" button. Clips: `tz-v-{record,drone}-{before,after}.mp4` 1280×1600 and
+  `tz-v-{sheep,skater}-*.mp4` 1280×720, all 6 s, 30 fps (from 60), crf 27, no audio, 0.5 to 2 MB each, with
+  `tz-v-*-poster.jpg`; sources `downloads.topazlabs.com/web-assets/video-upscale-*-opt.mp4`) → **Years** ("Trusted by pro
   photographers for 20+ years." + paragraph + Charles D quote + CTA on the left; their four audiences as
   a 2×2 on the right with our pictures above each) → **CtaBand** ("12 groundbreaking AI tools. Trained on
   millions of images." on `#f6f6f7`, "Plus, unlimited cloud rendering.") → **Features** ("Latest features"
   three image cards with a NEW pill: Wonder Model, Healing Brush, Standard MAX Model; "All features" as a
   two-column list of native `details` rows, ten tools) → **Faq** (the Magnific page's layout, Hamza: heading left, hairline rows with ink plus/minus right,
-  first answer open; six items; the centred rounded-row version Topaz uses is in `5ded266`) → FinalCta (EverAsk sky band, "Topaz Photo, *inside EverAsk.*") → AppTouchpoints → footer.
+  first answer open; nine items, three of them video (one ours, two verbatim from the video page); the centred rounded-row version Topaz uses is in `5ded266`) → FinalCta (EverAsk sky band, "Topaz Photo, *inside EverAsk.*") → AppTouchpoints → footer.
 - **CompareTile** (`views/topaz/CompareTile/`): the bento tile with the draggable before/after (`HeroCompare`)
   inside, the tool's name top-left, Before/After pills at the bottom corners, handle mid-height. It
   replaced the hold-to-enhance tiles (Topaz's press-and-hold interaction, with a big centred press

@@ -1,0 +1,154 @@
+"use client";
+
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+
+/* The before/after slider for a pair of clips: two muted loops kept in step
+   (the before is re-synced to the after whenever it drifts), the before
+   clipped to the left of the handle. Same handle, keys and idle sweep as
+   HeroCompare. Both clips must share a size; the frame takes their ratio. */
+export function VideoCompare({ before, after, poster, ratio, label, initial = 50, handleY = 50, demo = true }: { before: string; after: string; poster?: string; ratio: number; label?: string; initial?: number; handleY?: number; demo?: boolean }) {
+  const [pos, setPos] = useState(initial);
+  const [gliding, setGliding] = useState(false);
+  const frame = useRef<HTMLDivElement>(null);
+  const a = useRef<HTMLVideoElement>(null);
+  const b = useRef<HTMLVideoElement>(null);
+  const dragging = useRef(false);
+  const touched = useRef(false);
+  const timers = useRef<number[]>([]);
+
+  // Keep the two clips together: play both when the after can play, nudge the before if it drifts.
+  useEffect(() => {
+    const A = a.current, B = b.current;
+    if (!A || !B) return;
+    const sync = () => {
+      if (Math.abs(A.currentTime - B.currentTime) > 0.08) B.currentTime = A.currentTime;
+    };
+    const play = () => {
+      A.play().catch(() => {});
+      B.play().catch(() => {});
+    };
+    A.addEventListener("timeupdate", sync);
+    A.addEventListener("canplay", play);
+    B.addEventListener("canplay", play);
+    return () => {
+      A.removeEventListener("timeupdate", sync);
+      A.removeEventListener("canplay", play);
+      B.removeEventListener("canplay", play);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!demo) return;
+    const el = frame.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const later = (fn: () => void, ms: number) => timers.current.push(window.setTimeout(fn, ms));
+    let started = false;
+    const sweep = () => {
+      if (started || touched.current) return;
+      started = true;
+      later(() => {
+        if (touched.current) return;
+        setGliding(true);
+        setPos(0);
+        later(() => {
+          if (touched.current) return;
+          setPos(initial);
+          later(() => setGliding(false), 1300);
+        }, 2300);
+      }, 1500);
+    };
+    const inView = () => {
+      const r = el.getBoundingClientRect();
+      return Math.min(r.bottom, window.innerHeight) - Math.max(r.top, 0) >= r.height * 0.5;
+    };
+    const io = "IntersectionObserver" in window ? new IntersectionObserver((es) => es.some((e) => e.isIntersecting) && (io?.disconnect(), sweep()), { threshold: 0.5 }) : null;
+    io?.observe(el);
+    const poll = window.setInterval(() => {
+      if (started || touched.current) return window.clearInterval(poll);
+      if (inView()) {
+        window.clearInterval(poll);
+        io?.disconnect();
+        sweep();
+      }
+    }, 800);
+    return () => {
+      io?.disconnect();
+      window.clearInterval(poll);
+      timers.current.forEach((t) => window.clearTimeout(t));
+      timers.current = [];
+    };
+  }, [demo, initial]);
+
+  const stopDemo = () => {
+    touched.current = true;
+    timers.current.forEach((t) => window.clearTimeout(t));
+    timers.current = [];
+    setGliding(false);
+  };
+
+  const moveTo = useCallback((clientX: number) => {
+    const el = frame.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    setPos(Math.min(100, Math.max(0, ((clientX - r.left) / r.width) * 100)));
+  }, []);
+
+  const onPointerDown = (e: PointerEvent<HTMLButtonElement>) => {
+    stopDemo();
+    dragging.current = true;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    moveTo(e.clientX);
+  };
+  const onPointerMove = (e: PointerEvent<HTMLButtonElement>) => dragging.current && moveTo(e.clientX);
+  const onPointerUp = (e: PointerEvent<HTMLButtonElement>) => {
+    dragging.current = false;
+    e.currentTarget.releasePointerCapture(e.pointerId);
+  };
+  const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    stopDemo();
+    const step = e.shiftKey ? 10 : 2;
+    if (e.key === "ArrowLeft" || e.key === "ArrowDown") setPos((p) => Math.max(0, p - step));
+    else if (e.key === "ArrowRight" || e.key === "ArrowUp") setPos((p) => Math.min(100, p + step));
+    else if (e.key === "Home") setPos(0);
+    else if (e.key === "End") setPos(100);
+    else return;
+    e.preventDefault();
+  };
+
+  const glide = gliding ? "transition-[clip-path,left] duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)]" : "";
+
+  return (
+    <div ref={frame} className="relative isolate overflow-hidden rounded-2xl bg-fill-1 select-none" style={{ aspectRatio: ratio }}>
+      <video ref={a} src={after} poster={poster} autoPlay loop muted playsInline preload="metadata" aria-hidden="true" className="absolute inset-0 size-full object-cover" />
+      <video ref={b} src={before} poster={poster} autoPlay loop muted playsInline preload="metadata" aria-hidden="true" className={`absolute inset-0 size-full object-cover ${glide}`} style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+      <span aria-hidden className={`pointer-events-none absolute inset-y-0 w-[3px] -translate-x-1/2 bg-white ${glide}`} style={{ left: `${pos}%` }} />
+      {label && (
+        <>
+          <span className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/45 to-transparent" />
+          <span className="pointer-events-none absolute left-5 top-4 font-display text-[20px] font-medium leading-none tracking-[-0.02em] text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.4)] sm:text-[24px]">{label}</span>
+        </>
+      )}
+      <span className="pointer-events-none absolute bottom-4 left-4 rounded-pill bg-black/45 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-white backdrop-blur-md">Before</span>
+      <span className="pointer-events-none absolute bottom-4 right-4 rounded-pill bg-white/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-ink">After</span>
+      <button
+        type="button"
+        role="slider"
+        aria-label={`Compare ${label ?? "video"} before and after upscaling`}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(pos)}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        onKeyDown={onKeyDown}
+        className={`absolute z-30 grid size-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize touch-none place-items-center rounded-full bg-white text-ink shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60 active:scale-95 sm:size-12 ${gliding ? "transition-[left,transform] duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)]" : "transition-transform duration-150"}`}
+        style={{ left: `${pos}%`, top: `${handleY}%` }}
+      >
+        <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="m9 8-4 4 4 4m6-8 4 4-4 4" />
+        </svg>
+      </button>
+    </div>
+  );
+}

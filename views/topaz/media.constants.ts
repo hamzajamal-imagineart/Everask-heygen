@@ -25,6 +25,14 @@ export const TOPAZ_MEDIA = {
     color: { before: "/assets/topaz/hero-color-before.jpg", after: "/assets/topaz/hero-color-after.jpg" },
     upscale: { before: "/assets/topaz/hero-upscale-before.jpg", after: "/assets/topaz/hero-upscale-after.jpg" },
   },
+  /* Topaz's video-upscale page clips (downloads.topazlabs.com/web-assets/video-upscale-*-opt.mp4), each
+     pair at one size, 30 fps, no audio: record and drone are portrait 960×1200, sheep and skater 1280×720. */
+  tzVideo: {
+    record: { before: "/assets/topaz/tz-v-record-before.mp4", after: "/assets/topaz/tz-v-record-after.mp4", poster: "/assets/topaz/tz-v-record-poster.jpg", ratio: 1920 / 2400 },
+    drone: { before: "/assets/topaz/tz-v-drone-before.mp4", after: "/assets/topaz/tz-v-drone-after.mp4", poster: "/assets/topaz/tz-v-drone-poster.jpg", ratio: 1920 / 2400 },
+    sheep: { before: "/assets/topaz/tz-v-sheep-before.mp4", after: "/assets/topaz/tz-v-sheep-after.mp4", poster: "/assets/topaz/tz-v-sheep-poster.jpg", ratio: 16 / 9 },
+    skater: { before: "/assets/topaz/tz-v-skater-before.mp4", after: "/assets/topaz/tz-v-skater-after.mp4", poster: "/assets/topaz/tz-v-skater-poster.jpg", ratio: 16 / 9 },
+  },
   usecaseWildlife: "/assets/topaz/usecase-wildlife.jpg",
   usecaseSports: "/assets/topaz/usecase-sports.jpg",
   usecaseEvents: "/assets/topaz/usecase-events.jpg",

@@ -1,6 +1,7 @@
 import type { FaqItem } from "@/views/mag/Faq/Faq.types";
 
-/* Answers from topazlabs.com/topaz-photo, credited to Topaz; the first and third are ours.
+/* Answers from topazlabs.com/topaz-photo and /tools/video-upscale, credited to Topaz; the first, third
+   and the "video as well as images" one are ours.
    Pricing, seats, system requirements and returns are Topaz-desktop questions and are left out. */
 export const FAQ_ITEMS: FaqItem[] = [
   {
@@ -22,6 +23,18 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What does the Wonder model do?",
     answer: "It upscales, sharpens and denoises in one click, with no settings to tune, and recovers previously unrecoverable images. It is made for photos with extremely low resolution.",
+  },
+  {
+    question: "Can I upscale video as well as images?",
+    answer: "Yes. Topaz's video upscaler enhances footage to 1080p or 4K, recreating fine detail and sharpening motion rather than stretching the frame, with AI presets for Film & TV, Sports, Gaming, Old Video, Art & CG and Standard, and optional frame interpolation.",
+  },
+  {
+    question: "Can I upscale videos without losing quality?",
+    answer: "Yes. Topaz's AI is designed to eliminate typical upscaling issues like blurriness, pixelation, and jitter. It creates natural, sharp visuals even when upscaling to 4K.",
+  },
+  {
+    question: "What types of videos work best for upscaling?",
+    answer: "AI upscaling works great on most video formats, especially footage that needs to be converted to HD or 4K. Videos with heavy compression or extremely low resolution may not recover every detail but will still see noticeable improvements.",
   },
   {
     question: "What does Standard MAX do?",

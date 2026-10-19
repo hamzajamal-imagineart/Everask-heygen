@@ -1,8 +1,8 @@
 import { EVERASK_BRAND } from "@/views/mag/Lockup/Lockup.constants";
 
-const TITLE = "Topaz Photo inside EverAsk: fix blur, noise and low resolution in one click";
+const TITLE = "Topaz inside EverAsk: image and video upscaling, fix blur, noise and low resolution";
 const DESCRIPTION =
-  "Use Topaz Photo's AI tools inside EverAsk: denoise, sharpen, recover faces, adjust lighting, balance color and upscale, with the Wonder and Standard MAX models.";
+  "Use Topaz's AI tools inside EverAsk: denoise, sharpen, recover faces, adjust lighting, balance color and upscale images with the Wonder and Standard MAX models, and upscale video to 1080p or 4K.";
 
 export const topazConfig = {
   seo: { title: TITLE, description: DESCRIPTION },

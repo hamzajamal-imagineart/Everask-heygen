@@ -10,6 +10,7 @@ import { Hero } from "./Hero";
 import { Meet } from "./Meet";
 import { Toolbox } from "./Toolbox";
 import { Trusted } from "./Trusted";
+import { VideoUpscale } from "./VideoUpscale";
 import { Years } from "./Years";
 
 /* The section order of topazlabs.com/topaz-photo (Hamza: "I want the layout
@@ -24,6 +25,7 @@ export default function TopazView() {
         <Trusted />
         <Toolbox />
         <Meet />
+        <VideoUpscale />
         <Years />
         <CtaBand />
         <Features />
