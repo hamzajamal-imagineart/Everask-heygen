@@ -363,12 +363,17 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
 `7bc538b`.
 
 - **Section order** (`views/topaz/index.tsx`), each mirroring Topaz's: Breadcrumbs (Features › Upscaling
-  models › Topaz) → **Hero** (two columns on white: eyebrow labels, lockup pill "Topaz Photo, now inside
-  EverAsk", Topaz's h1 "Fix blur, noise and low resolution in one click.", our line, "Start enhancing" +
-  "See every tool"; right, a tall 3:4 draggable before/after, their "tap and hold") → **Trusted** ("Over 2 billion images processed." on the left, moved here when Hamza removed the review
+  models › Topaz) → **Hero** (full width, Hamza 19 Oct, after a two-column version: eyebrow labels, lockup pill "Topaz
+  Photo, now inside EverAsk", Topaz's h1 "Fix blur, noise and low resolution in one click." on the left,
+  our line + "Start enhancing" / "See every tool" on the right; then Topaz's parrot clarity pair edge to
+  edge in the rounded frame with **EnhanceLoupe** (`Hero/EnhanceLoupe.tsx`, client): Topaz's
+  "before-after-enhance-box" rebuilt, the soft before fills the frame and a square window (42% of the
+  width, max 480px) follows the pointer showing the after at 1.5×; on touch it shows while pressed, "Tap
+  and hold"; frame at the pair's own 1844:1312) → **Trusted** ("Over 2 billion images processed." on the left, moved here when Hamza removed the review
   cards; their "Trusted by major companies" names as type on the right: Google, Coca-Cola, Target, NVIDIA,
   Tesla, Quora; no marks)
-  → **Toolbox** (`"use client"`: six tool chips, "Crystal clear. Highly detailed. Super focused." + their
+  → **Toolbox** (`"use client"`: six tool chips with line icons (`Toolbox/ToolIcon.tsx`, azure on the
+  idle chips, white on the active one; Hamza wanted them to read as controls), "Crystal clear. Highly detailed. Super focused." + their
   intro, then the picked tool's 16:9 before/after slider where their app window sits) →
   **Showcase** (their "Every pixel. Perfect." set over a contained 16:9 before/after, Before/After pills) →
   **Meet** (dark `#0d1117`: "Meet Topaz Photo" lockup, "Each tool gets it closer to perfect." + paragraph,
@@ -386,8 +391,8 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   and hold (pointer) or hold Space/Enter and the after fades in; label top-left, "Hold to enhance" eye
   badge bottom-left, a Before/After pill top-right. Frame at the picture's own ratio.
 - **Topaz's own images** (Hamza: "use topaz images too"): `tz-*.jpg`, resized from topazlabs.com's
-  demo files, each before/after pair at one size (ratios in `TOPAZ_MEDIA.tz`): the hero parrot (3590:2394,
-  in the tall hero frame as Topaz crops it), the mountain pair under "Every pixel. Perfect.", and in Meet
+  demo files, each before/after pair at one size (ratios in `TOPAZ_MEDIA.tz`): the hero parrot clarity pair (1844:1312, `tz-clarity-*`, 2400 wide) under the loupe (the earlier
+  3590:2394 parrot pair was dropped with the two-column hero), the mountain pair under "Every pixel. Perfect.", and in Meet
   the wren (Denoise), highland cow (Sharpen, 1:1), face (Recover Faces, 1100:1284), lighting (5294:2264)
   and remove (2670:2412) tiles; the Latest-features cards show their Wonder (skaters), Healing Brush
   (hand and mic) and Standard MAX (crowned portrait) shots at 3:2. Licence: Topaz's marketing images.

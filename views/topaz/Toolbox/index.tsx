@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { HeroCompare } from "@/views/mag/Hero/HeroCompare";
 import { HERO_TOOLS } from "../Hero/Hero.constants";
+import { ToolIcon } from "./ToolIcon";
 
 /* Topaz's tool row and "Crystal clear. Highly detailed. Super focused." block:
-   six chips centred, the heading and intro under them, then the big visual
+   six chips centred, each with a line icon (ToolIcon.tsx; Hamza: "these are not
+   tabs, these are just text blocks, maybe you can create icons"), the heading and intro under them, then the big visual
    (theirs is the app window; ours is the picked tool's before/after as a
    draggable slider, in the still's own 16:9). */
 export function Toolbox() {
@@ -22,10 +24,11 @@ export function Toolbox() {
                 role="tab"
                 aria-selected={t.id === active}
                 onClick={() => setActive(t.id)}
-                className={`inline-flex h-9 items-center whitespace-nowrap rounded-pill px-4 text-[14px] font-medium transition-colors ${
+                className={`inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-pill pl-3 pr-4 text-[14px] font-medium transition-colors ${
                   t.id === active ? "bg-ink text-white" : "bg-fill-1 text-ink hover:bg-[#ececee]"
                 }`}
               >
+                <ToolIcon id={t.id} className={`size-4 ${t.id === active ? "text-white" : "text-action"}`} />
                 {t.label}
               </button>
             </li>

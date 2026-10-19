@@ -6,7 +6,7 @@ export const TOPAZ_MEDIA = {
   /* Topaz's own demo pairs and feature shots from topazlabs.com/topaz-photo (Hamza: "use topaz images
      too"), resized; each pair at one size so the sliders line up. `ratio` is width/height. */
   tz: {
-    parrot: { before: "/assets/topaz/tz-parrot-before.jpg", after: "/assets/topaz/tz-parrot-after.jpg", ratio: 3590 / 2394 },
+    clarity: { before: "/assets/topaz/tz-clarity-before.jpg", after: "/assets/topaz/tz-clarity-after.jpg", ratio: 1844 / 1312 },
     wren: { before: "/assets/topaz/tz-wren-before.jpg", after: "/assets/topaz/tz-wren-after.jpg", ratio: 3024 / 2288 },
     mountain: { before: "/assets/topaz/tz-mountain-before.jpg", after: "/assets/topaz/tz-mountain-after.jpg", ratio: 16 / 9 },
     cow: { before: "/assets/topaz/tz-cow-before.jpg", after: "/assets/topaz/tz-cow-after.jpg", ratio: 1 },
