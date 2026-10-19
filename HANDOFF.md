@@ -237,17 +237,18 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   Remove background, Reframe, Relight, copy verbatim from Magnific (it still says "your timeline" / "your
   editor", the plugins framing). **The five clips are hotlinked from media.magnific.com
   (`destacado_1-5.webm`)**; copy them into `public/assets/mag` (and compress) before production.
-- **Hero background video** (19 Oct, Hamza shared a clip): a boy leaping across cloud puffs over a mirror
-  sea, 1280×720, 8 s, 24 fps. Hamza then asked for a bluer, EverAsk-leaning look and the copy centred. A CSS
-  `mix-blend-color` azure wash "looked super bad", so the grade is baked into the file with `ffmpeg-static`
-  instead: `eq=saturation=1.18:contrast=1.04` + `colorbalance` toward blue (rs=-0.10 gs=-0.03 bs=0.14
-  rm=-0.06 gm=-0.01 bm=0.10 rh=-0.04 bh=0.04), then `-an -c:v libx264 -crf 26 -preset slow`. Files:
-  `hero-loop-blue.mp4` (~1.1 MB) and its first frame `hero-loop-blue-poster.jpg` (173 KB); the ungraded
-  `hero-loop*` files were replaced (new filenames per the cache rule). `<video>` is a muted autoplay loop,
-  `object-cover object-bottom`. The copy (badge, headline, subhead, white button) is now vertically centred
-  in the frame (`justify-center`), so the boy sits behind it on most viewports. `HERO_TONE` is the graded
-  sky top `#559cd0` (sampled with sharp). The final CTA band closes on the same poster frame. The original
-  mp4 is in Hamza's Downloads; `hero-dusk-wide.jpg` is in commit `e9ed4f2`.
+- **Hero background video** (19 Oct, Hamza): first his wide clip (boy leaping across cloud puffs over a
+  mirror sea, 1280×720), then his portrait clip `01a152f2-e26e-7451-bfbc-bf47071c2301.mp4` (boy hopping
+  across cloud puffs over a mirror lake under a towering cumulus, 1284×1612, 7 s, 24 fps, 18.8 MB), which
+  is what the page uses now. A CSS `mix-blend-color` azure wash "looked super bad", so the cooler grade is
+  baked in with `ffmpeg-static`: `eq=saturation=1.18:contrast=1.04` + `colorbalance` toward blue (rs=-0.10
+  gs=-0.03 bs=0.14 rm=-0.06 gm=-0.01 bm=0.10 rh=-0.04 bh=0.04), `scale=1280:-2`, `-an -c:v libx264 -crf 24
+  -preset slow`. Files: `hero-leap.mp4` (2.3 MB, 1280×1606) and its first frame `hero-leap-poster.jpg`
+  (154 KB). The clip is portrait, so `object-cover object-[50%_45%]` crops it to the wide frame with the
+  boy kept mid-frame (the same crop the final CTA band uses on the poster). The copy (headline marks,
+  subhead, white button) is vertically centred in the frame. `HERO_TONE` is the graded sky top `#7dacc4`.
+  Replaced files, all in git history: `hero-loop-blue*` (the wide clip, commit `41c58c8`), `hero-loop*`
+  (`6e28df2`), `hero-dusk-wide.jpg` (`e9ed4f2`); the orphan `hero-bg.jpg` was deleted too.
 - **Recreation attempts, not used** (19 Oct): Hamza asked for the clip recreated with a bluer sky, then
   gloomier, then "like these clouds" (EverAsk's above-the-clouds hero). Stills made with GPT Image 2 /
   2.5 Flare and two Kling 2.6 Pro animations exist in the ImagineArt (Official) workspace: still

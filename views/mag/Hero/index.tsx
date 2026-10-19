@@ -8,8 +8,8 @@ import { magConfig } from "../config";
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
 
 /* EverAsk's sky hero (components/landing/Hero.tsx, SkyHero): a tall rounded
-   frame under the header and breadcrumb, Hamza's clip of a boy leaping across
-   cloud puffs over a mirror sea filling it (muted loop, first frame as poster),
+   frame under the header and breadcrumb, Hamza's portrait clip of a boy hopping across
+   cloud puffs over a mirror lake filling it (muted loop, first frame as poster, cropped to the frame by object-cover with the boy kept mid-frame),
    the copy and its white button centred in the frame, the clip graded cooler in ffmpeg. */
 export function Hero() {
   return (
@@ -29,7 +29,7 @@ export function Hero() {
               playsInline
               preload="auto"
               aria-hidden="true"
-              className="size-full object-cover object-bottom"
+              className="size-full object-cover object-[50%_45%]"
             />
           </div>
           <span aria-hidden className="grain pointer-events-none absolute inset-0 -z-10 opacity-40 mix-blend-overlay" />
