@@ -194,16 +194,17 @@ assets that already existed. Hamza: **no prompt box in the hero.**
 - Page order (`views/mag/index.tsx`): SiteHeader → Hero (with the breadcrumbs inside) → logo row → Models → Steps ("How it
   works") → UseCases (moved above the z-fold, Hamza 19 Oct) → Suite (z-fold) → Features (tiles; moved below the z-fold at Hamza's request, 19 Oct) → StartSimple → Originals → Teams → StartBuilding pill →
   Faq → FinalCta (sky band) → AppTouchpoints → SiteFooter.
-- **Header** (`SiteHeader`): back to the HeyGen treatment (Hamza, 19 Oct: the hero "should take full height
-  like heygen, that includes the navbar too"): transparent with white text over the hero, lifting into the
-  floating white panel on scroll. **Breadcrumbs** (`views/mag/Breadcrumbs/`, EverAsk's `onFilm` variant):
-  white over the video, `absolute top-[76px]` inside the hero section: Features › Upscaling models ›
-  Magnific, links absolute to everask.ai (`/features`, `/features/upscaling/models`). Hamza: Magnific sits
-  under Upscaling models. That cluster is not on everask.ai yet (checked the live site and the source), so
-  the href follows the model-cluster pattern and needs checking when it ships.
-- **Hero**: full-bleed and full viewport height including the navbar (`-mt-[76px]`, `min-h-[max(640px,
-  100svh)]`, `pt-[76px]`; no rounded frame or side gutters any more, Hamza 19 Oct), the clip + grain + top-down
-  tone gradient behind, everything centred: the headline marks, subhead, white "Start creating".
+- **Header** (`SiteHeader`): ink on white above the breadcrumb and the hero frame, lifting into the floating
+  panel on scroll (contained again, Hamza 19 Oct: "contain the hero section instead of full height like we
+  had before"; the transparent-over-full-height treatment is in `548c5d0`). **Breadcrumbs**
+  (`views/mag/Breadcrumbs/`, ported from EverAsk's `components/landing/Breadcrumbs.tsx`): on white between
+  header and hero, rendered from `index.tsx`: Features › Upscaling models › Magnific, links absolute to
+  everask.ai (`/features`, `/features/upscaling/models`). Hamza: Magnific sits under Upscaling models. That
+  cluster is not on everask.ai yet (checked the live site and the source), so the href follows the
+  model-cluster pattern and needs checking when it ships.
+- **Hero**: EverAsk's sky-frame shape again: rounded frame (`rounded-[24px] sm:rounded-[36px]`, `px-2 sm:px-3`
+  gutters) under the header and breadcrumb, `min-h-[max(640px,calc(100svh-140px))]`, the split image behind
+  a neutral dark overlay, everything centred: the headline marks, subhead, white "Start upscaling".
 - **Steps** (new, from `Steps.tsx`): three steps on one line, clay icons (editor, camera, upscale) in
   `bg-fill-1` tiles, thin arrows between. Copy is new, written from the page's own lines: "Describe or drop
   in" / "Direct the result" / "Export at full scale". **Review it.**
@@ -297,7 +298,7 @@ magnific.com/ai/image-upscaler (and, for the video half, /ai/video-upscaler). Th
 the copy and media URLs were read through the browser pane. Everything not about upscaling was removed
 ("remove the remaining things that are not relevant"; he confirmed removing the Start simple bento).
 
-- **Page order** (`views/mag/index.tsx`): SiteHeader → Hero (breadcrumbs inside) → logo row → UseCases
+- **Page order** (`views/mag/index.tsx`): SiteHeader → Breadcrumbs → Hero → logo row → UseCases
   (now the "Enhance detail, preserve intent" advantages) → Suite (now the upscalers z-fold) → Features
   (upscaler numbers) → StartBuilding → Faq → FinalCta → AppTouchpoints → SiteFooter.
 - **Removed** with their folders and assets: Models marquee (`model-*.svg`), StartSimple (`start-*`),
