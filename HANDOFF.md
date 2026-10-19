@@ -138,3 +138,4 @@ Each page has its own root layout through route groups, so their global CSS neve
   EverAsk, and a "Meet EverAsk →" link. The answers still make Magnific's claims (Freepik rename,
   250M+ stock assets, 40+ models, upscaler at everask.ai) and need a real EverAsk review. The original's
   "Contact support" button is left out (EverAsk-only CTAs).
+- **/magnific Suite tabs** (19 Oct): Desktop and Stock removed; tabs are Creative Suite, MCP & API, Agents, Plugins.

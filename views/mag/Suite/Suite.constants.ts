@@ -3,11 +3,9 @@ import type { SuiteMedium, SuiteTab } from "./Suite.types";
 
 export const SUITE_TABS: SuiteTab[] = [
   { label: "Creative Suite" },
-  { label: "Desktop", isNew: true },
   { label: "MCP & API", isNew: true },
   { label: "Agents", isNew: true },
   { label: "Plugins", isNew: true },
-  { label: "Stock" },
 ];
 
 export const SUITE_MEDIA: SuiteMedium[] = [
