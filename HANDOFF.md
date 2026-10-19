@@ -363,13 +363,16 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
 `7bc538b`.
 
 - **Section order** (`views/topaz/index.tsx`), each mirroring Topaz's: Breadcrumbs (Features › Upscaling
-  models › Topaz) → **Hero** (full width, Hamza 19 Oct, after a two-column version: eyebrow labels, lockup pill "Topaz
-  Photo, now inside EverAsk", Topaz's h1 "Fix blur, noise and low resolution in one click." on the left,
-  our line + "Start enhancing" / "See every tool" on the right; then Topaz's parrot clarity pair edge to
-  edge in the rounded frame with **EnhanceLoupe** (`Hero/EnhanceLoupe.tsx`, client): Topaz's
-  "before-after-enhance-box" rebuilt, the soft before fills the frame and a square window (42% of the
-  width, max 480px) follows the pointer showing the after at 1.5×; on touch it shows while pressed, "Tap
-  and hold"; frame at the pair's own 1844:1312) → **Trusted** ("Over 2 billion images processed." on the left, moved here when Hamza removed the review
+  models › Topaz) → **Hero** (the Magnific hero's layout, Hamza 19 Oct, after a two-column and then a full-width version:
+  the rounded frame `min-h-[max(640px,calc(100svh-140px))]`, Topaz's parrot clarity pair filling it with
+  **EnhanceLoupe** (`Hero/EnhanceLoupe.tsx`, client, `fill` mode) live underneath: Topaz's
+  "before-after-enhance-box" rebuilt, the soft before covers the frame and a square window (42% of the
+  width, max 480px) follows the pointer showing the after at 1.5× (both layers object-cover at the same
+  size, so they stay aligned); on touch it shows while pressed, "Tap and hold". The copy is centred over a
+  neutral dark overlay: Topaz wordmark + "inside *EverAsk*" on one line, Topaz's "Fix blur, noise and low
+  resolution in one click." + our line as the subhead, white "Start enhancing"; the copy block passes
+  pointer events through to the loupe except on the button. The image is cropped by the frame here, as on
+  /magnific) → **Trusted** ("Over 2 billion images processed." on the left, moved here when Hamza removed the review
   cards; their "Trusted by major companies" names as type on the right: Google, Coca-Cola, Target, NVIDIA,
   Tesla, Quora; no marks)
   → **Toolbox** (`"use client"`: six tool chips with line icons (`Toolbox/ToolIcon.tsx`, azure on the

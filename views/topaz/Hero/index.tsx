@@ -1,50 +1,54 @@
+import type { CSSProperties } from "react";
+import { EVERASK_BRAND } from "@/views/mag/Lockup/Lockup.constants";
 import { topazConfig } from "../config";
 import { TOPAZ_MEDIA } from "../media.constants";
 import { EnhanceLoupe } from "./EnhanceLoupe";
-import { HERO_EYEBROW, HERO_HEADLINE, HERO_SUBHEAD } from "./Hero.constants";
+import { HERO_HEADLINE, HERO_SUBHEAD } from "./Hero.constants";
 import { TopazWordmark } from "./TopazWordmark";
 
-/* Topaz's hero as a full-width block (Hamza, 19 Oct: "use this as a full
-   width hero section"): the eyebrow labels, lockup pill, their h1, our line
-   and the CTAs on white, then their parrot pair edge to edge in EverAsk's
-   rounded frame with the enhance loupe (EnhanceLoupe.tsx) over it. */
+const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
+
+/* The Magnific hero's layout (Hamza, 19 Oct: "make the hero layout similar
+   to magnific hero"): a tall rounded frame under the header and breadcrumb,
+   Topaz's parrot pair filling it with the enhance loupe live underneath, the
+   copy centred over a neutral dark overlay: the Topaz wordmark + "inside
+   EverAsk", their line, a white button. The copy block lets pointer events
+   through so the loupe follows the pointer everywhere but on the button. */
 export function Hero() {
   return (
-    <section id="top" className="pt-4 pb-6 lg:pt-8">
-      <div className="container-page">
-        <ul className="flex flex-wrap gap-x-6 gap-y-1 text-[11px] font-medium uppercase tracking-[0.08em] text-black/50">
-          {HERO_EYEBROW.map((e) => (
-            <li key={e}>{e}</li>
-          ))}
-        </ul>
-        <div className="mt-8 grid items-end gap-8 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-8">
-            <span className="inline-flex items-center gap-3 rounded-pill bg-fill-1 py-1.5 pl-1.5 pr-4 text-[14px] font-medium text-ink">
-              <span className="grid size-8 place-items-center rounded-full bg-ink text-white">
-                <TopazWordmark className="h-3 w-auto" />
+    <>
+      <section id="top" className="px-2 sm:px-3">
+        <div className="relative isolate flex min-h-[max(640px,calc(100svh-140px))] flex-col overflow-hidden rounded-[24px] bg-[#2f4a6b] sm:rounded-[36px]">
+          <EnhanceLoupe fill before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} />
+          <span aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-black/35" />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-10"
+            style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.22) 35%, rgba(0,0,0,0.22) 65%, rgba(0,0,0,0) 100%)" }}
+          />
+          <div className="pointer-events-none container-page flex flex-1 flex-col items-center justify-center py-[clamp(48px,6vw,88px)] text-center">
+            <h1
+              {...rise(80)}
+              className="flex max-w-full flex-nowrap items-center justify-center gap-x-[0.3em] whitespace-nowrap font-display font-medium leading-none tracking-[-0.03em] text-white [text-shadow:0_2px_24px_rgba(0,30,80,0.55)]"
+              style={{ fontSize: "clamp(22px, 3.9vw, 58px)" }}
+            >
+              <TopazWordmark className="h-[0.92em] w-auto shrink-0 drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]" />
+              <span>
+                {HERO_HEADLINE} <span className="font-serif text-[1.08em] font-normal italic tracking-[-0.01em]">{EVERASK_BRAND.name}</span>
               </span>
-              Topaz Photo, now inside EverAsk
-            </span>
-            <h1 className="mt-6 max-w-[760px] font-display font-medium leading-[1.04] tracking-[-0.035em] text-balance text-ink" style={{ fontSize: "clamp(36px, 4.6vw, 64px)" }}>
-              {HERO_HEADLINE}
             </h1>
-          </div>
-          <div className="lg:col-span-4 lg:pb-2">
-            <p className="max-w-[420px] text-[17px] leading-relaxed text-black/55">{HERO_SUBHEAD}</p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a href={topazConfig.links.start} className="btn-primary">
+            <p {...rise(160)}>
+              <span className="mx-auto mt-5 block max-w-2xl text-[17px] leading-relaxed text-white [text-shadow:0_1px_16px_rgba(0,30,80,0.6)]">{HERO_SUBHEAD}</span>
+            </p>
+            <div {...rise(240)} className="pointer-events-auto mt-8">
+              <a href={topazConfig.links.start} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
                 Start enhancing
-              </a>
-              <a href="#showcase" className="btn-secondary">
-                See every tool
               </a>
             </div>
           </div>
         </div>
-      </div>
-      <div className="mt-10 px-2 sm:px-3">
-        <EnhanceLoupe before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} ratio={TOPAZ_MEDIA.tz.clarity.ratio} />
-      </div>
-    </section>
+      </section>
+      <div className="hero-end" />
+    </>
   );
 }

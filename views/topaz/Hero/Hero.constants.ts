@@ -1,9 +1,10 @@
 import { TOPAZ_MEDIA } from "../media.constants";
 
 /* Topaz's own hero line; the eyebrow labels are facts from the page and ours about EverAsk. */
-export const HERO_HEADLINE = "Fix blur, noise and low resolution in one click.";
-export const HERO_EYEBROW = ["Now inside EverAsk", "11 AI tools", "Trained on millions of images"];
-export const HERO_SUBHEAD = "Topaz Photo's enhancement tools, from denoise to upscale, through the Topaz API in your EverAsk workspace.";
+/** The word between the Topaz wordmark and "EverAsk" in the headline. */
+export const HERO_HEADLINE = "inside";
+/* Topaz's own hero line first, then ours. */
+export const HERO_SUBHEAD = "Fix blur, noise and low resolution in one click. Topaz Photo's enhancement tools, from denoise to upscale, through the Topaz API in your EverAsk workspace.";
 
 /* The six tools Topaz's own page tabs through, each with its one-line description from the
    feature list (verbatim, trimmed to one sentence) and its own before/after pair. */

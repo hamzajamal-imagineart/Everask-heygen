@@ -7,7 +7,9 @@ import { useCallback, useRef, useState, type PointerEvent } from "react";
    at 1.5× so the gain in detail is obvious. With a mouse the window follows
    the hover; on touch it shows while you press ("Tap and hold"). The frame
    keeps the pair's own ratio, nothing is cropped. */
-export function EnhanceLoupe({ before, after, ratio, scale = 1.5 }: { before: string; after: string; ratio: number; scale?: number }) {
+/* `fill`: cover a parent frame (absolute inset-0) instead of keeping the pair's ratio; both layers are
+   object-cover at the same size, so the loupe stays aligned. */
+export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false }: { before: string; after: string; ratio?: number; scale?: number; fill?: boolean }) {
   const frame = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
   const [pressed, setPressed] = useState(false);
@@ -30,8 +32,8 @@ export function EnhanceLoupe({ before, after, ratio, scale = 1.5 }: { before: st
   return (
     <div
       ref={frame}
-      className="relative isolate w-full touch-none select-none overflow-hidden rounded-[24px] bg-fill-1 sm:rounded-[36px]"
-      style={{ aspectRatio: ratio, cursor: "none" }}
+      className={`touch-none select-none overflow-hidden ${fill ? "absolute inset-0 -z-10" : "relative isolate w-full rounded-[24px] bg-fill-1 sm:rounded-[36px]"}`}
+      style={{ aspectRatio: fill ? undefined : ratio, cursor: "none" }}
       onPointerMove={(e) => {
         setTouch(e.pointerType === "touch");
         track(e);
@@ -62,7 +64,7 @@ export function EnhanceLoupe({ before, after, ratio, scale = 1.5 }: { before: st
             src={after}
             alt=""
             draggable={false}
-            className="absolute max-w-none"
+            className="absolute max-w-none object-cover"
             style={{ width: W * scale, height: H * scale, left: -(p.x * scale) + s / 2, top: -(p.y * scale) + s / 2 }}
           />
           <span className="absolute left-3 top-3 rounded-pill bg-white px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-ink">After · {scale}×</span>
