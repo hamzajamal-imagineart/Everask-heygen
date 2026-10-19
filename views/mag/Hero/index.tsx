@@ -11,7 +11,7 @@ export function Hero() {
     <>
       <section id="top" className="-mt-[76px] px-2 pt-2 sm:px-3">
         <div
-          className="relative isolate flex min-h-[max(676px,calc(100svh-64px))] flex-col overflow-hidden rounded-[24px] pt-[68px] sm:rounded-[36px]"
+          className="relative isolate flex min-h-[75vh] flex-col overflow-hidden rounded-[24px] pt-[68px] sm:rounded-[36px]"
           style={{ backgroundColor: HERO_TONE }}
         >
           <span aria-hidden className="grain pointer-events-none absolute inset-0 -z-20 opacity-40 mix-blend-overlay" />
@@ -28,7 +28,7 @@ export function Hero() {
             className="pointer-events-none absolute inset-0 -z-10"
             style={{ backgroundImage: `linear-gradient(to right, ${HERO_TONE}d9 0%, ${HERO_TONE}8c 38%, ${HERO_TONE}1a 68%, transparent 100%)` }}
           />
-          <div className="container-page flex flex-1 items-center justify-between gap-10 py-[clamp(48px,7vw,96px)] text-white">
+          <div className="container-page flex flex-1 items-center justify-between gap-10 py-[clamp(32px,4vw,56px)] text-white">
             <div className="max-w-[640px] [text-shadow:0_2px_30px_rgba(0,40,110,0.25)]">
               <p {...rise(HERO_RISE_DELAYS.badge)}>
                 <span className="glass inline-flex h-8 items-center rounded-pill px-3.5 text-[13px] font-medium">Ranked #1 AI creative platform</span>

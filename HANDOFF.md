@@ -100,7 +100,8 @@ Each page has its own root layout through route groups, so their global CSS neve
 - `next build` passes with both routes as static pages (checked in a scratch copy so the dev server
   on 3400 kept its `.next`).
 - **/magnific hero** (19 Oct, from a Magnific reference Hamza shared): left column with the "Ranked #1"
-  badge, left-aligned headline (`clamp(40px,4.4vw,64px)`), subhead and a white "Start creating"; right
+  badge, left-aligned headline (`clamp(40px,4.4vw,64px)`), subhead and a white "Start creating" in a
+  frame of `min-h-[75vh]` (Hamza, 19 Oct; it grows on small phones to fit the copy); right
   column `Hero/HeroTicker`, the seven Figma capability lines cycling upward every 2.2 s as an endless
   strip (lines fade in below, out above; active line full white beside a vermilion arrow). Hidden below
   `lg`; reduced motion freezes it on "Stay on brand". The centred glow and starter chips are gone; a
