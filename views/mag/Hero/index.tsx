@@ -19,7 +19,7 @@ function Accented({ text }: { text: string }) {
 /* EverAsk's sky hero (components/landing/Hero.tsx, SkyHero): a tall rounded
    frame under the header and breadcrumb, Hamza's clip of a boy leaping across
    cloud puffs over a mirror sea filling it (muted loop, first frame as poster),
-   the copy and its white button centred in the sky above him. */
+   the copy and its white button centred in the frame, the clip graded cooler in ffmpeg. */
 export function Hero() {
   return (
     <>
@@ -47,7 +47,7 @@ export function Hero() {
             className="pointer-events-none absolute inset-0 -z-10"
             style={{ backgroundImage: `linear-gradient(to bottom, ${HERO_TONE}d9 0%, ${HERO_TONE}80 28%, transparent 55%)` }}
           />
-          <div className="container-page flex flex-1 flex-col items-center pt-[clamp(48px,6vw,88px)] pb-[clamp(200px,24vw,340px)] text-center">
+          <div className="container-page flex flex-1 flex-col items-center justify-center py-[clamp(48px,6vw,88px)] text-center">
             <p {...rise(HERO_RISE_DELAYS.badge)}>
               <span className="glass inline-flex h-8 items-center rounded-pill px-3.5 text-[13px] font-medium">Magnific, now inside EverAsk</span>
             </p>
@@ -67,7 +67,7 @@ export function Hero() {
       </section>
       <div className="hero-end" />
       <div className="container-page flex flex-col items-center gap-5 pt-10 pb-4">
-        <p className="text-center text-sm text-[#131318]/70">Magnific is trusted by 1M+ subscribers—creatives, enterprises, agencies and studios</p>
+        <p className="text-center text-sm text-[#131318]/70">Magnific is trusted by 1M+ subscribers: creatives, enterprises, agencies and studios</p>
         <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {HERO_LOGOS.map((logo) => (
             <li key={logo.alt} className={logo.muted ? "opacity-40" : "opacity-70"}>

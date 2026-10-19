@@ -1,7 +1,8 @@
 import { MAG_MEDIA } from "../media.constants";
 
 /** Top-of-sky colour of the hero clip (sampled from its first frame); fills the frame before the video loads and on phones. */
-export const HERO_TONE = "#699bc5";
+export const HERO_TONE = "#559cd0";
+
 
 export const HERO_HEADLINE = "The creative platform to direct your best work";
 

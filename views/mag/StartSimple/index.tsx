@@ -21,7 +21,7 @@ export function StartSimple() {
             <header className="flex flex-col gap-4 p-8 lg:p-10">
               <h3 className="text-2xl leading-[1.5] font-medium text-[#292928]">Every tool, ready to go</h3>
               <p className="max-w-[323px] text-base leading-[1.6]">
-                Every tool, ready to go. Image, video, audio, 3D—thirty tools, no setup. Open what you need, make what you want.
+                Every tool, ready to go. Image, video, audio, 3D. Thirty tools, no setup. Open what you need, make what you want.
               </p>
             </header>
             <div className="flex flex-1 items-end pl-5">

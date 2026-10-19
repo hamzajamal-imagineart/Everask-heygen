@@ -237,12 +237,25 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   Remove background, Reframe, Relight, copy verbatim from Magnific (it still says "your timeline" / "your
   editor", the plugins framing). **The five clips are hotlinked from media.magnific.com
   (`destacado_1-5.webm`)**; copy them into `public/assets/mag` (and compress) before production.
-- **Hero background video** (19 Oct, Hamza shared a clip): `hero-loop.mp4`, a boy leaping across cloud puffs
-  over a mirror sea under a bright azure sky, 1280×720, 8 s, 24 fps. Compressed from his 9.4 MB mp4 to
-  ~1.07 MB with `ffmpeg-static` (installed in the session scratchpad again: `-an -c:v libx264 -crf 26 -preset
-  slow -pix_fmt yuv420p -movflags +faststart`); its first frame is the poster `hero-loop-poster.jpg` (117 KB).
-  The `<video>` is a muted autoplay loop, `object-cover object-bottom`, poster shown until it plays.
-  `HERO_TONE` is now the clip's sky top `#699bc5` (sampled with sharp), so the page is back on an azure
-  palette. The final CTA band closes on the same frame (`hero-loop-poster.jpg` at 50% 70%), as EverAsk's
-  pages do. `hero-dusk-wide.jpg` deleted (still in commit `e9ed4f2`). Note the boy sits mid-frame; on wide
-  screens the copy ends above him, on short viewports the button may overlap him.
+- **Hero background video** (19 Oct, Hamza shared a clip): a boy leaping across cloud puffs over a mirror
+  sea, 1280×720, 8 s, 24 fps. Hamza then asked for a bluer, EverAsk-leaning look and the copy centred. A CSS
+  `mix-blend-color` azure wash "looked super bad", so the grade is baked into the file with `ffmpeg-static`
+  instead: `eq=saturation=1.18:contrast=1.04` + `colorbalance` toward blue (rs=-0.10 gs=-0.03 bs=0.14
+  rm=-0.06 gm=-0.01 bm=0.10 rh=-0.04 bh=0.04), then `-an -c:v libx264 -crf 26 -preset slow`. Files:
+  `hero-loop-blue.mp4` (~1.1 MB) and its first frame `hero-loop-blue-poster.jpg` (173 KB); the ungraded
+  `hero-loop*` files were replaced (new filenames per the cache rule). `<video>` is a muted autoplay loop,
+  `object-cover object-bottom`. The copy (badge, headline, subhead, white button) is now vertically centred
+  in the frame (`justify-center`), so the boy sits behind it on most viewports. `HERO_TONE` is the graded
+  sky top `#559cd0` (sampled with sharp). The final CTA band closes on the same poster frame. The original
+  mp4 is in Hamza's Downloads; `hero-dusk-wide.jpg` is in commit `e9ed4f2`.
+- **Recreation attempts, not used** (19 Oct): Hamza asked for the clip recreated with a bluer sky, then
+  gloomier, then "like these clouds" (EverAsk's above-the-clouds hero). Stills made with GPT Image 2 /
+  2.5 Flare and two Kling 2.6 Pro animations exist in the ImagineArt (Official) workspace: still
+  `39434a24` (azure sky, lake), gloomy still `241e8d80`, cloud-sea still `5542a03c`, videos `01a1531c`
+  (lake) and `01a1531e` (cloud sea, 1920×1080, 5 s, 9.7 MB, has audio). He then chose to keep his own clip
+  with a grade instead. Local copies are in the session scratchpad only.
+- **Suite rows span the container** (19 Oct, Hamza: "not respecting the page container width"): the
+  `max-w-[1000px] mx-auto` on the suite list is gone; rows run the full `mag-container`.
+- **Em-dashes removed** (19 Oct, Hamza, both pages): the HeyGen page had none; eleven on the Magnific page
+  (FAQ, Features intro, Suite rows, Teams, logo-row line, Start simple) became colons, commas, full stops or
+  parentheses. Rule from now on: no em-dashes in copy.

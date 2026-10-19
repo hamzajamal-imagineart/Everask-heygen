@@ -7,7 +7,7 @@ const MEDIA = "https://media.magnific.com/landings/plugins";
 export const SUITE_ROWS = [
   {
     title: "Upscale",
-    body: "Push every shot to its sharpest—more detail, cleaner edges, real resolution where there was none. The same upscaler the market keeps trying to match, now one click from your timeline.",
+    body: "Push every shot to its sharpest: more detail, cleaner edges, real resolution where there was none. The same upscaler the market keeps trying to match, now one click from your timeline.",
     video: `${MEDIA}/destacado_1.webm`,
   },
   {
@@ -17,7 +17,7 @@ export const SUITE_ROWS = [
   },
   {
     title: "Remove background",
-    body: "Cut any subject out cleanly in a single step—no masking, no exporting, no second app. Crisp edges you can drop onto any layer and keep moving.",
+    body: "Cut any subject out cleanly in a single step. No masking, no exporting, no second app. Crisp edges you can drop onto any layer and keep moving.",
     video: `${MEDIA}/destacado_3.webm`,
   },
   {
@@ -27,7 +27,7 @@ export const SUITE_ROWS = [
   },
   {
     title: "Relight",
-    body: "Change the lighting after the shot is done—shift the mood, redirect the source, warm it up or cool it down. Studio-grade relighting, right inside your editor.",
+    body: "Change the lighting after the shot is done: shift the mood, redirect the source, warm it up or cool it down. Studio-grade relighting, right inside your editor.",
     video: `${MEDIA}/destacado_5.webm`,
   },
 ];

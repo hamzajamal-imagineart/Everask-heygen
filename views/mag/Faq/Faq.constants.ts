@@ -12,14 +12,14 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Freepik is now Magnific. Same team, same technology, redesigned as a full AI creative platform for images, video, audio, 3D, collaborative tools, and 250M+ assets.",
   },
   {
-    question: "I have a magnific.ai subscription—what happens now?",
+    question: "I have a magnific.ai subscription. What happens now?",
     answer:
-      "Your upscaler stays at magnific.ai with no disruption to your current subscription. Your plan runs until it expires. What's new is that Magnific is now a much bigger platform—the same upscaler, 40+ AI models, audio tools, collaborative Spaces, and 250M+ stock assets, all in one place.",
+      "Your upscaler stays at magnific.ai with no disruption to your current subscription. Your plan runs until it expires. What's new is that Magnific is now a much bigger platform: the same upscaler, 40+ AI models, audio tools, collaborative Spaces, and 250M+ stock assets, all in one place.",
   },
   {
     question: "Will stock content still be available, or is everything now AI-based?",
     answer:
-      "Both. Magnific brings together the full 250M+ stock library—photos, vectors, illustrations, icons, 3D, video, audio, templates, mockups, and fonts—alongside a complete suite of AI creative tools. Everything in one place.",
+      "Both. Magnific brings together the full 250M+ stock library (photos, vectors, illustrations, icons, 3D, video, audio, templates, mockups, and fonts) alongside a complete suite of AI creative tools. Everything in one place.",
   },
   {
     question: "I already have a Magnific paid plan. What happens to it?",

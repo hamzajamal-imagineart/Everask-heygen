@@ -12,7 +12,7 @@ export function Suite() {
         <h2 className="mx-auto max-w-3xl text-center font-display text-[30px] leading-[1.15] font-medium tracking-[-0.03em] text-ink sm:text-[36px]">
           The full Magnific suite. Inside EverAsk.
         </h2>
-        <ul className="mx-auto flex max-w-[1000px] flex-col gap-12 pt-14 md:gap-16">
+        <ul className="flex flex-col gap-12 pt-14 md:gap-16">
           {SUITE_ROWS.map((row, i) => (
             <li key={row.title} className="mag-zfold-row grid items-center gap-6 sm:grid-cols-2 sm:gap-12 md:gap-14 lg:gap-20">
               <div className={`w-full ${i % 2 === 0 ? "sm:order-2" : ""}`}>

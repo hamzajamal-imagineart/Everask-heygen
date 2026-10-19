@@ -14,7 +14,7 @@ export function Teams() {
             <p className="font-display text-[20px] leading-[1.3] font-medium tracking-[-0.02em] text-[#131318]">Business</p>
             <p className="mt-2 text-[15px] leading-relaxed text-black/50">
               For creative teams and agencies ready to move faster and produce more. Shared credits, collaborative workflows, and
-              access to every AI model—without the complexity of enterprise procurement.
+              access to every AI model, without the complexity of enterprise procurement.
             </p>
           </div>
           <div className="rounded-2xl bg-[#f6f6f7] p-8">

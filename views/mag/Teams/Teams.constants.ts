@@ -15,7 +15,7 @@ export const TEAM_FEATURES: TeamFeature[] = [
   },
   {
     title: "Admin control",
-    description: "Users, permissions, credits, and model access—one dashboard, total visibility.",
+    description: "Users, permissions, credits, and model access, one dashboard, total visibility.",
     icon: MAG_MEDIA.featureAdmin,
   },
   {
