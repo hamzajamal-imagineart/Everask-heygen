@@ -567,3 +567,20 @@ section is current.
 - **Verified** at 1024 and 375 on both pages: section order, all stills loaded, no horizontal overflow, no
   em-dashes, `tsc` clean. Committed locally, not pushed (Hamza pushes on "push").
 - **Review**: same open items as before (Agents breadcrumb href, "through … API" claims in the FAQs).
+
+## HeyGen hero headline is the partner lockup (19 Oct 2026)
+
+Hamza: "use the same HeyGen inside EverAsk, remove the pill… I wanted to replace this heading: AI videos
+starring you, made in minutes". The HeyGen hero's h1 is now the same line the other partner pages use:
+HeyGen's full logo (`views/heygen/Hero/HeyGenLockup.tsx`, the all-white SVG from heygen.com/brand-kit,
+294×67, drawn in currentColor, `h-[1.3em]`) then "inside *EverAsk*", white, one line,
+`clamp(20px, 3vw, 44px)` (Hamza: the first size "is too big"). The "HeyGen, now inside EverAsk" pill and the "AI videos starring you, made
+in minutes" headline are gone; the subhead and CTA are unchanged. The SEO title still carries the old
+line (config.ts), left as is.
+
+Parked (Hamza: "hold the manus and genspark for now"): swapping the generated stills on /genspark and
+/manus for the partners' own visuals. Collected so far in the session scratchpad (`sitemedia/`):
+Manus's feature-page media (wide-research hero, automations cover + intro mp4, cloud-computer hero,
+browser-operator hero, the features-index illustrations) and Genspark's coded product mocks frozen to
+HTML (super-agent trace, sheets, browser, genmail; genspark.ai has no image files at all). Nothing from
+this is wired into the pages yet.

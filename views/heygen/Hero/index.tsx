@@ -4,6 +4,7 @@ import { heygenConfig } from "../config";
 import { HG_MEDIA } from "../media.constants";
 import { HERO_ARC_DEPTH, HERO_ARC_TURN, HERO_CARDS } from "./Hero.constants";
 import { HeroCardOverlay } from "./HeroCardOverlay";
+import { HeyGenLockup } from "./HeyGenLockup";
 import { Breadcrumbs } from "../Breadcrumbs";
 
 const CENTRE = (HERO_CARDS.length - 1) / 2;
@@ -25,12 +26,18 @@ export function Hero() {
       />
       <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[28%] bg-gradient-to-b from-transparent to-white" />
       <div className="hg-container flex flex-col items-center text-center">
-        <span className="mb-6 inline-flex h-8 items-center rounded-full border border-white/40 bg-white/15 px-4 text-[13px] font-medium text-white backdrop-blur-md">
-          HeyGen, now inside EverAsk
-        </span>
-        <h1 className="hg-h1 text-white [text-shadow:0_2px_24px_rgba(0,40,110,0.25)]" style={{ fontSize: "clamp(36px, 4.4vw, 60px)", lineHeight: 1.06 }}>
-          AI videos starring you,
-          <br /> made in minutes
+        {/* The headline (Hamza, 19 Oct): the same lockup treatment as the other partner pages, HeyGen's
+            full logo then "inside EverAsk" with EverAsk in the serif italic, all white on one line. It
+            replaces the old pill and the "AI videos starring you, made in minutes" line. */}
+        <h1
+          className="flex max-w-full flex-nowrap items-center justify-center gap-x-[0.3em] whitespace-nowrap font-display font-medium leading-none tracking-[-0.03em] text-white [text-shadow:0_2px_24px_rgba(0,30,80,0.45)]"
+          style={{ fontSize: "clamp(20px, 3vw, 44px)" }}
+        >
+          {/* The wordmark's cap height spans about 46 of the lockup's 67 units, so 1.3em sits it on the line's cap height. */}
+          <HeyGenLockup className="h-[1.3em] w-auto shrink-0 drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]" />
+          <span>
+            inside <span className="font-serif text-[1.08em] font-normal italic tracking-[-0.01em]">EverAsk</span>
+          </span>
         </h1>
         <p className="mt-5 max-w-[440px] text-[18px] font-medium tracking-[-0.01em] text-white/90">Use HeyGen&apos;s AI avatars and video tools right inside EverAsk.</p>
         <div className="mt-8">
