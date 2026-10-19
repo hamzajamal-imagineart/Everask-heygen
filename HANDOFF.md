@@ -179,3 +179,4 @@ HeyGen/Magnific; EverAsk is the platform you use it in. No "official partner" wo
   "Unlimited users, flexible credits") were removed at Hamza's request, with `TEAM_HIGHLIGHTS` and
   `teams-tools.png` / `teams-credits.png`. The header description "Business and Enterprise plans for teams
   that create together." is new copy written for this layout; review it.
+- **/magnific hero ticker removed** (19 Oct, Hamza): `Hero/HeroTicker` and the `HERO_TICKER*`/`HERO_ACCENT` constants are deleted; the hero keeps the left copy over the dusk image.

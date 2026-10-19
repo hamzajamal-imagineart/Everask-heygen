@@ -2,7 +2,6 @@ import type { CSSProperties } from "react";
 import { magConfig } from "../config";
 import { MAG_MEDIA } from "../media.constants";
 import { HERO_HEADLINE, HERO_LOGOS, HERO_RISE_DELAYS, HERO_TONE } from "./Hero.constants";
-import { HeroTicker } from "./HeroTicker";
 
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
 
@@ -51,9 +50,6 @@ export function Hero() {
                   Start creating
                 </a>
               </div>
-            </div>
-            <div {...rise(HERO_RISE_DELAYS.actions)} className="pr-[clamp(0px,2vw,32px)]">
-              <HeroTicker />
             </div>
           </div>
         </div>
