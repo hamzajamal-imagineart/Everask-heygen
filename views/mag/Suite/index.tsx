@@ -10,12 +10,12 @@ export function Suite() {
     <section id="suite" className="border-t border-[#ededed] py-20">
       <div className="mag-container">
         <SectionHead title="The full Magnific suite, inside EverAsk" description="Upscale, generate, cut out, reframe and relight. Magnific's tools, one prompt away in EverAsk." />
-        <ul className="mx-auto flex max-w-[1100px] flex-col gap-16 pt-12 sm:gap-24">
+        <ul className="flex flex-col gap-16 pt-12 sm:gap-24">
           {SUITE_ROWS.map((row, i) => (
             <li
               key={row.title}
               className={`mag-zfold-row grid items-center gap-4 sm:gap-10 lg:gap-14 ${
-                i % 2 ? "sm:grid-cols-[minmax(0,1fr)_minmax(0,560px)]" : "sm:grid-cols-[minmax(0,560px)_minmax(0,1fr)]"
+                i % 2 ? "sm:grid-cols-[minmax(0,1fr)_minmax(0,640px)]" : "sm:grid-cols-[minmax(0,640px)_minmax(0,1fr)]"
               }`}
             >
               <div className={`w-full ${i % 2 ? "sm:order-2" : ""}`}>

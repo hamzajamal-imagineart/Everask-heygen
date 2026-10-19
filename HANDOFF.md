@@ -232,7 +232,8 @@ assets that already existed. Hamza: **no prompt box in the hero.**
 - **Suite z-fold added** (19 Oct, Hamza pasted Magnific's "The full suite. Inside your canvas." markup):
   `views/mag/Suite/`, after Features and before Start simple. Five rows in EverAsk's `ZFold` shape (16:9 clip
   beside text, sides swapping, scroll-driven ease-in via `.mag-zfold-row`; rows `gap-16 sm:gap-24`, wider
-  than EverAsk's `gap-8` at Hamza's request): Upscale, Generate, Remove
+  than EverAsk's `gap-8` at Hamza's request; the list spans the full `mag-container` with a 640px media
+  column, not EverAsk's centred 1100px, so the rows line up with the section heading): Upscale, Generate, Remove
   background, Reframe, Relight, copy verbatim from Magnific (it still says "your timeline" / "your editor",
   the plugins framing). Header "The full Magnific suite, inside EverAsk" with a new one-line description.
   **The five clips are hotlinked from media.magnific.com (`destacado_1-5.webm`)**; copy them into
