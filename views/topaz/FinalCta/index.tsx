@@ -2,7 +2,7 @@ import { EVERASK_BRAND } from "@/views/mag/Lockup/Lockup.constants";
 import { topazConfig } from "../config";
 import { TOPAZ_MEDIA } from "../media.constants";
 
-/* EverAsk's sky band to close (Topaz's "Every pixel. Perfect." now lives in Showcase). */
+/* EverAsk's sky band to close the page. */
 export function FinalCta() {
   return (
     <section id="get-started" className="px-2 pt-10 pb-3 sm:px-3">

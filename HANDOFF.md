@@ -380,15 +380,12 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   /magnific) → **Trusted** ("Over 2 billion images processed." on the left, moved here when Hamza removed the review
   cards; their "Trusted by major companies" names as type on the right: Google, Coca-Cola, Target, NVIDIA,
   Tesla, Quora; no marks)
-  → **Toolbox** ("Crystal clear. Highly detailed. Super focused." + their intro, then the heron Sharpen
-  before/after as a 16:9 draggable slider where their app window sits; the six tool chips with line icons
+  → **Toolbox** ("Crystal clear. Highly detailed. Super focused." + their intro, then Topaz's own
+  video-upscale clip as a muted loop in a square frame, max 900px wide, where their app window sits (Hamza:
+  "use the video here"; `tz-video-upscale.mp4`, from his `video-upscale-hero-opt.mp4`, 1920×1920, 13 s,
+  9.5 MB → 1280², 30 fps, no audio, 3.3 MB, poster `tz-video-upscale-poster.jpg`); the six tool chips with line icons
   that sat above it were removed by Hamza, and `HERO_TOOLS` with them; the Meet grid's Color/Upscale tiles
   read `TOPAZ_MEDIA.hero` directly) →
-  **Showcase** (their "Every pixel. Perfect." set over a contained 16:9 band that plays Topaz's own
-  video-upscale clip as a muted loop (Hamza's `video-upscale-hero-opt.mp4`, 1920×1920, 13 s, 9.5 MB →
-  `tz-video-upscale.mp4` 1280², 30 fps, no audio, 3.3 MB, poster `tz-video-upscale-poster.jpg`; square, so
-  the band crops it top and bottom); Hamza: "we don't need a slider, just play this video"; the mountain
-  slider that was there is in `d08b873`) →
   **Meet** (light, Hamza: "make the dark section in lightmode"; it was dark `#0d1117` like Topaz's: "Meet Topaz Photo" lockup, "Each tool gets it closer to perfect." + paragraph,
   one big Denoise slider (wren, at its own ratio), then a packed bento like Topaz's (Hamza: the
   earlier ratio-true grid "appears uneven"): a 4-column × 8-half-row grid that is a square overall, every
@@ -416,7 +413,7 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
 - **Our images** (all GPT Image 2, EverAsk palette, one vermilion accent each; `before` layers derived in sharp,
   `scratchpad/topaz/before.js`): a 3:4 kingfisher portrait (`02d16ab6`) was made for the tall hero frame, then Topaz's parrot took
   that spot, so its files were not kept (the asset is in the ImagineArt workspace); six 16:9 scenes at 1920×1080: night soup stall `1f6bce3e` (Denoise: grain
-  overlay), heron lifting off `4c0c0671` (Sharpen: blur 5), old fisherman `b0634e9d` (Recover Faces: 1/5
+  overlay), heron lifting off `4c0c0671` (Sharpen: blur 5; files removed once the band went), old fisherman `b0634e9d` (Recover Faces: 1/5
   downscale + q40 JPEG + blur), dancer in a studio `176a403a` (Lighting: `linear(0.45,-6)`), whitewashed
   seaside street `c3dfd13d` (Color: warm-magenta tint), 1980s pier snapshot `b128bc89` (Upscale: 1/8
   downscale + q35 JPEG + blur); four 16:9 audience pictures `usecase-*.jpg`: arctic fox under the Milky Way
@@ -430,5 +427,6 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   their page.
 - **Left out on purpose**: pricing and plans, seats, system requirements, returns, the plugin host logos,
   "Private local rendering", the TIPA award and Mac/Windows labels, the mailing list, and (Hamza, after seeing them) the four
-  Trustpilot review cards.
+  Trustpilot review cards and the "Every pixel. Perfect." band (`bd869f5` has it). With the band gone the heron Sharpen pair had no
+  place left, so `hero-sharpen-*.jpg` and its constant were removed (asset `4c0c0671` in the workspace).
 - Checked in the browser at 1024px and 375px; no HeyGen/Magnific files changed.

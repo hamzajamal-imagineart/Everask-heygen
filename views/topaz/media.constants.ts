@@ -20,7 +20,6 @@ export const TOPAZ_MEDIA = {
   },
   hero: {
     denoise: { before: "/assets/topaz/hero-denoise-before.jpg", after: "/assets/topaz/hero-denoise-after.jpg" },
-    sharpen: { before: "/assets/topaz/hero-sharpen-before.jpg", after: "/assets/topaz/hero-sharpen-after.jpg" },
     faces: { before: "/assets/topaz/hero-faces-before.jpg", after: "/assets/topaz/hero-faces-after.jpg" },
     lighting: { before: "/assets/topaz/hero-lighting-before.jpg", after: "/assets/topaz/hero-lighting-after.jpg" },
     color: { before: "/assets/topaz/hero-color-before.jpg", after: "/assets/topaz/hero-color-after.jpg" },

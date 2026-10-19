@@ -8,7 +8,6 @@ import { Features } from "./Features";
 import { FinalCta } from "./FinalCta";
 import { Hero } from "./Hero";
 import { Meet } from "./Meet";
-import { Showcase } from "./Showcase";
 import { Toolbox } from "./Toolbox";
 import { Trusted } from "./Trusted";
 import { Years } from "./Years";
@@ -24,7 +23,6 @@ export default function TopazView() {
         <Hero />
         <Trusted />
         <Toolbox />
-        <Showcase />
         <Meet />
         <Years />
         <CtaBand />
