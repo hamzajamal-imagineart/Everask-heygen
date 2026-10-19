@@ -14,8 +14,8 @@ export function Originals() {
       <div className="mag-container">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8">
           <div className="max-w-[672px]">
-            <h2 className="mag-h2">Made with EverAsk</h2>
-            <p className="mag-lede pt-4">Original productions made by talented creatives around the world.</p>
+            <h2 className="mag-h2">Made with Magnific</h2>
+            <p className="mag-lede pt-4">Original productions made with Magnific by talented creatives around the world, now available to create with inside EverAsk.</p>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@ export function Originals() {
                     <div className="flex max-w-[400px] flex-col gap-1">
                       {slide.original && (
                         <p className="mb-5 flex items-baseline gap-1.5 text-[15px] leading-none">
-                          <span className="font-display font-medium tracking-[-0.02em]">EverAsk</span>
+                          <span className="font-display font-medium tracking-[-0.02em]">Magnific</span>
                           <span className="text-white/80">Originals</span>
                         </p>
                       )}

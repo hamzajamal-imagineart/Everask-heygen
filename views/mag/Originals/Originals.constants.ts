@@ -11,7 +11,7 @@ export const ORIGINALS: OriginalSlide[] = [
   {
     title: "Chronicles of Bone",
     description:
-      "With millions of views, The Chronicles of Bone is a viral phenomenon. It’s set in a dark fantasy world created by filmmaker Kavan Cardoza, part of EverAsk Originals.",
+      "With millions of views, The Chronicles of Bone is a viral phenomenon. It’s set in a dark fantasy world created by filmmaker Kavan Cardoza, part of Magnific Originals.",
     image: MAG_MEDIA.originalBone,
     video: MAG_MEDIA.originalBoneVideo,
     original: true,
@@ -19,7 +19,7 @@ export const ORIGINALS: OriginalSlide[] = [
   {
     title: "Candela",
     description:
-      "Presented at Cannes Lions 2026, Candela is a romantic drama set across two timelines. It's the first in-house EverAsk Original.",
+      "Presented at Cannes Lions 2026, Candela is a romantic drama set across two timelines. It's the first in-house Magnific Original.",
     image: MAG_MEDIA.originalCandela,
     video: MAG_MEDIA.originalCandelaVideo,
     original: true,

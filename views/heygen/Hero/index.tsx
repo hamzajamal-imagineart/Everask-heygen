@@ -23,11 +23,14 @@ export function Hero() {
       />
       <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[28%] bg-gradient-to-b from-transparent to-white" />
       <div className="hg-container flex flex-col items-center text-center">
+        <span className="mb-6 inline-flex h-8 items-center rounded-full border border-white/40 bg-white/15 px-4 text-[13px] font-medium text-white backdrop-blur-md">
+          HeyGen, now inside EverAsk
+        </span>
         <h1 className="hg-h1 text-white [text-shadow:0_2px_24px_rgba(0,40,110,0.25)]" style={{ fontSize: "clamp(36px, 4.4vw, 60px)", lineHeight: 1.06 }}>
           AI videos starring you,
           <br /> made in minutes
         </h1>
-        <p className="mt-5 max-w-[440px] text-[18px] font-medium tracking-[-0.01em] text-white/90">Be your best self, every time.</p>
+        <p className="mt-5 max-w-[440px] text-[18px] font-medium tracking-[-0.01em] text-white/90">Use HeyGen&apos;s AI avatars and video tools right inside EverAsk.</p>
         <div className="mt-8">
           <CtaButton href={heygenConfig.links.start} label="Get started for free" size="lg" background="#ffffff" color="#131318" />
         </div>

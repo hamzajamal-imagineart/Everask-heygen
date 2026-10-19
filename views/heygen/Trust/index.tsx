@@ -9,8 +9,8 @@ export function Trust() {
           <Badge outlined>Fast, secure, and ethical by design</Badge>
           <h2 className="hg-h2 text-hg-ink">Built on verification, grounded in trust</h2>
           <p className="hg-lede max-w-[560px]">
-            AI video has a trust problem. We built EverAsk to solve it with verified identity at the core, enforced moderation, and
-            security stress-tested against the highest standards.
+            AI video has a trust problem. HeyGen tackles it with verified identity at the core, enforced moderation, and security
+            stress-tested against the highest standards, and you get the same safeguards when you use it inside EverAsk.
           </p>
         </div>
         <div className="mt-[60px] grid gap-4 md:grid-cols-3">

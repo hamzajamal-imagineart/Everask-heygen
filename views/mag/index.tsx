@@ -6,7 +6,6 @@ import { Originals } from "./Originals";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 import { StartSimple } from "./StartSimple";
-import { Suite } from "./Suite";
 import { Teams } from "./Teams";
 import { Tools } from "./Tools";
 import { UseCases } from "./UseCases";
@@ -17,7 +16,6 @@ export default function MagView() {
       <SiteHeader />
       <main className="mag-page flex-1">
         <Hero />
-        <Suite />
         <Models />
         <StartSimple />
         <Tools />

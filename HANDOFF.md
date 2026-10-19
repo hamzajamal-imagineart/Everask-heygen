@@ -139,3 +139,22 @@ Each page has its own root layout through route groups, so their global CSS neve
   250M+ stock assets, 40+ models, upscaler at everask.ai) and need a real EverAsk review. The original's
   "Contact support" button is left out (EverAsk-only CTAs).
 - **/magnific Suite tabs** (19 Oct): Desktop and Stock removed; tabs are Creative Suite, MCP & API, Agents, Plugins.
+
+## Positioning: HeyGen and Magnific inside EverAsk (19 Oct 2026)
+
+Hamza: EverAsk offers HeyGen and Magnific inside its platform through their APIs, so each page names
+EverAsk together with the partner product. Rule used: a feature, research result or claim is credited to
+HeyGen/Magnific; EverAsk is the platform you use it in. No "official partner" wording.
+
+- `/` (HeyGen): hero badge "HeyGen, now inside EverAsk" and subhead "Use HeyGen's AI avatars and video
+  tools right inside EverAsk."; "HeyGen Research"; Tools intro and Trust paragraph credit HeyGen; final
+  CTA "Start creating HeyGen videos in EverAsk"; FAQ opens with "Can I use HeyGen inside EverAsk?" and
+  the rest credit HeyGen in EverAsk; the free-plan question was removed (EverAsk pricing for HeyGen is
+  unknown); SEO title "HeyGen inside EverAsk: ...".
+- `/magnific`: hero badge "Magnific, now inside EverAsk"; subhead names Magnific inside EverAsk; the
+  logo row says "Magnific is trusted by 1M+ subscribers"; Originals back to "Made with Magnific" and
+  "Magnific Originals"; final CTA "Be Magnific, inside EverAsk"; FAQ opens with "Can I use Magnific
+  inside EverAsk?", the original Magnific answers are credited to Magnific again, and links out to
+  magnific.ai/magnific.com were dropped; SEO title "Magnific inside EverAsk: ...".
+- `/magnific` Suite section ("One place to create anything") removed at Hamza's request, with its
+  folder and 18 now-unreferenced assets.

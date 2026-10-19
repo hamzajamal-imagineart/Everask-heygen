@@ -31,7 +31,7 @@ export function Hero() {
           <div className="container-page flex flex-1 items-center justify-between gap-10 py-[clamp(32px,4vw,56px)] text-white">
             <div className="max-w-[640px] [text-shadow:0_2px_30px_rgba(0,40,110,0.25)]">
               <p {...rise(HERO_RISE_DELAYS.badge)}>
-                <span className="glass inline-flex h-8 items-center rounded-pill px-3.5 text-[13px] font-medium">Ranked #1 AI creative platform</span>
+                <span className="glass inline-flex h-8 items-center rounded-pill px-3.5 text-[13px] font-medium">Magnific, now inside EverAsk</span>
               </p>
               <h1
                 {...rise(HERO_RISE_DELAYS.headline)}
@@ -42,8 +42,8 @@ export function Hero() {
               </h1>
               <p {...rise(HERO_RISE_DELAYS.subhead)}>
                 <span className="mt-5 block max-w-[560px] text-[17px] leading-relaxed text-white/90">
-                  Every AI model for video, image, and audio. Intelligent workflows for professional control and
-                  collaboration. On-brand production at any scale.
+                  Use Magnific&apos;s AI models for video, image, and audio right inside EverAsk. Intelligent workflows for
+                  professional control and collaboration. On-brand production at any scale.
                 </span>
               </p>
               <div {...rise(HERO_RISE_DELAYS.actions)} className="mt-8">
@@ -59,7 +59,7 @@ export function Hero() {
         </div>
       </section>
       <div className="container-page flex flex-col items-center gap-5 pt-10 pb-4">
-        <p className="text-center text-sm text-[#131318]/70">Trusted by 1M+ subscribers—creatives, enterprises, agencies and studios</p>
+        <p className="text-center text-sm text-[#131318]/70">Magnific is trusted by 1M+ subscribers—creatives, enterprises, agencies and studios</p>
         <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {HERO_LOGOS.map((logo) => (
             <li key={logo.alt} className={logo.muted ? "opacity-40" : "opacity-70"}>

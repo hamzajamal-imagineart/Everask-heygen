@@ -4,6 +4,6 @@ export type OriginalSlide = {
   image: string;
   /** Muted looping clip; `image` is its poster. */
   video: string;
-  /** Shows the "EverAsk Originals" label above the title. */
+  /** Shows the "Magnific Originals" label above the title. */
   original?: boolean;
 };

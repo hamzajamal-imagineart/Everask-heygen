@@ -10,9 +10,9 @@ export function FinalCta() {
         style={{ backgroundImage: `linear-gradient(180deg, rgba(16,96,214,0.35) 0%, rgba(16,96,214,0.12) 45%, rgba(16,96,214,0) 70%), url(${HG_MEDIA.heroSky})` }}
       >
         <div className="hg-container relative flex flex-col items-center pt-[100px] pb-[160px] text-center"><div className="max-w-[500px]">
-          <h2 className="hg-h2 text-[40px] text-white [text-shadow:0_2px_24px_rgba(0,40,110,0.25)] md:text-[56px]">Start creating videos with AI</h2>
+          <h2 className="hg-h2 text-[40px] text-white [text-shadow:0_2px_24px_rgba(0,40,110,0.25)] md:text-[56px]">Start creating HeyGen videos in EverAsk</h2>
           <p className="pt-5 pb-[30px] text-[16px] leading-[1.6] text-white/80">
-            See how businesses like yours scale content creation and drive growth with the most innovative AI video.
+            Use HeyGen&apos;s avatars, translation and studio tools inside EverAsk, alongside every other model you work with.
           </p>
           <CtaButton href={heygenConfig.links.start} label="Get started for free" background="#ffffff" color="#131318" size="lg" />
         </div></div>

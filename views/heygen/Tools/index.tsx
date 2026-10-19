@@ -14,7 +14,7 @@ export function Tools() {
           </Badge>
           <h2 className="hg-h2 max-w-[800px] text-hg-ink">Powerful AI tools for any creator</h2>
           <p className="hg-lede max-w-[700px]">
-            EverAsk&apos;s AI video tools handle everything from avatar generation and voice cloning to captions, translation, and
+            HeyGen&apos;s AI video tools, available inside EverAsk, handle everything from avatar generation and voice cloning to captions, translation, and
             turning any input into polished video.
           </p>
           <div className="mt-2">
