@@ -4,9 +4,10 @@ import { MAG_MEDIA } from "../media.constants";
 import { SectionHead } from "../SectionHead";
 import { USE_CASES } from "./UseCases.constants";
 
-/* Ported from EverAsk's components/landing/ZFold.tsx: rows of media beside
-   text, the media swapping sides each row, each row easing up as it scrolls
-   into view (styles.css, .mag-zfold-row). On phones the media sits above. */
+/* Use cases as a bento (Hamza, 19 Oct; the EverAsk feature pages' grids): four
+   cards on a three-column grid, wide-narrow then narrow-wide. Each card is a
+   sky panel (Hamza's above-the-clouds photo) with the title and line in white
+   on the blue, and the use case's picture inset below, lifted on a shadow. */
 export function UseCases() {
   return (
     <section id="use-cases" className="border-t border-[#ededed] py-20">
@@ -20,27 +21,19 @@ export function UseCases() {
             </Cta>
           }
         />
-        <ul className="mx-auto flex max-w-[1100px] flex-col gap-8 pt-12">
-          {USE_CASES.map((row, i) => (
+        <ul className="grid gap-4 pt-12 md:grid-cols-3">
+          {USE_CASES.map((card) => (
             <li
-              key={row.title}
-              className={`mag-zfold-row grid items-center gap-4 sm:gap-10 lg:gap-14 ${
-                i % 2 ? "sm:grid-cols-[minmax(0,1fr)_minmax(0,560px)]" : "sm:grid-cols-[minmax(0,560px)_minmax(0,1fr)]"
-              }`}
+              key={card.title}
+              className={`relative isolate flex flex-col gap-6 overflow-hidden rounded-[24px] bg-[#1c8bff] p-6 text-white sm:p-7 ${card.wide ? "md:col-span-2" : ""}`}
             >
-              <div className={`w-full ${i % 2 ? "sm:order-2" : ""}`}>
-                {/* The media sits in a sky panel, as EverAsk's "Who it's for" rows do: Hamza's
-                    above-the-clouds photo filling the frame, the picture inset and lifted on a shadow. */}
-                <div className="relative isolate overflow-hidden rounded-[24px] bg-[#1c8bff] p-5 sm:p-7">
-                  <img src={MAG_MEDIA.panelSky} alt="" loading="lazy" className="absolute inset-0 -z-[1] size-full object-cover object-[50%_40%]" />
-                  <div className="relative overflow-hidden rounded-xl shadow-[0_18px_40px_rgba(0,40,110,0.18)]" style={{ aspectRatio: row.ratio }}>
-                    <img src={row.image} alt="" loading="lazy" className="absolute inset-0 size-full object-cover" />
-                  </div>
-                </div>
+              <img src={MAG_MEDIA.panelSky} alt="" loading="lazy" className="absolute inset-0 -z-[1] size-full object-cover object-[50%_40%]" />
+              <div className="[text-shadow:0_1px_12px_rgba(0,40,110,0.25)]">
+                <h3 className="font-display text-[24px] font-medium leading-[1.1] tracking-[-0.015em]">{card.title}</h3>
+                <p className={`mt-2 text-[15px] leading-relaxed text-white/85 ${card.wide ? "max-w-md" : ""}`}>{card.body}</p>
               </div>
-              <div className="max-w-[480px]">
-                <h3 className="font-display text-[24px] font-medium leading-[1.1] tracking-[-0.015em] text-ink sm:text-[30px]">{row.title}</h3>
-                <p className="mt-3 text-[16px] leading-relaxed text-muted sm:text-[17px]">{row.body}</p>
+              <div className="relative mt-auto h-[240px] overflow-hidden rounded-xl shadow-[0_18px_40px_rgba(0,40,110,0.22)] md:h-[280px]">
+                <img src={card.image} alt="" loading="lazy" className="absolute inset-0 size-full object-cover" />
               </div>
             </li>
           ))}

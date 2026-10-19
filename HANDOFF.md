@@ -211,12 +211,11 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   (azure, sky, paper, royal, paper, navy), two-tone titles, "Learn more" arrow into EverAsk, grain on the
   dark blues. "Change camera angle" dropped (seven tiles don't grid). `views/mag/Tools/` deleted with
   `tool-all-tools.svg` and the chevron icons.
-- **UseCases**: now a `ZFold` (rows of image beside text, swapping sides, scroll-driven ease-in via
-  `.mag-zfold-row` in `styles.css`); the three portrait `usecase-*-v2.jpg` are shown at 16:10, Filmmaking at
-  21:9. Same four titles and lines as before. Each image sits in a sky panel (`rounded-[24px]`, 28px inset, picture on a
-  soft shadow), as the image holders on EverAsk's "Who it's for" rows. The panel background is Hamza's
-  above-the-clouds photo `panel-sky.webp` (1120×630, 16 KB, `object-cover` at 50% 40%), which replaced a
-  blue gradient at his request (19 Oct).
+- **UseCases**: a bento (Hamza, 19 Oct, after a z-fold he asked to replace): four cards on a three-column
+  grid, Advertising (wide) + Product shots, Brand campaigns + Filmmaking (wide). Each card is a sky panel
+  (`rounded-[24px]`, Hamza's above-the-clouds photo `panel-sky.webp`, 1120×630, 16 KB, `object-cover` at
+  50% 40%) with the title and line in white at the top and the use case's `usecase-*-v2.jpg` inset below at
+  240/280px on a soft shadow. Same four titles and lines as before. The z-fold CSS was removed.
 - **StartBuilding** (new): centred action-blue pill "Start creating" into EverAsk, after Teams.
 - **FinalCta**: EverAsk's sky band (rounded, `t-statement` "Be Magnific, / *inside EverAsk.*", hero subhead,
   white "Start creating" + glass "See pricing" → everask.ai/pricing) over the dusk image. `cta-sky.jpg` deleted.
