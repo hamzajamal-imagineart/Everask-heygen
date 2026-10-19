@@ -17,7 +17,6 @@ export const TOPAZ_MEDIA = {
     healing: "/assets/topaz/tz-healing.jpg",
     precision: "/assets/topaz/tz-precision.jpg",
   },
-  heroPortrait: { before: "/assets/topaz/hero-portrait-before.jpg", after: "/assets/topaz/hero-portrait-after.jpg" },
   hero: {
     denoise: { before: "/assets/topaz/hero-denoise-before.jpg", after: "/assets/topaz/hero-denoise-after.jpg" },
     sharpen: { before: "/assets/topaz/hero-sharpen-before.jpg", after: "/assets/topaz/hero-sharpen-after.jpg" },

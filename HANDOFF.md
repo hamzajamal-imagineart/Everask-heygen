@@ -365,11 +365,11 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
 - **Section order** (`views/topaz/index.tsx`), each mirroring Topaz's: Breadcrumbs (Features › Upscaling
   models › Topaz) → **Hero** (two columns on white: eyebrow labels, lockup pill "Topaz Photo, now inside
   EverAsk", Topaz's h1 "Fix blur, noise and low resolution in one click.", our line, "Start enhancing" +
-  "See every tool"; right, a tall 3:4 draggable before/after, their "tap and hold") → **Trusted** (their
-  "Trusted by major companies" names as type: Google, Coca-Cola, Target, NVIDIA, Tesla, Quora; no marks)
+  "See every tool"; right, a tall 3:4 draggable before/after, their "tap and hold") → **Trusted** ("Over 2 billion images processed." on the left, moved here when Hamza removed the review
+  cards; their "Trusted by major companies" names as type on the right: Google, Coca-Cola, Target, NVIDIA,
+  Tesla, Quora; no marks)
   → **Toolbox** (`"use client"`: six tool chips, "Crystal clear. Highly detailed. Super focused." + their
-  intro, then the picked tool's 16:9 before/after slider where their app window sits) → **Reviews** ("Over
-  2 billion images processed." + their four Trustpilot quotes as 2×2 cards, verbatim, credited) →
+  intro, then the picked tool's 16:9 before/after slider where their app window sits) →
   **Showcase** (their "Every pixel. Perfect." set over a contained 16:9 before/after, Before/After pills) →
   **Meet** (dark `#0d1117`: "Meet Topaz Photo" lockup, "Each tool gets it closer to perfect." + paragraph,
   one big Denoise hold-to-enhance, then a 2-column grid of hold-to-enhance tiles (Sharpen, Recover Faces,
@@ -392,8 +392,8 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   and remove (2670:2412) tiles; the Latest-features cards show their Wonder (skaters), Healing Brush
   (hand and mic) and Standard MAX (crowned portrait) shots at 3:2. Licence: Topaz's marketing images.
 - **Our images** (all GPT Image 2, EverAsk palette, one vermilion accent each; `before` layers derived in sharp,
-  `scratchpad/topaz/before.js`): hero portrait kingfisher 3:4 (`02d16ab6`, 1200×1600, `hero-portrait-*.jpg`, before = blur 4 + grain +
-  lower contrast; made for the hero, now unused since the parrot took it; kept for a swap); six 16:9 scenes at 1920×1080: night soup stall `1f6bce3e` (Denoise: grain
+  `scratchpad/topaz/before.js`): a 3:4 kingfisher portrait (`02d16ab6`) was made for the tall hero frame, then Topaz's parrot took
+  that spot, so its files were not kept (the asset is in the ImagineArt workspace); six 16:9 scenes at 1920×1080: night soup stall `1f6bce3e` (Denoise: grain
   overlay), heron lifting off `4c0c0671` (Sharpen: blur 5), old fisherman `b0634e9d` (Recover Faces: 1/5
   downscale + q40 JPEG + blur), dancer in a studio `176a403a` (Lighting: `linear(0.45,-6)`), whitewashed
   seaside street `c3dfd13d` (Color: warm-magenta tint), 1980s pier snapshot `b128bc89` (Upscale: 1/8
@@ -407,5 +407,6 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   page says both "11 AI-powered tools" and "12 groundbreaking AI tools"; both appear where they do on
   their page.
 - **Left out on purpose**: pricing and plans, seats, system requirements, returns, the plugin host logos,
-  "Private local rendering", the TIPA award and Mac/Windows labels, the mailing list.
+  "Private local rendering", the TIPA award and Mac/Windows labels, the mailing list, and (Hamza, after seeing them) the four
+  Trustpilot review cards.
 - Checked in the browser at 1024px and 375px; no HeyGen/Magnific files changed.

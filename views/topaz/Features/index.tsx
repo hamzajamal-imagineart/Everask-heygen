@@ -8,10 +8,10 @@ export function Features() {
     <section id="features" className="py-20 lg:py-24">
       <div className="container-page">
         <p className="text-[11px] font-medium uppercase tracking-[0.08em] text-black/40">Latest features</p>
-        <ul className="mt-5 grid gap-4 md:grid-cols-3">
+        <ul className="mt-5 grid gap-4 md:grid-cols-3 md:items-start">
           {LATEST.map((f) => (
             <li key={f.name} className="flex flex-col overflow-hidden rounded-2xl bg-[#f6f6f7]">
-              <div className="relative m-3 overflow-hidden rounded-xl" style={{ aspectRatio: 3 / 2 }}>
+              <div className="relative m-3 overflow-hidden rounded-xl" style={{ aspectRatio: f.ratio }}>
                 <img src={f.image} alt="" loading="lazy" className="absolute inset-0 size-full object-cover" />
               </div>
               <div className="flex flex-col gap-2 px-6 pb-6 pt-2">
