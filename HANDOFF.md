@@ -392,8 +392,9 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   two-column list of native `details` rows, ten tools) → **Faq** (one centred column of rounded rows, six
   items) → FinalCta (EverAsk sky band, "Topaz Photo, *inside EverAsk.*") → AppTouchpoints → footer.
 - **HoldToEnhance** (`views/topaz/HoldToEnhance/`, client): Topaz's interaction. Shows the before; press
-  and hold (pointer) or hold Space/Enter and the after fades in; label top-left, "Hold to enhance" eye
-  badge bottom-left, a Before/After pill top-right. Frame at the picture's own ratio.
+  and hold (pointer) or hold Space/Enter and the after fades in; label top-left, a Before/After pill top-right, and (Hamza: "add a prominent indicator that these are
+  clickable") a white circle with a pressing-hand icon in the middle of the tile, a slow pulsing ring
+  around it and a "Press and hold to enhance" pill under it, all fading out while the after shows. Frame at the picture's own ratio.
 - **Topaz's own images** (Hamza: "use topaz images too"): `tz-*.jpg`, resized from topazlabs.com's
   demo files, each before/after pair at one size (ratios in `TOPAZ_MEDIA.tz`): the hero parrot clarity pair (1844:1312, `tz-clarity-*`, 2400 wide) under the loupe (the earlier
   3590:2394 parrot pair was dropped with the two-column hero), the mountain pair under "Every pixel. Perfect.", and in Meet
