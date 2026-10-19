@@ -245,10 +245,11 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   warm accent, 1980s grain. The split is built in sharp (`scratchpad/split/split.js`, kept in the session
   scratchpad only): left half downscaled 6×, upscaled back, blurred and desaturated; right half lightly
   sharpened; a white divider with two white arrow marks at the middle. `object-cover object-[60%_50%]`
-  keeps the subject in frame; the final CTA band uses the same image and crop under a flat `black/35`. No
-  tint or grain over the hero photo any more (Hamza: "why did you add a white overlay"; the sampled-tone
-  gradient and the overlay-blend grain read as a veil), and the "before" half is no longer lightened, only
-  softened and slightly desaturated. `HERO_TONE` `#61727a` only fills the frame before the image loads. Before this: Magnific's Upscale clip `hero-upscale.webm` (`93a7781`), and the cloud clips
+  keeps the subject in frame; the final CTA band uses the same image and crop under a flat `black/35`. The
+  sampled-tone gradient and the overlay-blend grain are gone (Hamza: "why did you add a white overlay";
+  they read as a veil); in their place a neutral `bg-black/35` plus a vertical band of a further 22% black
+  through the middle, because with no overlay "the text is barely visible". The "before" half is no longer
+  lightened, only softened and slightly desaturated. `HERO_TONE` `#61727a` only fills the frame before the image loads. Before this: Magnific's Upscale clip `hero-upscale.webm` (`93a7781`), and the cloud clips
   (`hero-wide-blue*` `548c5d0`, `hero-leap-blue*` `daef238`, `hero-leap*` `771fa40`, `hero-loop-blue*`
   `41c58c8`, `hero-loop*` `6e28df2`), `hero-dusk-wide.jpg` (`e9ed4f2`); all in git history.
 - **Recreation attempts, not used** (19 Oct): Hamza asked for the clip recreated with a bluer sky, then
