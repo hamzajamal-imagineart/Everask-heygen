@@ -1,6 +1,7 @@
 import { MAG_MEDIA } from "../media.constants";
 
-export const HERO_TONE = "#0088ff";
+/** Top-of-sky colour of the dusk hero image; fills the frame before the image loads and on phones. */
+export const HERO_TONE = "#5b79be";
 
 export const HERO_HEADLINE = "The creative platform to direct your best work";
 

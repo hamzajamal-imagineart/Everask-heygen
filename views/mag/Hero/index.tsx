@@ -20,13 +20,13 @@ export function Hero() {
               src={MAG_MEDIA.heroBg}
               alt=""
               fetchPriority="high"
-              className="size-full origin-bottom animate-hero-drift object-cover object-bottom will-change-transform motion-reduce:animate-none"
+              className="size-full object-cover object-bottom"
             />
           </div>
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 -z-10"
-            style={{ backgroundImage: `linear-gradient(to right, ${HERO_TONE}d9 0%, ${HERO_TONE}8c 38%, ${HERO_TONE}1a 68%, transparent 100%)` }}
+            style={{ backgroundImage: `linear-gradient(to right, ${HERO_TONE}8c 0%, ${HERO_TONE}40 36%, transparent 62%)` }}
           />
           <div className="container-page flex flex-1 items-center justify-between gap-10 py-[clamp(32px,4vw,56px)] text-white">
             <div className="max-w-[640px] [text-shadow:0_2px_30px_rgba(0,40,110,0.25)]">

@@ -166,3 +166,10 @@ HeyGen/Magnific; EverAsk is the platform you use it in. No "official partner" wo
   first answer open, ink plus/minus). Kept on purpose: the left-copy hero with the ticker, the dark Teams
   band, the cloud final CTA. Not added: EverAsk's breadcrumb, prompt composer in the hero, "How it works"
   and the iPhone/Mac app block (they would need EverAsk content for Magnific).
+- **/magnific hero background** (19 Oct, from a "Mindloop" reference Hamza shared): `hero-dusk-wide.jpg`, a
+  21:9 twilight over a cloud sea (periwinkle to peach), a hillside of lavender, blue and pink wildflowers,
+  and one small figure sketching on a tablet, centred at the bottom so neither the copy (left) nor the
+  ticker (right) covers him. GPT Image 2 for the look, then GPT Image 2.5 Flare with that image as
+  reference to recentre the figure in the wider frame. `HERO_TONE` is the sky's top colour `#5b79be`; the
+  left legibility tint is lighter (`8c` to `40` over 36%). The image no longer drifts; `ea-hero-bg.jpg` is
+  deleted. Note: the hero no longer follows the EverAsk azure palette.

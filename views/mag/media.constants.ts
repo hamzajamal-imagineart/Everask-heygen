@@ -6,7 +6,7 @@ export const MAG_MEDIA = {
   featureScale: "/assets/mag/clay-chart.png",
   featureSecurity: "/assets/mag/clay-lock.png",
   featureSupport: "/assets/mag/clay-headset.png",
-  heroBg: "/assets/mag/ea-hero-bg.jpg",
+  heroBg: "/assets/mag/hero-dusk-wide.jpg",
   iconArrowRight13: "/assets/mag/icon-arrow-right-13.svg",
   iconArrowRight16: "/assets/mag/icon-arrow-right-16.svg",
   iconArrowRightXs: "/assets/mag/icon-arrow-right-xs.svg",
