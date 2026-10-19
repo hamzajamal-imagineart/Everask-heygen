@@ -379,7 +379,11 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   before/after as a 16:9 draggable slider where their app window sits; the six tool chips with line icons
   that sat above it were removed by Hamza, and `HERO_TOOLS` with them; the Meet grid's Color/Upscale tiles
   read `TOPAZ_MEDIA.hero` directly) →
-  **Showcase** (their "Every pixel. Perfect." set over a contained 16:9 before/after, Before/After pills) →
+  **Showcase** (their "Every pixel. Perfect." set over a contained 16:9 band that plays Topaz's own
+  video-upscale clip as a muted loop (Hamza's `video-upscale-hero-opt.mp4`, 1920×1920, 13 s, 9.5 MB →
+  `tz-video-upscale.mp4` 1280², 30 fps, no audio, 3.3 MB, poster `tz-video-upscale-poster.jpg`; square, so
+  the band crops it top and bottom); Hamza: "we don't need a slider, just play this video"; the mountain
+  slider that was there is in `d08b873`) →
   **Meet** (light, Hamza: "make the dark section in lightmode"; it was dark `#0d1117` like Topaz's: "Meet Topaz Photo" lockup, "Each tool gets it closer to perfect." + paragraph,
   one big Denoise slider (wren, at its own ratio), then a packed bento like Topaz's (Hamza: the
   earlier ratio-true grid "appears uneven"): a 4-column × 8-half-row grid that is a square overall, every
@@ -400,7 +404,7 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   indicator) at Hamza's request: "instead of this, add the slider"; that component is in commit `95c143b`.
 - **Topaz's own images** (Hamza: "use topaz images too"): `tz-*.jpg`, resized from topazlabs.com's
   demo files, each before/after pair at one size (ratios in `TOPAZ_MEDIA.tz`): the hero parrot clarity pair (1844:1312, `tz-clarity-*`, 2400 wide) under the loupe (the earlier
-  3590:2394 parrot pair was dropped with the two-column hero), the mountain pair under "Every pixel. Perfect.", and in Meet
+  3590:2394 parrot pair was dropped with the two-column hero), the mountain pair (`tz-mountain-*`, no longer on the page since the video took that band), and in Meet
   the wren (Denoise), highland cow (Sharpen, 1:1), face (Recover Faces, 1100:1284), lighting (5294:2264)
   and remove (2670:2412) tiles; the Latest-features cards show their Wonder (skaters), Healing Brush
   (hand and mic) and Standard MAX (crowned portrait) shots at 3:2. Licence: Topaz's marketing images.
