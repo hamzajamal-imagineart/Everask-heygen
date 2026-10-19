@@ -24,12 +24,7 @@ export function Hero() {
           <div className="absolute inset-x-0 bottom-0 -z-10 h-[52%] [mask-image:linear-gradient(to_bottom,transparent,#000_30%)] sm:inset-0 sm:h-auto sm:[mask-image:none]">
             <img src={MAG_MEDIA.heroImage} alt="" fetchPriority="high" className="size-full object-cover object-[60%_50%]" />
           </div>
-          <span aria-hidden className="grain pointer-events-none absolute inset-0 -z-10 opacity-40 mix-blend-overlay" />
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-0 -z-10"
-            style={{ backgroundImage: `linear-gradient(to bottom, ${HERO_TONE}e6 0%, ${HERO_TONE}b3 35%, ${HERO_TONE}59 65%, ${HERO_TONE}1a 100%)` }}
-          />
+          {/* No tint over the photo (Hamza, 19 Oct: it read as a white overlay); the copy relies on its text shadows. */}
           <div className="container-page flex flex-1 flex-col items-center justify-center py-[clamp(48px,6vw,88px)] text-center">
             {/* The headline (Hamza, 19 Oct): Magnific's wordmark, then "inside EverAsk" with EverAsk in
                 the serif italic, all white on one line. */}
