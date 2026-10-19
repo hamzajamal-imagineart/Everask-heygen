@@ -393,4 +393,5 @@ topazlabs.com serves to curl (the Magnific site did not); the page HTML is in th
 - **FinalCta**: Topaz's own "Every pixel. *Perfect.*" on the shared `cta-sky-2.jpg`, with a line of ours.
 - **Left out on purpose**: pricing and plans, seats, system requirements, returns, plugin hosts (Photoshop,
   Lightroom…), local vs cloud rendering cards, Trustpilot quotes, TIPA award, "trusted by major companies".
-- Not yet checked in the browser at 375px; no HeyGen/Magnific files changed.
+- Checked in the browser at 1024px (tabs swap the pair, slider drags, no console/server errors) and at
+  375px; no HeyGen/Magnific files changed.
