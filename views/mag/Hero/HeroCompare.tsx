@@ -138,7 +138,7 @@ export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = 
         className={`absolute inset-0 size-full object-cover object-[60%_50%] ${gliding ? "transition-[clip-path] duration-[var(--glide,1300ms)] ease-[cubic-bezier(0.22,1,0.36,1)]" : ""}`}
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       />
-      <span aria-hidden className={`pointer-events-none absolute inset-y-0 w-[3px] -translate-x-1/2 bg-white ${gliding ? "transition-[left] duration-[var(--glide,1300ms)] ease-[cubic-bezier(0.22,1,0.36,1)]" : ""}`} style={{ left: `${pos}%` }} />
+      <span aria-hidden className={`pointer-events-none absolute inset-y-0 w-px -translate-x-1/2 bg-white/80 ${gliding ? "transition-[left] duration-[var(--glide,1300ms)] ease-[cubic-bezier(0.22,1,0.36,1)]" : ""}`} style={{ left: `${pos}%` }} />
       <button
         type="button"
         role="slider"
@@ -152,11 +152,11 @@ export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = 
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
         onKeyDown={onKeyDown}
-        className={`absolute z-30 grid size-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize touch-none place-items-center rounded-full bg-white text-ink shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60 active:scale-95 sm:size-12 ${gliding ? "transition-[left,transform] duration-[var(--glide,1300ms)] ease-[cubic-bezier(0.22,1,0.36,1)]" : "transition-transform duration-150"}`}
+        className={`absolute z-30 grid size-9 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize touch-none place-items-center rounded-full bg-white/95 text-ink/70 shadow-[0_2px_10px_rgba(0,0,0,0.18)] ring-1 ring-black/10 hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-95 ${gliding ? "transition-[left,transform] duration-[var(--glide,1300ms)] ease-[cubic-bezier(0.22,1,0.36,1)]" : "transition-transform duration-150"}`}
         style={{ left: `${pos}%`, top: `${handleY}%` }}
       >
-        <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-          <path d="m9 8-4 4 4 4m6-8 4 4-4 4" />
+        <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="m9.5 8.5-3.5 3.5 3.5 3.5m5-7 3.5 3.5-3.5 3.5" />
         </svg>
       </button>
     </div>

@@ -247,8 +247,8 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   still, lightly sharpened, 246 KB) and `hero-before.jpg` (a 1/4-scale copy JPEG-encoded at quality 22 and
   scaled back up, blurred 2.4, slightly desaturated, 112 KB), made by `scratchpad/split/layers.js` (session
   scratchpad only; `split.js` there bakes a static split if ever wanted). The before layer is clipped with
-  `clip-path: inset(0 <100-pos>% 0 0)`; a 3px white divider and a 44/48px round white handle with two thin chevrons (Hamza: "minimal arrows")
-  follow `pos` (starts at 50%, handle at 80% of the frame height, under the copy). Drag the handle
+  `clip-path: inset(0 <100-pos>% 0 0)`; a 1px white (80%) divider and a 36px round white handle (faint ring, soft shadow, chevrons at 70% ink;
+  Hamza: "minimal arrows", then "too harsh, make them minimal and mature") follow `pos` (starts at 50%, handle at 80% of the frame height, under the copy). Drag the handle
   (pointer capture, `touch-none`), or focus it and use the arrow keys (Shift for 10%), Home/End. The hero's
   copy block is `pointer-events-none` (button `pointer-events-auto`) so the handle under it can be grabbed
   (Hamza: "I can't click on it, maybe because of the overlay"). Idle demo
