@@ -240,15 +240,17 @@ assets that already existed. Hamza: **no prompt box in the hero.**
 - **Hero background video** (19 Oct, Hamza): first his wide clip (boy leaping across cloud puffs over a
   mirror sea, 1280×720), then his portrait clip `01a152f2-e26e-7451-bfbc-bf47071c2301.mp4` (boy hopping
   across cloud puffs over a mirror lake under a towering cumulus, 1284×1612, 7 s, 24 fps, 18.8 MB), which
-  is what the page uses now. A CSS `mix-blend-color` azure wash "looked super bad", so the cooler grade is
-  baked in with `ffmpeg-static`: `eq=saturation=1.18:contrast=1.04` + `colorbalance` toward blue (rs=-0.10
-  gs=-0.03 bs=0.14 rm=-0.06 gm=-0.01 bm=0.10 rh=-0.04 bh=0.04), `scale=1280:-2`, `-an -c:v libx264 -crf 24
-  -preset slow`. Files: `hero-leap.mp4` (2.3 MB, 1280×1606) and its first frame `hero-leap-poster.jpg`
-  (154 KB). The clip is portrait, so `object-cover object-[50%_45%]` crops it to the wide frame with the
-  boy kept mid-frame (the same crop the final CTA band uses on the poster). The copy (headline marks,
-  subhead, white button) is vertically centred in the frame. `HERO_TONE` is the graded sky top `#7dacc4`.
-  Replaced files, all in git history: `hero-loop-blue*` (the wide clip, commit `41c58c8`), `hero-loop*`
-  (`6e28df2`), `hero-dusk-wide.jpg` (`e9ed4f2`); the orphan `hero-bg.jpg` was deleted too.
+  is what the page uses now. A CSS `mix-blend-color` azure wash "looked super bad", and a gentle baked grade
+  was invisible to him ("you need to apply the filter"), so a strong cool grade is baked in with
+  `ffmpeg-static`: `eq=saturation=1.35:contrast=1.06:brightness=-0.02`, `colorbalance` toward blue
+  (rs=-0.22 gs=-0.06 bs=0.30 rm=-0.14 gm=-0.02 bm=0.22 rh=-0.10 gh=-0.02 bh=0.12),
+  `colorchannelmixer=rr=0.92:bb=1.08`, `scale=1280:-2`, `-an -c:v libx264 -crf 24 -preset slow`. Files:
+  `hero-leap-blue.mp4` (2.4 MB, 1280×1606) and its first frame `hero-leap-blue-poster.jpg` (160 KB). The
+  clip is portrait, so `object-cover object-[50%_45%]` crops it to the wide frame with the boy kept
+  mid-frame (the final CTA band uses the same crop on the poster). The copy is vertically centred in the
+  frame. `HERO_TONE` is the graded sky top `#63a4e5`. Replaced files, all in git history: `hero-leap*`
+  (gentle grade, `771fa40`), `hero-loop-blue*` (the wide clip, `41c58c8`), `hero-loop*` (`6e28df2`),
+  `hero-dusk-wide.jpg` (`e9ed4f2`); the orphan `hero-bg.jpg` was deleted too.
 - **Recreation attempts, not used** (19 Oct): Hamza asked for the clip recreated with a bluer sky, then
   gloomier, then "like these clouds" (EverAsk's above-the-clouds hero). Stills made with GPT Image 2 /
   2.5 Flare and two Kling 2.6 Pro animations exist in the ImagineArt (Official) workspace: still
@@ -260,17 +262,16 @@ assets that already existed. Hamza: **no prompt box in the hero.**
 - **Em-dashes removed** (19 Oct, Hamza, both pages): the HeyGen page had none; eleven on the Magnific page
   (FAQ, Features intro, Suite rows, Teams, logo-row line, Start simple) became colons, commas, full stops or
   parentheses. Rule from now on: no em-dashes in copy.
-- **Hero headline is the two marks** (19 Oct, Hamza pasted magnific.com's nav SVG, then asked for the
-  EverAsk logo too; a first placement on the badge line was "bad", then the two marks "looked imbalanced",
-  and it must stay on one line): `views/mag/Hero/MagnificWordmark.tsx` (the path in `currentColor`) +
-  "inside" (`HERO_HEADLINE`) + an inline EverAsk lockup (mask mark at 0.95em, the word in the h1's own
-  font), all white on one `flex-nowrap whitespace-nowrap` line. The three pieces share one size: the h1 is
-  `clamp(22px, 4.4vw, 68px)` (its own style, not `t-hero`, so the line fits a 375px phone), and the
-  Magnific SVG is `h-[1.14em]` because its glyphs span 27 of its 44 viewBox units, which puts their cap
-  height on the line's. The shared `Lockup` component is not used here (its word rendered smaller than
-  the line). The serif-italic `Accented` helper and the badge pill are gone. The old headline moved into
-  the subhead: "The creative platform to direct your best work. Every Magnific model for video, image and
-  audio, with intelligent workflows for professional control, right inside EverAsk." (new copy; review).
+- **Hero headline** (19 Oct, Hamza pasted magnific.com's nav SVG, then asked for the EverAsk logo too,
+  then "maybe don't use everask logo in title"; the size went 68 → 48 → 58px max after "reduce the title
+  size" and "too small now"): `views/mag/Hero/MagnificWordmark.tsx` (the path in `currentColor`) +
+  "inside" (`HERO_HEADLINE`) + "EverAsk" in Instrument Serif italic (1.08em), white on one
+  `flex-nowrap whitespace-nowrap` line. The h1 is `clamp(22px, 3.9vw, 58px)` (its own style, not
+  `t-hero`, so the line fits a 375px phone). The Magnific SVG is `h-[1.14em]` because its glyphs span 27
+  of its 44 viewBox units, which puts their cap height on the line's. The badge pill is gone. The old
+  headline moved into the subhead: "The creative platform to direct your best work. Every Magnific model
+  for video, image and audio, with intelligent workflows for professional control, right inside EverAsk."
+  (new copy; review).
 - **Hero legibility** (19 Oct, Hamza: "text is barely visible because of the video"): the copy is centred over
   the clouds, so three things changed: the top-down tone gradient now runs through the whole frame
   (`e6` → `b3` at 35% → `59` at 65% → `1a`), a radial scrim `rgba(10,40,90,0.55)` sits behind the centre

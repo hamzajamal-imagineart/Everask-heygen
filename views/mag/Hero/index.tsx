@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { MAG_MEDIA } from "../media.constants";
-import { EVERASK_BRAND, LOCKUP_MARK_STYLE } from "../Lockup/Lockup.constants";
+import { EVERASK_BRAND } from "../Lockup/Lockup.constants";
 import { MagnificWordmark } from "./MagnificWordmark";
 import { HERO_HEADLINE, HERO_LOGOS, HERO_RISE_DELAYS, HERO_SUBHEAD, HERO_TONE } from "./Hero.constants";
 import { magConfig } from "../config";
@@ -45,19 +45,17 @@ export function Hero() {
             style={{ backgroundImage: "radial-gradient(55% 50% at 50% 50%, rgba(10,40,90,0.55), rgba(10,40,90,0.25) 55%, transparent 80%)" }}
           />
           <div className="container-page flex flex-1 flex-col items-center justify-center py-[clamp(48px,6vw,88px)] text-center">
-            {/* The headline (Hamza, 19 Oct): Magnific's wordmark, "inside", the EverAsk lockup, all
-                in white, the two marks sized to the line. */}
+            {/* The headline (Hamza, 19 Oct): Magnific's wordmark, then "inside EverAsk" with EverAsk in
+                the serif italic, all white on one line. */}
             <h1
               {...rise(HERO_RISE_DELAYS.headline)}
               className="flex max-w-full flex-nowrap items-center justify-center gap-x-[0.3em] whitespace-nowrap font-display font-medium leading-none tracking-[-0.03em] text-white [text-shadow:0_2px_24px_rgba(0,30,80,0.55)]"
-              style={{ fontSize: "clamp(22px, 4.4vw, 68px)" }}
+              style={{ fontSize: "clamp(22px, 3.9vw, 58px)" }}
             >
               {/* Magnific's glyphs span 27 of the SVG's 44 units, so 1.14em puts their cap height on the line's. */}
               <MagnificWordmark className="h-[1.14em] w-auto shrink-0 drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]" />
-              <span>{HERO_HEADLINE}</span>
-              <span className="inline-flex shrink-0 items-center gap-x-[0.22em] drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]">
-                <span role="img" aria-label={EVERASK_BRAND.name} className="block size-[0.95em]" style={LOCKUP_MARK_STYLE} />
-                <span aria-hidden>{EVERASK_BRAND.name}</span>
+              <span>
+                {HERO_HEADLINE} <span className="font-serif text-[1.08em] font-normal italic tracking-[-0.01em]">{EVERASK_BRAND.name}</span>
               </span>
             </h1>
             <p {...rise(HERO_RISE_DELAYS.subhead)}>
