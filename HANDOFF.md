@@ -254,7 +254,9 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   (Hamza: "I can't click on it, maybe because of the overlay"). Idle demo
   (Hamza, 19 Oct): `demoDelay` ms after the slider is half in view (1.5 s by default; the Magnific hero passes
   1000, Hamza: "move the slider after 1 second") (IntersectionObserver, with an 800 ms geometry poll as
-  fallback) it glides to 0 (the whole enhanced picture), holds 0.9 s and glides back to its start, once, on
+  fallback) it jumps to 100 (the right edge, all "before"), glides left across the whole frame to 0 (the whole
+  enhanced picture) in 1.8 s (Hamza: "from right to left"), holds 0.9 s and glides back to its start in
+  1.3 s, once, on
   `setTimeout`s with a 1.3 s CSS transition on the clip, divider and handle (no animation frames: the
   browser pane never ticks them, and throttled tabs would stall); any drag or key press cancels it; off under
   reduced motion; `demo={false}` turns it off. The same component drives every slider on /topaz. Both layers

@@ -11,8 +11,9 @@ import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type Poin
 
    Idle demo (Hamza, 19 Oct): `demoDelay` ms (1.5 s by default, 1 s on the
    Magnific hero) after the slider scrolls into view it
-   glides to the edge, showing the whole enhanced picture, holds, and comes
-   back to where it started, on timers with a CSS transition (no animation
+   jumps to the right edge and glides left across the whole frame (Hamza:
+   "from right to left"), showing the whole enhanced picture, holds, and
+   comes back to where it started, on timers with a CSS transition (no animation
    frames, so it also runs in throttled tabs). Any drag or key press ends
    it. Off under reduced motion. */
 export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = true, demoDelay = 1500 }: { before: string; after: string; initial?: number; handleY?: number; demo?: boolean; /** ms after the slider is in view before the sweep starts */ demoDelay?: number }) {
@@ -36,13 +37,20 @@ export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = 
       // Wait 1.5 s, glide to 0 (the whole enhanced picture) in 1.4 s, hold 0.9 s, glide back in 1.2 s.
       later(() => {
         if (touched.current) return;
-        setGliding(true);
-        setPos(0);
+        // Jump to the right edge (all "before"), then glide left across the whole frame to 0
+        // (all "after"), hold, and settle back to the start.
+        setGliding(false);
+        setPos(100);
         later(() => {
           if (touched.current) return;
-          setPos(initial);
-          later(() => setGliding(false), 1300);
-        }, 1400 + 900);
+          setGliding(true);
+          setPos(0);
+          later(() => {
+            if (touched.current) return;
+            setPos(initial);
+            later(() => setGliding(false), 1300);
+          }, 1800 + 900);
+        }, 60);
       }, demoDelay);
     };
     const inView = () => {
@@ -119,7 +127,7 @@ export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = 
   };
 
   return (
-    <div ref={frame} className="absolute inset-0 -z-10 select-none">
+    <div ref={frame} className="absolute inset-0 -z-10 select-none" style={{ "--glide": pos === 0 && gliding ? "1800ms" : "1300ms" } as React.CSSProperties}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={after} alt="" fetchPriority="high" draggable={false} className="absolute inset-0 size-full object-cover object-[60%_50%]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -127,10 +135,10 @@ export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = 
         src={before}
         alt=""
         draggable={false}
-        className={`absolute inset-0 size-full object-cover object-[60%_50%] ${gliding ? "transition-[clip-path] duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)]" : ""}`}
+        className={`absolute inset-0 size-full object-cover object-[60%_50%] ${gliding ? "transition-[clip-path] duration-[var(--glide,1300ms)] ease-[cubic-bezier(0.22,1,0.36,1)]" : ""}`}
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       />
-      <span aria-hidden className={`pointer-events-none absolute inset-y-0 w-[3px] -translate-x-1/2 bg-white ${gliding ? "transition-[left] duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)]" : ""}`} style={{ left: `${pos}%` }} />
+      <span aria-hidden className={`pointer-events-none absolute inset-y-0 w-[3px] -translate-x-1/2 bg-white ${gliding ? "transition-[left] duration-[var(--glide,1300ms)] ease-[cubic-bezier(0.22,1,0.36,1)]" : ""}`} style={{ left: `${pos}%` }} />
       <button
         type="button"
         role="slider"
@@ -144,7 +152,7 @@ export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = 
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
         onKeyDown={onKeyDown}
-        className={`absolute z-30 grid size-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize touch-none place-items-center rounded-full bg-white text-ink shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60 active:scale-95 sm:size-12 ${gliding ? "transition-[left,transform] duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)]" : "transition-transform duration-150"}`}
+        className={`absolute z-30 grid size-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize touch-none place-items-center rounded-full bg-white text-ink shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60 active:scale-95 sm:size-12 ${gliding ? "transition-[left,transform] duration-[var(--glide,1300ms)] ease-[cubic-bezier(0.22,1,0.36,1)]" : "transition-transform duration-150"}`}
         style={{ left: `${pos}%`, top: `${handleY}%` }}
       >
         <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
