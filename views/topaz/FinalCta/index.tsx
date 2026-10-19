@@ -2,7 +2,7 @@ import { EVERASK_BRAND } from "@/views/mag/Lockup/Lockup.constants";
 import { topazConfig } from "../config";
 import { TOPAZ_MEDIA } from "../media.constants";
 
-/* EverAsk's sky band, closing on Topaz's own line "Every pixel. Perfect." */
+/* EverAsk's sky band to close (Topaz's "Every pixel. Perfect." now lives in Showcase). */
 export function FinalCta() {
   return (
     <section id="get-started" className="px-2 pt-10 pb-3 sm:px-3">
@@ -11,9 +11,9 @@ export function FinalCta() {
         <span aria-hidden className="absolute inset-0 -z-10 bg-black/20" />
         <div className="container-page text-center">
           <h2 className="t-statement mx-auto max-w-3xl font-display font-medium text-white">
-            Every pixel. <span className="font-serif text-[1.12em] font-normal italic">Perfect.</span>
+            Topaz Photo, <span className="font-serif text-[1.12em] font-normal italic">inside EverAsk.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-white/85">Topaz Photo's tools, trained on millions of images, one prompt away in EverAsk.</p>
+          <p className="mx-auto mt-5 max-w-xl text-white/85">Fix blur, noise and low resolution in one click, one prompt away from the rest of the job.</p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <a href={topazConfig.links.start} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
               Start enhancing

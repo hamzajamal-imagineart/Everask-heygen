@@ -1,8 +1,23 @@
 /* All generated with GPT Image 2 for this page (EverAsk palette: cool azure, one vermilion accent,
-   1980s grain). The "before" of each hero pair is derived from the "after" in sharp (scratchpad
-   topaz/before.js), degraded the way that tool's input would be. */
+   1980s grain). Each "before" is derived from its "after" in sharp (scratchpad topaz/before.js),
+   degraded the way that tool's input would be. */
 export const TOPAZ_MEDIA = {
   ctaSky: "/assets/mag/cta-sky-2.jpg",
+  /* Topaz's own demo pairs and feature shots from topazlabs.com/topaz-photo (Hamza: "use topaz images
+     too"), resized; each pair at one size so the sliders line up. `ratio` is width/height. */
+  tz: {
+    parrot: { before: "/assets/topaz/tz-parrot-before.jpg", after: "/assets/topaz/tz-parrot-after.jpg", ratio: 3590 / 2394 },
+    wren: { before: "/assets/topaz/tz-wren-before.jpg", after: "/assets/topaz/tz-wren-after.jpg", ratio: 3024 / 2288 },
+    mountain: { before: "/assets/topaz/tz-mountain-before.jpg", after: "/assets/topaz/tz-mountain-after.jpg", ratio: 16 / 9 },
+    cow: { before: "/assets/topaz/tz-cow-before.jpg", after: "/assets/topaz/tz-cow-after.jpg", ratio: 1 },
+    face: { before: "/assets/topaz/tz-face-before.jpg", after: "/assets/topaz/tz-face-after.jpg", ratio: 1100 / 1284 },
+    lighting: { before: "/assets/topaz/tz-lighting-before.jpg", after: "/assets/topaz/tz-lighting-after.jpg", ratio: 5294 / 2264 },
+    remove: { before: "/assets/topaz/tz-remove-before.jpg", after: "/assets/topaz/tz-remove-after.jpg", ratio: 2670 / 2412 },
+    wonder: "/assets/topaz/tz-wonder.jpg",
+    healing: "/assets/topaz/tz-healing.jpg",
+    precision: "/assets/topaz/tz-precision.jpg",
+  },
+  heroPortrait: { before: "/assets/topaz/hero-portrait-before.jpg", after: "/assets/topaz/hero-portrait-after.jpg" },
   hero: {
     denoise: { before: "/assets/topaz/hero-denoise-before.jpg", after: "/assets/topaz/hero-denoise-after.jpg" },
     sharpen: { before: "/assets/topaz/hero-sharpen-before.jpg", after: "/assets/topaz/hero-sharpen-after.jpg" },

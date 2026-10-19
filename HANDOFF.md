@@ -351,47 +351,61 @@ the copy and media URLs were read through the browser pane. Everything not about
 
 ## /topaz: Topaz Photo inside EverAsk (19 Oct 2026)
 
-Hamza: a third page for Topaz (EverAsk will have their API), "same concept" as Magnific, researched deeply
-from topazlabs.com/topaz-photo, a different layout but the same EverAsk vibe. Route
-`app/(magnific)/topaz/page.tsx` (same route group and CSS as /magnific: EverAsk globals + `views/mag/styles.css`),
-view `views/topaz/`. Reused from `views/mag`: `SiteHeader`, `SectionHead`, `AppTouchpoints`, `SiteFooter`,
-`Lockup.constants` (EVERASK_BRAND), `Faq/use-faq` + `Faq.types`, and `Hero/HeroCompare` (the draggable slider).
-topazlabs.com serves to curl (the Magnific site did not); the page HTML is in the session scratchpad
-(`topaz/topaz-photo.html`, `text.txt`) with its before/after pairs downloaded for reference only (not used).
+Hamza: a third page for Topaz (EverAsk will have their API), researched deeply from
+topazlabs.com/topaz-photo; first built in EverAsk's own arrangement, then "I want the layout to be like
+Topaz page", so the page now follows **Topaz's section order** (minus pricing) in EverAsk's register
+(white, ink Clash type, azure action, rounded frames). Route `app/(magnific)/topaz/page.tsx` (same route
+group and CSS as /magnific: EverAsk globals + `views/mag/styles.css`), view `views/topaz/`. Reused from
+`views/mag`: `SiteHeader`, `AppTouchpoints`, `SiteFooter`, `Lockup.constants` (EVERASK_BRAND),
+`Faq/use-faq` + `Faq.types`, and `Hero/HeroCompare` (the draggable before/after). topazlabs.com serves to
+curl; the page HTML, text and their before/after pairs are in the session scratchpad for reference only.
+The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fold, model cards) is commit
+`7bc538b`.
 
-- **Page order**: SiteHeader → Breadcrumbs (Features › Upscaling models › Topaz) → Hero → Stats → Tools →
-  UseCases → Models → "Start enhancing" pill → Faq → FinalCta → AppTouchpoints → SiteFooter. CTAs say
-  "Start enhancing"; `topazConfig.links.start` is EverAsk's agent link with `utm_lp=/topaz`.
-- **Hero** (`Hero/`, `HeroTools.tsx` client): the sky-frame hero, the Topaz Labs wordmark (`TopazWordmark.tsx`,
-  the nav SVG from topazlabs.com, viewBox 116×21, `h-[0.92em]`) + "inside *EverAsk*", Topaz's own line "Fix blur,
-  noise and low resolution in one click." as the subhead's first sentence. The interaction is Topaz's idea
-  (their hero cycles tools over a before/after, "hold to enhance") done EverAsk's way: six frosted tool chips
-  (Denoise, Sharpen, Recover Faces, Adjust Lighting, Balance Color, Upscale, the six from Topaz's hero), the
-  picked one swaps the pair behind the frame and `HeroCompare` (keyed by tool, handle at 84%) lets you drag;
-  a one-line description (their feature copy, trimmed) sits under the chips. Six scenes made with GPT Image 2
-  (16:9, 2K, EverAsk palette, one vermilion accent each): night soup stall (`1f6bce3e`), heron lifting off
-  (`4c0c0671`), old fisherman (`b0634e9d`), dancer in a studio (`176a403a`), whitewashed seaside street
-  (`c3dfd13d`), 1980s pier snapshot (`b128bc89`). Each `hero-<tool>-before.jpg` is derived from its
-  `-after.jpg` in sharp (`scratchpad/topaz/before.js`): grain overlay for Denoise, blur 5 for Sharpen, 1/5
-  downscale + q40 JPEG + blur for Faces, `linear(0.45,-6)` for Lighting, a warm-magenta tint for Color, 1/8
-  downscale + q35 JPEG + blur for Upscale. All 1920×1080.
-- **Stats**: "2 billion+ images processed", "12 AI tools, trained on millions of images", "20+ years trusted by
-  pro photographers", Topaz's own lines (the page says both "11 AI-powered tools" and "12 groundbreaking AI
-  tools"; 12 is used).
-- **Tools**: "Each tool gets it closer to perfect" with their intro, eleven tools as a two-column hairline list
-  (name + verbatim line): Denoise, Sharpen, Super Focus, Recover Faces, Upscale, Adjust Lighting, Balance
-  Color, Remove, Dust and Scratch, Healing Brush, Preserve Text.
-- **UseCases**: "Who it's for" z-fold, Topaz's four audiences verbatim (Wildlife & astro, Sports, Events &
-  weddings, Archival) with our pictures `usecase-*.jpg` (GPT Image 2, 16:9: arctic fox under the Milky Way
+- **Section order** (`views/topaz/index.tsx`), each mirroring Topaz's: Breadcrumbs (Features › Upscaling
+  models › Topaz) → **Hero** (two columns on white: eyebrow labels, lockup pill "Topaz Photo, now inside
+  EverAsk", Topaz's h1 "Fix blur, noise and low resolution in one click.", our line, "Start enhancing" +
+  "See every tool"; right, a tall 3:4 draggable before/after, their "tap and hold") → **Trusted** (their
+  "Trusted by major companies" names as type: Google, Coca-Cola, Target, NVIDIA, Tesla, Quora; no marks)
+  → **Toolbox** (`"use client"`: six tool chips, "Crystal clear. Highly detailed. Super focused." + their
+  intro, then the picked tool's 16:9 before/after slider where their app window sits) → **Reviews** ("Over
+  2 billion images processed." + their four Trustpilot quotes as 2×2 cards, verbatim, credited) →
+  **Showcase** (their "Every pixel. Perfect." set over a contained 16:9 before/after, Before/After pills) →
+  **Meet** (dark `#0d1117`: "Meet Topaz Photo" lockup, "Each tool gets it closer to perfect." + paragraph,
+  one big Denoise hold-to-enhance, then a 2-column grid of hold-to-enhance tiles (Sharpen, Recover Faces,
+  Lighting, Color, Upscale) with Julia Cook's quote card among them, then two cards: "Unlimited cloud
+  rendering." (their copy + one line of ours) and "A seamless addition to your workflow." (ours; their
+  plugin list and "Private local rendering" do not apply to the API)) → **Years** ("Trusted by pro
+  photographers for 20+ years." + paragraph + Charles D quote + CTA on the left; their four audiences as
+  a 2×2 on the right with our pictures above each) → **CtaBand** ("12 groundbreaking AI tools. Trained on
+  millions of images." on `#f6f6f7`, "Plus, unlimited cloud rendering.") → **Features** ("Latest features"
+  three image cards with a NEW pill: Wonder Model, Healing Brush, Standard MAX Model; "All features" as a
+  two-column list of native `details` rows, ten tools) → **Faq** (one centred column of rounded rows, six
+  items) → FinalCta (EverAsk sky band, "Topaz Photo, *inside EverAsk.*") → AppTouchpoints → footer.
+- **HoldToEnhance** (`views/topaz/HoldToEnhance/`, client): Topaz's interaction. Shows the before; press
+  and hold (pointer) or hold Space/Enter and the after fades in; label top-left, "Hold to enhance" eye
+  badge bottom-left, a Before/After pill top-right. Frame at the picture's own ratio.
+- **Topaz's own images** (Hamza: "use topaz images too"): `tz-*.jpg`, resized from topazlabs.com's
+  demo files, each before/after pair at one size (ratios in `TOPAZ_MEDIA.tz`): the hero parrot (3590:2394,
+  in the tall hero frame as Topaz crops it), the mountain pair under "Every pixel. Perfect.", and in Meet
+  the wren (Denoise), highland cow (Sharpen, 1:1), face (Recover Faces, 1100:1284), lighting (5294:2264)
+  and remove (2670:2412) tiles; the Latest-features cards show their Wonder (skaters), Healing Brush
+  (hand and mic) and Standard MAX (crowned portrait) shots at 3:2. Licence: Topaz's marketing images.
+- **Our images** (all GPT Image 2, EverAsk palette, one vermilion accent each; `before` layers derived in sharp,
+  `scratchpad/topaz/before.js`): hero portrait kingfisher 3:4 (`02d16ab6`, 1200×1600, `hero-portrait-*.jpg`, before = blur 4 + grain +
+  lower contrast; made for the hero, now unused since the parrot took it; kept for a swap); six 16:9 scenes at 1920×1080: night soup stall `1f6bce3e` (Denoise: grain
+  overlay), heron lifting off `4c0c0671` (Sharpen: blur 5), old fisherman `b0634e9d` (Recover Faces: 1/5
+  downscale + q40 JPEG + blur), dancer in a studio `176a403a` (Lighting: `linear(0.45,-6)`), whitewashed
+  seaside street `c3dfd13d` (Color: warm-magenta tint), 1980s pier snapshot `b128bc89` (Upscale: 1/8
+  downscale + q35 JPEG + blur); four 16:9 audience pictures `usecase-*.jpg`: arctic fox under the Milky Way
   `e6367dc8`, basketball jump shot `c67c91c8`, courtyard wedding dance `2bfd49f0`, gloved hands on a light
-  table `8a41b4e9`).
-- **Models**: three soft cards, "New · Upscale/Retouch" pill: Wonder Model, Standard MAX Model, Healing Brush,
-  copy verbatim. Description line "available through the same API EverAsk uses" is ours.
-- **Faq**: six; ours: "Can I use Topaz Photo inside EverAsk?", "Are my photos uploaded?" (states that inside
-  EverAsk the image goes to Topaz's cloud rendering via the API; **review this claim**), "Which tools are
-  included?"; Topaz's: "What is Topaz Photo?" (desktop wording dropped), Wonder and Standard MAX lines.
-- **FinalCta**: Topaz's own "Every pixel. *Perfect.*" on the shared `cta-sky-2.jpg`, with a line of ours.
-- **Left out on purpose**: pricing and plans, seats, system requirements, returns, plugin hosts (Photoshop,
-  Lightroom…), local vs cloud rendering cards, Trustpilot quotes, TIPA award, "trusted by major companies".
-- Checked in the browser at 1024px (tabs swap the pair, slider drags, no console/server errors) and at
-  375px; no HeyGen/Magnific files changed.
+  table `8a41b4e9`. Our six 16:9 pairs drive the Toolbox tabs; Color and Upscale also sit in the Meet grid.
+- **Copy**: Topaz's lines verbatim wherever the section has them (hero h1, intro, reviews, quotes, tool
+  descriptions, audiences, models, CTA band). Ours: the eyebrow labels, hero subhead, the "now inside
+  EverAsk" pills, the workflow card, the FAQ's first and third answers ("Are my photos uploaded?" says the
+  image goes to Topaz's cloud rendering through the API; **review this claim**), the final CTA line. Topaz's
+  page says both "11 AI-powered tools" and "12 groundbreaking AI tools"; both appear where they do on
+  their page.
+- **Left out on purpose**: pricing and plans, seats, system requirements, returns, the plugin host logos,
+  "Private local rendering", the TIPA award and Mac/Windows labels, the mailing list.
+- Checked in the browser at 1024px and 375px; no HeyGen/Magnific files changed.

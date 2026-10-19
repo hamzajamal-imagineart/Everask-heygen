@@ -2,15 +2,20 @@ import { AppTouchpoints } from "@/views/mag/AppTouchpoints";
 import { SiteFooter } from "@/views/mag/SiteFooter";
 import { SiteHeader } from "@/views/mag/SiteHeader";
 import { Breadcrumbs } from "./Breadcrumbs";
+import { CtaBand } from "./CtaBand";
 import { Faq } from "./Faq";
+import { Features } from "./Features";
 import { FinalCta } from "./FinalCta";
 import { Hero } from "./Hero";
-import { Models } from "./Models";
-import { Stats } from "./Stats";
-import { Tools } from "./Tools";
-import { UseCases } from "./UseCases";
-import { topazConfig } from "./config";
+import { Meet } from "./Meet";
+import { Reviews } from "./Reviews";
+import { Showcase } from "./Showcase";
+import { Toolbox } from "./Toolbox";
+import { Trusted } from "./Trusted";
+import { Years } from "./Years";
 
+/* The section order of topazlabs.com/topaz-photo (Hamza: "I want the layout
+   to be like Topaz page"), minus pricing, in EverAsk's register. */
 export default function TopazView() {
   return (
     <>
@@ -18,15 +23,14 @@ export default function TopazView() {
       <main className="mag-page flex-1">
         <Breadcrumbs />
         <Hero />
-        <Stats />
-        <Tools />
-        <UseCases />
-        <Models />
-        <div className="flex justify-center pb-20">
-          <a href={topazConfig.links.start} className="btn-primary !h-11 !px-6 text-[15px]">
-            Start enhancing
-          </a>
-        </div>
+        <Trusted />
+        <Toolbox />
+        <Reviews />
+        <Showcase />
+        <Meet />
+        <Years />
+        <CtaBand />
+        <Features />
         <Faq />
         <FinalCta />
         <AppTouchpoints />
