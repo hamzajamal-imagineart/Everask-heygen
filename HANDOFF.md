@@ -211,11 +211,13 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   (azure, sky, paper, royal, paper, navy), two-tone titles, "Learn more" arrow into EverAsk, grain on the
   dark blues. "Change camera angle" dropped (seven tiles don't grid). `views/mag/Tools/` deleted with
   `tool-all-tools.svg` and the chevron icons.
-- **UseCases**: a bento (Hamza, 19 Oct, after a z-fold he asked to replace): four cards on a three-column
-  grid, Advertising (wide) + Product shots, Brand campaigns + Filmmaking (wide). Each card is a sky panel
-  (`rounded-[24px]`, Hamza's above-the-clouds photo `panel-sky.webp`, 1120×630, 16 KB, `object-cover` at
-  50% 40%) with the title and line in white at the top and the use case's `usecase-*-v2.jpg` inset below at
-  240/280px on a soft shadow. Same four titles and lines as before. The z-fold CSS was removed.
+- **UseCases**: a bento in EverAsk's register (Hamza, 19 Oct, after a z-fold and a blue-card bento he asked
+  to replace): white section, four media panels on a three-column grid, Advertising (wide) + Product shots,
+  Brand campaigns + Filmmaking (wide). Each panel is only the image holder: `rounded-[24px]`, Hamza's
+  above-the-clouds photo `panel-sky.webp` (1120×630, 16 KB, `object-cover` at 50% 40%), the use case's
+  `usecase-*-v2.jpg` inset at 240/300px on a soft shadow (slight zoom on hover). The caption sits under the
+  panel in ink (20px Clash) and `text-black/50`, as on EverAsk's example grids; type never sits on the sky.
+  Same four titles and lines as before. The z-fold CSS was removed.
 - **StartBuilding** (new): centred action-blue pill "Start creating" into EverAsk, after Teams.
 - **FinalCta**: EverAsk's sky band (rounded, `t-statement` "Be Magnific, / *inside EverAsk.*", hero subhead,
   white "Start creating" + glass "See pricing" → everask.ai/pricing) over the dusk image. `cta-sky.jpg` deleted.
@@ -224,3 +226,7 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   EverAsk's current footer (giant wordmark, absolute links).
 - Verified: `tsc` clean (the only errors are stale `.next/types` for the HeyGen route group); no console or
   server errors; no horizontal overflow at 1024 or 375; h1 is 45px at 1024 and 38px at 375.
+- **Start simple headings fixed** (19 Oct, Hamza: "text is not visible"): EverAsk's globals set `h1-h4 {
+  color: var(--color-ink) }`, which turned the headings on the three dark bento cards ink-on-dark. The four
+  card `h3`s now carry their card's text colour explicitly. Rule from this: after the stylesheet swap, any
+  heading on a dark surface needs its own colour class.
