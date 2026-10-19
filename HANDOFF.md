@@ -243,8 +243,10 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   recreation rule: a GPT Image 2 still (21:9, 2K; asset `cbccd10f`), a woman in a cobalt work jacket at a
   photo-lab light table holding negatives to a tall window, azure palette, a red grease pencil as the one
   warm accent, 1980s grain. The split is built in sharp (`scratchpad/split/split.js`, kept in the session
-  scratchpad only): left half downscaled 6×, upscaled back, blurred and desaturated; right half lightly
-  sharpened; a white divider with two white arrow marks at the middle. `object-cover object-[60%_50%]`
+  scratchpad only): left half (the "before", Hamza: "should be blur as well as low quality") is a 1/4-scale copy
+  JPEG-encoded at quality 22 and scaled back up (soft blocks and ringing, the scene still legible; a 1/9
+  quality-9 pass was unrecognisable), blurred 2.4, a little
+  desaturated; right half lightly sharpened; a white divider with two white arrow marks at the middle. `object-cover object-[60%_50%]`
   keeps the subject in frame; the final CTA band uses the same image and crop under a flat `black/35`. The
   sampled-tone gradient and the overlay-blend grain are gone (Hamza: "why did you add a white overlay";
   they read as a veil); in their place a neutral `bg-black/35` plus a vertical band of a further 22% black
