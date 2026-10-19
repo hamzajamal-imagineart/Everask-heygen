@@ -4,10 +4,11 @@ import { MAG_MEDIA } from "../media.constants";
 export const HERO_TONE = "#559cd0";
 
 
-export const HERO_HEADLINE = "The creative platform to direct your best work";
+/** The words after the Magnific wordmark in the headline; the last one is set in the serif italic. */
+export const HERO_HEADLINE = "inside EverAsk";
 
 export const HERO_SUBHEAD =
-  "Use Magnific's AI models for video, image, and audio right inside EverAsk. Intelligent workflows for professional control and collaboration. On-brand production at any scale.";
+  "The creative platform to direct your best work. Every Magnific model for video, image and audio, with intelligent workflows for professional control, right inside EverAsk.";
 
 export const HERO_RISE_DELAYS = { badge: 0, headline: 80, subhead: 160, actions: 240 };
 

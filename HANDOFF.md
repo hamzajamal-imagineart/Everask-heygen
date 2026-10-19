@@ -259,7 +259,10 @@ assets that already existed. Hamza: **no prompt box in the hero.**
 - **Em-dashes removed** (19 Oct, Hamza, both pages): the HeyGen page had none; eleven on the Magnific page
   (FAQ, Features intro, Suite rows, Teams, logo-row line, Start simple) became colons, commas, full stops or
   parentheses. Rule from now on: no em-dashes in copy.
-- **Magnific wordmark in the hero** (19 Oct, Hamza pasted magnific.com's nav SVG): `views/mag/Hero/
-  MagnificWordmark.tsx`, the path in `currentColor`. It leads the badge line in white (26px tall, 30px from
-  `sm`, soft drop shadow), with the glass pill now reading "now inside EverAsk" beside it; the headline
-  moved to `mt-7`. Nothing else on the page changed.
+- **Magnific wordmark in the hero headline** (19 Oct, Hamza pasted magnific.com's nav SVG; a first
+  placement on the badge line was "bad"): `views/mag/Hero/MagnificWordmark.tsx`, the path in `currentColor`.
+  The headline is now the wordmark (0.8em tall, inline, soft drop shadow) followed by "inside *EverAsk*"
+  (`HERO_HEADLINE = "inside EverAsk"`, last word in Instrument Serif italic), the way EverAsk's model pages
+  lead the h1 with the model's logo. The badge pill is gone. The old headline moved into the subhead:
+  "The creative platform to direct your best work. Every Magnific model for video, image and audio, with
+  intelligent workflows for professional control, right inside EverAsk." (new copy; review).

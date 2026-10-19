@@ -49,16 +49,16 @@ export function Hero() {
             style={{ backgroundImage: `linear-gradient(to bottom, ${HERO_TONE}d9 0%, ${HERO_TONE}80 28%, transparent 55%)` }}
           />
           <div className="container-page flex flex-1 flex-col items-center justify-center py-[clamp(48px,6vw,88px)] text-center">
-            {/* Magnific's wordmark leads the badge line (Hamza, 19 Oct), in white over the sky. */}
-            <div {...rise(HERO_RISE_DELAYS.badge)} className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-white [text-shadow:0_2px_30px_rgba(0,40,110,0.25)]">
-              <MagnificWordmark className="h-[26px] w-auto drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)] sm:h-[30px]" />
-              <span className="glass inline-flex h-8 items-center rounded-pill px-3.5 text-[13px] font-medium">now inside EverAsk</span>
-            </div>
-            <h1 {...rise(HERO_RISE_DELAYS.headline)} className="t-hero mt-7 max-w-4xl font-display font-medium text-balance text-white [text-shadow:0_2px_30px_rgba(0,40,110,0.25)]">
-              <Accented text={HERO_HEADLINE} />
+            {/* The headline, as EverAsk's model pages set it: the product's own mark leads the line,
+                then the words, the last in the serif italic (Hamza, 19 Oct). */}
+            <h1 {...rise(HERO_RISE_DELAYS.headline)} className="t-hero flex max-w-4xl flex-wrap items-center justify-center gap-x-[0.3em] gap-y-2 font-display font-medium text-balance text-white [text-shadow:0_2px_30px_rgba(0,40,110,0.25)]">
+              <MagnificWordmark className="h-[0.8em] w-auto shrink-0 drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]" />
+              <span>
+                <Accented text={HERO_HEADLINE} />
+              </span>
             </h1>
             <p {...rise(HERO_RISE_DELAYS.subhead)}>
-              <span className="mx-auto mt-4 block max-w-xl text-[17px] leading-relaxed text-white/90">{HERO_SUBHEAD}</span>
+              <span className="mx-auto mt-5 block max-w-2xl text-[17px] leading-relaxed text-white/90">{HERO_SUBHEAD}</span>
             </p>
             <div {...rise(HERO_RISE_DELAYS.actions)} className="mt-8">
               <a href={magConfig.links.start} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
