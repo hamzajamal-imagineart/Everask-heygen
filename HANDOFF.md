@@ -238,3 +238,12 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   the plugins framing). Header "The full Magnific suite, inside EverAsk" with a new one-line description.
   **The five clips are hotlinked from media.magnific.com (`destacado_1-5.webm`)**; copy them into
   `public/assets/mag` (and compress) before production.
+- **Hero background video** (19 Oct, Hamza shared a clip): `hero-loop.mp4`, a boy leaping across cloud puffs
+  over a mirror sea under a bright azure sky, 1280×720, 8 s, 24 fps. Compressed from his 9.4 MB mp4 to
+  ~1.07 MB with `ffmpeg-static` (installed in the session scratchpad again: `-an -c:v libx264 -crf 26 -preset
+  slow -pix_fmt yuv420p -movflags +faststart`); its first frame is the poster `hero-loop-poster.jpg` (117 KB).
+  The `<video>` is a muted autoplay loop, `object-cover object-bottom`, poster shown until it plays.
+  `HERO_TONE` is now the clip's sky top `#699bc5` (sampled with sharp), so the page is back on an azure
+  palette. The final CTA band closes on the same frame (`hero-loop-poster.jpg` at 50% 70%), as EverAsk's
+  pages do. `hero-dusk-wide.jpg` deleted (still in commit `e9ed4f2`). Note the boy sits mid-frame; on wide
+  screens the copy ends above him, on short viewports the button may overlap him.

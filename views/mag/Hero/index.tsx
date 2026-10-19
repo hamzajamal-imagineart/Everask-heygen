@@ -17,9 +17,9 @@ function Accented({ text }: { text: string }) {
 }
 
 /* EverAsk's sky hero (components/landing/Hero.tsx, SkyHero): a tall rounded
-   frame under the header and breadcrumb, Magnific's dusk cloud sea filling it,
-   the copy and its white button centred in the clear sky, the sketching
-   figure left whole at the bottom. */
+   frame under the header and breadcrumb, Hamza's clip of a boy leaping across
+   cloud puffs over a mirror sea filling it (muted loop, first frame as poster),
+   the copy and its white button centred in the sky above him. */
 export function Hero() {
   return (
     <>
@@ -29,7 +29,17 @@ export function Hero() {
           style={{ backgroundColor: HERO_TONE }}
         >
           <div className="absolute inset-x-0 bottom-0 -z-10 h-[52%] [mask-image:linear-gradient(to_bottom,transparent,#000_30%)] sm:inset-0 sm:h-auto sm:[mask-image:none]">
-            <img src={MAG_MEDIA.heroBg} alt="" fetchPriority="high" className="size-full object-cover object-bottom" />
+            <video
+              src={MAG_MEDIA.heroVideo}
+              poster={MAG_MEDIA.heroPoster}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+              className="size-full object-cover object-bottom"
+            />
           </div>
           <span aria-hidden className="grain pointer-events-none absolute inset-0 -z-10 opacity-40 mix-blend-overlay" />
           <span
