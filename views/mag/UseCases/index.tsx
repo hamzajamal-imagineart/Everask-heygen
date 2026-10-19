@@ -1,14 +1,9 @@
 import { Cta } from "../Cta";
 import { magConfig } from "../config";
 import { MAG_MEDIA } from "../media.constants";
+import { USE_CASE_WIDE, USE_CASES } from "./UseCases.constants";
 import { SectionHead } from "../SectionHead";
-import { USE_CASES } from "./UseCases.constants";
 
-/* Use cases as a bento in EverAsk's register (Hamza, 19 Oct): a white section,
-   four media panels on a three-column grid (wide-narrow, narrow-wide), the
-   caption in ink and muted type under each panel as on EverAsk's example
-   grids. Each picture fills its cell edge to edge in a rounded frame (Hamza,
-   19 Oct: no sky panel); the type sits under it on white. */
 export function UseCases() {
   return (
     <section id="use-cases" className="border-t border-[#ededed] py-20">
@@ -22,26 +17,26 @@ export function UseCases() {
             </Cta>
           }
         />
-        <ul className="grid gap-x-4 gap-y-10 pt-12 md:grid-cols-3">
-          {USE_CASES.map((card) => (
-            <li key={card.title} className={`group flex flex-col gap-4 ${card.wide ? "md:col-span-2" : ""}`}>
-              <div className="relative h-[260px] overflow-hidden rounded-[24px] bg-fill-1 md:h-[340px]">
-                <img
-                  src={card.image}
-                  alt=""
-                  loading="lazy"
-                  className="absolute inset-0 size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] motion-reduce:transition-none"
-                />
-              </div>
-              <div className="flex items-baseline justify-between gap-6 px-1">
-                <div>
-                  <h3 className="font-display text-[20px] font-medium leading-[1.25] tracking-[-0.02em] text-ink">{card.title}</h3>
-                  <p className={`mt-1.5 text-[15px] leading-relaxed text-black/50 ${card.wide ? "max-w-md" : ""}`}>{card.body}</p>
-                </div>
+        <ul className="grid gap-4 pt-12 md:grid-cols-3">
+          {USE_CASES.map((useCase) => (
+            <li key={useCase.title} className="relative aspect-[395/526] overflow-hidden rounded-xl text-white">
+              <img src={useCase.image} alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" aria-hidden="true" />
+              <div className="absolute inset-x-6 bottom-6">
+                <h3 className="text-2xl leading-[1.5] font-medium text-white">{useCase.title}</h3>
+                <p className="pt-2 text-base leading-[1.6] text-white/70">{useCase.description}</p>
               </div>
             </li>
           ))}
         </ul>
+        <div className="relative mt-4 h-[280px] w-full md:h-auto md:aspect-[1216/405] overflow-hidden rounded-xl text-white">
+          <img src={USE_CASE_WIDE.image} alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" aria-hidden="true" />
+          <div className="absolute inset-x-6 bottom-6">
+            <h3 className="text-2xl leading-[1.5] font-medium text-white">{USE_CASE_WIDE.title}</h3>
+            <p className="max-w-[512px] pt-2 text-base leading-[1.6] text-white/70">{USE_CASE_WIDE.description}</p>
+          </div>
+        </div>
       </div>
     </section>
   );

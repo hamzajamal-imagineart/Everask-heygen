@@ -211,13 +211,12 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   (azure, sky, paper, royal, paper, navy), two-tone titles, "Learn more" arrow into EverAsk, grain on the
   dark blues. "Change camera angle" dropped (seven tiles don't grid). `views/mag/Tools/` deleted with
   `tool-all-tools.svg` and the chevron icons.
-- **UseCases**: a bento in EverAsk's register (Hamza, 19 Oct, after a z-fold, a blue-card bento and a
-  sky-panel bento he asked to replace): white section, four pictures on a three-column grid, Advertising
-  (wide) + Product shots, Brand campaigns + Filmmaking (wide). Each `usecase-*-v2.jpg` fills its cell edge
-  to edge in a `rounded-[24px]` frame at 260/340px (`object-cover`, slight zoom on hover), the caption under
-  it in ink (20px Clash) and `text-black/50`, as on EverAsk's example grids. Same four titles and lines as
-  before. `panel-sky.webp` (Hamza's above-the-clouds photo) was deleted with its `MAG_MEDIA` entry (still in
-  commit `1e84595` if wanted again).
+- **UseCases**: back to the original Magnific layout (Hamza, 19 Oct, after trying a z-fold, a blue-card
+  bento, a sky-panel bento and a full-width-image bento): three `aspect-[395/526]` cards with the title and
+  line in white over a bottom gradient (Advertising, Product shots, Brand campaigns), then the wide
+  Filmmaking card (`h-[280px]`, `aspect-[1216/405]` from `md`). Files restored from commit `e9ed4f2`, with `text-white` added to the card
+  titles (the EverAsk globals' `h1-h4` ink rule had made them dark over the photos).
+  `panel-sky.webp` (Hamza's above-the-clouds photo) was deleted (still in commit `1e84595`).
 - **StartBuilding** (new): centred action-blue pill "Start creating" into EverAsk, after Teams.
 - **FinalCta**: EverAsk's sky band (rounded, `t-statement` "Be Magnific, / *inside EverAsk.*", hero subhead,
   white "Start creating" + glass "See pricing" → everask.ai/pricing) over the dusk image. `cta-sky.jpg` deleted.
