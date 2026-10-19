@@ -2,7 +2,7 @@ import { SUITE_ROWS } from "./Suite.constants";
 
 /* Magnific's upscalers in the magnific.com suite layout (Hamza, 19 Oct): a
    centred heading, then equal two-column rows, the text on the left and the
-   16:9 clip on the right for the first row, swapping every row, in EverAsk's
+   media (at its own ratio, nothing cropped) on the right for the first row, swapping every row, in EverAsk's
    type and tokens. Each row eases up as it scrolls into view (styles.css,
    .mag-zfold-row). On phones the clip sits above its text. */
 export function Suite() {
@@ -16,7 +16,7 @@ export function Suite() {
           {SUITE_ROWS.map((row, i) => (
             <li key={row.title} className="mag-zfold-row grid items-center gap-6 sm:grid-cols-2 sm:gap-12 md:gap-14 lg:gap-20">
               <div className={`w-full ${i % 2 === 0 ? "sm:order-2" : ""}`}>
-                <div className="relative aspect-video overflow-hidden rounded-2xl bg-fill-1">
+                <div className="relative overflow-hidden rounded-2xl bg-fill-1" style={{ aspectRatio: row.ratio }}>
                   {row.video ? (
                     <video src={row.video} aria-label={row.title} autoPlay loop muted playsInline preload="metadata" className="absolute inset-0 size-full object-cover" />
                   ) : (

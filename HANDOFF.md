@@ -314,7 +314,9 @@ the copy and media URLs were read through the browser pane. Everything not about
 - **Suite** → "Every Magnific upscaler. Inside EverAsk.", five rows, copy verbatim: Magnific AI Upscaler
   (`up-magnific-model.jpg`), Creative control with AI (`up-creative.jpg`), Fast, clean upscaling
   (`up-classic.jpg`), Increase video resolution (`up-video-resolution.webm`, the site's own 3.4 s clip,
-  200 KB), Instantly upscale videos to Ultra HD 4K (`up-video-uhd.jpg`). Rows take `image` or `video`.
+  200 KB), Instantly upscale videos to Ultra HD 4K (`up-video-uhd.jpg`). Rows take `image` or `video` and a `ratio`
+  (1:1 for the four stills, 4:3 for the clip) so the frame matches the media and nothing is cropped (Hamza's
+  aspect-ratio rule, 19 Oct).
   **No more hotlinks to media.magnific.com**; the `destacado_*` suite clips are gone.
 - **Features** → "Pick a model, start upscaling": Up to 16× clarity / Up to 10K with Magnific / Creativity
   and Resemblance sliders / Bulk upscaling, up to 20 images / Video up to Ultra HD 4K / Frame rates up to
