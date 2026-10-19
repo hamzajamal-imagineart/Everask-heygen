@@ -380,7 +380,7 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   that sat above it were removed by Hamza, and `HERO_TOOLS` with them; the Meet grid's Color/Upscale tiles
   read `TOPAZ_MEDIA.hero` directly) →
   **Showcase** (their "Every pixel. Perfect." set over a contained 16:9 before/after, Before/After pills) →
-  **Meet** (dark `#0d1117`: "Meet Topaz Photo" lockup, "Each tool gets it closer to perfect." + paragraph,
+  **Meet** (light, Hamza: "make the dark section in lightmode"; it was dark `#0d1117` like Topaz's: "Meet Topaz Photo" lockup, "Each tool gets it closer to perfect." + paragraph,
   one big Denoise hold-to-enhance, then a 2-column grid of hold-to-enhance tiles (Sharpen, Recover Faces,
   Lighting, Color, Upscale) with Julia Cook's quote card among them, then two cards: "Unlimited cloud
   rendering." (their copy + one line of ours) and "A seamless addition to your workflow." (ours; their
