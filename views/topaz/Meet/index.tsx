@@ -1,4 +1,4 @@
-import { HoldToEnhance } from "../HoldToEnhance";
+import { CompareTile } from "../CompareTile";
 import { TopazWordmark } from "../Hero/TopazWordmark";
 import { TOPAZ_MEDIA } from "../media.constants";
 import { topazConfig } from "../config";
@@ -15,12 +15,12 @@ import { topazConfig } from "../config";
    Lighting (2×2), Color and Remove (1×3 each). Phones stack them at 4:3. */
 const CELL = "aspect-[4/3] md:aspect-auto";
 const TILES = [
-  { label: "Sharpen", pair: TOPAZ_MEDIA.tz.cow, cell: "md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-4" },
-  { label: "Recover Faces", pair: TOPAZ_MEDIA.tz.face, cell: "md:col-start-3 md:col-span-2 md:row-start-1 md:row-span-3" },
-  { label: "Lighting", pair: TOPAZ_MEDIA.tz.lighting, cell: "md:col-start-3 md:col-span-2 md:row-start-4 md:row-span-2" },
-  { label: "Color", pair: TOPAZ_MEDIA.hero.color, cell: "md:col-start-3 md:col-span-1 md:row-start-6 md:row-span-3" },
-  { label: "Remove", pair: TOPAZ_MEDIA.tz.remove, cell: "md:col-start-4 md:col-span-1 md:row-start-6 md:row-span-3" },
-  { label: "Upscale", pair: TOPAZ_MEDIA.hero.upscale, cell: "md:col-start-1 md:col-span-2 md:row-start-7 md:row-span-2" },
+  { label: "Sharpen", pair: TOPAZ_MEDIA.tz.cow, handleY: 50, cell: "md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-4" },
+  { label: "Recover Faces", pair: TOPAZ_MEDIA.tz.face, handleY: 50, cell: "md:col-start-3 md:col-span-2 md:row-start-1 md:row-span-3" },
+  { label: "Lighting", pair: TOPAZ_MEDIA.tz.lighting, handleY: 55, cell: "md:col-start-3 md:col-span-2 md:row-start-4 md:row-span-2" },
+  { label: "Color", pair: TOPAZ_MEDIA.hero.color, handleY: 50, cell: "md:col-start-3 md:col-span-1 md:row-start-6 md:row-span-3" },
+  { label: "Remove", pair: TOPAZ_MEDIA.tz.remove, handleY: 50, cell: "md:col-start-4 md:col-span-1 md:row-start-6 md:row-span-3" },
+  { label: "Upscale", pair: TOPAZ_MEDIA.hero.upscale, handleY: 55, cell: "md:col-start-1 md:col-span-2 md:row-start-7 md:row-span-2" },
 ];
 
 export function Meet() {
@@ -43,13 +43,13 @@ export function Meet() {
 
         <div className="mt-14">
           <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.08em] text-black/40">Enhanced by Denoise</p>
-          <HoldToEnhance before={TOPAZ_MEDIA.tz.wren.before} after={TOPAZ_MEDIA.tz.wren.after} label="Denoise" ratio={TOPAZ_MEDIA.tz.wren.ratio} />
+          <CompareTile before={TOPAZ_MEDIA.tz.wren.before} after={TOPAZ_MEDIA.tz.wren.after} label="Denoise" ratio={TOPAZ_MEDIA.tz.wren.ratio} handleY={80} />
         </div>
 
         <div className="mt-4 grid grid-cols-1 gap-4 md:aspect-square md:grid-cols-4 md:grid-rows-8">
           {TILES.map((t) => (
             <div key={t.label} className={`${CELL} ${t.cell}`}>
-              <HoldToEnhance before={t.pair.before} after={t.pair.after} label={t.label} />
+              <CompareTile before={t.pair.before} after={t.pair.after} label={t.label} handleY={t.handleY} />
             </div>
           ))}
           <blockquote className="flex flex-col justify-between rounded-2xl bg-[#f6f6f7] p-6 md:col-start-1 md:col-span-2 md:row-start-5 md:row-span-2 lg:p-7">

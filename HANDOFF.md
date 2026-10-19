@@ -381,7 +381,7 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   read `TOPAZ_MEDIA.hero` directly) →
   **Showcase** (their "Every pixel. Perfect." set over a contained 16:9 before/after, Before/After pills) →
   **Meet** (light, Hamza: "make the dark section in lightmode"; it was dark `#0d1117` like Topaz's: "Meet Topaz Photo" lockup, "Each tool gets it closer to perfect." + paragraph,
-  one big Denoise hold-to-enhance (wren, at its own ratio), then a packed bento like Topaz's (Hamza: the
+  one big Denoise slider (wren, at its own ratio), then a packed bento like Topaz's (Hamza: the
   earlier ratio-true grid "appears uneven"): a 4-column × 8-half-row grid that is a square overall, every
   tile filling its cell with `object-cover` (so these crop, as Topaz's do): Sharpen 2×4 (square), the Julia
   Cook quote 2×2, Upscale 2×2 on the left; Recover Faces 2×3, Lighting 2×2, Color 1×3 and Remove 1×3 on
@@ -394,10 +394,10 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   three image cards with a NEW pill: Wonder Model, Healing Brush, Standard MAX Model; "All features" as a
   two-column list of native `details` rows, ten tools) → **Faq** (one centred column of rounded rows, six
   items) → FinalCta (EverAsk sky band, "Topaz Photo, *inside EverAsk.*") → AppTouchpoints → footer.
-- **HoldToEnhance** (`views/topaz/HoldToEnhance/`, client): Topaz's interaction. Shows the before; press
-  and hold (pointer) or hold Space/Enter and the after fades in; label top-left, a Before/After pill top-right, and (Hamza: "add a prominent indicator that these are
-  clickable") a white circle with a pressing-hand icon in the middle of the tile, a slow pulsing ring
-  around it and a "Press and hold to enhance" pill under it, all fading out while the after shows. Frame at the picture's own ratio.
+- **CompareTile** (`views/topaz/CompareTile/`): the bento tile with the draggable before/after (`HeroCompare`)
+  inside, the tool's name top-left, Before/After pills at the bottom corners, handle mid-height. It
+  replaced the hold-to-enhance tiles (Topaz's press-and-hold interaction, with a big centred press
+  indicator) at Hamza's request: "instead of this, add the slider"; that component is in commit `95c143b`.
 - **Topaz's own images** (Hamza: "use topaz images too"): `tz-*.jpg`, resized from topazlabs.com's
   demo files, each before/after pair at one size (ratios in `TOPAZ_MEDIA.tz`): the hero parrot clarity pair (1844:1312, `tz-clarity-*`, 2400 wide) under the loupe (the earlier
   3590:2394 parrot pair was dropped with the two-column hero), the mountain pair under "Every pixel. Perfect.", and in Meet
