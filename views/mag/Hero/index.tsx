@@ -9,8 +9,8 @@ import { magConfig } from "../config";
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
 
 /* The sky hero, full-bleed and full viewport height with the transparent
-   header and the breadcrumbs over it (as the HeyGen page is built), Hamza's wide clip of a boy leaping across
-   cloud puffs over a mirror sea filling it (muted loop, first frame as poster, graded blue in ffmpeg),
+   header and the breadcrumbs over it (as the HeyGen page is built), Magnific's Upscale clip (the suite's first row) filling it: a figure in a
+   pink metallic coat among flowers on near-black, muted loop, first frame as poster,
    the copy and its white button centred in the frame, the clip graded cooler in ffmpeg. */
 export function Hero() {
   return (
@@ -31,7 +31,7 @@ export function Hero() {
               playsInline
               preload="auto"
               aria-hidden="true"
-              className="size-full object-cover object-bottom"
+              className="size-full object-cover object-center"
             />
           </div>
           <span aria-hidden className="grain pointer-events-none absolute inset-0 -z-10 opacity-40 mix-blend-overlay" />

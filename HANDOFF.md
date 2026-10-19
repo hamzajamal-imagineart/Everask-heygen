@@ -237,18 +237,17 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   Remove background, Reframe, Relight, copy verbatim from Magnific (it still says "your timeline" / "your
   editor", the plugins framing). **The five clips are hotlinked from media.magnific.com
   (`destacado_1-5.webm`)**; copy them into `public/assets/mag` (and compress) before production.
-- **Hero background video** (19 Oct, Hamza): his wide clip `02423b90-726b-466e-9a3d-d637cbbf7fcf.mp4`
-  (boy leaping across cloud puffs over a mirror sea, 1280×720, 8 s, 24 fps, 9.4 MB). He tried his portrait
-  clip (`01a152f2…`, 1284×1612) in between and came back: "this video was better". A CSS `mix-blend-color`
-  azure wash "looked super bad", and a gentle baked grade was invisible to him, so a strong cool grade is
-  baked in with `ffmpeg-static`: `eq=saturation=1.35:contrast=1.06:brightness=-0.02`, `colorbalance`
-  toward blue (rs=-0.22 gs=-0.06 bs=0.30 rm=-0.14 gm=-0.02 bm=0.22 rh=-0.10 gh=-0.02 bh=0.12),
-  `colorchannelmixer=rr=0.92:bb=1.08`, `-an -c:v libx264 -crf 24 -preset slow`. Files: `hero-wide-blue.mp4`
-  (1.5 MB) and its first frame `hero-wide-blue-poster.jpg` (178 KB). `<video>` is a muted autoplay loop,
-  `object-cover object-bottom`; the final CTA band uses the poster at 50% 70%. The copy is vertically
-  centred in the frame, so the boy sits behind it. `HERO_TONE` is the graded sky top `#3792f4`. Replaced
-  files, all in git history: `hero-leap-blue*` (portrait, `daef238`), `hero-leap*` (`771fa40`),
-  `hero-loop-blue*` (`41c58c8`), `hero-loop*` (`6e28df2`), `hero-dusk-wide.jpg` (`e9ed4f2`), `hero-bg.jpg`.
+- **Hero background video** (19 Oct, Hamza: "how about we use upscale video behind hero"): Magnific's
+  Upscale clip from the suite z-fold, `media.magnific.com/landings/plugins/destacado_1.webm` (a figure in a
+  pink metallic coat among flowers on near-black, 1920×1080, 10 s, VP9, 449 KB), copied as
+  `hero-upscale.webm` with its first frame as `hero-upscale-poster.jpg` (117 KB). Muted autoplay loop,
+  `object-cover object-center`; the final CTA band uses the poster the same way. `HERO_TONE` is the frame's
+  top `#292531`, so the top-down gradient is now a dark vignette and the white copy sits easily. The clip
+  is Magnific's own asset (same licence question as the hotlinked suite clips). Earlier hero media, all in
+  git history: `hero-wide-blue*` (Hamza's wide cloud clip with the strong blue grade, `548c5d0`),
+  `hero-leap-blue*` (portrait, `daef238`), `hero-leap*` (`771fa40`), `hero-loop-blue*` (`41c58c8`),
+  `hero-loop*` (`6e28df2`), `hero-dusk-wide.jpg` (`e9ed4f2`), `hero-bg.jpg`. The ffmpeg grade recipe for
+  the cloud clips is in `41c58c8`'s and `daef238`'s HANDOFF entries.
 - **Recreation attempts, not used** (19 Oct): Hamza asked for the clip recreated with a bluer sky, then
   gloomier, then "like these clouds" (EverAsk's above-the-clouds hero). Stills made with GPT Image 2 /
   2.5 Flare and two Kling 2.6 Pro animations exist in the ImagineArt (Official) workspace: still

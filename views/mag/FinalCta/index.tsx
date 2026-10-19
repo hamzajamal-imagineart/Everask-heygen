@@ -9,7 +9,7 @@ export function FinalCta() {
   return (
     <section id="get-started" className="px-2 pt-10 pb-3 sm:px-3">
       <div className="relative isolate overflow-hidden rounded-[24px] py-24 sm:rounded-[36px] lg:py-32" style={{ backgroundColor: HERO_TONE }}>
-        <img src={MAG_MEDIA.heroPoster} alt="" loading="lazy" className="absolute inset-0 -z-10 size-full object-cover object-[50%_70%]" />
+        <img src={MAG_MEDIA.heroPoster} alt="" loading="lazy" className="absolute inset-0 -z-10 size-full object-cover object-center" />
         <span aria-hidden className="absolute inset-0 -z-10" style={{ backgroundImage: `linear-gradient(to bottom, ${HERO_TONE}f2 0%, ${HERO_TONE}b3 45%, ${HERO_TONE}33 100%)` }} />
         <div className="container-page text-center">
           <h2 className="t-statement mx-auto max-w-3xl font-display font-medium text-white">
