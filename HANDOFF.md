@@ -401,8 +401,8 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   a 2×2 on the right with our pictures above each) → **CtaBand** ("12 groundbreaking AI tools. Trained on
   millions of images." on `#f6f6f7`, "Plus, unlimited cloud rendering.") → **Features** ("Latest features"
   three image cards with a NEW pill: Wonder Model, Healing Brush, Standard MAX Model; "All features" as a
-  two-column list of native `details` rows, ten tools) → **Faq** (one centred column of rounded rows, six
-  items) → FinalCta (EverAsk sky band, "Topaz Photo, *inside EverAsk.*") → AppTouchpoints → footer.
+  two-column list of native `details` rows, ten tools) → **Faq** (the Magnific page's layout, Hamza: heading left, hairline rows with ink plus/minus right,
+  first answer open; six items; the centred rounded-row version Topaz uses is in `5ded266`) → FinalCta (EverAsk sky band, "Topaz Photo, *inside EverAsk.*") → AppTouchpoints → footer.
 - **CompareTile** (`views/topaz/CompareTile/`): the bento tile with the draggable before/after (`HeroCompare`)
   inside, the tool's name top-left, Before/After pills at the bottom corners, handle mid-height. It
   replaced the hold-to-enhance tiles (Topaz's press-and-hold interaction, with a big centred press
