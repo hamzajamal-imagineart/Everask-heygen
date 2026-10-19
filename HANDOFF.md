@@ -237,17 +237,18 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   Remove background, Reframe, Relight, copy verbatim from Magnific (it still says "your timeline" / "your
   editor", the plugins framing). **The five clips are hotlinked from media.magnific.com
   (`destacado_1-5.webm`)**; copy them into `public/assets/mag` (and compress) before production.
-- **Hero background video** (19 Oct, Hamza: "how about we use upscale video behind hero"): Magnific's
-  Upscale clip from the suite z-fold, `media.magnific.com/landings/plugins/destacado_1.webm` (a figure in a
-  pink metallic coat among flowers on near-black, 1920×1080, 10 s, VP9, 449 KB), copied as
-  `hero-upscale.webm` with its first frame as `hero-upscale-poster.jpg` (117 KB). Muted autoplay loop,
-  `object-cover object-center`; the final CTA band uses the poster the same way. `HERO_TONE` is the frame's
-  top `#292531`, so the top-down gradient is now a dark vignette and the white copy sits easily. The clip
-  is Magnific's own asset (same licence question as the hotlinked suite clips). Earlier hero media, all in
-  git history: `hero-wide-blue*` (Hamza's wide cloud clip with the strong blue grade, `548c5d0`),
-  `hero-leap-blue*` (portrait, `daef238`), `hero-leap*` (`771fa40`), `hero-loop-blue*` (`41c58c8`),
-  `hero-loop*` (`6e28df2`), `hero-dusk-wide.jpg` (`e9ed4f2`), `hero-bg.jpg`. The ffmpeg grade recipe for
-  the cloud clips is in `41c58c8`'s and `daef238`'s HANDOFF entries.
+- **Hero background** (19 Oct, Hamza shared magnific.com's own upscaler hero, a before/after split of a
+  woman reading a diner menu, soft left and sharp right with a divider and pink arrows: "create a hero
+  background image like this"): `hero-split.jpg` (2048×864, 199 KB). Same idea, different scene per his
+  recreation rule: a GPT Image 2 still (21:9, 2K; asset `cbccd10f`), a woman in a cobalt work jacket at a
+  photo-lab light table holding negatives to a tall window, azure palette, a red grease pencil as the one
+  warm accent, 1980s grain. The split is built in sharp (`scratchpad/split/split.js`, kept in the session
+  scratchpad only): left half downscaled 6×, upscaled back, blurred and desaturated; right half lightly
+  sharpened; a white divider with two white arrow marks at the middle. `object-cover object-[60%_50%]`
+  keeps the subject in frame; the final CTA band uses the same image and crop. `HERO_TONE` is the frame's
+  top `#61727a`. Before this: Magnific's Upscale clip `hero-upscale.webm` (`93a7781`), and the cloud clips
+  (`hero-wide-blue*` `548c5d0`, `hero-leap-blue*` `daef238`, `hero-leap*` `771fa40`, `hero-loop-blue*`
+  `41c58c8`, `hero-loop*` `6e28df2`), `hero-dusk-wide.jpg` (`e9ed4f2`); all in git history.
 - **Recreation attempts, not used** (19 Oct): Hamza asked for the clip recreated with a bluer sky, then
   gloomier, then "like these clouds" (EverAsk's above-the-clouds hero). Stills made with GPT Image 2 /
   2.5 Flare and two Kling 2.6 Pro animations exist in the ImagineArt (Official) workspace: still

@@ -1,7 +1,7 @@
 import { MAG_MEDIA } from "../media.constants";
 
 /** Top colour of the hero clip's first frame (sampled with sharp); fills the frame before the video loads and on phones. */
-export const HERO_TONE = "#292531";
+export const HERO_TONE = "#61727a";
 
 
 /** The word between the Magnific wordmark and the EverAsk lockup in the headline. */

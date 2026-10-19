@@ -1,6 +1,5 @@
 export const MAG_MEDIA = {
-  heroPoster: "/assets/mag/hero-upscale-poster.jpg",
-  heroVideo: "/assets/mag/hero-upscale.webm",
+  heroImage: "/assets/mag/hero-split.jpg",
   iconArrowRight13: "/assets/mag/icon-arrow-right-13.svg",
   iconArrowRight16: "/assets/mag/icon-arrow-right-16.svg",
   iconArrowRightXs: "/assets/mag/icon-arrow-right-xs.svg",

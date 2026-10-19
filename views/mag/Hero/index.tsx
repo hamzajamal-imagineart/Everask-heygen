@@ -9,8 +9,8 @@ import { magConfig } from "../config";
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
 
 /* The sky hero, full-bleed and full viewport height with the transparent
-   header and the breadcrumbs over it (as the HeyGen page is built), Magnific's Upscale clip (the suite's first row) filling it: a figure in a
-   pink metallic coat among flowers on near-black, muted loop, first frame as poster,
+   header and the breadcrumbs over it (as the HeyGen page is built), a before/after upscaling split (soft left, sharp right, a white divider)
+   filling it, made from a generated still in sharp (scratchpad split.js),
    the copy and its white button centred in the frame, the clip graded cooler in ffmpeg. */
 export function Hero() {
   return (
@@ -22,17 +22,7 @@ export function Hero() {
         >
           <Breadcrumbs />
           <div className="absolute inset-x-0 bottom-0 -z-10 h-[52%] [mask-image:linear-gradient(to_bottom,transparent,#000_30%)] sm:inset-0 sm:h-auto sm:[mask-image:none]">
-            <video
-              src={MAG_MEDIA.heroVideo}
-              poster={MAG_MEDIA.heroPoster}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              aria-hidden="true"
-              className="size-full object-cover object-center"
-            />
+            <img src={MAG_MEDIA.heroImage} alt="" fetchPriority="high" className="size-full object-cover object-[60%_50%]" />
           </div>
           <span aria-hidden className="grain pointer-events-none absolute inset-0 -z-10 opacity-40 mix-blend-overlay" />
           <span
