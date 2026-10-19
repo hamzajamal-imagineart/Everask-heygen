@@ -1,24 +1,26 @@
 import type { CSSProperties } from "react";
 import { MAG_MEDIA } from "../media.constants";
 import { EVERASK_BRAND } from "../Lockup/Lockup.constants";
+import { Breadcrumbs } from "../Breadcrumbs";
 import { MagnificWordmark } from "./MagnificWordmark";
 import { HERO_HEADLINE, HERO_LOGOS, HERO_RISE_DELAYS, HERO_SUBHEAD, HERO_TONE } from "./Hero.constants";
 import { magConfig } from "../config";
 
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
 
-/* EverAsk's sky hero (components/landing/Hero.tsx, SkyHero): a tall rounded
-   frame under the header and breadcrumb, Hamza's wide clip of a boy leaping across
+/* The sky hero, full-bleed and full viewport height with the transparent
+   header and the breadcrumbs over it (as the HeyGen page is built), Hamza's wide clip of a boy leaping across
    cloud puffs over a mirror sea filling it (muted loop, first frame as poster, graded blue in ffmpeg),
    the copy and its white button centred in the frame, the clip graded cooler in ffmpeg. */
 export function Hero() {
   return (
     <>
-      <section id="top" className="px-2 sm:px-3">
+      <section id="top" className="-mt-[76px]">
         <div
-          className="relative isolate flex min-h-[max(640px,calc(100svh-140px))] flex-col overflow-hidden rounded-[24px] sm:rounded-[36px]"
+          className="relative isolate flex min-h-[max(640px,100svh)] flex-col overflow-hidden pt-[76px]"
           style={{ backgroundColor: HERO_TONE }}
         >
+          <Breadcrumbs />
           <div className="absolute inset-x-0 bottom-0 -z-10 h-[52%] [mask-image:linear-gradient(to_bottom,transparent,#000_30%)] sm:inset-0 sm:h-auto sm:[mask-image:none]">
             <video
               src={MAG_MEDIA.heroVideo}

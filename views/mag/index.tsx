@@ -1,5 +1,4 @@
 import { AppTouchpoints } from "./AppTouchpoints";
-import { Breadcrumbs } from "./Breadcrumbs";
 import { Faq } from "./Faq";
 import { Features } from "./Features";
 import { FinalCta } from "./FinalCta";
@@ -20,7 +19,6 @@ export default function MagView() {
     <>
       <SiteHeader />
       <main className="mag-page flex-1">
-        <Breadcrumbs />
         <Hero />
         <Models />
         <Steps />

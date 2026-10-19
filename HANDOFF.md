@@ -191,19 +191,19 @@ assets that already existed. Hamza: **no prompt box in the hero.**
 
 - `app/magnific.css` is now a copy of EverAsk's `app/globals.css` (full design system: tokens, `t-hero`,
   `t-title`, `t-item`, `t-statement`, `btn-primary`, `glass`, `grain`, `container-page`, `app-mock`).
-- Page order (`views/mag/index.tsx`): SiteHeader → Breadcrumbs → Hero → logo row → Models → Steps ("How it
+- Page order (`views/mag/index.tsx`): SiteHeader → Hero (with the breadcrumbs inside) → logo row → Models → Steps ("How it
   works") → Suite (z-fold) → Features (tiles; moved below the z-fold at Hamza's request, 19 Oct) → StartSimple → UseCases (z-fold) → Originals → Teams → StartBuilding pill →
   Faq → FinalCta (sky band) → AppTouchpoints → SiteFooter.
-- **Header** (`SiteHeader`): always ink on white, no transparent-over-hero mode; still lifts into the floating
-  panel on scroll. **Breadcrumbs** (new, from `components/landing/Breadcrumbs.tsx`): Features › Upscaling models ›
+- **Header** (`SiteHeader`): back to the HeyGen treatment (Hamza, 19 Oct: the hero "should take full height
+  like heygen, that includes the navbar too"): transparent with white text over the hero, lifting into the
+  floating white panel on scroll. **Breadcrumbs** (`views/mag/Breadcrumbs/`, EverAsk's `onFilm` variant):
+  white over the video, `absolute top-[76px]` inside the hero section: Features › Upscaling models ›
   Magnific, links absolute to everask.ai (`/features`, `/features/upscaling/models`). Hamza: Magnific sits
   under Upscaling models. That cluster is not on everask.ai yet (checked the live site and the source), so
   the href follows the model-cluster pattern and needs checking when it ships.
-- **Hero** (`SkyHero` shape): rounded frame `min-h-[max(640px,calc(100svh-140px))]` under the breadcrumb,
-  dusk image + grain + top-down tone gradient, everything centred: glass badge "Magnific, now inside
-  EverAsk", `t-hero` headline with the last word ("work") in Instrument Serif italic, subhead, white "Start
-  creating". Bottom padding leaves the sketching figure visible. A composer shell with starter chips was
-  built and removed at Hamza's request (not in git).
+- **Hero**: full-bleed and full viewport height including the navbar (`-mt-[76px]`, `min-h-[max(640px,
+  100svh)]`, `pt-[76px]`; no rounded frame or side gutters any more, Hamza 19 Oct), the clip + grain + top-down
+  tone gradient behind, everything centred: the headline marks, subhead, white "Start creating".
 - **Steps** (new, from `Steps.tsx`): three steps on one line, clay icons (editor, camera, upscale) in
   `bg-fill-1` tiles, thin arrows between. Copy is new, written from the page's own lines: "Describe or drop
   in" / "Direct the result" / "Export at full scale". **Review it.**
