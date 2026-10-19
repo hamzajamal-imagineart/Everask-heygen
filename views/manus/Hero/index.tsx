@@ -8,7 +8,7 @@ const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:anima
 
 /* Manus's own tagline first ("Less structure, more intelligence.") and their features line, then ours. */
 const SUBHEAD =
-  "Less structure, more intelligence. Build apps and games, create videos, slides and designs, research the web at scale and automate recurring work. Now inside EverAsk through Manus's API.";
+  "Less structure, more intelligence. Build apps and games, create video and slides, research at scale and automate the work that keeps coming back. Now inside EverAsk.";
 
 /* The Magnific hero's layout: a rounded frame under the header and breadcrumb,
    a still filling it, the copy centred over a neutral dark overlay. */

@@ -9,7 +9,7 @@ export function Features() {
       <div className="mag-container">
         <SectionHead
           title="Explore all Manus features"
-          description="All Manus AI features in one place: build apps, create media, research the web, automate recurring work and connect the tools you already use. Every one of them is a prompt away in EverAsk."
+          description="Build apps, create media, research the web, automate recurring work and connect the tools you already use."
         />
         <ul className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
           {GROUPS.map((g) => (

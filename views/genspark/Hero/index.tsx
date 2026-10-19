@@ -9,7 +9,7 @@ const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:anima
 /* Genspark's own hero line ("The all-in-one AI workspace for modern organizations." / "Autonomous agents,
    AI-native docs, sheets and slides, and an agentic browser") with ours on the end. */
 const SUBHEAD =
-  "The all-in-one AI workspace: autonomous agents, AI-native docs, sheets and slides, and an agentic browser. Now inside EverAsk through Genspark's API.";
+  "The all-in-one AI workspace, now inside EverAsk. Autonomous agents, AI-native docs, sheets and slides, and a browser that runs errands.";
 
 /* The Magnific hero's layout: a rounded frame under the header and
    breadcrumb, a still filling it, the copy centred over a neutral dark

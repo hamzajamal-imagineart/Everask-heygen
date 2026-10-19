@@ -8,12 +8,10 @@ import { Faq } from "./Faq";
 import { Features } from "./Features";
 import { FinalCta } from "./FinalCta";
 import { Hero } from "./Hero";
-import { Proof } from "./Proof";
 import { Studio } from "./Studio";
-import { manusConfig } from "./config";
 
-/* Manus inside EverAsk, in EverAsk's register: the features index first (as manus.im/features is their
-   one marketing overview), four feature deep dives, connectors, Manus 2.0, FAQ. */
+/* Manus inside EverAsk, in EverAsk's register: hero, four photographic rows for what Manus does, the
+   features index as hairlines, Manus 2.0 as tiles, a quiet connectors row, FAQ. */
 export default function ManusView() {
   return (
     <>
@@ -21,14 +19,10 @@ export default function ManusView() {
       <main className="mag-page flex-1">
         <Breadcrumbs />
         <Hero />
-        <Proof />
-        <Features />
         <Deep />
-        <Connectors />
+        <Features />
         <Studio />
-        <div className="flex justify-center py-20">
-          <a href={manusConfig.links.start} className="btn-primary !h-11 !px-6 text-[15px]">Start with Manus</a>
-        </div>
+        <Connectors />
         <Faq />
         <FinalCta />
         <AppTouchpoints />

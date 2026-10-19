@@ -1,30 +1,45 @@
+import { FEATURE_GRAINY, FEATURE_LIGHT, FEATURE_SURFACE, FEATURE_TONES } from "@/views/mag/Features/Features.constants";
 import { SectionHead } from "@/views/mag/SectionHead";
+import { gensparkConfig } from "../config";
 
-/* Genspark's "Everything a modern team needs, in one place." six capabilities, verbatim, as a hairline list. */
-const ITEMS = [
-  { name: "Autonomous agents", body: "Long-running agents that plan, execute, and self-correct across multi-step workflows, with human-in-the-loop checkpoints." },
-  { name: "Real-time research", body: "Live web, market data, and internal knowledge, cited and current, so answers are grounded, not guessed." },
-  { name: "Native integrations", body: "200+ connectors to Salesforce, HubSpot, Snowflake, Google Workspace, Microsoft 365, Slack, and more." },
-  { name: "Custom skills", body: "Wrap any internal API or workflow into a reusable skill your team's agents can call, no code required." },
-  { name: "Team workspaces", body: "Shared prompts, agents, docs, and knowledge, with roles, permissions, and audit history built in." },
-  { name: "Multi-model routing", body: "Automatically routes each task to the best available frontier model: GPT, Claude, Gemini, and open source." },
+/* Genspark's six capabilities as EverAsk's feature tiles (the same surfaces the
+   Magnific page uses): a two-tone title, no body copy, grain on the dark blues. */
+const ITEMS: { title: string; split: [string, string] }[] = [
+  { title: "Autonomous agents", split: ["Autonomous", "agents"] },
+  { title: "Real-time research", split: ["Real-time", "research"] },
+  { title: "200+ native integrations", split: ["200+ native", "integrations"] },
+  { title: "Custom skills, no code", split: ["Custom skills,", "no code"] },
+  { title: "Team workspaces", split: ["Team", "workspaces"] },
+  { title: "Multi-model routing", split: ["Multi-model", "routing"] },
 ];
 
 export function Capabilities() {
   return (
     <section id="capabilities" className="border-t border-[#ededed] py-20">
       <div className="mag-container">
-        <SectionHead
-          title="Everything a modern team needs, in one place."
-          description="Genspark unifies the capabilities scattered across a dozen point tools, planning, research, execution, collaboration, and governance, into one AI workspace."
-        />
-        <ul className="mt-10 grid border-t border-[#ededed] md:grid-cols-2 md:gap-x-12">
-          {ITEMS.map((it) => (
-            <li key={it.name} className="grid gap-1 border-b border-[#ededed] py-5 sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-6">
-              <h3 className="font-display text-[17px] font-medium leading-snug tracking-[-0.01em] text-ink">{it.name}</h3>
-              <p className="text-[14px] leading-relaxed text-black/50">{it.body}</p>
-            </li>
-          ))}
+        <SectionHead title="Everything a modern team needs, in one place." description="Planning, research, execution, collaboration and governance, unified instead of scattered across a dozen point tools." />
+        <ul className="grid gap-2 pt-10 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
+          {ITEMS.map((f, i) => {
+            const tone = FEATURE_TONES[i % FEATURE_TONES.length];
+            const light = FEATURE_LIGHT.includes(tone);
+            return (
+              <li key={f.title} className={`group relative isolate flex items-center gap-3 overflow-hidden rounded-2xl p-3 pr-4 sm:block sm:h-[220px] sm:rounded-[24px] sm:p-7 ${FEATURE_SURFACE[tone]} ${light ? "light-surface" : ""}`}>
+                {FEATURE_GRAINY.includes(tone) && <span aria-hidden className="grain pointer-events-none absolute inset-0 -z-[1] opacity-[0.28] mix-blend-overlay" />}
+                <span aria-hidden className="pointer-events-none absolute inset-0 -z-[1] bg-[radial-gradient(70%_70%_at_85%_90%,rgb(255_255_255/0.35),transparent_70%)] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 motion-reduce:transition-none" />
+                <h3 className="relative z-[1] min-w-0 flex-1 font-display text-[17px] font-medium leading-[1.15] tracking-[-0.02em] sm:max-w-[80%] sm:text-[26px] sm:leading-[1.12]">
+                  <span className={`block ${light ? "text-ink" : "text-white"}`}>{f.split[0]}</span>
+                  <span className={`block ${light ? "text-ink/40" : "text-white/60"}`}>{f.split[1]}</span>
+                </h3>
+                <a href={gensparkConfig.links.start} className={`z-[1] inline-flex shrink-0 items-center gap-2.5 text-[12px] font-medium uppercase tracking-[0.04em] sm:absolute sm:bottom-7 sm:left-7 ${light ? "text-ink" : "text-white"}`}>
+                  <span className={`grid size-7 place-items-center rounded-full transition-transform duration-300 ease-out group-hover:rotate-45 ${light ? "bg-ink text-white" : "bg-white text-[#0088ff]"}`}>
+                    <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7M9 7h8v8" /></svg>
+                  </span>
+                  <span className="max-sm:sr-only">Learn more</span>
+                  <span className="sr-only"> about {f.title.toLowerCase()}</span>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

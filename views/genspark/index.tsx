@@ -7,13 +7,11 @@ import { Connections } from "./Connections";
 import { Faq } from "./Faq";
 import { FinalCta } from "./FinalCta";
 import { Hero } from "./Hero";
-import { Proof } from "./Proof";
 import { Surfaces } from "./Surfaces";
-import { Teams } from "./Teams";
 import { Trust } from "./Trust";
-import { gensparkConfig } from "./config";
 
-/* genspark.ai/business's section order (minus pricing and the blog), in EverAsk's register. */
+/* Genspark inside EverAsk, in EverAsk's register: hero, one proof line, four photographic rows for the
+   surfaces, six capability tiles, a quiet connections row, the guarantees as hairlines, FAQ. */
 export default function GensparkView() {
   return (
     <>
@@ -21,15 +19,11 @@ export default function GensparkView() {
       <main className="mag-page flex-1">
         <Breadcrumbs />
         <Hero />
-        <Proof />
+        <p className="container-page pt-10 pb-4 text-center text-sm text-[#131318]/70">Genspark is trusted by 7,000+ world-class teams</p>
         <Surfaces />
-        <Connections />
         <Capabilities />
-        <Teams />
+        <Connections />
         <Trust />
-        <div className="flex justify-center py-20">
-          <a href={gensparkConfig.links.start} className="btn-primary !h-11 !px-6 text-[15px]">Start with Genspark</a>
-        </div>
         <Faq />
         <FinalCta />
         <AppTouchpoints />

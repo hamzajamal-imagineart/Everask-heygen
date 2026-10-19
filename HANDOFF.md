@@ -525,3 +525,45 @@ no photos. Route `app/(magnific)/manus/page.tsx` (same route group and CSS as th
   style hardware, Remote Control, the comparison tables, tool SEO pages.
 - **Review**: whether EverAsk's Manus integration reaches all of this ("through Manus's API"); the Agents
   breadcrumb href.
+
+## /genspark and /manus refined: no coded mocks, no stat rows (19 Oct 2026)
+
+Hamza: "both of these pages look AI generated. Think as if you are a Senior designer at Higgsfield… refine
+the page using everask branding". What read as generated: the coded UI mocks (fake traces, sheets, inboxes),
+the big-number proof rows, chip clouds, six-card grids of equal weight, and inert tabs. The refinement
+replaces all of that with the patterns the other EverAsk pages already use: photo z-folds, EverAsk gradient
+tiles, hairline lists, one quiet proof line. Copy is unchanged (still Genspark's and Manus's lines verbatim);
+only the containers changed. The sections above for /genspark and /manus describe the first build; this
+section is current.
+
+- **Genspark order**: Breadcrumbs → Hero (same frame, `hero-sphere.jpg`; subhead now "The all-in-one AI
+  workspace, now inside EverAsk. Autonomous agents, AI-native docs, sheets and slides, and a browser that
+  runs errands.") → one muted proof line ("Genspark is trusted by 7,000+ world-class teams", their figure)
+  → **Surfaces** (photo z-fold, `.mag-zfold-row`, four rows: Super Agent / AI Sheets & Slides / AI Browser /
+  GenMail, their line per surface beside an editorial still) → **Capabilities** (six EverAsk gradient tiles,
+  `FEATURE_*` from `views/mag/Features/Features.constants`, two-tone titles, their six lines) →
+  **Connections** (quiet row: 24px line + muted tool names, no chips) → **Trust** (hairline list, four
+  items verbatim) → Faq → FinalCta → AppTouchpoints → footer. Removed: Proof stats, Teams tabs,
+  `Surfaces/Mocks.tsx`, GenTeam surface.
+- **Manus order**: Breadcrumbs → Hero (`hero-hand.jpg`; subhead "Less structure, more intelligence. Build
+  apps and games, create video and slides, research at scale and automate the work that keeps coming
+  back. Now inside EverAsk.") → **Deep** (photo z-fold, four rows: Wide Research / Automations / Cloud
+  Computer / Browser Operator, their headline and paragraph beside a still) → **Features** (the five-column
+  hairline index, unchanged) → **Studio** (three gradient tiles azure / sky / navy: Cascade, Video Editor,
+  Game Dev, "Try it in EverAsk") → **Connectors** (quiet row, no chips) → Faq → FinalCta → AppTouchpoints →
+  footer. Removed: Proof stats, `Deep/Mocks.tsx`.
+- **Stills** (GPT Image 2, 16:9, installed as 1184×672 jpeg q84; the house look: 1975–85 film grain, azure
+  and ink, one subject, one vermilion accent, no screens with readable UI):
+  `genspark/row-agent.jpg` (desk with a row of index cards and a pen, asset `bca0fcb8`),
+  `genspark/row-sheets.jpg` (boardroom table with a fanned deck, `de56063f`),
+  `genspark/row-browser.jpg` (hands at a laptop by a night window, red note, `4182d2f6`),
+  `genspark/row-mail.jpg` (stack of envelopes, wax seal, letter opener, `7dafc668`);
+  `manus/row-research.jpg` (wall of index cards, one red pin, `d9ed1885`),
+  `manus/row-automations.jpg` (alarm clock by a window, `d17657bb`),
+  `manus/row-cloud.jpg` (white computer box on a ridge above clouds, `5e1a5c88`),
+  `manus/row-browser.jpg` (hands on a trackpad, `ad1be63a`).
+  Note for anyone regenerating: both pages have a `row-browser` still; download each to its own scratchpad
+  name, the first install overwrote one with the other.
+- **Verified** at 1024 and 375 on both pages: section order, all stills loaded, no horizontal overflow, no
+  em-dashes, `tsc` clean. Committed locally, not pushed (Hamza pushes on "push").
+- **Review**: same open items as before (Agents breadcrumb href, "through … API" claims in the FAQs).
