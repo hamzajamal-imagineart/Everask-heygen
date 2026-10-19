@@ -99,3 +99,12 @@ Each page has its own root layout through route groups, so their global CSS neve
 - Moving between `/` and `/magnific` is a full page load (different root layouts), by design.
 - `next build` passes with both routes as static pages (checked in a scratch copy so the dev server
   on 3400 kept its `.next`).
+- **/magnific hero** (19 Oct, from a Magnific reference Hamza shared): left column with the "Ranked #1"
+  badge, left-aligned headline (`clamp(40px,4.4vw,64px)`), subhead and a white "Start creating"; right
+  column `Hero/HeroTicker`, the seven Figma capability lines cycling upward every 2.2 s as an endless
+  strip (lines fade in below, out above; active line full white beside a vermilion arrow). Hidden below
+  `lg`; reduced motion freezes it on "Stay on brand". The centred glow and starter chips are gone; a
+  left-to-right azure fade keeps the copy legible over the photo. The reference's "Why Magnific?"
+  button is left out (EverAsk-only CTAs).
+- **/magnific mobile overflow fixed**: the wide Use cases card used `aspect-[1216/405] min-h-[280px]`,
+  forcing 840px on phones; it is now `h-[280px] w-full`, with the aspect ratio from `md` up.

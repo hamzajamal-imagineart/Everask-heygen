@@ -31,7 +31,7 @@ export function UseCases() {
             </li>
           ))}
         </ul>
-        <div className="relative mt-4 aspect-[1216/405] min-h-[280px] overflow-hidden rounded-xl text-white">
+        <div className="relative mt-4 h-[280px] w-full md:h-auto md:aspect-[1216/405] overflow-hidden rounded-xl text-white">
           <img src={USE_CASE_WIDE.image} alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" aria-hidden="true" />
           <div className="absolute inset-x-6 bottom-6">

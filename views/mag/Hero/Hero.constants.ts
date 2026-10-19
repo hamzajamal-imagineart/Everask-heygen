@@ -4,7 +4,27 @@ export const HERO_TONE = "#0088ff";
 
 export const HERO_HEADLINE = "The creative platform to direct your best work";
 
-export const HERO_STARTERS = ["Build workflows", "Direct photoshoots", "Upscale to 4K", "Draft storyboards", "Scale campaigns"];
+export const HERO_TICKER = [
+  "Video upscaling",
+  "Direct photoshoots",
+  "Cast characters",
+  "Stay on brand",
+  "Upscale to 4K",
+  "Draft storyboards",
+  "Scale campaigns",
+];
+
+/** Milliseconds each ticker line stays active. */
+export const HERO_TICKER_INTERVAL = 2200;
+
+/** Height of one ticker line in px; the list is laid out on this grid. */
+export const HERO_TICKER_LINE = 60;
+
+/** Opacity by distance from the active line (0, 1, 2, 3+). */
+export const HERO_TICKER_FADE = [1, 0.5, 0.32, 0.18];
+
+/** Vermilion accent from the computer-creative skill, used once in the hero. */
+export const HERO_ACCENT = "#E9482B";
 
 export const HERO_RISE_DELAYS = { badge: 0, headline: 80, subhead: 160, actions: 240 };
 

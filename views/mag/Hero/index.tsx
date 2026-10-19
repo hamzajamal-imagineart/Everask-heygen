@@ -1,14 +1,12 @@
 import type { CSSProperties } from "react";
 import { magConfig } from "../config";
 import { MAG_MEDIA } from "../media.constants";
-import { HERO_HEADLINE, HERO_LOGOS, HERO_RISE_DELAYS, HERO_STARTERS, HERO_TONE } from "./Hero.constants";
+import { HERO_HEADLINE, HERO_LOGOS, HERO_RISE_DELAYS, HERO_TONE } from "./Hero.constants";
+import { HeroTicker } from "./HeroTicker";
 
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
 
 export function Hero() {
-  const words = HERO_HEADLINE.split(" ");
-  const last = words.pop();
-
   return (
     <>
       <section id="top" className="-mt-[76px] px-2 pt-2 sm:px-3">
@@ -27,42 +25,35 @@ export function Hero() {
           </div>
           <span
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-3/4"
-            style={{ backgroundImage: `linear-gradient(to bottom, ${HERO_TONE}b3 0%, ${HERO_TONE}66 55%, transparent)` }}
+            className="pointer-events-none absolute inset-0 -z-10"
+            style={{ backgroundImage: `linear-gradient(to right, ${HERO_TONE}d9 0%, ${HERO_TONE}8c 38%, ${HERO_TONE}1a 68%, transparent 100%)` }}
           />
-          <div className="container-page flex flex-1 flex-col items-center pt-[clamp(56px,7vw,104px)] pb-[clamp(200px,24vw,340px)] text-center text-white">
-            <div className="relative [text-shadow:0_2px_30px_rgba(0,40,110,0.25)]">
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -inset-x-[6%] -inset-y-[75%] -z-10"
-                style={{ backgroundImage: `radial-gradient(closest-side, ${HERO_TONE}f5 0%, ${HERO_TONE}d9 50%, ${HERO_TONE}00 100%)` }}
-              />
+          <div className="container-page flex flex-1 items-center justify-between gap-10 py-[clamp(48px,7vw,96px)] text-white">
+            <div className="max-w-[640px] [text-shadow:0_2px_30px_rgba(0,40,110,0.25)]">
               <p {...rise(HERO_RISE_DELAYS.badge)}>
                 <span className="glass inline-flex h-8 items-center rounded-pill px-3.5 text-[13px] font-medium">Ranked #1 AI creative platform</span>
               </p>
-              <h1 {...rise(HERO_RISE_DELAYS.headline)} className="t-hero mx-auto mt-5 max-w-4xl font-medium text-balance text-white">
-                {words.join(" ")} <span className="font-serif text-[1.08em] font-normal italic tracking-[-0.01em]">{last}</span>
+              <h1
+                {...rise(HERO_RISE_DELAYS.headline)}
+                className="mt-6 font-display font-medium tracking-[-0.035em] text-balance text-white"
+                style={{ fontSize: "clamp(40px, 4.4vw, 64px)", lineHeight: 1.04 }}
+              >
+                {HERO_HEADLINE}
               </h1>
               <p {...rise(HERO_RISE_DELAYS.subhead)}>
-                <span className="mx-auto mt-4 block max-w-xl text-[17px] leading-relaxed text-white/90">
+                <span className="mt-5 block max-w-[560px] text-[17px] leading-relaxed text-white/90">
                   Every AI model for video, image, and audio. Intelligent workflows for professional control and
                   collaboration. On-brand production at any scale.
                 </span>
               </p>
+              <div {...rise(HERO_RISE_DELAYS.actions)} className="mt-8">
+                <a href={magConfig.links.start} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
+                  Start creating
+                </a>
+              </div>
             </div>
-            <div {...rise(HERO_RISE_DELAYS.actions)} className="relative z-10 mt-8 flex w-full flex-col items-center gap-4">
-              <a href={magConfig.links.start} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
-                Start creating
-              </a>
-              <ul aria-label="Starters" className="flex flex-wrap justify-center gap-2 py-1">
-                {HERO_STARTERS.map((starter) => (
-                  <li key={starter}>
-                    <a href={magConfig.links.start} className="glass inline-flex h-9 items-center rounded-pill px-4 text-[14px] font-medium whitespace-nowrap">
-                      {starter}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            <div {...rise(HERO_RISE_DELAYS.actions)} className="pr-[clamp(0px,2vw,32px)]">
+              <HeroTicker />
             </div>
           </div>
         </div>
