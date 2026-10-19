@@ -247,7 +247,9 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   scratchpad only): left half (the "before", Hamza: "should be blur as well as low quality") is a 1/4-scale copy
   JPEG-encoded at quality 22 and scaled back up (soft blocks and ringing, the scene still legible; a 1/9
   quality-9 pass was unrecognisable), blurred 2.4, a little
-  desaturated; right half lightly sharpened; a white divider with two white arrow marks at the middle. `object-cover object-[60%_50%]`
+  desaturated; right half lightly sharpened; a thick white divider (width/420) and a round white handle (r = 5.2% of height, soft shadow) with
+  two dark arrows inside, at 80% of the frame's height (Hamza: "move this slider down", then "make these
+  prominent too"; `split.js` takes the split and the handle height as arguments). `object-cover object-[60%_50%]`
   keeps the subject in frame. The final CTA band no longer reuses it (Hamza: "use a different image here"):
   `cta-sky-2.jpg`, a GPT Image 2 cloud sea under a deep azure sky, no people (asset `e4defbf6`), under a
   flat `black/20`. The
