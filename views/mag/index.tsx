@@ -22,10 +22,10 @@ export default function MagView() {
         <Hero />
         <Models />
         <Steps />
+        <UseCases />
         <Suite />
         <Features />
         <StartSimple />
-        <UseCases />
         <Originals />
         <Teams />
         <StartBuilding />

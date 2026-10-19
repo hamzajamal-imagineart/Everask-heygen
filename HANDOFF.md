@@ -192,7 +192,7 @@ assets that already existed. Hamza: **no prompt box in the hero.**
 - `app/magnific.css` is now a copy of EverAsk's `app/globals.css` (full design system: tokens, `t-hero`,
   `t-title`, `t-item`, `t-statement`, `btn-primary`, `glass`, `grain`, `container-page`, `app-mock`).
 - Page order (`views/mag/index.tsx`): SiteHeader → Hero (with the breadcrumbs inside) → logo row → Models → Steps ("How it
-  works") → Suite (z-fold) → Features (tiles; moved below the z-fold at Hamza's request, 19 Oct) → StartSimple → UseCases (z-fold) → Originals → Teams → StartBuilding pill →
+  works") → UseCases (moved above the z-fold, Hamza 19 Oct) → Suite (z-fold) → Features (tiles; moved below the z-fold at Hamza's request, 19 Oct) → StartSimple → Originals → Teams → StartBuilding pill →
   Faq → FinalCta (sky band) → AppTouchpoints → SiteFooter.
 - **Header** (`SiteHeader`): back to the HeyGen treatment (Hamza, 19 Oct: the hero "should take full height
   like heygen, that includes the navbar too"): transparent with white text over the hero, lifting into the
@@ -278,3 +278,6 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   hero `section`, which now has `id="top"`): Features › Avatar models › HeyGen. The "Avatar models" href is
   `/features/avatar/models` by the model-cluster pattern; that cluster is not on everask.ai yet, so check it
   when it ships.
+- **Models marquee compacted** (19 Oct, Hamza: "taking too much space"): the 220/280px white tiles (invisible
+  on the white page) are now 48px `#f6f6f7` chips (`rounded-pill px-5`, icon + name) in the same marquee,
+  with the rail's edges faded by a mask; section `py-14`, rail `mt-8`.
