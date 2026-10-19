@@ -337,7 +337,8 @@ the copy and media URLs were read through the browser pane. Everything not about
 - **Assets** (19 Oct, Hamza: "regenerate all images slightly differently, different person, change in color so
   it is not a duplicate of magnific"): the eight section images are now `up2-*.jpg`, GPT Image 2 recreations
   of Magnific's compositions with different people, subjects and a cool EverAsk palette (one vermilion
-  accent each): a bearded man's mouth with 2K/4K/8K/10K pills (`up2-sharper`), ramen with a focus bracket
+  accent each): a bearded man's mouth with 2K/4K/8K/10K pills (`up2-sharper`, then dropped: Hamza asked for the old
+  "Sharper results, same image" too, so `up-sharper.jpg`, Magnific's 4K/8K/10K face, is back), ramen with a focus bracket
   (`up2-textures`), fanned cards of an amber eye (`up2-bulk`, then dropped: Hamza asked for "the original bulk upscaling
   image", so `up-bulk.jpg`, Magnific's stacked-eyes photo, is back for that card), a train timetable with the divider and arrows
   (`up2-magnific-model`), matcha cake with stacked variants (`up2-creative`), an East Asian man with
