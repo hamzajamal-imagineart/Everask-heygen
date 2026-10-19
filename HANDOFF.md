@@ -229,15 +229,14 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   color: var(--color-ink) }`, which turned the headings on the three dark bento cards ink-on-dark. The four
   card `h3`s now carry their card's text colour explicitly. Rule from this: after the stylesheet swap, any
   heading on a dark surface needs its own colour class.
-- **Suite z-fold added** (19 Oct, Hamza pasted Magnific's "The full suite. Inside your canvas." markup):
-  `views/mag/Suite/`, after Features and before Start simple. Five rows in EverAsk's `ZFold` shape (16:9 clip
-  beside text, sides swapping, scroll-driven ease-in via `.mag-zfold-row`; rows `gap-16 sm:gap-24`, wider
-  than EverAsk's `gap-8` at Hamza's request; the list spans the full `mag-container` with a 640px media
-  column, not EverAsk's centred 1100px, so the rows line up with the section heading): Upscale, Generate, Remove
-  background, Reframe, Relight, copy verbatim from Magnific (it still says "your timeline" / "your editor",
-  the plugins framing). Header "The full Magnific suite, inside EverAsk" with a new one-line description.
-  **The five clips are hotlinked from media.magnific.com (`destacado_1-5.webm`)**; copy them into
-  `public/assets/mag` (and compress) before production.
+- **Suite z-fold added** (19 Oct, Hamza pasted Magnific's "The full suite. Inside your canvas." markup, then
+  asked for its layout): `views/mag/Suite/`, after Features and before Start simple. Centred heading "The
+  full Magnific suite. Inside EverAsk." (30/36px Clash), then five equal two-column rows in a centred
+  1000px measure (`sm:grid-cols-2`, `gap-12 md:gap-16` between rows): text left + 16:9 clip right on the
+  first row, swapping each row, scroll-driven ease-in via `.mag-zfold-row`. Rows: Upscale, Generate,
+  Remove background, Reframe, Relight, copy verbatim from Magnific (it still says "your timeline" / "your
+  editor", the plugins framing). **The five clips are hotlinked from media.magnific.com
+  (`destacado_1-5.webm`)**; copy them into `public/assets/mag` (and compress) before production.
 - **Hero background video** (19 Oct, Hamza shared a clip): `hero-loop.mp4`, a boy leaping across cloud puffs
   over a mirror sea under a bright azure sky, 1280×720, 8 s, 24 fps. Compressed from his 9.4 MB mp4 to
   ~1.07 MB with `ffmpeg-static` (installed in the session scratchpad again: `-an -c:v libx264 -crf 26 -preset
