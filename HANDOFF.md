@@ -338,9 +338,10 @@ the copy and media URLs were read through the browser pane. Everything not about
   it is not a duplicate of magnific"): the eight section images are now `up2-*.jpg`, GPT Image 2 recreations
   of Magnific's compositions with different people, subjects and a cool EverAsk palette (one vermilion
   accent each): a bearded man's mouth with 2K/4K/8K/10K pills (`up2-sharper`), ramen with a focus bracket
-  (`up2-textures`), fanned cards of an amber eye (`up2-bulk`), a train timetable with the divider and arrows
+  (`up2-textures`), fanned cards of an amber eye (`up2-bulk`, then dropped: Hamza asked for "the original bulk upscaling
+  image", so `up-bulk.jpg`, Magnific's stacked-eyes photo, is back for that card), a train timetable with the divider and arrows
   (`up2-magnific-model`), matcha cake with stacked variants (`up2-creative`), an East Asian man with
   Sharpness/Grain sliders (`up2-classic`), a skateboarder with a detail inset (`up2-video-4k`), a woman in a
   mustard coat with 1080p/4K frames (`up2-video-uhd`). ImagineArt assets `3ae47fb4`, `9f191659`, `6c8eaab7`,
-  `752c78a1`, `48b0fb8a`, `ffeb7862`, `6d5a6db5`, `0138b99f`. The Magnific-sourced `up-*.jpg` are in commit
+  `752c78a1`, `48b0fb8a`, `ffeb7862`, `6d5a6db5`, `0138b99f`. The other Magnific-sourced `up-*.jpg` are in commit
   `222ff4a`. The `up-video-resolution.webm` clip in the suite is still Magnific's own.

@@ -13,7 +13,7 @@ export const MAG_MEDIA = {
   /* Recreated with GPT Image 2 after magnific.com's upscaler pages: same compositions, different people, subjects and palettes. */
   upSharper: "/assets/mag/up2-sharper.jpg",
   upTextures: "/assets/mag/up2-textures.jpg",
-  upBulk: "/assets/mag/up2-bulk.jpg",
+  upBulk: "/assets/mag/up-bulk.jpg",
   upMagnificModel: "/assets/mag/up2-magnific-model.jpg",
   upCreative: "/assets/mag/up2-creative.jpg",
   upClassic: "/assets/mag/up2-classic.jpg",
