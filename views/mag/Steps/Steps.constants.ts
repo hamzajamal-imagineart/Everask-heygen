@@ -1,22 +1,21 @@
 import { MAG_MEDIA } from "../media.constants";
 
-/* Three steps, in the shape EverAsk's feature pages use (ask, it works, you
-   get it back). Copy written for this layout from the page's existing lines
-   (direct your best work, upscale to 10K, on-brand at scale); review it. */
+/* The three steps from magnific.com/ai/image-upscaler and /ai/video-upscaler
+   ("How to upscale images" / "How to upscale video to 4K"), merged. */
 export const STEPS = [
   {
-    title: "Describe or drop in",
-    body: "Type what you need, or drop in a photo, a clip or a brand file. Every Magnific model is one prompt away.",
-    icon: MAG_MEDIA.toolImageEditor,
+    title: "Upload one or more images, or a video",
+    body: "Drag and drop your files, or use what you just made in EverAsk. Video clips up to 8 seconds long.",
+    icon: MAG_MEDIA.stepUpload,
   },
   {
-    title: "Direct the result",
-    body: "Change the angle, swap the background, cast a character, keep it on brand. Refine until it is right.",
-    icon: MAG_MEDIA.toolCameraAngle,
+    title: "Select an upscaling model",
+    body: "Classic for a fast, clean result; Magnific or Creative for up to 10K and fine control. For video, Magnific or Topaz, with resolution and fps.",
+    icon: MAG_MEDIA.stepModel,
   },
   {
-    title: "Export at full scale",
-    body: "Upscale to 4K or 10K with real detail, then ship it in every format the campaign needs.",
-    icon: MAG_MEDIA.toolImageUpscaler,
+    title: "Download or keep editing",
+    body: "Take the high-resolution file, or keep working on it in EverAsk.",
+    icon: MAG_MEDIA.stepDownload,
   },
 ];

@@ -59,7 +59,7 @@ export function Hero() {
             </p>
             <div {...rise(HERO_RISE_DELAYS.actions)} className="mt-8">
               <a href={magConfig.links.start} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
-                Start creating
+                Start upscaling
               </a>
             </div>
           </div>

@@ -1,9 +1,9 @@
 import { EVERASK_BRAND } from "./Lockup/Lockup.constants";
 
 const CANONICAL_URL = "https://everask.ai/mag";
-const TITLE = "Magnific inside EverAsk: the creative platform to direct your best work";
+const TITLE = "Magnific Upscaler inside EverAsk: images to 16×, video to 4K";
 const DESCRIPTION =
-  "Use Magnific inside EverAsk. Every AI model for video, image, and audio. Intelligent workflows for professional control and collaboration. On-brand production at any scale.";
+  "Use Magnific's image and video upscalers inside EverAsk. Up to 16× clarity and 10K for images, Ultra HD 4K at 60 fps for video, with Classic, Magnific, Creative and Topaz models.";
 
 export const magConfig = {
   seo: {

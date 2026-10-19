@@ -1,14 +1,14 @@
-/* The six tools from the old Tools rail as EverAsk feature tiles: title split
+/* The upscalers' headline numbers (magnific.com) as EverAsk feature tiles: title split
    in two tones, no body copy. The surfaces run lights and darks interleaved. */
 export type FeatureTone = "azure" | "royal" | "navy" | "sky" | "paper";
 
 export const FEATURES: { title: string; split: [string, string] }[] = [
-  { title: "AI Image Generator", split: ["AI Image", "Generator"] },
-  { title: "Video Generator", split: ["Video", "Generator"] },
-  { title: "Image Upscaler", split: ["Image Upscaler", "up to 10K"] },
-  { title: "Image Editor", split: ["Image", "Editor"] },
-  { title: "Background Remover", split: ["Background", "Remover"] },
-  { title: "Text to Speech", split: ["Text to", "Speech"] },
+  { title: "Up to 16× clarity", split: ["Up to 16×", "clarity"] },
+  { title: "Up to 10K with Magnific", split: ["Up to 10K", "with Magnific"] },
+  { title: "Creativity and Resemblance sliders", split: ["Creativity and", "Resemblance sliders"] },
+  { title: "Bulk upscaling, up to 20 images", split: ["Bulk upscaling,", "up to 20 images"] },
+  { title: "Video up to Ultra HD 4K", split: ["Video up to", "Ultra HD 4K"] },
+  { title: "Frame rates up to 60 fps", split: ["Frame rates", "up to 60 fps"] },
 ];
 
 export const FEATURE_TONES: FeatureTone[] = ["azure", "sky", "paper", "royal", "paper", "navy"];

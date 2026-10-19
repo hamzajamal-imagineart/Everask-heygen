@@ -18,7 +18,7 @@ export function FinalCta() {
           <p className="mx-auto mt-5 max-w-xl text-white/85">{HERO_SUBHEAD}</p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <a href={magConfig.links.start} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
-              Start creating
+              Start upscaling
             </a>
             <a href={`${EVERASK_BRAND.site}/pricing`} className="glass inline-flex h-12 items-center rounded-pill px-7 text-[16px] font-medium">
               See pricing

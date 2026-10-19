@@ -9,11 +9,11 @@ export function UseCases() {
     <section id="use-cases" className="border-t border-[#ededed] py-20">
       <div className="mag-container">
         <SectionHead
-          title="From product shot to viral phenomenon"
-          description="Global on-brand campaigns, product shots, and top-tier filmmaking. Everything a brand needs to show up at the highest level, in every format, every time."
+          title="Enhance detail, preserve intent"
+          description="Sharper results from the same image or clip. Magnific's upscalers keep your structure, composition and lighting intact and bring out the detail."
           action={
             <Cta href={magConfig.links.start} size="sm" icon={MAG_MEDIA.iconArrowRight13}>
-              Start creating
+              Start upscaling
             </Cta>
           }
         />
@@ -31,7 +31,7 @@ export function UseCases() {
         </ul>
         <div className="relative mt-4 h-[280px] w-full md:h-auto md:aspect-[1216/405] overflow-hidden rounded-xl text-white">
           <img src={USE_CASE_WIDE.image} alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" aria-hidden="true" />
           <div className="absolute inset-x-6 bottom-6">
             <h3 className="text-2xl leading-[1.5] font-medium text-white">{USE_CASE_WIDE.title}</h3>
             <p className="max-w-[512px] pt-2 text-base leading-[1.6] text-white/70">{USE_CASE_WIDE.description}</p>

@@ -281,3 +281,45 @@ assets that already existed. Hamza: **no prompt box in the hero.**
 - **Models marquee compacted** (19 Oct, Hamza: "taking too much space"): the 220/280px white tiles (invisible
   on the white page) are now 48px `#f6f6f7` chips (`rounded-pill px-5`, icon + name) in the same marquee,
   with the rail's edges faded by a mask; section `py-14`, rail `mt-8`.
+
+## /magnific is now an upscaling page (19 Oct 2026)
+
+Hamza: "magnific page will only be relevant to Upscale", content and assets to come from
+magnific.com/ai/image-upscaler (and, for the video half, /ai/video-upscaler). The site 403s plain fetches;
+the copy and media URLs were read through the browser pane. Everything not about upscaling was removed
+("remove the remaining things that are not relevant"; he confirmed removing the Start simple bento).
+
+- **Page order** (`views/mag/index.tsx`): SiteHeader → Hero (breadcrumbs inside) → logo row → Steps → UseCases
+  (now the "Enhance detail, preserve intent" advantages) → Suite (now the upscalers z-fold) → Features
+  (upscaler numbers) → StartBuilding → Faq → FinalCta → AppTouchpoints → SiteFooter.
+- **Removed** with their folders and assets: Models marquee (`model-*.svg`), StartSimple (`start-*`),
+  Originals (`original-*`, `ea-original-*`), Teams (`clay-chart/headset/key/legal/lock.png`),
+  the old use-case photos (`usecase-*`), `suite-panel.jpg`, and the unused clay icons (camera, eraser,
+  imagegen, speaker, videogen). All in commit `f32b2d5` if wanted back. Kept clay icons: editor, toggles,
+  upscale (the Steps).
+- **Hero**: same Upscale clip; subhead now "Bring out crisp detail and rich texture with Magnific's upscalers:
+  images up to 16× clarity, 10K with the Magnific model, and video up to Ultra HD 4K at 60 fps. Right inside
+  EverAsk." (written from the two pages' hero lines); button "Start upscaling" (also on the section CTAs,
+  the pill and the final CTA).
+- **Steps**: the sites' three steps merged: upload images or a video (clips up to 8 s) → select a model
+  (Classic / Magnific / Creative; Magnific / Topaz for video, resolution and fps) → download or keep editing.
+- **UseCases** (same three-up + wide layout): "Sharper results, same image" (`up-sharper.jpg`, the 4K/8K/10K
+  face), "Contextual textures and details" (`up-textures.jpg`, the pie), "Bulk upscaling" (`up-bulk.jpg`,
+  the stacked eyes), wide "Upscale videos up to 4K" (`up-video-4k.jpg`, the surfer). Copy verbatim; the
+  card gradient is darker (`black/45`) because these photos are lighter than the old ones; the portrait
+  cards crop their landscape images with `object-top`.
+- **Suite** → "Every Magnific upscaler. Inside EverAsk.", five rows, copy verbatim: Magnific AI Upscaler
+  (`up-magnific-model.jpg`), Creative control with AI (`up-creative.jpg`), Fast, clean upscaling
+  (`up-classic.jpg`), Increase video resolution (`up-video-resolution.webm`, the site's own 3.4 s clip,
+  200 KB), Instantly upscale videos to Ultra HD 4K (`up-video-uhd.jpg`). Rows take `image` or `video`.
+  **No more hotlinks to media.magnific.com**; the `destacado_*` suite clips are gone.
+- **Features** → "Pick a model, start upscaling": Up to 16× clarity / Up to 10K with Magnific / Creativity
+  and Resemblance sliders / Bulk upscaling, up to 20 images / Video up to Ultra HD 4K / Frame rates up to
+  60 fps.
+- **Faq**: nine items from both pages (ours first: "Can I use Magnific's upscalers inside EverAsk?"), formats
+  merged into one answer, video output options + length merged, train/ownership merged across image and
+  video. Magnific's plan and credit questions were left out (EverAsk pricing unknown). "16×" was added to
+  the "What is Magnific Upscaler?" answer where the source says "up to resolution" (a gap in their copy).
+- **SEO** (`config.ts`): title "Magnific Upscaler inside EverAsk: images to 16×, video to 4K".
+- **Assets**: `up-*.jpg` are the site's webps resized to 1600px (sharp, q84); their originals are in the
+  session scratchpad only. Licence: all of them are Magnific's own marketing images, like the hero clip.

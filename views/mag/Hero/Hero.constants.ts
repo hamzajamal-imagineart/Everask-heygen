@@ -8,7 +8,7 @@ export const HERO_TONE = "#292531";
 export const HERO_HEADLINE = "inside";
 
 export const HERO_SUBHEAD =
-  "The creative platform to direct your best work. Every Magnific model for video, image and audio, with intelligent workflows for professional control, right inside EverAsk.";
+  "Bring out crisp detail and rich texture with Magnific's upscalers: images up to 16× clarity, 10K with the Magnific model, and video up to Ultra HD 4K at 60 fps. Right inside EverAsk.";
 
 export const HERO_RISE_DELAYS = { badge: 0, headline: 80, subhead: 160, actions: 240 };
 

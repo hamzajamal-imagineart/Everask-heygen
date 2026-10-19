@@ -9,7 +9,7 @@ export function Features() {
   return (
     <section id="tools" className="border-t border-[#ededed] py-20">
       <div className="mag-container">
-        <SectionHead title="Pick a tool, start creating" description="Generate, upscale, edit. Your creative workflow starts here." />
+        <SectionHead title="Pick a model, start upscaling" description="Classic, Magnific and Creative for images. Magnific and Topaz for video. All inside EverAsk." />
         <ul className="grid gap-2 pt-10 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
           {FEATURES.map((feature, i) => {
             const tone = FEATURE_TONES[i % FEATURE_TONES.length];
