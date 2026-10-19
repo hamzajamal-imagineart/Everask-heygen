@@ -8,7 +8,7 @@ import { STUDIO_CARDS } from "./AiStudio.constants";
 export function AiStudio() {
   return (
     <section id="studio" className="hg-container py-20 lg:py-[120px]">
-      <SectionHead badge="AI Studio" icon={HG_MEDIA.badgeStudio} tint="#bfd5ff" title="All your creative needs in one environment">
+      <SectionHead badge="AI Studio" icon="studio" tint="#bfd5ff" title="All your creative needs in one environment">
         The text-based editor makes AI video generation as
         easy as writing a document. Control tone, delivery, gestures, and emotion in one seamless platform built for human-first
         storytelling.

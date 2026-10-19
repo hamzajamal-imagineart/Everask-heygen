@@ -3,7 +3,6 @@ import { FeatureCard } from "../FeatureCard";
 import { ProofRow } from "../ProofRow";
 import { SectionHead } from "../SectionHead";
 import { heygenConfig } from "../config";
-import { HG_MEDIA } from "../media.constants";
 import { AVATAR_BOTTOM_CARDS, AVATAR_TOP_CARDS } from "./AvatarSection.constants";
 
 export function AvatarSection() {
@@ -11,7 +10,7 @@ export function AvatarSection() {
     <section id="avatar" className="hg-container py-20 lg:py-[120px]">
       <SectionHead
         badge="AI Avatar Generator"
-        icon={HG_MEDIA.badgeAvatar}
+        icon="avatar"
         tint="#edf3ff"
         title="The most lifelike avatars in AI video"
         action={<CtaButton href={heygenConfig.links.start} label="Get started for free" background="#131318" color="#fff" />}

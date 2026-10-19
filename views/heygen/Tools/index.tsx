@@ -1,7 +1,6 @@
 import { Badge } from "../Badge";
 import { CtaButton } from "../CtaButton";
 import { heygenConfig } from "../config";
-import { HG_MEDIA } from "../media.constants";
 import { TOOL_ITEMS } from "./Tools.constants";
 
 export function Tools() {
@@ -9,7 +8,7 @@ export function Tools() {
     <section id="tools" className="relative isolate overflow-hidden bg-hg-cyan-soft">
       <div className="hg-container relative py-20 lg:py-[120px]">
         <div className="flex flex-col items-center gap-5 text-center">
-          <Badge icon={HG_MEDIA.badgeTools} tint="#fff">
+          <Badge icon="tools" tint="#fff">
             AI Tools
           </Badge>
           <h2 className="hg-h2 max-w-[800px] text-hg-ink">Powerful AI tools for any creator</h2>

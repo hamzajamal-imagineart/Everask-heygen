@@ -13,7 +13,7 @@ export function Translation() {
 
   return (
     <section id="translation" className="hg-container py-20 lg:py-[120px]">
-      <SectionHead badge="Video Translation" icon={HG_MEDIA.badgeTranslation} tint="#edf3ff" title="Break language barriers in one click">
+      <SectionHead badge="Video Translation" icon="translation" tint="#edf3ff" title="Break language barriers in one click">
         AI video translation that preserves your tone, syncs your lips, and reaches global audiences across 175+ languages and
         dialects.
       </SectionHead>

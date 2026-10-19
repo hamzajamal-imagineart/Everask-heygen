@@ -5,7 +5,6 @@ import { FeatureCard } from "../FeatureCard";
 import { ProofRow } from "../ProofRow";
 import { SectionHead } from "../SectionHead";
 import { heygenConfig } from "../config";
-import { HG_MEDIA } from "../media.constants";
 import { AGENT_CARDS, AGENT_SLIDES } from "./VideoAgent.constants";
 import { useVideoAgent } from "./use-video-agent";
 
@@ -14,7 +13,7 @@ export function VideoAgent() {
 
   return (
     <section id="video-agent" className="hg-container py-20 lg:py-[120px]">
-      <SectionHead badge="Video Agent" icon={HG_MEDIA.badgeAgent} tint="#f3f1eb" title="From idea to finished video with just a prompt">
+      <SectionHead badge="Video Agent" icon="agent" tint="#f3f1eb" title="From idea to finished video with just a prompt">
         Type your idea. Click generate. Get a share-ready video faster than you can think. No camera, editing software, or
         production skills needed. Download it, edit it, and share it instantly.
       </SectionHead>
