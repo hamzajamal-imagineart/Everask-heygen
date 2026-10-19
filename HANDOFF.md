@@ -120,3 +120,14 @@ Each page has its own root layout through route groups, so their global CSS neve
 - **/magnific copy**: every visible "Magnific" now reads "EverAsk" (final CTA "Be EverAsk", "Made with
   EverAsk", Suite tab label, three testimonials, FAQ, Originals text). The claims themselves
   (Ranked #1, 1M+ subscribers, testimonials, Freepik FAQ) are still Magnific's and need review.
+- **/magnific Originals use video** (19 Oct; the original page had videos): each slide plays a muted,
+  looping clip (`original-{puma,bone,candela}.mp4`, Kling 2.6 Pro image-to-video from the slide stills,
+  compressed to 1280px h264 without audio, about 0.6-0.8 MB each) with the still as poster. Only the
+  active slide plays (`Originals/OriginalsVideo.tsx`); the others stay paused and unloaded. The
+  "Magnific Originals" SVG marks were replaced by a live-text "EverAsk Originals" label and deleted.
+  ffmpeg is not installed system-wide; `ffmpeg-static` was installed in the session scratchpad only.
+- **/magnific Use cases images** (19 Oct): Hamza's rule for recreations is "same vibe, different
+  products, camera angles and colours". `usecase-*-v2.jpg`: green grand tourer on a wet mountain pass at
+  sunset (low front three-quarter), cream/orange headphones floating on plum, a burgundy "EVERASK"
+  magazine held over marble with a glitched cover portrait, and a colossal stone head in storm clouds
+  (21:9). The old `ea-usecase-*` files were deleted.

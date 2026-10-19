@@ -2,6 +2,7 @@
 
 import type { CSSProperties } from "react";
 import { ORIGINALS } from "./Originals.constants";
+import { OriginalsVideo } from "./OriginalsVideo";
 import { useOriginals } from "./use-originals";
 
 export function Originals() {
@@ -25,7 +26,7 @@ export function Originals() {
             return (
               <li key={slide.title} className="mag-originals-slide shrink-0" data-active={isActive}>
                 <div className="relative aspect-[1354/762] overflow-hidden rounded-3xl text-white">
-                  <img src={slide.image} alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+                  <OriginalsVideo src={slide.video} poster={slide.image} active={isActive} />
                   <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
                   {!isActive && (
                     <button
@@ -37,8 +38,11 @@ export function Originals() {
                   )}
                   <div className="absolute inset-0 flex flex-col items-start justify-end gap-5 p-6 md:p-12">
                     <div className="flex max-w-[400px] flex-col gap-1">
-                      {slide.logo && (
-                        <img src={slide.logo} alt="" width={slide.logoWidth} height={slide.logoHeight} className="mb-5" aria-hidden="true" />
+                      {slide.original && (
+                        <p className="mb-5 flex items-baseline gap-1.5 text-[15px] leading-none">
+                          <span className="font-display font-medium tracking-[-0.02em]">EverAsk</span>
+                          <span className="text-white/80">Originals</span>
+                        </p>
                       )}
                       <p className="text-base leading-[1.6] font-medium">{slide.title}</p>
                       <p className="text-sm leading-[1.6]">{slide.description}</p>
