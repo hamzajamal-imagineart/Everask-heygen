@@ -195,8 +195,10 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   works") → Features (tiles) → StartSimple → UseCases (z-fold) → Originals → Teams → StartBuilding pill →
   Faq → FinalCta (sky band) → AppTouchpoints → SiteFooter.
 - **Header** (`SiteHeader`): always ink on white, no transparent-over-hero mode; still lifts into the floating
-  panel on scroll. **Breadcrumbs** (new, from `components/landing/Breadcrumbs.tsx`): Features › Image models ›
-  Magnific, links absolute to everask.ai (`/features`, `/features/image/models`).
+  panel on scroll. **Breadcrumbs** (new, from `components/landing/Breadcrumbs.tsx`): Features › Upscaling models ›
+  Magnific, links absolute to everask.ai (`/features`, `/features/upscaling/models`). Hamza: Magnific sits
+  under Upscaling models. That cluster is not on everask.ai yet (checked the live site and the source), so
+  the href follows the model-cluster pattern and needs checking when it ships.
 - **Hero** (`SkyHero` shape): rounded frame `min-h-[max(640px,calc(100svh-140px))]` under the breadcrumb,
   dusk image + grain + top-down tone gradient, everything centred: glass badge "Magnific, now inside
   EverAsk", `t-hero` headline with the last word ("work") in Instrument Serif italic, subhead, white "Start
