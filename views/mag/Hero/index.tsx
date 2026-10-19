@@ -15,17 +15,29 @@ export function Hero() {
         >
           <span aria-hidden className="grain pointer-events-none absolute inset-0 -z-20 opacity-40 mix-blend-overlay" />
           <div className="absolute inset-x-0 bottom-0 -z-10 h-[58%] [mask-image:linear-gradient(to_bottom,transparent,#000_35%)] sm:inset-0 sm:h-auto sm:[mask-image:none]">
-            <img
-              src={MAG_MEDIA.heroBg}
-              alt=""
-              fetchPriority="high"
-              className="size-full object-cover object-bottom"
-            />
+            <video
+              className="size-full object-cover object-[50%_45%]"
+              poster={MAG_MEDIA.heroBg}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+            >
+              <source src={MAG_MEDIA.heroVideoWebm} type="video/webm" />
+              <source src={MAG_MEDIA.heroVideo} type="video/mp4" />
+            </video>
           </div>
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 -z-10"
-            style={{ backgroundImage: `linear-gradient(to right, ${HERO_TONE}8c 0%, ${HERO_TONE}40 36%, transparent 62%)` }}
+            style={{ backgroundImage: `linear-gradient(to right, ${HERO_TONE}e6 0%, ${HERO_TONE}99 36%, ${HERO_TONE}26 62%, transparent 82%)` }}
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[28%]"
+            style={{ backgroundImage: `linear-gradient(to bottom, ${HERO_TONE}cc 0%, transparent 100%)` }}
           />
           <div className="container-page flex flex-1 items-center justify-between gap-10 py-[clamp(32px,4vw,56px)] text-white">
             <div className="max-w-[640px] [text-shadow:0_2px_30px_rgba(0,40,110,0.25)]">

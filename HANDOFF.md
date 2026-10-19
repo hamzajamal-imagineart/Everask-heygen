@@ -180,3 +180,9 @@ HeyGen/Magnific; EverAsk is the platform you use it in. No "official partner" wo
   `teams-tools.png` / `teams-credits.png`. The header description "Business and Enterprise plans for teams
   that create together." is new copy written for this layout; review it.
 - **/magnific hero ticker removed** (19 Oct, Hamza): `Hero/HeroTicker` and the `HERO_TICKER*`/`HERO_ACCENT` constants are deleted; the hero keeps the left copy over the dusk image.
+- **/magnific hero video** (19 Oct, Hamza's clip): `hero-leap.webm` (VP9, original, audio stripped) and
+  `hero-leap.mp4` (H.264 for Safari), each about 1 MB, 858×1078, 6 s loop, poster `hero-leap-poster.jpg`.
+  A child leaping across cloud puffs on mirror water. Cropped to the wide frame with `object-[50%_45%]`;
+  it is upscaled about 1.7× at 1440px so it is soft, and early in the loop the child passes high in the
+  frame. `HERO_TONE #7b9fb9`; stronger left tint for the white copy plus a top tint for the white nav.
+  `hero-dusk-wide.jpg` deleted.
