@@ -407,9 +407,8 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   `tz-v-*-poster.jpg`; sources `downloads.topazlabs.com/web-assets/video-upscale-*-opt.mp4`) → **Years** ("Trusted by pro
   photographers for 20+ years." + paragraph + Charles D quote + CTA on the left; their four audiences as
   a 2×2 on the right with our pictures above each) → **CtaBand** ("12 groundbreaking AI tools. Trained on
-  millions of images." on `#f6f6f7`, "Plus, unlimited cloud rendering.") → **Features** ("Latest features"
-  three image cards with a NEW pill: Wonder Model, Healing Brush, Standard MAX Model; "All features" as a
-  two-column list of native `details` rows, ten tools) → **Faq** (the Magnific page's layout, Hamza: heading left, hairline rows with ink plus/minus right,
+  millions of images." on `#f6f6f7`, "Plus, unlimited cloud rendering.") → **Features** ("All features" as a two-column list of native `details` rows, ten tools; the "Latest
+  features" image cards (Wonder Model, Healing Brush, Standard MAX) were removed by Hamza, `2c3d9e4` has them) → **Faq** (the Magnific page's layout, Hamza: heading left, hairline rows with ink plus/minus right,
   first answer open; nine items, three of them video (one ours, two verbatim from the video page); the centred rounded-row version Topaz uses is in `5ded266`) → FinalCta (EverAsk sky band, "Topaz Photo, *inside EverAsk.*") → AppTouchpoints → footer.
 - **CompareTile** (`views/topaz/CompareTile/`): the bento tile with the draggable before/after (`HeroCompare`)
   inside, the tool's name top-left, Before/After pills at the bottom corners, handle mid-height. It
@@ -419,8 +418,8 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   demo files, each before/after pair at one size (ratios in `TOPAZ_MEDIA.tz`): the hero parrot clarity pair (1844:1312, `tz-clarity-*`, 2400 wide) under the loupe (the earlier
   3590:2394 parrot pair was dropped with the two-column hero), the mountain pair (`tz-mountain-*`, no longer on the page since the video took that band), and in Meet
   the wren (Denoise), highland cow (Sharpen, 1:1), face (Recover Faces, 1100:1284), lighting (5294:2264)
-  and remove (2670:2412) tiles; the Latest-features cards show their Wonder (skaters), Healing Brush
-  (hand and mic) and Standard MAX (crowned portrait) shots at 3:2. Licence: Topaz's marketing images.
+  and remove (2670:2412) tiles; their Wonder, Healing Brush and Standard MAX shots were on the Latest-features cards until those
+  were removed (files pruned with them). Licence: Topaz's marketing images.
 - **Our images** (all GPT Image 2, EverAsk palette, one vermilion accent each; `before` layers derived in sharp,
   `scratchpad/topaz/before.js`): a 3:4 kingfisher portrait (`02d16ab6`) was made for the tall hero frame, then Topaz's parrot took
   that spot, so its files were not kept (the asset is in the ImagineArt workspace); six 16:9 scenes at 1920×1080: night soup stall `1f6bce3e` (Denoise: grain

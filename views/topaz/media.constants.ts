@@ -14,9 +14,6 @@ export const TOPAZ_MEDIA = {
     remove: { before: "/assets/topaz/tz-remove-before.jpg", after: "/assets/topaz/tz-remove-after.jpg", ratio: 2670 / 2412 },
     /* Topaz's video-upscale hero clip (Hamza's file), 1920×1920 → 1280, 30 fps, no audio. */
     videoUpscale: { src: "/assets/topaz/tz-video-upscale.mp4", poster: "/assets/topaz/tz-video-upscale-poster.jpg", ratio: 1 },
-    wonder: "/assets/topaz/tz-wonder.jpg",
-    healing: "/assets/topaz/tz-healing.jpg",
-    precision: "/assets/topaz/tz-precision.jpg",
   },
   hero: {
     denoise: { before: "/assets/topaz/hero-denoise-before.jpg", after: "/assets/topaz/hero-denoise-after.jpg" },

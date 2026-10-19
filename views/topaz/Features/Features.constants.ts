@@ -1,12 +1,4 @@
-import { TOPAZ_MEDIA } from "../media.constants";
-
-/* Topaz's "Latest features" (three cards) and "All features" (the list), copy verbatim. */
-export const LATEST = [
-  { name: "Wonder Model", tag: "Upscale", body: "Upscale, sharpen, and denoise all in just one click. The new Wonder model recovers previously unrecoverable images without settings to tune or decisions to make. Perfect for photos with extremely low resolution.", image: TOPAZ_MEDIA.tz.wonder, ratio: 1600 / 1039 },
-  { name: "Healing Brush", tag: "Retouch", body: "Fix small blemishes and artifacts.", image: TOPAZ_MEDIA.tz.healing, ratio: 1600 / 1039 },
-  { name: "Standard MAX Model", tag: "Upscale", body: "An entirely new series of model for precise, true-to-input image restoration. The new standard for upscaling. Get higher quality, more natural, and more detailed restoration results. 100x faster than first-generation diffusion models.", image: TOPAZ_MEDIA.tz.precision, ratio: 1278 / 1200 },
-];
-
+/* Topaz's "All features" list, copy verbatim. */
 export const ALL_FEATURES = [
   { name: "Dust and Scratch", body: "Automatically identifies and removes blemishes from your entire photo. One click." },
   { name: "Denoise", body: "Shoot confidently in low light, or save what you've already shot. Remove graininess. Preserve detail. Use Denoise on processed image formats, and Denoise (RAW) on RAW images." },
