@@ -247,9 +247,14 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   still, lightly sharpened, 246 KB) and `hero-before.jpg` (a 1/4-scale copy JPEG-encoded at quality 22 and
   scaled back up, blurred 2.4, slightly desaturated, 112 KB), made by `scratchpad/split/layers.js` (session
   scratchpad only; `split.js` there bakes a static split if ever wanted). The before layer is clipped with
-  `clip-path: inset(0 <100-pos>% 0 0)`; a 3px white divider and a 48/56px round white handle with two dark
-  arrows follow `pos` (starts at 50%, handle at 80% of the frame height, under the copy). Drag the handle
-  (pointer capture, `touch-none`), or focus it and use the arrow keys (Shift for 10%), Home/End. Both layers
+  `clip-path: inset(0 <100-pos>% 0 0)`; a 3px white divider and a 44/48px round white handle with two thin chevrons (Hamza: "minimal arrows")
+  follow `pos` (starts at 50%, handle at 80% of the frame height, under the copy). Drag the handle
+  (pointer capture, `touch-none`), or focus it and use the arrow keys (Shift for 10%), Home/End. Idle demo
+  (Hamza, 19 Oct): 1.5 s after the slider is half in view (IntersectionObserver, with an 800 ms geometry poll as
+  fallback) it glides to 0 (the whole enhanced picture), holds 0.9 s and glides back to its start, once, on
+  `setTimeout`s with a 1.3 s CSS transition on the clip, divider and handle (no animation frames: the
+  browser pane never ticks them, and throttled tabs would stall); any drag or key press cancels it; off under
+  reduced motion; `demo={false}` turns it off. The same component drives every slider on /topaz. Both layers
   are `object-cover object-[60%_50%]`. `HERO_TONE` `#61727a` only fills the frame before the images load.
   The sampled-tone gradient and the overlay-blend grain are gone (Hamza: "why did you add a white overlay";
   they read as a veil); in their place a neutral `bg-black/35` plus a vertical band of a further 22% black
