@@ -10,9 +10,6 @@ export const MAG_MEDIA = {
   logoOgilvy: "/assets/mag/logo-ogilvy.svg",
   logoRga: "/assets/mag/logo-rga.svg",
   logoWonder: "/assets/mag/logo-wonder.svg",
-  stepUpload: "/assets/mag/clay-editor.png",
-  stepModel: "/assets/mag/clay-toggles.png",
-  stepDownload: "/assets/mag/clay-upscale.png",
   /* From magnific.com/ai/image-upscaler and /ai/video-upscaler (media.magnific.com), resized to 1600px. */
   upSharper: "/assets/mag/up-sharper.jpg",
   upTextures: "/assets/mag/up-textures.jpg",

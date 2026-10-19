@@ -289,20 +289,22 @@ magnific.com/ai/image-upscaler (and, for the video half, /ai/video-upscaler). Th
 the copy and media URLs were read through the browser pane. Everything not about upscaling was removed
 ("remove the remaining things that are not relevant"; he confirmed removing the Start simple bento).
 
-- **Page order** (`views/mag/index.tsx`): SiteHeader → Hero (breadcrumbs inside) → logo row → Steps → UseCases
+- **Page order** (`views/mag/index.tsx`): SiteHeader → Hero (breadcrumbs inside) → logo row → UseCases
   (now the "Enhance detail, preserve intent" advantages) → Suite (now the upscalers z-fold) → Features
   (upscaler numbers) → StartBuilding → Faq → FinalCta → AppTouchpoints → SiteFooter.
 - **Removed** with their folders and assets: Models marquee (`model-*.svg`), StartSimple (`start-*`),
   Originals (`original-*`, `ea-original-*`), Teams (`clay-chart/headset/key/legal/lock.png`),
   the old use-case photos (`usecase-*`), `suite-panel.jpg`, and the unused clay icons (camera, eraser,
-  imagegen, speaker, videogen). All in commit `f32b2d5` if wanted back. Kept clay icons: editor, toggles,
-  upscale (the Steps).
+  imagegen, speaker, videogen). All in commit `f32b2d5` if wanted back.
 - **Hero**: same Upscale clip; subhead now "Bring out crisp detail and rich texture with Magnific's upscalers:
   images up to 16× clarity, 10K with the Magnific model, and video up to Ultra HD 4K at 60 fps. Right inside
   EverAsk." (written from the two pages' hero lines); button "Start upscaling" (also on the section CTAs,
   the pill and the final CTA).
-- **Steps**: the sites' three steps merged: upload images or a video (clips up to 8 s) → select a model
-  (Classic / Magnific / Creative; Magnific / Topaz for video, resolution and fps) → download or keep editing.
+- **Steps ("How it works") removed** (Hamza, 19 Oct) together with the last clay icons (`clay-editor/toggles/
+  upscale.png`); the merged three-step copy is in commit `d0ea2f8`. Just before that he asked for the clay
+  icons to become matte white sculpted 3D glyphs (like EverAsk's model marks); three were generated with GPT
+  Image 2.5 Flare on transparent backgrounds (upload tray, sliders, enlarge frame) and sit unused in the
+  ImagineArt (Official) workspace: `22007841`, `8395e89e`, `269f7913`.
 - **UseCases** (same three-up + wide layout): "Sharper results, same image" (`up-sharper.jpg`, the 4K/8K/10K
   face), "Contextual textures and details" (`up-textures.jpg`, the pie), "Bulk upscaling" (`up-bulk.jpg`,
   the stacked eyes), wide "Upscale videos up to 4K" (`up-video-4k.jpg`, the surfer). Copy verbatim; the
