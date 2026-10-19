@@ -13,7 +13,7 @@ export function Toolbox() {
         <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-black/55">
           Topaz Photo is an intelligent image enhancement software that lets you sharpen details, restore focus, and adjust levels on every shot you take. Choose from 11 AI-powered tools to perfect your images, or let autopilot get you started. Now inside EverAsk.
         </p>
-        <div className="relative mt-10 w-full overflow-hidden rounded-[24px] bg-fill-1 sm:rounded-[32px]" style={{ aspectRatio: 16 / 9 }}>
+        <div className="relative isolate mt-10 w-full overflow-hidden rounded-[24px] bg-fill-1 sm:rounded-[32px]" style={{ aspectRatio: 16 / 9 }}>
           <HeroCompare before={TOPAZ_MEDIA.hero.sharpen.before} after={TOPAZ_MEDIA.hero.sharpen.after} handleY={86} />
         </div>
       </div>
