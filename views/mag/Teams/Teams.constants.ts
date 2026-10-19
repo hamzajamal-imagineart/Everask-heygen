@@ -1,18 +1,6 @@
 import { MAG_MEDIA } from "../media.constants";
 import type { TeamFeature } from "./Teams.types";
 
-export const TEAM_HIGHLIGHTS = [
-  {
-    title: "All the AI tools in a single place",
-    description: "Access multiple top-performing generative models from a single platform. Choose models via the admin panel.",
-    image: MAG_MEDIA.teamsTools,
-  },
-  {
-    title: "Unlimited users, flexible credits",
-    description: "Scale freely with no seat limits. Pay based on how many credits you use—not how many people use them.",
-    image: MAG_MEDIA.teamsCredits,
-  },
-];
 
 export const TEAM_FEATURES: TeamFeature[] = [
   {

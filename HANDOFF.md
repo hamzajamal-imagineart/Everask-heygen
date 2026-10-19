@@ -173,3 +173,9 @@ HeyGen/Magnific; EverAsk is the platform you use it in. No "official partner" wo
   reference to recentre the figure in the wider frame. `HERO_TONE` is the sky's top colour `#5b79be`; the
   left legibility tint is lighter (`8c` to `40` over 36%). The image no longer drifts; `ea-hero-bg.jpg` is
   deleted. Note: the hero no longer follows the EverAsk azure palette.
+- **/magnific Teams in light mode** (19 Oct): white section with the shared `SectionHead`, `#f6f6f7`
+  rounded cards for Business, Enterprise and "Enterprise features built for scale", ink headings at 20px,
+  `text-black/50` copy. The two product-screenshot cards ("All the AI tools in a single place",
+  "Unlimited users, flexible credits") were removed at Hamza's request, with `TEAM_HIGHLIGHTS` and
+  `teams-tools.png` / `teams-credits.png`. The header description "Business and Enterprise plans for teams
+  that create together." is new copy written for this layout; review it.

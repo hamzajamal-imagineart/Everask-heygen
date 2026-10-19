@@ -41,8 +41,6 @@ export const MAG_MEDIA = {
   startCanvas: "/assets/mag/start-canvas-v2.png",
   startTeam: "/assets/mag/start-team-v2.png",
   startTools: "/assets/mag/start-tools-v2.png",
-  teamsCredits: "/assets/mag/teams-credits.png",
-  teamsTools: "/assets/mag/teams-tools.png",
   toolAllTools: "/assets/mag/tool-all-tools.svg",
   toolBackgroundRemover: "/assets/mag/clay-eraser.png",
   toolCameraAngle: "/assets/mag/clay-camera.png",
