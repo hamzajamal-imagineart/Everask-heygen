@@ -9,13 +9,18 @@ import { topazConfig } from "../config";
    quote among them; under it their rendering note. Topaz's own pairs where
    they have one (wren, cow, face, lighting, remove), ours for Color and
    Upscale; every tile at its picture's own ratio. */
+/* The bento under the Denoise strip, after Topaz's own: a 4-column, 8-half-row
+   grid that is a square overall, every tile filling its cell. Left: Sharpen
+   (2×4, square), the quote (2×2), Upscale (2×2). Right: Recover Faces (2×3),
+   Lighting (2×2), Color and Remove (1×3 each). Phones stack them at 4:3. */
+const CELL = "aspect-[4/3] md:aspect-auto";
 const TILES = [
-  { label: "Sharpen", pair: TOPAZ_MEDIA.tz.cow, ratio: TOPAZ_MEDIA.tz.cow.ratio },
-  { label: "Recover Faces", pair: TOPAZ_MEDIA.tz.face, ratio: TOPAZ_MEDIA.tz.face.ratio },
-  { label: "Lighting", pair: TOPAZ_MEDIA.tz.lighting, ratio: TOPAZ_MEDIA.tz.lighting.ratio },
-  { label: "Color", pair: TOPAZ_MEDIA.hero.color, ratio: 16 / 9 },
-  { label: "Remove", pair: TOPAZ_MEDIA.tz.remove, ratio: TOPAZ_MEDIA.tz.remove.ratio },
-  { label: "Upscale", pair: TOPAZ_MEDIA.hero.upscale, ratio: 16 / 9 },
+  { label: "Sharpen", pair: TOPAZ_MEDIA.tz.cow, cell: "md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-4" },
+  { label: "Recover Faces", pair: TOPAZ_MEDIA.tz.face, cell: "md:col-start-3 md:col-span-2 md:row-start-1 md:row-span-3" },
+  { label: "Lighting", pair: TOPAZ_MEDIA.tz.lighting, cell: "md:col-start-3 md:col-span-2 md:row-start-4 md:row-span-2" },
+  { label: "Color", pair: TOPAZ_MEDIA.hero.color, cell: "md:col-start-3 md:col-span-1 md:row-start-6 md:row-span-3" },
+  { label: "Remove", pair: TOPAZ_MEDIA.tz.remove, cell: "md:col-start-4 md:col-span-1 md:row-start-6 md:row-span-3" },
+  { label: "Upscale", pair: TOPAZ_MEDIA.hero.upscale, cell: "md:col-start-1 md:col-span-2 md:row-start-7 md:row-span-2" },
 ];
 
 export function Meet() {
@@ -41,22 +46,21 @@ export function Meet() {
           <HoldToEnhance before={TOPAZ_MEDIA.tz.wren.before} after={TOPAZ_MEDIA.tz.wren.after} label="Denoise" ratio={TOPAZ_MEDIA.tz.wren.ratio} />
         </div>
 
-        <div className="mt-4 grid gap-4 md:grid-cols-2 md:items-start">
-          {TILES.slice(0, 2).map((t) => (
-            <HoldToEnhance key={t.label} before={t.pair.before} after={t.pair.after} label={t.label} ratio={t.ratio} />
+        <div className="mt-4 grid grid-cols-1 gap-4 md:aspect-square md:grid-cols-4 md:grid-rows-8">
+          {TILES.map((t) => (
+            <div key={t.label} className={`${CELL} ${t.cell}`}>
+              <HoldToEnhance before={t.pair.before} after={t.pair.after} label={t.label} />
+            </div>
           ))}
-          <blockquote className="flex flex-col justify-between rounded-2xl bg-[#f6f6f7] p-7">
-            <p className="font-display text-[20px] font-medium leading-snug tracking-[-0.01em] text-ink sm:text-[22px]">
+          <blockquote className="flex flex-col justify-between rounded-2xl bg-[#f6f6f7] p-6 md:col-start-1 md:col-span-2 md:row-start-5 md:row-span-2 lg:p-7">
+            <p className="font-display text-[18px] font-medium leading-snug tracking-[-0.01em] text-ink lg:text-[21px]">
               “The sun had already set and it was almost too dark. With some editing adjustments and denoise with @topazlabs, I was able to save the image.”
             </p>
-            <footer className="mt-6 flex items-center gap-3 text-[13px] text-black/50">
+            <footer className="mt-4 flex items-center gap-3 text-[13px] text-black/50">
               <span className="grid size-8 place-items-center rounded-full bg-ink font-medium text-white">J</span>
               Julia Cook, Wildlife Photographer
             </footer>
           </blockquote>
-          {TILES.slice(2).map((t) => (
-            <HoldToEnhance key={t.label} before={t.pair.before} after={t.pair.after} label={t.label} ratio={t.ratio} />
-          ))}
         </div>
 
         <div className="mt-16 grid gap-4 md:grid-cols-2">

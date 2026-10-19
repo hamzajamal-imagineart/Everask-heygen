@@ -6,7 +6,9 @@ import { useState, type KeyboardEvent } from "react";
    hold Space/Enter) and the after fades in. Label top-left, an eye badge
    bottom-left as the affordance. Both layers share the frame, so the ratio
    is the picture's own. */
-export function HoldToEnhance({ before, after, label, ratio = 16 / 9, className = "" }: { before: string; after: string; label: string; ratio?: number; className?: string }) {
+/* `ratio` sets the frame to the picture's own shape; leave it out and the tile fills its grid cell
+   (object-cover crops to the cell, as Topaz's own bento does). */
+export function HoldToEnhance({ before, after, label, ratio, className = "" }: { before: string; after: string; label: string; ratio?: number; className?: string }) {
   const [on, setOn] = useState(false);
   const onKey = (e: KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === " " || e.key === "Enter") {
@@ -26,8 +28,8 @@ export function HoldToEnhance({ before, after, label, ratio = 16 / 9, className 
       onKeyDown={onKey}
       onKeyUp={onKey}
       onContextMenu={(e) => e.preventDefault()}
-      className={`group relative isolate block w-full cursor-pointer touch-none select-none overflow-hidden rounded-2xl bg-fill-1 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-action/50 ${className}`}
-      style={{ aspectRatio: ratio }}
+      className={`group relative isolate block w-full cursor-pointer touch-none select-none overflow-hidden rounded-2xl bg-fill-1 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-action/50 ${ratio ? "" : "h-full"} ${className}`}
+      style={ratio ? { aspectRatio: ratio } : undefined}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={before} alt="" draggable={false} loading="lazy" className="absolute inset-0 size-full object-cover" />

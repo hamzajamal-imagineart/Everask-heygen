@@ -381,8 +381,11 @@ The first EverAsk-style version (tool-tab hero, stats, hairline tool list, z-fol
   read `TOPAZ_MEDIA.hero` directly) →
   **Showcase** (their "Every pixel. Perfect." set over a contained 16:9 before/after, Before/After pills) →
   **Meet** (light, Hamza: "make the dark section in lightmode"; it was dark `#0d1117` like Topaz's: "Meet Topaz Photo" lockup, "Each tool gets it closer to perfect." + paragraph,
-  one big Denoise hold-to-enhance, then a 2-column grid of hold-to-enhance tiles (Sharpen, Recover Faces,
-  Lighting, Color, Upscale) with Julia Cook's quote card among them, then two cards: "Unlimited cloud
+  one big Denoise hold-to-enhance (wren, at its own ratio), then a packed bento like Topaz's (Hamza: the
+  earlier ratio-true grid "appears uneven"): a 4-column × 8-half-row grid that is a square overall, every
+  tile filling its cell with `object-cover` (so these crop, as Topaz's do): Sharpen 2×4 (square), the Julia
+  Cook quote 2×2, Upscale 2×2 on the left; Recover Faces 2×3, Lighting 2×2, Color 1×3 and Remove 1×3 on
+  the right; phones stack the tiles at 4:3, then two cards: "Unlimited cloud
   rendering." (their copy + one line of ours) and "A seamless addition to your workflow." (ours; their
   plugin list and "Private local rendering" do not apply to the API)) → **Years** ("Trusted by pro
   photographers for 20+ years." + paragraph + Charles D quote + CTA on the left; their four audiences as
