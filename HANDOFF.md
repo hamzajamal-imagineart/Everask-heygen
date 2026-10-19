@@ -131,3 +131,10 @@ Each page has its own root layout through route groups, so their global CSS neve
   sunset (low front three-quarter), cream/orange headphones floating on plum, a burgundy "EVERASK"
   magazine held over marble with a glitched cover portrait, and a colossal stone head in storm clouds
   (21:9). The old `ea-usecase-*` files were deleted.
+- **/magnific Teams testimonials removed** (19 Oct, Hamza): the R/GA, Delivery Hero and Job&Talent quotes,
+  their `Testimonial` type and quote logos are deleted.
+- **/magnific FAQ answers** (19 Oct, from the original page): `Faq` is an accordion (`use-faq.ts`, all
+  rows open by default, plus/minus marker in action blue) with the original answers, brand swapped to
+  EverAsk, and a "Meet EverAsk →" link. The answers still make Magnific's claims (Freepik rename,
+  250M+ stock assets, 40+ models, upscaler at everask.ai) and need a real EverAsk review. The original's
+  "Contact support" button is left out (EverAsk-only CTAs).

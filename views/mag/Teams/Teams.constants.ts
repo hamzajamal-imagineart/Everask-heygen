@@ -1,5 +1,5 @@
 import { MAG_MEDIA } from "../media.constants";
-import type { TeamFeature, Testimonial } from "./Teams.types";
+import type { TeamFeature } from "./Teams.types";
 
 export const TEAM_HIGHLIGHTS = [
   {
@@ -47,35 +47,3 @@ export const TEAM_FEATURES: TeamFeature[] = [
   },
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    logo: MAG_MEDIA.quoteRga,
-    logoWidth: 88,
-    logoHeight: 20,
-    company: "R/GA",
-    quote:
-      "“Best-in-class models and workflow tools through a single unified interface. EverAsk has been a key unlock as we've woven AI into our workflows, end to end.”",
-    name: "Nick Coronges",
-    role: "CTO at R/GA",
-  },
-  {
-    logo: MAG_MEDIA.quoteDeliveryhero,
-    logoWidth: 150,
-    logoHeight: 24,
-    company: "Delivery Hero",
-    quote:
-      "“At Delivery Hero, we are highly satisfied with EverAsk. It consistently delivers high-quality, reliable results while streamlining workflows and enhancing efficiency.”",
-    name: "Javier Romero",
-    role: "Global Head of Content, Marketing at Delivery Hero",
-  },
-  {
-    logo: MAG_MEDIA.quoteJobtalent,
-    logoWidth: 134,
-    logoHeight: 24,
-    company: "Job&Talent",
-    quote:
-      "“EverAsk is a key part of our marketing stack. It helps us create high-quality content at scale as we expand our AI-native workforce platform powering our global staffing marketplace.”",
-    name: "Juan Urdiales",
-    role: "Co-Founder and Co-CEO, Job&Talent",
-  },
-];

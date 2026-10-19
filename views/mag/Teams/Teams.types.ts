@@ -4,12 +4,3 @@ export type TeamFeature = {
   icon: string;
 };
 
-export type Testimonial = {
-  logo: string;
-  logoWidth: number;
-  logoHeight: number;
-  company: string;
-  quote: string;
-  name: string;
-  role: string;
-};

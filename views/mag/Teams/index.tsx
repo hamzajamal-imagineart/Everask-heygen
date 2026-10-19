@@ -1,4 +1,4 @@
-import { TEAM_FEATURES, TEAM_HIGHLIGHTS, TESTIMONIALS } from "./Teams.constants";
+import { TEAM_FEATURES, TEAM_HIGHLIGHTS } from "./Teams.constants";
 
 export function Teams() {
   return (
@@ -59,18 +59,6 @@ export function Teams() {
             ))}
           </ul>
         </div>
-        <ul className="grid gap-6 md:grid-cols-3">
-          {TESTIMONIALS.map((testimonial) => (
-            <li key={testimonial.name} className="flex flex-col gap-4 rounded-xl p-0 md:p-8">
-              <img src={testimonial.logo} alt={testimonial.company} width={testimonial.logoWidth} height={testimonial.logoHeight} />
-              <blockquote className="text-xl leading-[1.2] text-[#737373]">{testimonial.quote}</blockquote>
-              <div className="text-sm leading-[1.6] text-[#c5c5c5]">
-                <p className="font-medium">{testimonial.name}</p>
-                <p>{testimonial.role}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );
