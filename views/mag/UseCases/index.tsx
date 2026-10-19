@@ -29,10 +29,10 @@ export function UseCases() {
               }`}
             >
               <div className={`w-full ${i % 2 ? "sm:order-2" : ""}`}>
-                {/* The media sits in a sky-gradient panel, as EverAsk's "Who it's for" rows do: a soft
-                    light bottom-right easing to blue, the picture inset and lifted on a shadow. */}
-                <div className="relative isolate overflow-hidden rounded-[24px] bg-[radial-gradient(110%_120%_at_92%_100%,#f2f9ff_0%,#bfe0ff_55%,#8ec5ff_100%)] p-5 sm:p-7">
-                  <span aria-hidden className="grain pointer-events-none absolute inset-0 -z-[1] opacity-20 mix-blend-overlay" />
+                {/* The media sits in a sky panel, as EverAsk's "Who it's for" rows do: Hamza's
+                    above-the-clouds photo filling the frame, the picture inset and lifted on a shadow. */}
+                <div className="relative isolate overflow-hidden rounded-[24px] bg-[#1c8bff] p-5 sm:p-7">
+                  <img src={MAG_MEDIA.panelSky} alt="" loading="lazy" className="absolute inset-0 -z-[1] size-full object-cover object-[50%_40%]" />
                   <div className="relative overflow-hidden rounded-xl shadow-[0_18px_40px_rgba(0,40,110,0.18)]" style={{ aspectRatio: row.ratio }}>
                     <img src={row.image} alt="" loading="lazy" className="absolute inset-0 size-full object-cover" />
                   </div>

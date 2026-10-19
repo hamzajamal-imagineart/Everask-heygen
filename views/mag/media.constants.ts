@@ -27,6 +27,7 @@ export const MAG_MEDIA = {
   modelMinimax: "/assets/mag/model-minimax.svg",
   modelRunway: "/assets/mag/model-runway.svg",
   modelWan: "/assets/mag/model-wan.svg",
+  panelSky: "/assets/mag/panel-sky.webp",
   originalBone: "/assets/mag/ea-original-bone.jpg",
   originalCandela: "/assets/mag/ea-original-candela.jpg",
   originalPuma: "/assets/mag/ea-original-puma.jpg",

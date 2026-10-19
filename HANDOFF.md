@@ -213,9 +213,10 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   `tool-all-tools.svg` and the chevron icons.
 - **UseCases**: now a `ZFold` (rows of image beside text, swapping sides, scroll-driven ease-in via
   `.mag-zfold-row` in `styles.css`); the three portrait `usecase-*-v2.jpg` are shown at 16:10, Filmmaking at
-  21:9. Same four titles and lines as before. Each image sits in a sky-gradient panel (`rounded-[24px]`, the
-  Features "sky" surface deepened to `#8ec5ff`, light grain, 28px inset, picture on a soft shadow), as the
-  image holders on EverAsk's "Who it's for" rows (Hamza, 19 Oct).
+  21:9. Same four titles and lines as before. Each image sits in a sky panel (`rounded-[24px]`, 28px inset, picture on a
+  soft shadow), as the image holders on EverAsk's "Who it's for" rows. The panel background is Hamza's
+  above-the-clouds photo `panel-sky.webp` (1120×630, 16 KB, `object-cover` at 50% 40%), which replaced a
+  blue gradient at his request (19 Oct).
 - **StartBuilding** (new): centred action-blue pill "Start creating" into EverAsk, after Teams.
 - **FinalCta**: EverAsk's sky band (rounded, `t-statement` "Be Magnific, / *inside EverAsk.*", hero subhead,
   white "Start creating" + glass "See pricing" → everask.ai/pricing) over the dusk image. `cta-sky.jpg` deleted.
