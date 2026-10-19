@@ -10,7 +10,7 @@ export function Suite() {
     <section id="suite" className="border-t border-[#ededed] py-20">
       <div className="mag-container">
         <SectionHead title="The full Magnific suite, inside EverAsk" description="Upscale, generate, cut out, reframe and relight. Magnific's tools, one prompt away in EverAsk." />
-        <ul className="mx-auto flex max-w-[1100px] flex-col gap-8 pt-12">
+        <ul className="mx-auto flex max-w-[1100px] flex-col gap-16 pt-12 sm:gap-24">
           {SUITE_ROWS.map((row, i) => (
             <li
               key={row.title}
