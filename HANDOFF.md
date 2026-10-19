@@ -305,11 +305,12 @@ the copy and media URLs were read through the browser pane. Everything not about
   icons to become matte white sculpted 3D glyphs (like EverAsk's model marks); three were generated with GPT
   Image 2.5 Flare on transparent backgrounds (upload tray, sliders, enlarge frame) and sit unused in the
   ImagineArt (Official) workspace: `22007841`, `8395e89e`, `269f7913`.
-- **UseCases** (same three-up + wide layout): "Sharper results, same image" (`up-sharper.jpg`, the 4K/8K/10K
-  face), "Contextual textures and details" (`up-textures.jpg`, the pie), "Bulk upscaling" (`up-bulk.jpg`,
-  the stacked eyes), wide "Upscale videos up to 4K" (`up-video-4k.jpg`, the surfer). Copy verbatim; the
-  card gradient is darker (`black/45`) because these photos are lighter than the old ones; the portrait
-  cards crop their landscape images with `object-top`.
+- **UseCases**: a 2×2 grid of whole images (Hamza, 19 Oct: "the images aspect ratio are very important, the
+  bento grid is cropping it out"; the earlier three-up + wide overlay layout cropped the 4:3 sources): every
+  frame is 4:3 (`aspectRatio: 4/3`, `rounded-[24px]`), the caption in ink (20px Clash) and `text-black/50`
+  under it. Cards, copy verbatim: "Sharper results, same image" (`up-sharper.jpg`, the 4K/8K/10K face),
+  "Contextual textures and details" (`up-textures.jpg`, the pie), "Bulk upscaling" (`up-bulk.jpg`, the
+  stacked eyes), "Upscale videos up to 4K" (`up-video-4k.jpg`, the surfer).
 - **Suite** → "Every Magnific upscaler. Inside EverAsk.", five rows, copy verbatim: Magnific AI Upscaler
   (`up-magnific-model.jpg`), Creative control with AI (`up-creative.jpg`), Fast, clean upscaling
   (`up-classic.jpg`), Increase video resolution (`up-video-resolution.webm`, the site's own 3.4 s clip,

@@ -20,8 +20,11 @@ export const USE_CASES = [
   },
 ];
 
-export const USE_CASE_WIDE = {
+export const USE_CASE_VIDEO = {
   title: "Upscale videos up to 4K",
   description: "Perfect video resolution while preserving textures, colors, and clarity. Boost frame rates up to 60 fps for smoother motion.",
   image: MAG_MEDIA.upVideo4k,
 };
+
+/** All four source images are 4:3 (1600×1200 or 1597×1200), shown whole. */
+export const USE_CASE_RATIO = 4 / 3;
