@@ -11,6 +11,7 @@ import { SiteHeader } from "./SiteHeader";
 import { StartBuilding } from "./StartBuilding";
 import { StartSimple } from "./StartSimple";
 import { Steps } from "./Steps";
+import { Suite } from "./Suite";
 import { Teams } from "./Teams";
 import { UseCases } from "./UseCases";
 
@@ -24,6 +25,7 @@ export default function MagView() {
         <Models />
         <Steps />
         <Features />
+        <Suite />
         <StartSimple />
         <UseCases />
         <Originals />

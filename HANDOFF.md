@@ -217,7 +217,7 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   above-the-clouds photo `panel-sky.webp` (1120×630, 16 KB, `object-cover` at 50% 40%), the use case's
   `usecase-*-v2.jpg` inset at 240/300px on a soft shadow (slight zoom on hover). The caption sits under the
   panel in ink (20px Clash) and `text-black/50`, as on EverAsk's example grids; type never sits on the sky.
-  Same four titles and lines as before. The z-fold CSS was removed.
+  Same four titles and lines as before.
 - **StartBuilding** (new): centred action-blue pill "Start creating" into EverAsk, after Teams.
 - **FinalCta**: EverAsk's sky band (rounded, `t-statement` "Be Magnific, / *inside EverAsk.*", hero subhead,
   white "Start creating" + glass "See pricing" → everask.ai/pricing) over the dusk image. `cta-sky.jpg` deleted.
@@ -230,3 +230,10 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   color: var(--color-ink) }`, which turned the headings on the three dark bento cards ink-on-dark. The four
   card `h3`s now carry their card's text colour explicitly. Rule from this: after the stylesheet swap, any
   heading on a dark surface needs its own colour class.
+- **Suite z-fold added** (19 Oct, Hamza pasted Magnific's "The full suite. Inside your canvas." markup):
+  `views/mag/Suite/`, after Features and before Start simple. Five rows in EverAsk's `ZFold` shape (16:9 clip
+  beside text, sides swapping, scroll-driven ease-in via `.mag-zfold-row`): Upscale, Generate, Remove
+  background, Reframe, Relight, copy verbatim from Magnific (it still says "your timeline" / "your editor",
+  the plugins framing). Header "The full Magnific suite, inside EverAsk" with a new one-line description.
+  **The five clips are hotlinked from media.magnific.com (`destacado_1-5.webm`)**; copy them into
+  `public/assets/mag` (and compress) before production.
