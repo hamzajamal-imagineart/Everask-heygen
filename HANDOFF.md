@@ -73,8 +73,10 @@ Push only when Hamza says so.
   `chip` (tint `#edf3ff` panel, action-blue label) everywhere; the per-section tints (mist `#bfd5ff` on AI
   Studio, cream on Video Agent) are gone, only Tools keeps a white pill on its tint band. `Badge` and
   `SectionHead` take `icon` as a `BadgeIconName`. The clay `badge-*.png` set (GPT Image 2, blue/cream/
-  vermilion, 44px) is in commit `72823c9`. The clay `card-*.png` icons on the feature cards and the compliance
-  badges are unchanged.
+  vermilion, 44px) is in commit `72823c9`. The nine feature-card icons (Hamza: "you didn't change these icons") are line glyphs too: pencil, puzzle,
+  camcorder, globe, mic, rocket, checklist, spotlight, cog, drawn at 24px on a 48px tint disc. All glyphs live
+  in `views/heygen/LineIcon/` (`LineIconName`); `FeatureItem.icon` is a name. The clay `card-*.png` set is in
+  commit `75c772a`. The compliance badges are still clay.
 - **Copy**: every visible "HeyGen" now reads "EverAsk" (Research badge, Tools and Trust intros, FAQ).
 - **Research heading** sized inline at `clamp(28px, 2.5vw, 36px)`; the `text-[..]` utilities lost to
   `.hg-h2`.

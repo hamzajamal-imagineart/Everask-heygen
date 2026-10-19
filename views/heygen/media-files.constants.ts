@@ -1,13 +1,4 @@
 export const HG_ASSET_FILES = {
-  cardCamcorder: "card-camcorder.png",
-  cardChecklist: "card-checklist.png",
-  cardGears: "card-gears.png",
-  cardGlobe: "card-globe.png",
-  cardMic: "card-mic.png",
-  cardPencil: "card-pencil.png",
-  cardPuzzle: "card-puzzle.png",
-  cardRocket: "card-rocket.png",
-  cardSpotlight: "card-spotlight.png",
   agentSlide1: "agent-slide-1.png",
   agentSlide2: "agent-slide-2.png",
   agentSlide3: "agent-slide-3.png",

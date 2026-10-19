@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
-
-export type BadgeIconName = "avatar" | "research" | "agent" | "studio" | "translation" | "tools";
+import type { LineIconName } from "../LineIcon/LineIcon.types";
 
 export type BadgeProps = {
-  icon?: BadgeIconName;
+  icon?: LineIconName;
   tint?: string;
   outlined?: boolean;
   children: ReactNode;

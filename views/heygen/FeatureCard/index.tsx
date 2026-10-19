@@ -1,3 +1,4 @@
+import { LineIcon } from "../LineIcon";
 import type { FeatureCardProps } from "./FeatureCard.types";
 
 export function FeatureCard({ title, text, image, icon }: FeatureCardProps) {
@@ -9,7 +10,11 @@ export function FeatureCard({ title, text, image, icon }: FeatureCardProps) {
         </div>
       ) : null}
       <div className="flex flex-1 flex-col gap-4 p-5 pt-6 md:p-6">
-        {icon ? <img src={icon} alt="" className="-mt-1 -ml-1 size-16 object-contain" /> : null}
+        {icon ? (
+          <span className="inline-flex size-12 items-center justify-center rounded-full bg-tint text-action">
+            <LineIcon name={icon} className="size-6" />
+          </span>
+        ) : null}
         <h3 className="hg-h3 text-[24px] leading-[1.12] text-ink md:text-[26px]">{title}</h3>
         <p className="text-[15px] leading-relaxed text-body">{text}</p>
       </div>

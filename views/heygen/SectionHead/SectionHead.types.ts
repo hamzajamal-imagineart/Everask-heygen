@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
-import type { BadgeIconName } from "../Badge/Badge.types";
+import type { LineIconName } from "../LineIcon/LineIcon.types";
 
 export type SectionHeadProps = {
   badge: string;
-  icon?: BadgeIconName;
+  icon?: LineIconName;
   tint?: string;
   title: string;
   children: ReactNode;

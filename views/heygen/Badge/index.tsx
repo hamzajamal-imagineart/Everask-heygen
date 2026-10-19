@@ -1,5 +1,5 @@
 import type { BadgeProps } from "./Badge.types";
-import { BadgeIcon } from "./BadgeIcon";
+import { LineIcon } from "../LineIcon";
 
 /* EverAsk chip: tint panel, action-blue label (globals.css `chip`). */
 export function Badge({ icon, tint = "var(--color-tint)", outlined = false, children }: BadgeProps) {
@@ -8,7 +8,7 @@ export function Badge({ icon, tint = "var(--color-tint)", outlined = false, chil
       className={`inline-flex items-center gap-2 rounded-pill px-3 py-1.5 text-[14px] font-medium text-action ${outlined ? "rounded-full border border-black/10 px-3 py-2" : ""}`}
       style={outlined ? undefined : { backgroundColor: tint }}
     >
-      {icon ? <BadgeIcon name={icon} /> : null}
+      {icon ? <LineIcon name={icon} /> : null}
       {children}
     </span>
   );
