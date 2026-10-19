@@ -54,7 +54,7 @@ export const TESTIMONIALS: Testimonial[] = [
     logoHeight: 20,
     company: "R/GA",
     quote:
-      "“Best-in-class models and workflow tools through a single unified interface. Magnific has been a key unlock as we've woven AI into our workflows, end to end.”",
+      "“Best-in-class models and workflow tools through a single unified interface. EverAsk has been a key unlock as we've woven AI into our workflows, end to end.”",
     name: "Nick Coronges",
     role: "CTO at R/GA",
   },
@@ -64,7 +64,7 @@ export const TESTIMONIALS: Testimonial[] = [
     logoHeight: 24,
     company: "Delivery Hero",
     quote:
-      "“At Delivery Hero, we are highly satisfied with Magnific. It consistently delivers high-quality, reliable results while streamlining workflows and enhancing efficiency.”",
+      "“At Delivery Hero, we are highly satisfied with EverAsk. It consistently delivers high-quality, reliable results while streamlining workflows and enhancing efficiency.”",
     name: "Javier Romero",
     role: "Global Head of Content, Marketing at Delivery Hero",
   },
@@ -74,7 +74,7 @@ export const TESTIMONIALS: Testimonial[] = [
     logoHeight: 24,
     company: "Job&Talent",
     quote:
-      "“Magnific is a key part of our marketing stack. It helps us create high-quality content at scale as we expand our AI-native workforce platform powering our global staffing marketplace.”",
+      "“EverAsk is a key part of our marketing stack. It helps us create high-quality content at scale as we expand our AI-native workforce platform powering our global staffing marketplace.”",
     name: "Juan Urdiales",
     role: "Co-Founder and Co-CEO, Job&Talent",
   },

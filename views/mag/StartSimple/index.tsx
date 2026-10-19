@@ -44,7 +44,7 @@ export function StartSimple() {
               <img
                 src={MAG_MEDIA.startCanvas}
                 alt=""
-                className="relative h-auto w-full lg:absolute lg:top-[12.5px] lg:left-[50%] lg:h-[293px] lg:w-[84%] lg:object-cover lg:object-left"
+                className="relative h-auto w-full lg:absolute lg:top-[12.5px] lg:right-0 lg:h-[293px] lg:w-auto lg:max-w-none lg:[mask-image:linear-gradient(to_right,transparent_0%,#000_22%)]"
                 loading="lazy"
               />
             </article>
@@ -57,8 +57,8 @@ export function StartSimple() {
                     together.
                   </p>
                 </header>
-                <div className="pl-12">
-                  <img src={MAG_MEDIA.startTeam} alt="" className="h-[180px] w-[585px] max-w-none object-cover object-left" loading="lazy" />
+                <div className="mt-auto pb-6 pl-8">
+                  <img src={MAG_MEDIA.startTeam} alt="" className="h-[240px] w-auto max-w-none" loading="lazy" />
                 </div>
               </article>
               <article className="relative overflow-hidden rounded-xl bg-[#1d4a63] text-[#f5f5f5] md:h-[512px]">

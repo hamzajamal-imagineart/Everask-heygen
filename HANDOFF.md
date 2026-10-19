@@ -109,3 +109,14 @@ Each page has its own root layout through route groups, so their global CSS neve
   button is left out (EverAsk-only CTAs).
 - **/magnific mobile overflow fixed**: the wide Use cases card used `aspect-[1216/405] min-h-[280px]`,
   forcing 840px on phones; it is now `h-[280px] w-full`, with the aspect ratio from `md` up.
+- **/magnific Start simple images recreated** (19 Oct): Hamza wanted them "generated in a similar way",
+  not a new art direction. `start-{tools,canvas,team}-v2.png` (GPT Image 2.5 Flare, transparent, with
+  the Figma originals as composition references) and `start-app-v2.jpg` keep the originals' layouts,
+  colours and subjects (marbled art, mask face, boxer, purple audio; red car and cyclist on a node
+  canvas with Paolo/Marina cursors; Brand project + Campaign assets folders; dunk with a pink RUN APP
+  pill) with new people and photos. The canvas image is anchored to the card's right edge with a left
+  fade so its link line emerges from behind the copy; the team image renders at 240px tall. The old
+  Figma files were deleted.
+- **/magnific copy**: every visible "Magnific" now reads "EverAsk" (final CTA "Be EverAsk", "Made with
+  EverAsk", Suite tab label, three testimonials, FAQ, Originals text). The claims themselves
+  (Ranked #1, 1M+ subscribers, testimonials, Freepik FAQ) are still Magnific's and need review.

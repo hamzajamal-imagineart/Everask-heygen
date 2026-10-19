@@ -13,7 +13,7 @@ export function Originals() {
       <div className="mag-container">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8">
           <div className="max-w-[672px]">
-            <h2 className="mag-h2">Made with Magnific</h2>
+            <h2 className="mag-h2">Made with EverAsk</h2>
             <p className="mag-lede pt-4">Original productions made by talented creatives around the world.</p>
           </div>
         </div>

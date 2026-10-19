@@ -12,7 +12,7 @@ export function FinalCta() {
         style={{ backgroundImage: "linear-gradient(180deg, rgba(16,96,214,0.35) 0%, rgba(16,96,214,0.12) 45%, rgba(16,96,214,0) 70%)" }}
       />
       <div className="mag-container relative flex flex-col items-center py-32 md:py-[175px]">
-        <h2 className="text-center text-[40px] leading-[1.2] font-medium [text-shadow:0_2px_24px_rgba(0,40,110,0.25)] md:text-[56px]">Be Magnific</h2>
+        <h2 className="text-center text-[40px] leading-[1.2] font-medium [text-shadow:0_2px_24px_rgba(0,40,110,0.25)] md:text-[56px]">Be EverAsk</h2>
         <div className="pt-8">
           <Cta href={magConfig.links.start} variant="light" className="[&_img]:invert" icon={MAG_MEDIA.iconArrowRight16} iconSize={16}>
             Start creating

@@ -16,7 +16,7 @@ export function Suite() {
         </div>
         <div className="flex justify-center pt-14">
           <div className="max-w-full overflow-x-auto">
-            <div className="mag-pill-group" role="tablist" aria-label="Ways to use Magnific">
+            <div className="mag-pill-group" role="tablist" aria-label="Ways to use EverAsk">
               {SUITE_TABS.map((tab, index) => (
                 <button
                   key={tab.label}
