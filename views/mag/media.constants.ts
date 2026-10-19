@@ -1,5 +1,6 @@
 export const MAG_MEDIA = {
   heroImage: "/assets/mag/hero-split.jpg",
+  ctaImage: "/assets/mag/cta-sky-2.jpg",
   iconArrowRight13: "/assets/mag/icon-arrow-right-13.svg",
   iconArrowRight16: "/assets/mag/icon-arrow-right-16.svg",
   iconArrowRightXs: "/assets/mag/icon-arrow-right-xs.svg",
@@ -9,14 +10,14 @@ export const MAG_MEDIA = {
   logoOgilvy: "/assets/mag/logo-ogilvy.svg",
   logoRga: "/assets/mag/logo-rga.svg",
   logoWonder: "/assets/mag/logo-wonder.svg",
-  /* From magnific.com/ai/image-upscaler and /ai/video-upscaler (media.magnific.com), resized to 1600px. */
-  upSharper: "/assets/mag/up-sharper.jpg",
-  upTextures: "/assets/mag/up-textures.jpg",
-  upBulk: "/assets/mag/up-bulk.jpg",
-  upMagnificModel: "/assets/mag/up-magnific-model.jpg",
-  upCreative: "/assets/mag/up-creative.jpg",
-  upClassic: "/assets/mag/up-classic.jpg",
-  upVideo4k: "/assets/mag/up-video-4k.jpg",
-  upVideoUhd: "/assets/mag/up-video-uhd.jpg",
+  /* Recreated with GPT Image 2 after magnific.com's upscaler pages: same compositions, different people, subjects and palettes. */
+  upSharper: "/assets/mag/up2-sharper.jpg",
+  upTextures: "/assets/mag/up2-textures.jpg",
+  upBulk: "/assets/mag/up2-bulk.jpg",
+  upMagnificModel: "/assets/mag/up2-magnific-model.jpg",
+  upCreative: "/assets/mag/up2-creative.jpg",
+  upClassic: "/assets/mag/up2-classic.jpg",
+  upVideo4k: "/assets/mag/up2-video-4k.jpg",
+  upVideoUhd: "/assets/mag/up2-video-uhd.jpg",
   upVideoResolution: "/assets/mag/up-video-resolution.webm",
 };

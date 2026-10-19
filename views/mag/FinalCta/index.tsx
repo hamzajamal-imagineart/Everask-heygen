@@ -4,13 +4,13 @@ import { MAG_MEDIA } from "../media.constants";
 import { HERO_SUBHEAD, HERO_TONE } from "../Hero/Hero.constants";
 
 /* EverAsk's sky FinalCta (components/landing/FinalCta.tsx): the page closes
-   where it opened, the hero clip's first frame in a rounded band, the line "Be *Magnific.*" in white with the name in the serif, a white pill and a glass pill. */
+   where it opened, EverAsk's sky world (a cloud sea under azure) in a rounded band, the line "Be *Magnific.*" in white with the name in the serif, a white pill and a glass pill. */
 export function FinalCta() {
   return (
     <section id="get-started" className="px-2 pt-10 pb-3 sm:px-3">
       <div className="relative isolate overflow-hidden rounded-[24px] py-24 sm:rounded-[36px] lg:py-32" style={{ backgroundColor: HERO_TONE }}>
-        <img src={MAG_MEDIA.heroImage} alt="" loading="lazy" className="absolute inset-0 -z-10 size-full object-cover object-[60%_50%]" />
-        <span aria-hidden className="absolute inset-0 -z-10 bg-black/35" />
+        <img src={MAG_MEDIA.ctaImage} alt="" loading="lazy" className="absolute inset-0 -z-10 size-full object-cover object-[50%_60%]" />
+        <span aria-hidden className="absolute inset-0 -z-10 bg-black/20" />
         <div className="container-page text-center">
           <h2 className="t-statement mx-auto max-w-3xl font-display font-medium text-white">
             Be <span className="font-serif text-[1.12em] font-normal italic">Magnific.</span>

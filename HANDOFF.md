@@ -247,7 +247,9 @@ assets that already existed. Hamza: **no prompt box in the hero.**
   JPEG-encoded at quality 22 and scaled back up (soft blocks and ringing, the scene still legible; a 1/9
   quality-9 pass was unrecognisable), blurred 2.4, a little
   desaturated; right half lightly sharpened; a white divider with two white arrow marks at the middle. `object-cover object-[60%_50%]`
-  keeps the subject in frame; the final CTA band uses the same image and crop under a flat `black/35`. The
+  keeps the subject in frame. The final CTA band no longer reuses it (Hamza: "use a different image here"):
+  `cta-sky-2.jpg`, a GPT Image 2 cloud sea under a deep azure sky, no people (asset `e4defbf6`), under a
+  flat `black/20`. The
   sampled-tone gradient and the overlay-blend grain are gone (Hamza: "why did you add a white overlay";
   they read as a veil); in their place a neutral `bg-black/35` plus a vertical band of a further 22% black
   through the middle, because with no overlay "the text is barely visible". The "before" half is no longer
@@ -332,5 +334,13 @@ the copy and media URLs were read through the browser pane. Everything not about
   video. Magnific's plan and credit questions were left out (EverAsk pricing unknown). "16×" was added to
   the "What is Magnific Upscaler?" answer where the source says "up to resolution" (a gap in their copy).
 - **SEO** (`config.ts`): title "Magnific Upscaler inside EverAsk: images to 16×, video to 4K".
-- **Assets**: `up-*.jpg` are the site's webps resized to 1600px (sharp, q84); their originals are in the
-  session scratchpad only. Licence: all of them are Magnific's own marketing images, like the hero clip.
+- **Assets** (19 Oct, Hamza: "regenerate all images slightly differently, different person, change in color so
+  it is not a duplicate of magnific"): the eight section images are now `up2-*.jpg`, GPT Image 2 recreations
+  of Magnific's compositions with different people, subjects and a cool EverAsk palette (one vermilion
+  accent each): a bearded man's mouth with 2K/4K/8K/10K pills (`up2-sharper`), ramen with a focus bracket
+  (`up2-textures`), fanned cards of an amber eye (`up2-bulk`), a train timetable with the divider and arrows
+  (`up2-magnific-model`), matcha cake with stacked variants (`up2-creative`), an East Asian man with
+  Sharpness/Grain sliders (`up2-classic`), a skateboarder with a detail inset (`up2-video-4k`), a woman in a
+  mustard coat with 1080p/4K frames (`up2-video-uhd`). ImagineArt assets `3ae47fb4`, `9f191659`, `6c8eaab7`,
+  `752c78a1`, `48b0fb8a`, `ffeb7862`, `6d5a6db5`, `0138b99f`. The Magnific-sourced `up-*.jpg` are in commit
+  `222ff4a`. The `up-video-resolution.webm` clip in the suite is still Magnific's own.
