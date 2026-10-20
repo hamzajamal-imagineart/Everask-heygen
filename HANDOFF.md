@@ -709,3 +709,26 @@ the same hide now). Clips: `tz-video-face-before.mp4` (their 426×240 source at 
 `tz-video-face-poster.jpg`. The square `tz-video-upscale.mp4` and its poster were no longer used anywhere
 and were removed (in `df15712`). Checked at 1280: both clips play, drift about 0.04 s, loupe shows; the
 image page's loupe still works.
+
+## Topaz Video models: zoomed crops, trimmed edges, no grey frame (20 Oct 2026)
+
+Hamza: "in some videos, I see no difference in before and after", "a black line on left and right of a
+video", then "re-encode the upscaling model clips as zoomed crops like the image ones, keep Dione and Artemis
+full frame, and trim the black edges from all clips", and "a lot of grey space at top and bottom, make the
+video cover full height".
+
+- **Why**: the page plays each clip about 760 px wide, so 1080p→4K gains vanished (fine-detail ratio after/before
+  at page size was about 1 for Rhea, Gaia CG and only ~2 for the rest); the black lines were 1–2 px pillarbox
+  columns baked into Topaz's own files (Gaia CG, Proteus Natural; Rhea had a 1 px top row).
+- **Upscaling models** (`scratchpad/zoom.py`): before and after cropped to the same proportional region, at the
+  clip's own ratio, around the subject: Proteus (cuttlefish head, 25% of the width, 1080p source), Proteus
+  Natural (face, 40%), Iris (face, 45%), Theia ×2 (chameleon eye, 25%), Gaia CG (figure, 50%), Gaia 2 (clock
+  and figures, 50%). Rhea's own docs example (the interview) barely differs even at 1:1 in Topaz's files, so the
+  Rhea row now uses Topaz Video's hero pair, which is also Rhea (`face.mp4` → `face-rhea1.mp4`), zoomed on the
+  face (50%). Fine-detail gain at page size is now ×1.3 (Gaia CG) to ×4 (Theia, Proteus).
+- **Dione and Artemis** (`scratchpad/trim.sh`): full frame, 2% trimmed from every edge and scaled back to the
+  same size (shape unchanged). No clip has a dark border now (measured).
+- **Frame**: video examples no longer sit in the fixed-height grey stage; the frame is the clip itself, full
+  column width at the clip's ratio (16:9 models 789×444 at 1280, Dione/Artemis about 4:3), so no grey and no
+  crop. Image examples keep the fixed-height stage.
+- Checked at 1280: all 16 clips load and play, every frame matches its clip's ratio.

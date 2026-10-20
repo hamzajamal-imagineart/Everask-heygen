@@ -77,7 +77,7 @@ export const VIDEO_MODELS: TopazModel[] = [
       "Best suited for clean or lower resolution sources where fidelity is prioritized over speed",
     ],
     useCase: "General enhancement with natural texture",
-    variants: [{ label: "Rhea", media: clip("rhea", 1080 / 720) }],
+    variants: [{ label: "Rhea", media: clip("rhea", 16 / 9) }],
   },
   {
     name: "Theia",

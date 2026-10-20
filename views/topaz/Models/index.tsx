@@ -10,8 +10,7 @@ import type { ModelMedia, TopazModel } from "./Models.types";
    the order of their own dropdown on the left, each with its one-line description, and the picked
    model's own before/after example on the right with Topaz's overview and key capabilities under
    it. A model with variants (Dione, Theia, Artemis, Gaia) lists them under its row once picked.
-   The stage keeps every example at its own ratio inside a fixed-height frame, so nothing crops and
-   the layout does not jump between models. */
+   Every example keeps its own ratio, nothing crops (see Stage). */
 export function Models({ id, title, description, models, cta }: { id: string; title: string; description: string; models: TopazModel[]; cta: { href: string; label: string } }) {
   const [m, setM] = useState(0);
   const [v, setV] = useState(0);
@@ -119,15 +118,23 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
   );
 }
 
-/* A fixed-height frame; the example sits centred at its own ratio, as wide as the frame allows. */
+/* Images: a fixed-height frame, the example centred at its own ratio, as wide as the frame allows.
+   Videos (Hamza, 20 Oct: "a lot of grey space at top and bottom, make the video cover full height"):
+   the frame is the clip itself, full column width at the clip's own ratio, so there is no grey
+   surround and nothing is cropped. */
 function Stage({ media }: { media: ModelMedia }) {
   const r = media.ratio;
+  if (media.kind === "video") {
+    return (
+      <div className="overflow-hidden rounded-[24px] sm:rounded-[32px]">
+        <VideoCompare before={media.before} after={media.after} poster={media.poster} ratio={r} />
+      </div>
+    );
+  }
   return (
     <div className="flex items-center justify-center rounded-[24px] bg-fill-1 p-3 [--stage-h:min(86vw,440px)] sm:rounded-[32px] sm:p-4 lg:[--stage-h:min(46vw,600px)]" style={{ height: "var(--stage-h)" }}>
       <div className="relative" style={{ aspectRatio: r, width: `min(100%, calc((var(--stage-h) - 2rem) * ${r}))` } as CSSProperties}>
-        {media.kind === "video" ? (
-          <VideoCompare before={media.before} after={media.after} poster={media.poster} ratio={r} />
-        ) : media.kind === "image" ? (
+        {media.kind === "image" ? (
           <div className="relative isolate size-full overflow-hidden rounded-2xl">
             <HeroCompare before={media.before} after={media.after} handleY={50} demoDelay={600} />
             <Pills />
