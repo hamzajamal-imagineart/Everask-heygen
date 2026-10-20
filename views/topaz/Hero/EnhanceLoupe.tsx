@@ -14,6 +14,9 @@ export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false }
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
   const [pressed, setPressed] = useState(false);
   const [touch, setTouch] = useState(false);
+  /* Off the photo (or over the copy and button that sit above it) the loupe hides, so it never parks
+     behind the CTA. Before the first move it rests in the centre as a hint. */
+  const [away, setAway] = useState(false);
 
   const track = useCallback((e: PointerEvent<HTMLDivElement>) => {
     const el = frame.current;
@@ -27,7 +30,7 @@ export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false }
   const H = frame.current?.getBoundingClientRect().height ?? 0;
   const s = size(frame.current);
   const p = pos ?? { x: W / 2, y: H / 2 };
-  const show = !touch || pressed;
+  const show = !away && (!touch || pressed);
 
   return (
     <div
@@ -36,10 +39,12 @@ export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false }
       style={{ aspectRatio: fill ? undefined : ratio, cursor: "none" }}
       onPointerMove={(e) => {
         setTouch(e.pointerType === "touch");
+        setAway(false);
         track(e);
       }}
       onPointerDown={(e) => {
         setTouch(e.pointerType === "touch");
+        setAway(false);
         setPressed(true);
         track(e);
       }}
@@ -48,6 +53,7 @@ export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false }
       onPointerLeave={() => {
         setPressed(false);
         setPos(null);
+        setAway(true);
       }}
       onContextMenu={(e) => e.preventDefault()}
     >

@@ -590,3 +590,13 @@ Manus's feature-page media (wide-research hero, automations cover + intro mp4, c
 browser-operator hero, the features-index illustrations) and Genspark's coded product mocks frozen to
 HTML (super-agent trace, sheets, browser, genmail; genspark.ai has no image files at all). Nothing from
 this is wired into the pages yet.
+
+## Topaz hero: loupe hides off the photo (20 Oct 2026)
+
+Hamza: "I can't click on the CTA button because of the square hover box". The button was always the
+top element (hit-test confirmed), but moving onto it fired `pointerleave` on the photo frame, and the
+loupe then snapped back to the frame's centre, which is right behind the CTA, so the "After" box framed
+the button. `EnhanceLoupe` now has an `away` state: leaving the photo (including onto the copy or the
+button) hides the loupe until the pointer moves over the photo again. Before the first move it still
+rests in the centre as a hint. Checked in the pane: loupe on over the photo, gone over the button, back
+over the photo.
