@@ -840,3 +840,33 @@ layer metadata; its SVGs came out as fragments, so the UI icons are drawn as 1.6
   three. None of the Figma's stock generations are used.
 - `studio-app.png` removed (in commit `0a5b7e3`). Checked at 1280 (all images load, no overflow) and 375
   (scales to a 279×174 miniature, as the old image did).
+
+## /magnific: Creative vs Precision modes picker (20 Oct 2026)
+
+Hamza asked whether Magnific has modes like Topaz's models, then "add a Creative vs Precision modes section
+… like the Topaz model picker, using generated before/after examples", then (with two Magnific UI shots)
+"generate images like these, without the UI of magnific".
+
+- **Source**: Magnific's API docs (docs.magnific.com, index at /llms.txt; magnific.com itself 403s curl).
+  Two upscalers: **Creative** (`/v1/ai/image-upscaler`: `optimized_for` presets standard, soft_portraits,
+  hard_portraits, art_n_illustration, videogame_assets, nature_n_landscapes, films_n_photography,
+  3d_renders, science_fiction_n_horror; engines automatic / illusio / sharpy / sparkle; creativity, hdr,
+  resemblance, fractality −10…10; 2x/4x/8x/16x) and **Precision** (`/v1/ai/image-upscaler-precision`,
+  V2 flavors sublime / photo / photo_denoiser; sharpen, smart_grain, ultra_detail 0–100; scale 2–16). No
+  video upscaler and no per-option example media in the API docs.
+- **Section** `views/mag/Modes/` (after UseCases): reuses the Topaz picker (`views/topaz/Models`): rows
+  Creative and Precision, variants = the nine presets and the three flavors, each with the docs' matching
+  use-case line; overview and capabilities from the docs; title "Creative or Precision / upscaling" (ours);
+  description = the docs' "which one" answer; CTA "Try Creative/Precision" → EverAsk start.
+- **Examples** (`public/assets/mag/modes/*-{before,after}.jpg`, 1600×900, 3.9 MB): GPT Image 2, 16:9, in
+  Magnific's candid saturated-photo style per Hamza's references (not the EverAsk artwork contract; a first
+  4:3 set in that contract was replaced): watermelon buzz-cut (Standard), freckled redhead (Soft), old
+  boxer (Hard), gouache skater (Art), fox adventurer (Game assets), sea cliffs (Nature), neon diner (Films),
+  sneaker render (3D), astronaut corridor (Sci-fi), lemonade straw low angle (Photo), ice-cream parlour
+  (Sublime), rainy neon street (Denoiser). Assets `24405aa0`, `1ed0e4f2`, `fab42bdb`, `e0daab20`, `4407f162`,
+  `2d8a2c2c`, `276ba37b`, `ebe5a9f5`, `23382350`, `f755f2bb`, `2d48dfa4`, `4c97b28a`. Each "before" is
+  derived from its after (267×150 + blur + q38 JPEG, upsized; the denoiser at 533×300 with gaussian noise),
+  so they are illustrations of each preset, not Magnific renders. The neon sign in the diner still may read
+  as a few letters; swap if it bothers.
+- Checked at 1280 (all 12 pairs load and switch; preset grid aligned) and 375 (no overflow).
+- `.claude/skills/computer-creative` now lives in this repo (the brand artwork skill).

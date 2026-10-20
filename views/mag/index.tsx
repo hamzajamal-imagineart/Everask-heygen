@@ -4,6 +4,7 @@ import { Faq } from "./Faq";
 import { Features } from "./Features";
 import { FinalCta } from "./FinalCta";
 import { Hero } from "./Hero";
+import { Modes } from "./Modes";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 import { StartBuilding } from "./StartBuilding";
@@ -18,6 +19,7 @@ export default function MagView() {
         <Breadcrumbs />
         <Hero />
         <UseCases />
+        <Modes />
         <Suite />
         <Features />
         <StartBuilding />
