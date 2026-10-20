@@ -647,3 +647,52 @@ video will be played". The static `translation-video.png` (HeyGen's presenter) i
   now real (`Turn sound on/off`, line speaker icon with waves or a cross) and sound stays on across tabs.
   `icon-unmute.svg` was removed. Checked in the pane: each tab loads its clip, plays from 0, sound state
   carries over.
+
+## Topaz split into /topaz-image and /topaz-video, with Topaz's model pickers (20 Oct 2026)
+
+Hamza: "separate Topaz image and topaz video upscale... For image page, I want to highlight the list 1 and
+for video I want to highlight list 2" (screenshots of Topaz's model dropdowns), "Do their original pages
+mention these things? ... use the images and video assets from their pages".
+
+- **Research**: the two dropdowns are Topaz's API model families. List 1 = **Gigapixel**
+  (developer.topazlabs.com/image-models/gigapixel/*: API values "Standard V2", "Upscale High Fidelity V3",
+  "High Fidelity V2", "Low Resolution V2", "CGI", "Text Refine", "Face Recovery V3"). List 2 = **Proteus**
+  family (/video-models/proteus/*: prob-4, pnat-1, iris-3/iris-2, Dione ddv-3/dtv-4/dtd-4/dtvs-2/dtds-2,
+  rhea-1, Theia thd-3/thf-4, Artemis ahq-12/alqs-2/alq-13…, Gaia gcg-5/ghq-5, Gaia 2). Each model page has
+  an overview, key capabilities and before/after examples on downloads.topazlabs.com/web-assets/model-examples;
+  the "Best for" lines come from their Model Selection guide (/getting-started/model-selection). Every page is
+  available as Markdown (append `.md`; index at /llms.txt). topazlabs.com/topaz-video lists the same models in
+  one line each. Copy is theirs verbatim (em-dashes replaced; Topaz's names from the dropdown, their doc
+  titles in the overviews, e.g. "Standard 2", "Art & CGI", "Text & Shapes").
+- **Routes**: `/topaz-image` (`views/topaz/index.tsx`) and `/topaz-video` (`views/topaz/video.tsx`); `/topaz`
+  now redirects to `/topaz-image`. Configs `topazImageConfig` / `topazVideoConfig` (utm_lp per page).
+  Breadcrumbs end "Topaz Image" / "Topaz Video".
+- **Image page**: Breadcrumbs → Hero (parrot loupe, unchanged) → Trusted → **Models** (Gigapixel picker,
+  replaces the Toolbox band, which is deleted) → Meet → Years → CtaBand → Features → Faq (image) → FinalCta
+  ("Topaz Image, inside EverAsk.").
+- **Video page**: Breadcrumbs → Hero (`kind="video"`: Topaz's `tz-video-upscale.mp4` fills the frame, same
+  lockup, Topaz Video's line as the subhead) → Trusted ("3 million users. / Trusted by pros everywhere.") →
+  **Models** (Proteus picker) → VideoUpscale (the four audiences + why/features, moved from the old page) →
+  Faq (video) → FinalCta ("Topaz Video, inside EverAsk.").
+- **Models** (`views/topaz/Models/`): Topaz's dropdown as a panel on the left (name + their one-liner, check
+  on the picked row; models with variants list them under the row: Dione ×5, Theia ×2, Artemis HQ/MQ/LQ,
+  Gaia CG / Gaia 2), the picked example on the right in a fixed-height stage at its own ratio (nothing
+  crops, the layout doesn't jump), then name, "Best for" pill, overview, CTA and capabilities. Phones: the
+  names become a scrolling row and variants become chips under the stage. Image models use `HeroCompare`,
+  video models `VideoCompare`, Text Refine (no separate files in their docs) shows Topaz's own side-by-side
+  still.
+- **Media** (`public/assets/topaz/models/`, 25 MB, 58 files): image pairs are Topaz's examples cropped to a
+  zoomed region at the image's own ratio (at full frame the difference is invisible, which is also why
+  their compare viewer opens zoomed), before upsized to the after's size, 1200–1600 px, jpeg q84. Video
+  pairs are their example clips, first 6 s, muted, crf 25 at 720p (Dione at its native 480p, crf 27;
+  Artemis crf 28), with posters; Theia's and Artemis's variants share one before clip. Left out: Iris MQ
+  (before 40 s vs after 9 s, can't sync), Gaia HQ (no example), Proteus's astronaut example (before and
+  after differ in ratio). Scripts: `scratchpad/enc.sh`, `enc2.sh`.
+- **FAQ**: `IMAGE_FAQ` / `VIDEO_FAQ`; ours first on each, then "Which … model should I pick?" from Topaz's
+  Model Selection guide, then Topaz's answers. `useFaq(count)` now takes the item count (it used to size
+  itself from Magnific's list, which only worked because both had nine).
+- Checked in the pane at 1280 and 375: all 7 image and 16 video examples load and switch, both heroes
+  play, no horizontal overflow, no em-dashes. The dev server had to be restarted once (stale Turbopack
+  chunk after a git stash).
+- **Review**: the image page's Meet/Years/Features still describe Topaz Photo's tools (denoise, sharpen,
+  lighting…), not only upscaling; say if those should go. The "through Topaz's API" claims as before.

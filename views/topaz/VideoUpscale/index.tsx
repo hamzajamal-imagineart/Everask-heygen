@@ -1,6 +1,6 @@
 import { SectionHead } from "@/views/mag/SectionHead";
 import { VideoCompare } from "../VideoCompare";
-import { topazConfig } from "../config";
+import { topazVideoConfig as topazConfig } from "../config";
 import { VIDEO_FEATURES, VIDEO_PAIRS } from "./VideoUpscale.constants";
 
 /* The video half (Hamza, 19 Oct: "we are offering both image and video

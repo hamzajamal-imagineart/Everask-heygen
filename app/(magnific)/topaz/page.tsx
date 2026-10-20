@@ -1,17 +1,6 @@
-import type { Metadata } from "next";
-import TopazView from "@/views/topaz";
-import { topazConfig } from "@/views/topaz/config";
+import { redirect } from "next/navigation";
 
-const { seo } = topazConfig;
-
-export const metadata: Metadata = {
-  title: seo.title,
-  description: seo.description,
-  robots: { index: false, follow: false },
-  openGraph: { type: "website", title: seo.title, description: seo.description },
-  twitter: { card: "summary_large_image", title: seo.title, description: seo.description },
-};
-
+/* /topaz was the combined page until 20 Oct; it now points at Topaz Image. */
 export default function TopazPage() {
-  return <TopazView />;
+  redirect("/topaz-image");
 }

@@ -1,4 +1,4 @@
-import { topazConfig } from "../config";
+import { topazImageConfig as topazConfig } from "../config";
 import { TOPAZ_MEDIA } from "../media.constants";
 
 /* Topaz's "Trusted by pro photographers for 20+ years." two-column block: the

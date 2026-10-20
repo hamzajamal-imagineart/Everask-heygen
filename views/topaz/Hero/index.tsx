@@ -1,9 +1,8 @@
 import type { CSSProperties } from "react";
 import { EVERASK_BRAND } from "@/views/mag/Lockup/Lockup.constants";
-import { topazConfig } from "../config";
 import { TOPAZ_MEDIA } from "../media.constants";
 import { EnhanceLoupe } from "./EnhanceLoupe";
-import { HERO_HEADLINE, HERO_SUBHEAD } from "./Hero.constants";
+import { HERO_HEADLINE } from "./Hero.constants";
 import { TopazWordmark } from "./TopazWordmark";
 
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
@@ -14,12 +13,28 @@ const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:anima
    copy centred over a neutral dark overlay: the Topaz wordmark + "inside
    EverAsk", their line, a white button. The copy block lets pointer events
    through so the loupe follows the pointer everywhere but on the button. */
-export function Hero() {
+/* `kind="video"` (the Topaz Video page) fills the frame with Topaz's own video-upscale clip
+   instead of the image loupe. */
+export function Hero({ kind, subhead, cta }: { kind: "image" | "video"; subhead: string; cta: { href: string; label: string } }) {
   return (
     <>
       <section id="top" className="px-2 sm:px-3">
         <div className="relative isolate flex min-h-[max(640px,calc(100svh-140px))] flex-col overflow-hidden rounded-[24px] bg-[#2f4a6b] sm:rounded-[36px]">
-          <EnhanceLoupe fill before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} />
+          {kind === "image" ? (
+            <EnhanceLoupe fill before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} />
+          ) : (
+            <video
+              src={TOPAZ_MEDIA.tz.videoUpscale.src}
+              poster={TOPAZ_MEDIA.tz.videoUpscale.poster}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+              className="absolute inset-0 -z-10 size-full object-cover"
+            />
+          )}
           <span aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-black/35" />
           <span
             aria-hidden
@@ -38,11 +53,11 @@ export function Hero() {
               </span>
             </h1>
             <p {...rise(160)}>
-              <span className="mx-auto mt-5 block max-w-2xl text-[17px] leading-relaxed text-white [text-shadow:0_1px_16px_rgba(0,30,80,0.6)]">{HERO_SUBHEAD}</span>
+              <span className="mx-auto mt-5 block max-w-2xl text-[17px] leading-relaxed text-white [text-shadow:0_1px_16px_rgba(0,30,80,0.6)]">{subhead}</span>
             </p>
             <div {...rise(240)} className="pointer-events-auto mt-8">
-              <a href={topazConfig.links.start} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
-                Start enhancing
+              <a href={cta.href} className="btn-primary !bg-white !text-ink hover:!bg-white/90">
+                {cta.label}
               </a>
             </div>
           </div>

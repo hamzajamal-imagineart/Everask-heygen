@@ -1,7 +1,7 @@
 import { CompareTile } from "../CompareTile";
 import { TopazMark } from "../Hero/TopazMark";
 import { TOPAZ_MEDIA } from "../media.constants";
-import { topazConfig } from "../config";
+import { topazImageConfig as topazConfig } from "../config";
 
 /* Topaz's "Meet Topaz Photo" block, in light mode (Hamza, 19 Oct): the lockup, "Each tool gets it
    closer to perfect." and its paragraph centred, then one big Denoise

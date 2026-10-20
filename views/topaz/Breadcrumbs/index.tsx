@@ -2,13 +2,12 @@ import { EVERASK_BRAND } from "@/views/mag/Lockup/Lockup.constants";
 
 /* The same trail as the Magnific page, one level down: Features › Upscaling
    models › Topaz. The cluster href follows EverAsk's model-cluster pattern. */
-const TRAIL = [
-  { name: "Features", href: `${EVERASK_BRAND.site}/features` },
-  { name: "Upscaling models", href: `${EVERASK_BRAND.site}/features/upscaling/models` },
-  { name: "Topaz", href: "#top" },
-];
-
-export function Breadcrumbs() {
+export function Breadcrumbs({ label }: { label: string }) {
+  const TRAIL = [
+    { name: "Features", href: `${EVERASK_BRAND.site}/features` },
+    { name: "Upscaling models", href: `${EVERASK_BRAND.site}/features/upscaling/models` },
+    { name: label, href: "#top" },
+  ];
   return (
     <nav aria-label="Breadcrumb" className="bg-white">
       <ol className="container-page flex flex-wrap items-center gap-1.5 py-3.5 text-sm text-body">

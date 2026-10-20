@@ -1,12 +1,12 @@
 "use client";
 
 import { useFaq } from "@/views/mag/Faq/use-faq";
-import { FAQ_ITEMS } from "./Faq.constants";
+import type { FaqItem } from "@/views/mag/Faq/Faq.types";
 
 /* The Magnific page's FAQ shape (EverAsk's two-column hairline rows, ink
    plus/minus, first answer open), with Topaz's answers (Hamza, 19 Oct). */
-export function Faq() {
-  const { open, toggle } = useFaq();
+export function Faq({ items, idPrefix }: { items: FaqItem[]; idPrefix: string }) {
+  const { open, toggle } = useFaq(items.length);
   return (
     <section id="faq" className="border-t border-[#ededed] py-20">
       <div className="mag-container flex flex-col gap-10 lg:flex-row lg:gap-20">
@@ -14,9 +14,9 @@ export function Faq() {
           <h2 className="font-display text-[24px] leading-[1.25] font-medium tracking-[-0.03em] text-[#131318]">Answers to your top questions</h2>
         </div>
         <ul className="flex min-w-0 flex-1 flex-col">
-          {FAQ_ITEMS.map((item, index) => {
+          {items.map((item, index) => {
             const isOpen = open[index];
-            const panelId = `topaz-faq-${index}`;
+            const panelId = `${idPrefix}-${index}`;
             return (
               <li key={item.question} className="border-b border-[#ededed] py-5 first:pt-0">
                 <button type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => toggle(index)} className="flex w-full cursor-pointer items-center justify-between gap-6 text-left">

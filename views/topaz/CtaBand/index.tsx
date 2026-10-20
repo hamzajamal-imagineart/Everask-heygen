@@ -1,4 +1,4 @@
-import { topazConfig } from "../config";
+import { topazImageConfig as topazConfig } from "../config";
 
 /* Topaz's centred CTA band, their lines verbatim; "cloud" instead of "local and cloud" since the API renders in the cloud. */
 export function CtaBand() {
