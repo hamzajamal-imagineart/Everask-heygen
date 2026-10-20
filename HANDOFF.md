@@ -732,3 +732,18 @@ video cover full height".
   column width at the clip's ratio (16:9 models 789×444 at 1280, Dione/Artemis about 4:3), so no grey and no
   crop. Image examples keep the fixed-height stage.
 - Checked at 1280: all 16 clips load and play, every frame matches its clip's ratio.
+
+## Topaz model pickers: detail block in EverAsk's register (20 Oct 2026)
+
+Hamza: "this text and design looks so AI generated, it should feel like a good design, are you using Everask
+skill" (with `~/Downloads/everask-creative-skill.zip`). That skill (computer-creative: SKILL.md, TEAM-README,
+14 references) is the brand **artwork** contract (1975–85 analog grain, `#0088FF` anchor, one subject, one
+vermilion accent, three modes); it has no rules for page layout or copy. Its field note that model-output
+stills use the lighter finish applies to generated example art, not to Topaz's own examples used here.
+
+The block under each model's example was a tinted "Best for" pill, the full grey overview paragraph, a
+button under it and a dotted bullet list. It now follows everask-landing-pages' `ShowcaseSpecs`: a two-tone
+line (variant or model name in ink, Topaz's one-liner in `text-black/40`), the first sentence of Topaz's
+overview, "Try <model>" beside it (left-aligned on phones), then the facts as plain type in a hairline
+`dl` grid, two columns: "Best for" (label above) and Topaz's capabilities, trimmed to an even count so
+the grid closes. No pills, no bullets. Same component on /topaz-image and /topaz-video.

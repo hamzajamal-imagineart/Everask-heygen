@@ -17,6 +17,12 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
   const model = models[m];
   const variant = model.variants[v] ?? model.variants[0];
   const useCase = variant.useCase ?? model.useCase;
+  const heading = model.variants.length > 1 ? variant.label : model.name;
+  /* The first sentence of Topaz's overview. */
+  const lead = model.overview.split(/(?<=\.)\s/)[0];
+  /* "Best for" first, then their capabilities; an even count so the two-column grid closes. */
+  const all = [...(useCase ? [{ text: useCase, label: "Best for" }] : []), ...model.caps.map((c) => ({ text: c.replace(/\.$/, ""), label: "" }))];
+  const facts = all.slice(0, all.length - (all.length % 2) || 2);
   const pick = (i: number) => {
     setM(i);
     setV(0);
@@ -90,27 +96,29 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
                 ))}
               </div>
             )}
-            <div className="mt-8 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-10">
-              <div>
-                <h3 className="font-display text-[24px] font-medium leading-[1.15] tracking-[-0.02em] text-ink">{model.variants.length > 1 ? variant.label : model.name}</h3>
-                <p className="mt-1 text-[14px] text-black/50 lg:hidden">{model.line}</p>
-                {useCase && (
-                  <p className="mt-3 inline-flex rounded-pill bg-tint px-3 py-1 text-[13px] font-medium text-action">Best for: {useCase}</p>
-                )}
-                <p className="mt-4 text-[15px] leading-relaxed text-black/55">{model.overview}</p>
-                <a href={cta.href} className="btn-primary mt-6">
-                  {cta.label}
-                </a>
+            {/* The model in EverAsk's "at a glance" register (everask-landing-pages ShowcaseSpecs): a
+                two-tone line (name in ink, Topaz's one-liner muted), one sentence of their overview and
+                the button beside it, then the facts as plain type in a hairline grid. No pills, no
+                bullets (Hamza, 20 Oct: the pill + grey paragraph + bullet list "looks so AI generated"). */}
+            <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between sm:gap-10">
+              <div className="max-w-xl">
+                <h3 className="font-display text-[clamp(22px,2.2vw,30px)] font-medium leading-[1.12] tracking-[-0.025em] text-ink">
+                  {heading}. <span className="text-black/40">{model.line}.</span>
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-black/55">{lead}</p>
               </div>
-              <ul className="border-t border-[#ededed] self-start">
-                {model.caps.map((c) => (
-                  <li key={c} className="flex gap-3 border-b border-[#ededed] py-3.5 text-[14px] leading-relaxed text-ink">
-                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-action" />
-                    {c.replace(/\.$/, "")}
-                  </li>
-                ))}
-              </ul>
+              <a href={cta.href} className="btn-primary shrink-0 self-start sm:self-auto">
+                Try {model.name}
+              </a>
             </div>
+            <dl className="mt-8 grid border-l border-t border-[#ededed] sm:grid-cols-2">
+              {facts.map((f) => (
+                <div key={f.text} className="border-b border-r border-[#ededed] p-5 sm:p-6">
+                  {f.label && <dt className="mb-1.5 text-[13px] text-black/45">{f.label}</dt>}
+                  <dd className="text-[16px] font-medium leading-snug tracking-[-0.01em] text-ink">{f.text}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </div>
