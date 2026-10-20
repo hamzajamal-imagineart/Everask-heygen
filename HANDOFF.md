@@ -908,3 +908,43 @@ Video = `VideoCompare` in a new `fill` mode (absolute, behind the copy, no ratio
 on Topaz Video's face.mp4 / face-rhea1.mp4 clips, looping in step (drift 0 s measured). `EnhanceLoupe`
 was deleted (in `3665878`); the face poster is now the sharp clip's first frame. Checked at 1280: sliders
 present, media loads and plays, CTA clickable.
+
+## Unused assets removed and a performance pass on HeyGen, Magnific, Topaz (20 Oct 2026)
+
+Hamza: "for Heygen, Magnific and Topaz make sure to remove assets in the file that are not being used. the
+page is performance optimized".
+
+- **Unused assets**: a constants audit (every leaf of `HG_MEDIA` / `MAG_MEDIA` / `TOPAZ_MEDIA` checked for a
+  reader outside its constants file, plus the picker helpers that build paths) found 8 dead files:
+  `topaz/hero-{denoise,faces,lighting}-{before,after}.jpg` and `mag/icon-arrow-right-{16,xs}.svg`; removed
+  with their constants. Every component folder is imported; no orphans on disk afterwards.
+- **Build facts that shape this**: `next.config` is `output: "export"` with `images.unoptimized`, so there is
+  no runtime image optimizer; the work is on the files and the markup. Fonts already come from `next/font`
+  (`lib/fonts.ts`), self-hosted.
+- **Video**: HeyGen hero `hero-sky.mp4` (10.4 MB, 8.4 Mb/s, an unused audio track) re-encoded as
+  `hero-sky-web.mp4` (1.0 MB, crf 26, no audio, faststart; frame-identical by eye). New `lib/use-in-view.ts`
+  (`near` = within 400 px of view, sticky; `visible` = on screen): `VideoCompare` attaches its clips only when
+  near (poster until then, `preload="none"`), plays while visible and pauses off screen; the HeyGen
+  translation clip does the same. Checked on /topaz-video with a scroll-driven observer stand-in (the pane is
+  hidden, so its real observers are throttled): no source at the top, attached and playing in view, paused
+  when scrolled away.
+- **Images**: all 139 JPEG/PNG files under `public/assets/{heygen,mag,topaz}` converted to WebP (q80, the
+  blurry "before" layers q72, alpha kept, long edge capped at 2400): 22.2 MB → 9.2 MB, none larger.
+  References updated by exact path everywhere (including Genspark's and Manus's use of `mag/cta-sky-2`),
+  HeyGen's filename map, and the helper templates (`-before/-after/-thumb/-poster.webp`, `text-refine.webp`).
+  Resolution check: 201 referenced paths, 0 missing, 0 orphans.
+- **Markup**: every below-the-fold `<img>` is `loading="lazy" decoding="async"`; `HeroCompare` takes
+  `priority` (only the /magnific and Topaz Image heroes set it: eager + `fetchPriority="high"`; every other
+  use lazy); the HeyGen hero tiles stay eager.
+- **Result** (media downloaded on load at 1280×900, dev server):
+
+  | Page | Before | After |
+  | --- | --- | --- |
+  | HeyGen | 17.6 MB | 2.2 MB |
+  | Magnific | 1.7 MB | 0.8 MB |
+  | Topaz Image | 3.7 MB | 1.2 MB |
+  | Topaz Video | 12.4 MB | 1.7 MB |
+
+  Genspark (0.47 MB) and Manus (0.35 MB) still load cleanly; no broken images or 4xx on any page. On disk:
+  heygen 22 → 5.0 MB, mag 6.0 → 3.4 MB, topaz 44 → 39 MB (mostly the per-model comparison clips, now
+  lazy).

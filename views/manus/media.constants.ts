@@ -8,5 +8,5 @@ export const MANUS_MEDIA = {
   rowAutomations: "/assets/manus/row-automations.jpg",
   rowCloud: "/assets/manus/row-cloud.jpg",
   rowBrowser: "/assets/manus/row-browser.jpg",
-  ctaSky: "/assets/mag/cta-sky-2.jpg",
+  ctaSky: "/assets/mag/cta-sky-2.webp",
 };

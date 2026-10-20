@@ -6,7 +6,7 @@ const clip = (name: string, ratio: number, before = name) => ({
   kind: "video" as const,
   before: `${M}/${before}-before.mp4`,
   after: `${M}/${name}-after.mp4`,
-  poster: `${M}/${name}-poster.jpg`,
+  poster: `${M}/${name}-poster.webp`,
   ratio,
 });
 

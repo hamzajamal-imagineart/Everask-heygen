@@ -57,7 +57,7 @@ export function Hero() {
               className="relative aspect-[3/4] w-[clamp(150px,15vw,240px)] shrink-0 overflow-hidden rounded-[clamp(14px,1.4vw,22px)] bg-[#e8f3ff] shadow-[0_18px_40px_-24px_rgba(0,40,110,0.35)] [container-type:inline-size]"
               style={{ transform: `perspective(900px) translateZ(${step * step * HERO_ARC_DEPTH}px) rotateY(${-step * HERO_ARC_TURN}deg)` } as CSSProperties}
             >
-              <img src={card.image} alt={`${card.title}, ${card.subtitle}`} className="size-full object-cover" style={{ objectPosition: card.focus }} />
+              <img src={card.image} decoding="async" alt={`${card.title}, ${card.subtitle}`} className="size-full object-cover" style={{ objectPosition: card.focus }} />
               <HeroCardOverlay card={card} />
             </li>
           );

@@ -6,7 +6,7 @@ export function FeatureCard({ title, text, image, icon }: FeatureCardProps) {
     <div className="card group flex h-full flex-col p-3">
       {image ? (
         <div className="tile h-[260px]">
-          <img src={image} alt="" className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] motion-reduce:transition-none" />
+          <img src={image} loading="lazy" decoding="async" alt="" className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] motion-reduce:transition-none" />
         </div>
       ) : null}
       <div className="flex flex-1 flex-col gap-4 p-5 pt-6 md:p-6">

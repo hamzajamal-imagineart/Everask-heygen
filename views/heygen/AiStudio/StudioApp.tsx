@@ -110,7 +110,7 @@ export function StudioApp() {
         {/* Side nav */}
         <aside className="flex w-12 shrink-0 flex-col items-center gap-2 border-r border-[#efeff1] py-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/everask-mark.svg" alt="" className="mb-3 size-6" />
+          <img src="/brand/everask-mark.svg" loading="lazy" decoding="async" alt="" className="mb-3 size-6" />
           <NavIcon d={P.newChat} />
           <NavIcon d={P.search} />
           <span className="grid size-8 place-items-center rounded-lg bg-[#f1f1f3]">
@@ -125,7 +125,7 @@ export function StudioApp() {
             <span className="size-3.5 rounded-full border-2 border-white" />
           </span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={HG_MEDIA.studioTile4} alt="" className="mt-2 size-8 rounded-full object-cover object-[50%_20%]" />
+          <img src={HG_MEDIA.studioTile4} loading="lazy" decoding="async" alt="" className="mt-2 size-8 rounded-full object-cover object-[50%_20%]" />
         </aside>
 
         {/* Chat */}
@@ -248,7 +248,7 @@ export function StudioApp() {
               <Row label="Aspect ratio">16:9</Row>
               <Row label="Avatar">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={HG_MEDIA.heroPortfolio} alt="" className="size-4 rounded-full object-cover object-top" /> Avatar V
+                <img src={HG_MEDIA.heroPortfolio} loading="lazy" decoding="async" alt="" className="size-4 rounded-full object-cover object-top" /> Avatar V
               </Row>
               <Row label="Voice">
                 <span className="size-3 rounded-full bg-[conic-gradient(#ffb547,#ff6b9a,#ffb547)]" /> Warm

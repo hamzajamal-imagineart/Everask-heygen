@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import { useInView } from "@/lib/use-in-view";
 import { FeatureCard } from "../FeatureCard";
 import { ProofRow } from "../ProofRow";
 import { SectionHead } from "../SectionHead";
@@ -10,6 +12,15 @@ import { useTranslation } from "./use-translation";
 
 export function Translation() {
   const { active, select, muted, toggleSound, video } = useTranslation();
+  /* Performance (20 Oct): the clip is attached once the section is near view and paused off screen. */
+  const box = useRef<HTMLDivElement>(null);
+  const { near, visible } = useInView(box);
+  useEffect(() => {
+    const el = video.current;
+    if (!el || !near) return;
+    if (visible) el.play().catch(() => {});
+    else el.pause();
+  }, [near, visible, active, video]);
 
   return (
     <section id="translation" className="hg-container py-20 lg:py-[120px]">
@@ -19,17 +30,17 @@ export function Translation() {
       </SectionHead>
       <div className="mt-[60px] rounded-[36px] bg-hg-cyan-soft p-3 md:p-4">
         <div className="card p-3">
-          <div className="tile relative">
+          <div ref={box} className="tile relative">
             <video
               ref={video}
               key={TRANSLATION_LANGUAGES[active].video}
-              src={TRANSLATION_LANGUAGES[active].video}
+              src={near ? TRANSLATION_LANGUAGES[active].video : undefined}
               poster={HG_MEDIA.translationPoster}
-              autoPlay
+              autoPlay={visible}
               loop
               muted={muted}
               playsInline
-              preload="auto"
+              preload={near ? "auto" : "none"}
               aria-label={`Presenter speaking ${TRANSLATION_LANGUAGES[active].label}`}
               className="aspect-video w-full object-cover"
             />
@@ -54,7 +65,7 @@ export function Translation() {
                   aria-pressed={index === active}
                   className={`glass flex shrink-0 cursor-pointer items-center gap-2 rounded-full py-1.5 pr-4 pl-1.5 text-[14px] font-medium ${index === active ? "!bg-white ring-2 ring-action" : ""}`}
                 >
-                  <img src={language.flag} alt="" className="size-7 rounded-full object-cover" />
+                  <img src={language.flag} loading="lazy" decoding="async" alt="" className="size-7 rounded-full object-cover" />
                   {language.label}
                 </button>
               ))}

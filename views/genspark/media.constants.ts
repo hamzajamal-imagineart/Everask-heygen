@@ -9,5 +9,5 @@ export const GS_MEDIA = {
   rowSheets: "/assets/genspark/row-sheets.jpg",
   rowBrowser: "/assets/genspark/row-browser.jpg",
   rowMail: "/assets/genspark/row-mail.jpg",
-  ctaSky: "/assets/mag/cta-sky-2.jpg",
+  ctaSky: "/assets/mag/cta-sky-2.webp",
 };

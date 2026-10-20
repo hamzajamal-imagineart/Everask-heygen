@@ -25,7 +25,7 @@ export function Tools() {
             {TOOL_ITEMS.map((tool) => (
               <div key={tool.title} className="card group flex flex-col p-3">
                 <span className="tile block h-[170px] w-full">
-                  <img src={tool.image} alt="" className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] motion-reduce:transition-none" />
+                  <img src={tool.image} loading="lazy" decoding="async" alt="" className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] motion-reduce:transition-none" />
                 </span>
                 <span className="flex flex-1 flex-col gap-3 p-5 pt-6">
                   <span className="hg-h3 text-[22px] leading-[1.15] text-ink">{tool.title}</span>

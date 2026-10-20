@@ -17,7 +17,7 @@ export function Modes() {
   const mode = MAG_MODES[m];
   const variant = mode.variants[v];
   const media = variant.media.kind === "image" ? variant.media : null;
-  const thumb = (after: string) => after.replace("-after.jpg", "-thumb.jpg");
+  const thumb = (after: string) => after.replace("-after.webp", "-thumb.webp");
 
   return (
     <section id="modes" className="border-t border-[#ededed] py-20 lg:py-28">

@@ -1,7 +1,7 @@
 import type { TopazModel } from "./Models.types";
 
 const M = "/assets/topaz/models";
-const pair = (name: string, ratio: number) => ({ kind: "image" as const, before: `${M}/${name}-before.jpg`, after: `${M}/${name}-after.jpg`, ratio });
+const pair = (name: string, ratio: number) => ({ kind: "image" as const, before: `${M}/${name}-before.webp`, after: `${M}/${name}-after.webp`, ratio });
 
 /* Topaz's Gigapixel family, in the order of their model picker. Media: each model's own
    example from Topaz's docs (downloads.topazlabs.com/web-assets/model-examples), shown as
@@ -62,7 +62,7 @@ export const IMAGE_MODELS: TopazModel[] = [
       "Text & Shapes is designed for images dominated by typography, logos, UI elements, and geometric shapes. It prioritizes edge clarity and shape accuracy during upscaling.",
     caps: ["Preserves sharp edges and geometric structure", "Ideal for logos, UI, and graphic design assets", "Maintains legibility during enlargement"],
     useCase: "Documents, screenshots, text-heavy images",
-    variants: [{ label: "Text Refine", media: { kind: "still", src: `${M}/text-refine.jpg`, ratio: 1600 / 1000 } }],
+    variants: [{ label: "Text Refine", media: { kind: "still", src: `${M}/text-refine.webp`, ratio: 1600 / 1000 } }],
   },
   {
     name: "Faces",

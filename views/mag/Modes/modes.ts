@@ -5,7 +5,7 @@ const M = "/assets/mag/modes";
    style; Hamza, 20 Oct: "generate images like these, without the UI of magnific") with its "before"
    derived in sharp by degrading it (downscale, blur, JPEG; noise for the denoiser), so the pair lines
    up exactly. Illustrations of each preset, not Magnific renders. */
-const pair = (name: string) => ({ kind: "image" as const, before: `${M}/${name}-before.jpg`, after: `${M}/${name}-after.jpg`, ratio: 16 / 9 });
+const pair = (name: string) => ({ kind: "image" as const, before: `${M}/${name}-before.webp`, after: `${M}/${name}-after.webp`, ratio: 16 / 9 });
 
 /* Magnific's two upscalers and their options, copy from Magnific's API docs
    (docs.magnific.com/api-reference/image-upscaler-creative and -precision): the Creative presets

@@ -22,7 +22,7 @@ export function Hero() {
           className="relative isolate flex min-h-[max(640px,calc(100svh-140px))] flex-col overflow-hidden rounded-[24px] sm:rounded-[36px]"
           style={{ backgroundColor: HERO_TONE }}
         >
-          <HeroCompare before={MAG_MEDIA.heroBefore} after={MAG_MEDIA.heroAfter} demoDelay={1000} />
+          <HeroCompare priority before={MAG_MEDIA.heroBefore} after={MAG_MEDIA.heroAfter} demoDelay={1000} />
           {/* A neutral dark overlay (Hamza, 19 Oct: a tinted one read as a white veil, none left the copy
               barely visible): flat black at 35%, a little deeper through the middle where the copy sits. */}
           <span aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-black/35" />

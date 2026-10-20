@@ -25,7 +25,7 @@ export function Hero({ kind, subhead, cta }: { kind: "image" | "video"; subhead:
               magnifying component", then "video in the background with a slider"): the draggable
               before/after as on /magnific, Topaz's images on Topaz Image, their clips on Topaz Video. */}
           {kind === "image" ? (
-            <HeroCompare before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} demoDelay={1000} />
+            <HeroCompare priority before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} demoDelay={1000} />
           ) : (
             <VideoCompare fill before={TOPAZ_MEDIA.tz.videoFace.before} after={TOPAZ_MEDIA.tz.videoFace.after} poster={TOPAZ_MEDIA.tz.videoFace.poster} handleY={80} />
           )}

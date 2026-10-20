@@ -148,7 +148,7 @@ function Stage({ media }: { media: ModelMedia }) {
         <HeroCompare before={media.before} after={media.after} handleY={50} demoDelay={600} />
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={media.src} alt="Before and after, side by side" className="absolute inset-0 size-full object-cover" />
+        <img src={media.src} loading="lazy" decoding="async" alt="Before and after, side by side" className="absolute inset-0 size-full object-cover" />
       )}
       <Pills />
     </div>

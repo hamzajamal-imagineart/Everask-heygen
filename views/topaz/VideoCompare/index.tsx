@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { useInView } from "@/lib/use-in-view";
 
 /* The before/after slider for a pair of clips: two muted loops kept in step
    (the before is re-synced to the after whenever it drifts), the before
@@ -17,6 +18,14 @@ export function VideoCompare({ before, after, poster, ratio, label, initial = 50
   const dragging = useRef(false);
   const touched = useRef(false);
   const timers = useRef<number[]>([]);
+  /* Performance (20 Oct): the clips are attached only once the slider comes within a screen of view,
+     play while it is on screen and pause when it leaves, so a page of sliders downloads only what the
+     visitor reaches. The poster shows until then. */
+  const { near, visible } = useInView(frame);
+  const live = useRef(false);
+  useEffect(() => {
+    live.current = visible;
+  }, [visible]);
 
   // Keep the two clips together: play both when the after can play, nudge the before if it drifts.
   useEffect(() => {
@@ -26,6 +35,7 @@ export function VideoCompare({ before, after, poster, ratio, label, initial = 50
       if (Math.abs(A.currentTime - B.currentTime) > 0.08) B.currentTime = A.currentTime;
     };
     const play = () => {
+      if (!live.current) return;
       A.play().catch(() => {});
       B.play().catch(() => {});
     };
@@ -38,6 +48,18 @@ export function VideoCompare({ before, after, poster, ratio, label, initial = 50
       B.removeEventListener("canplay", play);
     };
   }, []);
+
+  useEffect(() => {
+    const A = a.current, B = b.current;
+    if (!A || !B || !near) return;
+    if (visible) {
+      A.play().catch(() => {});
+      B.play().catch(() => {});
+    } else {
+      A.pause();
+      B.pause();
+    }
+  }, [near, visible]);
 
   useEffect(() => {
     if (!demo) return;
@@ -127,8 +149,8 @@ export function VideoCompare({ before, after, poster, ratio, label, initial = 50
 
   return (
     <div ref={frame} className={`select-none ${fill ? "absolute inset-0 -z-10" : "relative isolate overflow-hidden rounded-2xl bg-fill-1"}`} style={{ aspectRatio: fill ? undefined : ratio, "--glide": pos === 0 && gliding ? "1800ms" : "1300ms" } as React.CSSProperties}>
-      <video ref={a} src={after} poster={poster} autoPlay loop muted playsInline preload="metadata" aria-hidden="true" className="absolute inset-0 size-full object-cover" />
-      <video ref={b} src={before} poster={poster} autoPlay loop muted playsInline preload="metadata" aria-hidden="true" className={`absolute inset-0 size-full object-cover ${glide}`} style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+      <video ref={a} src={near ? after : undefined} poster={poster} loop muted playsInline preload={near ? "auto" : "none"} aria-hidden="true" className="absolute inset-0 size-full object-cover" />
+      <video ref={b} src={near ? before : undefined} poster={poster} loop muted playsInline preload={near ? "auto" : "none"} aria-hidden="true" className={`absolute inset-0 size-full object-cover ${glide}`} style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
       <span aria-hidden className={`pointer-events-none absolute inset-y-0 w-px -translate-x-1/2 bg-white/80 ${glide}`} style={{ left: `${pos}%` }} />
       {label && (
         <>
