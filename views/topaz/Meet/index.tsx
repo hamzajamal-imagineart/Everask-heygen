@@ -1,5 +1,5 @@
 import { CompareTile } from "../CompareTile";
-import { TopazWordmark } from "../Hero/TopazWordmark";
+import { TopazMark } from "../Hero/TopazMark";
 import { TOPAZ_MEDIA } from "../media.constants";
 import { topazConfig } from "../config";
 
@@ -31,7 +31,7 @@ export function Meet() {
           <p className="text-[11px] font-medium uppercase tracking-[0.08em] text-black/40">Meet Topaz Photo</p>
           <span className="mt-6 inline-flex items-center gap-3 rounded-pill bg-fill-1 py-1.5 pl-1.5 pr-4 text-[14px] font-medium text-ink">
             <span className="grid size-8 place-items-center rounded-full bg-ink text-white">
-              <TopazWordmark className="h-3 w-auto" />
+              <TopazMark className="size-3.5" />
             </span>
             Topaz Photo
           </span>

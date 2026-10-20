@@ -603,3 +603,6 @@ over the photo.
 - Centre mark (Hamza, 20 Oct: "there should be an indication in the center of the box, a circle maybe"):
   the loupe now carries a 28px white ring (1.5px, faint dark halo) with a 4px dot at its centre, standing
   in for the hidden cursor. Checked: the ring centres on the pointer.
+- Meet pill (Hamza, 20 Oct: "something is wrong here"): the 32px ink circle in the "Topaz Photo" pill held
+  the whole "Topaz Labs" wordmark, clipped to "opaz L". It now holds only Topaz's stepped-squares mark
+  (`views/topaz/Hero/TopazMark.tsx`, the wordmark's own three squares), 14px, centred.
