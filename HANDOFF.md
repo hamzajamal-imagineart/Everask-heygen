@@ -600,3 +600,6 @@ the button. `EnhanceLoupe` now has an `away` state: leaving the photo (including
 button) hides the loupe until the pointer moves over the photo again. Before the first move it still
 rests in the centre as a hint. Checked in the pane: loupe on over the photo, gone over the button, back
 over the photo.
+- Centre mark (Hamza, 20 Oct: "there should be an indication in the center of the box, a circle maybe"):
+  the loupe now carries a 28px white ring (1.5px, faint dark halo) with a 4px dot at its centre, standing
+  in for the hidden cursor. Checked: the ring centres on the pointer.

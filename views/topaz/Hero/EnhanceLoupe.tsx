@@ -74,6 +74,9 @@ export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false }
             style={{ width: W * scale, height: H * scale, left: -(p.x * scale) + s / 2, top: -(p.y * scale) + s / 2 }}
           />
           <span className="absolute left-3 top-3 rounded-pill bg-white px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-ink">After · {scale}×</span>
+          {/* Centre mark: the cursor is hidden over the photo, so this ring shows where the pointer is. */}
+          <span className="absolute left-1/2 top-1/2 size-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-[1.5px] border-white shadow-[0_0_0_1px_rgba(0,0,0,0.18),0_2px_8px_rgba(0,0,0,0.25)]" />
+          <span className="absolute left-1/2 top-1/2 size-1 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.18)]" />
         </div>
       )}
       <span className="pointer-events-none absolute left-5 top-5 inline-flex items-center gap-2 rounded-pill bg-white px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.08em] text-ink">
