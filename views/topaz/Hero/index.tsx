@@ -1,7 +1,8 @@
 import type { CSSProperties } from "react";
 import { EVERASK_BRAND } from "@/views/mag/Lockup/Lockup.constants";
 import { TOPAZ_MEDIA } from "../media.constants";
-import { EnhanceLoupe } from "./EnhanceLoupe";
+import { HeroCompare } from "@/views/mag/Hero/HeroCompare";
+import { VideoCompare } from "../VideoCompare";
 import { HERO_HEADLINE } from "./Hero.constants";
 import { TopazWordmark } from "./TopazWordmark";
 
@@ -9,21 +10,24 @@ const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:anima
 
 /* The Magnific hero's layout (Hamza, 19 Oct: "make the hero layout similar
    to magnific hero"): a tall rounded frame under the header and breadcrumb,
-   Topaz's parrot pair filling it with the enhance loupe live underneath, the
+   Topaz's parrot pair filling it as a draggable before/after (it was an enhance loupe until 20 Oct), the
    copy centred over a neutral dark overlay: the Topaz wordmark + "inside
    EverAsk", their line, a white button. The copy block lets pointer events
-   through so the loupe follows the pointer everywhere but on the button. */
-/* `kind="video"` (the Topaz Video page) runs the same loupe on Topaz Video's own hero clips
-   (their face.mp4 under the frame, the Rhea result inside the loupe). */
+   through so the slider handle stays draggable everywhere but on the button. */
+/* `kind="video"` (the Topaz Video page) runs the same slider on Topaz Video's own hero clips
+   (face.mp4 before, the Rhea result face-rhea1.mp4 after), both looping in step. */
 export function Hero({ kind, subhead, cta }: { kind: "image" | "video"; subhead: string; cta: { href: string; label: string } }) {
   return (
     <>
       <section id="top" className="px-2 sm:px-3">
         <div className="relative isolate flex min-h-[max(640px,calc(100svh-140px))] flex-col overflow-hidden rounded-[24px] bg-[#2f4a6b] sm:rounded-[36px]">
+          {/* Hamza, 20 Oct: "for the topaz hero background, just use this slider one instead of the
+              magnifying component", then "video in the background with a slider"): the draggable
+              before/after as on /magnific, Topaz's images on Topaz Image, their clips on Topaz Video. */}
           {kind === "image" ? (
-            <EnhanceLoupe fill before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} />
+            <HeroCompare before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} demoDelay={1000} />
           ) : (
-            <EnhanceLoupe fill video before={TOPAZ_MEDIA.tz.videoFace.before} after={TOPAZ_MEDIA.tz.videoFace.after} poster={TOPAZ_MEDIA.tz.videoFace.poster} />
+            <VideoCompare fill before={TOPAZ_MEDIA.tz.videoFace.before} after={TOPAZ_MEDIA.tz.videoFace.after} poster={TOPAZ_MEDIA.tz.videoFace.poster} handleY={80} />
           )}
           <span aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-black/35" />
           <span

@@ -6,7 +6,9 @@ import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type Poin
    (the before is re-synced to the after whenever it drifts), the before
    clipped to the left of the handle. Same handle, keys and idle sweep as
    HeroCompare. Both clips must share a size; the frame takes their ratio. */
-export function VideoCompare({ before, after, poster, ratio, label, initial = 50, handleY = 50, demo = true }: { before: string; after: string; poster?: string; ratio: number; label?: string; initial?: number; handleY?: number; demo?: boolean }) {
+/* `fill` (the Topaz Video hero, Hamza 20 Oct: "video in the background with a slider"): cover a parent
+   frame (absolute, behind its copy, like HeroCompare) instead of keeping the clips' ratio, no pills. */
+export function VideoCompare({ before, after, poster, ratio, label, initial = 50, handleY = 50, demo = true, fill = false }: { before: string; after: string; poster?: string; ratio?: number; label?: string; initial?: number; handleY?: number; demo?: boolean; fill?: boolean }) {
   const [pos, setPos] = useState(initial);
   const [gliding, setGliding] = useState(false);
   const frame = useRef<HTMLDivElement>(null);
@@ -124,7 +126,7 @@ export function VideoCompare({ before, after, poster, ratio, label, initial = 50
   const glide = gliding ? "transition-[clip-path,left] duration-[var(--glide,1300ms)] ease-[cubic-bezier(0.22,1,0.36,1)]" : "";
 
   return (
-    <div ref={frame} className="relative isolate overflow-hidden rounded-2xl bg-fill-1 select-none" style={{ aspectRatio: ratio, "--glide": pos === 0 && gliding ? "1800ms" : "1300ms" } as React.CSSProperties}>
+    <div ref={frame} className={`select-none ${fill ? "absolute inset-0 -z-10" : "relative isolate overflow-hidden rounded-2xl bg-fill-1"}`} style={{ aspectRatio: fill ? undefined : ratio, "--glide": pos === 0 && gliding ? "1800ms" : "1300ms" } as React.CSSProperties}>
       <video ref={a} src={after} poster={poster} autoPlay loop muted playsInline preload="metadata" aria-hidden="true" className="absolute inset-0 size-full object-cover" />
       <video ref={b} src={before} poster={poster} autoPlay loop muted playsInline preload="metadata" aria-hidden="true" className={`absolute inset-0 size-full object-cover ${glide}`} style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
       <span aria-hidden className={`pointer-events-none absolute inset-y-0 w-px -translate-x-1/2 bg-white/80 ${glide}`} style={{ left: `${pos}%` }} />
@@ -134,8 +136,12 @@ export function VideoCompare({ before, after, poster, ratio, label, initial = 50
           <span className="pointer-events-none absolute left-5 top-4 font-display text-[20px] font-medium leading-none tracking-[-0.02em] text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.4)] sm:text-[24px]">{label}</span>
         </>
       )}
-      <span className="pointer-events-none absolute bottom-4 left-4 rounded-pill bg-black/45 kicker px-2.5 py-1 text-white backdrop-blur-md">Before</span>
-      <span className="pointer-events-none absolute bottom-4 right-4 rounded-pill bg-white/90 kicker px-2.5 py-1 text-ink">After</span>
+      {!fill && (
+        <>
+          <span className="pointer-events-none absolute bottom-4 left-4 rounded-pill bg-black/45 kicker px-2.5 py-1 text-white backdrop-blur-md">Before</span>
+          <span className="pointer-events-none absolute bottom-4 right-4 rounded-pill bg-white/90 kicker px-2.5 py-1 text-ink">After</span>
+        </>
+      )}
       <button
         type="button"
         role="slider"

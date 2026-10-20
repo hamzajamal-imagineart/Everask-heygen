@@ -897,3 +897,14 @@ Hamza asked whether Magnific has modes like Topaz's models, then "add a Creative
   `min(100%, (100svh − 300px) × 16/9)`, so the first three fit a laptop screen (1067×600 example at
   1280×900). Phones: full-width example, the filmstrip scrolls. The picker's `variantLayout="list"`
   option was removed again (unused).
+
+## Topaz heroes: draggable before/after instead of the loupe (20 Oct 2026)
+
+Hamza: "for the topaz hero background, just use this slider one instead of the magnifying component", then
+(after a brief plain-video version) "video in the background with a slider". Both Topaz heroes now use the
+/magnific hero's draggable before/after behind the copy (dark overlay, handle near the bottom, copy
+pointer-events-none except the CTA): Topaz Image = `HeroCompare` on Topaz's parrot clarity pair; Topaz
+Video = `VideoCompare` in a new `fill` mode (absolute, behind the copy, no ratio, no Before/After pills)
+on Topaz Video's face.mp4 / face-rhea1.mp4 clips, looping in step (drift 0 s measured). `EnhanceLoupe`
+was deleted (in `3665878`); the face poster is now the sharp clip's first frame. Checked at 1280: sliders
+present, media loads and plays, CTA clickable.
