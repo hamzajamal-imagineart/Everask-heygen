@@ -768,3 +768,14 @@ the grid closes. No pills, no bullets. Same component on /topaz-image and /topaz
   of white pills (family name dropped, as before); the black check box is now an 18px azure circle with a
   white check; unpicked names sit at `text-black/75` and their lines at `text-black/40` until hovered; lines
   clamp to two. Phones: the previous pill row (ink pill for the picked model) and bordered variant chips.
+- **Type on the site's scale only** (Hamza: "are you using the right colors and font-sizes from the skill
+  file?", then "switch the Topaz picker's font sizes to the site's type-scale tokens"). The creative skill
+  defines colours for artwork (`#0088FF` = `--color-action`, vermilion, cream) and no type sizes; the type
+  scale lives in `app/magnific.css` (copied from everask-landing-pages). The picker now uses: `t-item`
+  (16/1.5, 500) for model names and fact text, body (15/1.7) for one-liners and the lead, `t-section`
+  (24–32) for the detail heading, `kicker` (11, caps) for "Best for" and the Before/After labels (also in
+  `VideoCompare`), and the DS segmented control (`seg`, `seg-item`, `seg-item-on`, 14) for variants on
+  desktop and phones. No raw px sizes remain in `views/topaz/Models/index.tsx`. Name colours are restated
+  with `!` because `t-item` sets ink. Pane note: the browser pane freezes CSS transitions at t=0 when
+  backgrounded, so a just-picked pill can read as grey in a check; `el.getAnimations().forEach(a => a.finish())`
+  shows the settled state.

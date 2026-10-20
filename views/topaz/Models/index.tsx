@@ -33,9 +33,11 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
       <div className="mag-container">
         <SectionHead title={title} description={description} />
         <div className="mt-10 grid gap-6 lg:grid-cols-12 lg:gap-8">
-          {/* The list: Topaz's dropdown as a panel from lg, a row of pills on phones. Hamza preferred
+          {/* Type is the site's scale only (magnific.css): t-item names, body one-liners, t-section
+              heading, kicker labels, seg controls (Hamza, 20 Oct).
+              The list: Topaz's dropdown as a panel from lg, a row of pills on phones. Hamza preferred
               this panel to the hairline index (20 Oct), refined: the picked model is one soft grey
-              block holding its one-liner and, when it has variants, a segmented row of white pills;
+              block holding its one-liner and, when it has variants, the DS segmented control (seg);
               a small azure check instead of the black box; the other rows quieter until hovered. */}
           <ul className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] lg:col-span-4 lg:mx-0 lg:block lg:space-y-0.5 lg:self-start lg:rounded-[24px] lg:border lg:border-[#ededed] lg:p-2" aria-label="Models">
             {models.map((x, i) => {
@@ -49,8 +51,8 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
                     className={`group flex w-full cursor-pointer items-start justify-between gap-4 rounded-full px-4 py-2 text-left transition-colors lg:rounded-2xl lg:bg-transparent lg:py-3 ${on ? "bg-ink text-white lg:text-ink" : "bg-fill-1 text-ink hover:bg-fill-2 lg:hover:bg-fill-1/60"}`}
                   >
                     <span className="min-w-0">
-                      <span className={`block whitespace-nowrap text-[15px] font-medium leading-snug lg:text-[16px] ${on ? "" : "lg:text-black/75 lg:group-hover:text-ink"}`}>{x.name}</span>
-                      <span className={`mt-0.5 hidden text-[13px] leading-snug lg:line-clamp-2 ${on ? "text-black/55" : "text-black/40"}`}>{x.line}</span>
+                      <span className={`t-item block whitespace-nowrap ${on ? "!text-white lg:!text-ink" : "lg:!text-black/75 lg:group-hover:!text-ink"}`}>{x.name}</span>
+                      <span className={`mt-0.5 hidden lg:line-clamp-2 ${on ? "text-black/55" : "text-black/40"}`}>{x.line}</span>
                     </span>
                     {on && (
                       <span aria-hidden className="mt-0.5 hidden size-[18px] shrink-0 place-items-center rounded-full bg-action text-white lg:grid">
@@ -61,14 +63,14 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
                     )}
                   </button>
                   {on && model.variants.length > 1 && (
-                    <div className="hidden flex-wrap gap-1 px-3 pb-3 lg:flex" aria-label={`${x.name} variants`}>
+                    <div className="seg mx-3 mb-3 !hidden flex-wrap lg:!inline-flex" aria-label={`${x.name} variants`}>
                       {model.variants.map((y, j) => (
                         <button
                           key={y.label}
                           type="button"
                           onClick={() => setV(j)}
                           aria-pressed={j === v}
-                          className={`cursor-pointer rounded-full px-3 py-1 text-[13px] transition-colors ${j === v ? "bg-white font-medium text-ink shadow-[0_1px_2px_rgba(0,0,0,0.06)] ring-1 ring-black/[0.06]" : "text-black/50 hover:text-ink"}`}
+                          className={`seg-item cursor-pointer ${j === v ? "seg-item-on" : ""}`}
                         >
                           {short(y.label, x.name)}
                         </button>
@@ -83,14 +85,14 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
           <div className="min-w-0 lg:col-span-8">
             <Stage key={`${m}-${v}`} media={variant.media} />
             {model.variants.length > 1 && (
-              <div className="mt-4 flex gap-2 overflow-x-auto [scrollbar-width:none] lg:hidden" aria-label={`${model.name} variants`}>
+              <div className="seg mt-4 max-w-full overflow-x-auto [scrollbar-width:none] lg:!hidden" aria-label={`${model.name} variants`}>
                 {model.variants.map((y, j) => (
                   <button
                     key={y.label}
                     type="button"
                     onClick={() => setV(j)}
                     aria-pressed={j === v}
-                    className={`shrink-0 cursor-pointer rounded-full border px-3 py-1.5 text-[13px] ${j === v ? "border-ink text-ink" : "border-[#e2e2e2] text-black/50"}`}
+                    className={`seg-item shrink-0 cursor-pointer ${j === v ? "seg-item-on" : ""}`}
                   >
                     {short(y.label, model.name)}
                   </button>
@@ -103,10 +105,10 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
                 bullets (Hamza, 20 Oct: the pill + grey paragraph + bullet list "looks so AI generated"). */}
             <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between sm:gap-10">
               <div className="max-w-xl">
-                <h3 className="font-display text-[clamp(22px,2.2vw,30px)] font-medium leading-[1.12] tracking-[-0.025em] text-ink">
+                <h3 className="t-section font-display font-medium tracking-[-0.025em] text-ink">
                   {heading}. <span className="text-black/40">{model.line}.</span>
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-black/55">{lead}</p>
+                <p className="mt-3 text-black/55">{lead}</p>
               </div>
               <a href={cta.href} className="btn-primary shrink-0 self-start sm:self-auto">
                 Try {model.name}
@@ -115,8 +117,8 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
             <dl className="mt-8 grid border-l border-t border-[#ededed] sm:grid-cols-2">
               {facts.map((f) => (
                 <div key={f.text} className="border-b border-r border-[#ededed] p-5 sm:p-6">
-                  {f.label && <dt className="mb-1.5 text-[13px] text-black/45">{f.label}</dt>}
-                  <dd className="text-[16px] font-medium leading-snug tracking-[-0.01em] text-ink">{f.text}</dd>
+                  {f.label && <dt className="kicker mb-2 text-black/45">{f.label}</dt>}
+                  <dd className="t-item">{f.text}</dd>
                 </div>
               ))}
             </dl>
@@ -163,8 +165,8 @@ function short(label: string, family: string) {
 function Pills() {
   return (
     <>
-      <span className="pointer-events-none absolute bottom-4 left-4 rounded-pill bg-black/45 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-white backdrop-blur-md">Before</span>
-      <span className="pointer-events-none absolute bottom-4 right-4 rounded-pill bg-white/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-ink">After</span>
+      <span className="pointer-events-none absolute bottom-4 left-4 rounded-pill bg-black/45 kicker px-2.5 py-1 text-white backdrop-blur-md">Before</span>
+      <span className="pointer-events-none absolute bottom-4 right-4 rounded-pill bg-white/90 kicker px-2.5 py-1 text-ink">After</span>
     </>
   );
 }

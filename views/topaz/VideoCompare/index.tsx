@@ -134,8 +134,8 @@ export function VideoCompare({ before, after, poster, ratio, label, initial = 50
           <span className="pointer-events-none absolute left-5 top-4 font-display text-[20px] font-medium leading-none tracking-[-0.02em] text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.4)] sm:text-[24px]">{label}</span>
         </>
       )}
-      <span className="pointer-events-none absolute bottom-4 left-4 rounded-pill bg-black/45 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-white backdrop-blur-md">Before</span>
-      <span className="pointer-events-none absolute bottom-4 right-4 rounded-pill bg-white/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-ink">After</span>
+      <span className="pointer-events-none absolute bottom-4 left-4 rounded-pill bg-black/45 kicker px-2.5 py-1 text-white backdrop-blur-md">Before</span>
+      <span className="pointer-events-none absolute bottom-4 right-4 rounded-pill bg-white/90 kicker px-2.5 py-1 text-ink">After</span>
       <button
         type="button"
         role="slider"
