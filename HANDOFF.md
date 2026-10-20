@@ -869,4 +869,4 @@ Hamza asked whether Magnific has modes like Topaz's models, then "add a Creative
   so they are illustrations of each preset, not Magnific renders. The neon sign in the diner still may read
   as a few letters; swap if it bothers.
 - Checked at 1280 (all 12 pairs load and switch; preset grid aligned) and 375 (no overflow).
-- `.claude/skills/computer-creative` now lives in this repo (the brand artwork skill).
+- The brand artwork skill is installed locally at `.claude/skills/computer-creative` (`.claude/` is gitignored, so it is not in the repo; the zip is `~/Downloads/everask-creative-skill.zip`).
