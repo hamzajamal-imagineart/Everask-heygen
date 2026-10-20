@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { EVERASK_BRAND } from "@/views/mag/Lockup/Lockup.constants";
 import { TOPAZ_MEDIA } from "../media.constants";
-import { HeroCompare } from "@/views/mag/Hero/HeroCompare";
+import { EnhanceLoupe } from "./EnhanceLoupe";
 import { VideoCompare } from "../VideoCompare";
 import { HERO_HEADLINE } from "./Hero.constants";
 import { TopazWordmark } from "./TopazWordmark";
@@ -21,11 +21,11 @@ export function Hero({ kind, subhead, cta }: { kind: "image" | "video"; subhead:
     <>
       <section id="top" className="px-2 sm:px-3">
         <div className="relative isolate flex min-h-[max(640px,calc(100svh-140px))] flex-col overflow-hidden rounded-[24px] bg-[#2f4a6b] sm:rounded-[36px]">
-          {/* Hamza, 20 Oct: "for the topaz hero background, just use this slider one instead of the
-              magnifying component", then "video in the background with a slider"): the draggable
-              before/after as on /magnific, Topaz's images on Topaz Image, their clips on Topaz Video. */}
+          {/* Topaz Image keeps the magnifying loupe (Hamza, 20 Oct: "the topaz image should have the
+              magnifying glass as before"); Topaz Video uses the draggable clip slider ("video in the
+              background with a slider"). */}
           {kind === "image" ? (
-            <HeroCompare priority before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} demoDelay={1000} />
+            <EnhanceLoupe fill before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} />
           ) : (
             <VideoCompare fill before={TOPAZ_MEDIA.tz.videoFace.before} after={TOPAZ_MEDIA.tz.videoFace.after} poster={TOPAZ_MEDIA.tz.videoFace.poster} handleY={80} />
           )}

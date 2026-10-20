@@ -948,3 +948,7 @@ page is performance optimized".
   Genspark (0.47 MB) and Manus (0.35 MB) still load cleanly; no broken images or 4xx on any page. On disk:
   heygen 22 → 5.0 MB, mag 6.0 → 3.4 MB, topaz 44 → 39 MB (mostly the per-model comparison clips, now
   lazy).
+- **Topaz Image hero back to the loupe** (Hamza, 20 Oct: "the topaz image should have the magnifying glass as
+  before"): `views/topaz/Hero/EnhanceLoupe.tsx` restored from `3665878` (hide-off-photo fix and centre ring
+  included) on the WebP clarity pair; Topaz Video keeps the full-frame clip slider. The loupe's `video`
+  mode is currently unused.
