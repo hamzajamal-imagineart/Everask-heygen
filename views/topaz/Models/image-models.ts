@@ -35,7 +35,7 @@ export const IMAGE_MODELS: TopazModel[] = [
       "High Fidelity 2 is a precision upscaling model designed for images that are already high resolution and well captured. It focuses on enlarging images while preserving fine detail, natural texture, and structural accuracy, avoiding aggressive reconstruction or over-sharpening.",
     caps: ["High-fidelity upscaling for already high-resolution sources", "Preserves fine detail and original texture during enlargement"],
     useCase: "Maximum source preservation",
-    variants: [{ label: "High Fidelity V2", media: pair("high-fidelity-v2", 1200 / 1800) }],
+    variants: [{ label: "High Fidelity V2", media: pair("high-fidelity-v2", 4 / 3) }],
   },
   {
     name: "Low Resolution V2",
@@ -76,6 +76,6 @@ export const IMAGE_MODELS: TopazModel[] = [
       "Enables usable portrait results where traditional upscaling fails.",
     ],
     useCase: "Portraits where facial detail is the priority",
-    variants: [{ label: "Face Recovery 3", media: pair("faces", 1200 / 2134) }],
+    variants: [{ label: "Face Recovery 3", media: pair("faces", 4 / 3) }],
   },
 ];

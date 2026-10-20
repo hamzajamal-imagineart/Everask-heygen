@@ -747,3 +747,18 @@ line (variant or model name in ink, Topaz's one-liner in `text-black/40`), the f
 overview, "Try <model>" beside it (left-aligned on phones), then the facts as plain type in a hairline
 `dl` grid, two columns: "Best for" (label above) and Topaz's capabilities, trimmed to an even count so
 the grid closes. No pills, no bullets. Same component on /topaz-image and /topaz-video.
+
+## Topaz model pickers: list redesigned, images fill their frame (20 Oct 2026)
+
+- **List** (Hamza: "could you make this panel good in design too?"): no boxed panel, no grey row fill, no
+  check marks. In the manner of EverAsk's own pickers (everask-landing-pages `CinemaEdit`): from lg a hairline
+  index where every model's name is muted (`text-black/40`, 18px Clash), the picked one goes ink with a 2px
+  azure rule on its left and Topaz's one-liner under it; variants sit under that as a quiet row of text
+  toggles with an ink underline on the picked one, the family name dropped ("DV · TV · Robust · Dehalo ·
+  Robust Dehalo"; kept whole when the rest starts with a number, "Gaia 2 (Animation)"). Phones: names are a
+  scrolling row of text tabs with an azure underline; variant toggles under the example, same style.
+- **Images fill their frame** (Hamza: "similarly the image should take the full height and width"): the fixed-
+  height grey stage is gone for images too; every example is a frame cut to its own ratio, full column
+  width. The two portrait examples were re-cut from Topaz's sources as 4:3 landscape regions around the face
+  (High Fidelity V2: 368×276 of the 400×600 source; Faces: 460×345 of 500×889; both 1600×1200) so no frame
+  runs taller than the page. Checked: all seven frames match their image's ratio at 1280; phone fits.
