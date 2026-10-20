@@ -1,11 +1,12 @@
 import { HG_MEDIA } from "../media.constants";
 import type { FeatureItem } from "../heygen.types";
 
+/* One 5 s clip per tab: the same presenter saying the same line in each language. */
 export const TRANSLATION_LANGUAGES = [
-  { label: "English", flag: HG_MEDIA.flagEn },
-  { label: "German", flag: HG_MEDIA.flagDe },
-  { label: "Korean", flag: HG_MEDIA.flagKr },
-  { label: "Spanish", flag: HG_MEDIA.flagEs },
+  { label: "English", flag: HG_MEDIA.flagEn, video: HG_MEDIA.translationEn },
+  { label: "German", flag: HG_MEDIA.flagDe, video: HG_MEDIA.translationDe },
+  { label: "Korean", flag: HG_MEDIA.flagKr, video: HG_MEDIA.translationKo },
+  { label: "Spanish", flag: HG_MEDIA.flagEs, video: HG_MEDIA.translationEs },
 ];
 
 export const TRANSLATION_CARDS: FeatureItem[] = [

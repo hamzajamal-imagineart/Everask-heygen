@@ -9,7 +9,7 @@ import { TRANSLATION_CARDS, TRANSLATION_LANGUAGES } from "./Translation.constant
 import { useTranslation } from "./use-translation";
 
 export function Translation() {
-  const { active, select } = useTranslation();
+  const { active, select, muted, toggleSound, video } = useTranslation();
 
   return (
     <section id="translation" className="hg-container py-20 lg:py-[120px]">
@@ -20,10 +20,31 @@ export function Translation() {
       <div className="mt-[60px] rounded-[36px] bg-hg-cyan-soft p-3 md:p-4">
         <div className="card p-3">
           <div className="tile relative">
-            <img src={HG_MEDIA.translationVideo} alt="" className="aspect-video w-full object-cover" />
-            <span className="glass absolute top-3 right-3 flex size-10 items-center justify-center rounded-full">
-              <img src={HG_MEDIA.iconUnmute} alt="" className="size-[22px]" />
-            </span>
+            <video
+              ref={video}
+              key={TRANSLATION_LANGUAGES[active].video}
+              src={TRANSLATION_LANGUAGES[active].video}
+              poster={HG_MEDIA.translationPoster}
+              autoPlay
+              loop
+              muted={muted}
+              playsInline
+              preload="auto"
+              aria-label={`Presenter speaking ${TRANSLATION_LANGUAGES[active].label}`}
+              className="aspect-video w-full object-cover"
+            />
+            <button
+              type="button"
+              onClick={toggleSound}
+              aria-label={muted ? "Turn sound on" : "Turn sound off"}
+              aria-pressed={!muted}
+              className="glass absolute top-3 right-3 flex size-10 cursor-pointer items-center justify-center rounded-full text-ink"
+            >
+              <svg viewBox="0 0 18 18" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth={1.3} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3.86 6.43H1.93c-.7 0-1.29.59-1.29 1.29v2.57c0 .7.59 1.28 1.29 1.28h1.93l5.02 3.62c.83.57 2.02-.03 2.05-1.04V3.86c.02-1.02-1.1-1.62-1.93-1.05L3.86 6.43Z" />
+                {muted ? <path d="M17.36 7.07 13.5 10.93M13.5 7.07l3.86 3.86" /> : <path d="M13.6 6.2a4 4 0 0 1 0 5.6M15.6 4.4a6.6 6.6 0 0 1 0 9.2" />}
+              </svg>
+            </button>
             <div className="hg-scroll absolute inset-x-0 bottom-6 flex justify-start gap-3 overflow-x-auto px-3 md:justify-center">
               {TRANSLATION_LANGUAGES.map((language, index) => (
                 <button

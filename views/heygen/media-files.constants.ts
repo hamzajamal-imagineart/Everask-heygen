@@ -1,5 +1,5 @@
 export const HG_ASSET_FILES = {
-  agentSlide1: "agent-slide-1.png",
+  agentSlide1: "agent-slide-1-clean.jpg",
   agentSlide2: "agent-slide-2.png",
   agentSlide3: "agent-slide-3.png",
   avatarAngles: "avatar-angles.jpg",
@@ -30,7 +30,6 @@ export const HG_ASSET_FILES = {
   iconForbes: "icon-forbes.svg",
   iconG2: "icon-g2.svg",
   iconStar: "icon-star.svg",
-  iconUnmute: "icon-unmute.svg",
   logo01: "logo-01.png",
   logo02: "logo-02.png",
   logo03: "logo-03.png",
@@ -53,5 +52,9 @@ export const HG_ASSET_FILES = {
   toolPptToVideo: "tool-ppt-to-video.png",
   toolTextToVideo: "tool-text-to-video.png",
   toolVideoGenerator: "tool-video-generator.png",
-  translationVideo: "translation-video.png",
+  translationDe: "translation-de.mp4",
+  translationEn: "translation-en.mp4",
+  translationEs: "translation-es.mp4",
+  translationKo: "translation-ko.mp4",
+  translationPoster: "translation-poster.jpg",
 } as const;

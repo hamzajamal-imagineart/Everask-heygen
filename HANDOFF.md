@@ -614,3 +614,36 @@ Hamza: "this image is too dark". The file itself was dark (mean RGB about 66,56,
 midtones, linear 1.18 + 6, saturation 1.02) to a mean of about 131,118,104, keeping the warm room tone,
 and saved as `research-original-lit.jpg` (1920×1080, q86, 82 KB, down from a 940 KB PNG). The old
 `research-original.png` is removed; it is in commit `9d679f1`.
+
+## Video Agent slide 1 repaired (20 Oct 2026)
+
+Hamza: "the blue in prompt box is getting bluish distorted". The 17 Oct pink-to-blue hue map had turned
+every pinkish pixel blue: specks along the prompt box edge, around the send button and in the warm lamp
+glows. No pre-recolour original exists (`c3c3aa4` already holds the recoloured file), so slide 1 was
+repaired in sharp (`scratchpad/fix-slide1.js`): bluish pixels in warm, neutral or white patches replaced
+from a median-9 copy (text cursor excluded), a clean white rounded box (rx 33) under the original box
+interior, a redrawn `#2883fb` send button with a white arrow, and the blue frame redrawn with an
+anti-aliased 88px rounded hole. Saved as `agent-slide-1-clean.jpg` (181 KB, was a 2 MB PNG).
+Slides 2 and 3 are unchanged.
+
+## Video Translation: four speaking clips on the language tabs (20 Oct 2026)
+
+Hamza: "these are 4 videos of a person speaking in different languages, you can change it to someone else,
+change the person in this image and create 4 videos for 5 seconds each. When I click on the tab, that
+video will be played". The static `translation-video.png` (HeyGen's presenter) is gone.
+
+- **Presenter**: GPT Image 2, 16:9 2K (asset `5445c048`): a man in his 40s, salt-and-pepper beard, camel
+  coat over a black turtleneck, waist-up in a bright white gallery with a bronze sculpture behind,
+  mid-sentence with open hands. Installed as the poster, `translation-poster.jpg` (1920×1080).
+- **Clips**: Veo 3.1 Fast image-to-video from that still, 720p with native lip-synced speech, one line per
+  language: "Welcome to the gallery. Let me show you around." / "Willkommen in der Galerie. Ich zeige
+  Ihnen alles." / "갤러리에 오신 것을 환영합니다. 제가 안내해 드릴게요." / "Bienvenidos a la galería. Les
+  muestro todo." (assets `01a157e2-bebf…`, `-c965…`, `-d4e3…`, `-de44…`). Veo's nearest length is 6 s, so
+  German, Korean and Spanish were cut to 5 s (speech ends by about 4.75 s; 0.2 s audio fade). English speaks
+  to nearly 6 s, so picture and sound were both sped 1.2× to 5 s, which keeps the lips in sync.
+  Files `translation-{en,de,ko,es}.mp4`, h264 crf 23 + AAC 96k, faststart, 550 to 660 KB each.
+- **Behaviour** (`Translation/use-translation.ts`): one `<video>` keyed by clip; a tab click swaps the clip
+  and plays it from the start, looping. It starts muted (autoplay rules); the top-right speaker button is
+  now real (`Turn sound on/off`, line speaker icon with waves or a cross) and sound stays on across tabs.
+  `icon-unmute.svg` was removed. Checked in the pane: each tab loads its clip, plays from 0, sound state
+  carries over.
