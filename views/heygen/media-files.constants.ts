@@ -45,7 +45,7 @@ export const HG_ASSET_FILES = {
   logo12: "logo-12.png",
   logo13: "logo-13.png",
   researchGenerated: "research-generated.png",
-  researchOriginal: "research-original.png",
+  researchOriginal: "research-original-lit.jpg",
   studioApp: "studio-app.png",
   toolAudioToVideo: "tool-audio-to-video.png",
   toolAvatars: "tool-avatars.png",

@@ -606,3 +606,11 @@ over the photo.
 - Meet pill (Hamza, 20 Oct: "something is wrong here"): the 32px ink circle in the "Topaz Photo" pill held
   the whole "Topaz Labs" wordmark, clipped to "opaz L". It now holds only Topaz's stepped-squares mark
   (`views/topaz/Hero/TopazMark.tsx`, the wordmark's own three squares), 14px, centred.
+
+## HeyGen Research: "Original Footage" brightened (20 Oct 2026)
+
+Hamza: "this image is too dark". The file itself was dark (mean RGB about 66,56,46 against about 163 on the
+"Avatar V Generated" tile beside it), no overlay on the page. It was lifted in sharp (gamma 1.6 on the
+midtones, linear 1.18 + 6, saturation 1.02) to a mean of about 131,118,104, keeping the warm room tone,
+and saved as `research-original-lit.jpg` (1920×1080, q86, 82 KB, down from a 940 KB PNG). The old
+`research-original.png` is removed; it is in commit `9d679f1`.
