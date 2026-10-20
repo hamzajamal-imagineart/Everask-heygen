@@ -813,3 +813,30 @@ EverAsk's own social proof.
   cell width (160 px at 1280), the last item spanning both columns when the count is odd (Dione "Robust
   Dehalo", Artemis "Low Quality"). Theia and Gaia sit on one row. No label clips. Phones keep the scrolling
   segmented row.
+
+## HeyGen AI Studio: EverAsk workspace mock from Figma (20 Oct 2026)
+
+Hamza shared Figma frame "superagent" (file H-Drafts `2XejdX88EUrQyXNPF5E1ad`, node `866:14016`, 1920×1024:
+EverAsk's agent chat on the left, the Images generation canvas on the right) to replace the AI Studio
+section's image (`studio-app.png`, 2816×1754, HeyGen's own app screenshot), with text tweaks and resized to
+fit. Built as code, not an export, so the copy is editable and it stays sharp:
+`views/heygen/AiStudio/StudioApp.tsx` (client) lays the frame out on a fixed 1760×1100 canvas (the slot's
+1.6 ratio; the Figma is 1.875) and scales it to the card's width with a ResizeObserver (0.65 at 1280 wide).
+The Figma design-to-code guidance couldn't be loaded here, so it was built from the frame's render and
+layer metadata; its SVGs came out as fragments, so the UI icons are drawn as 1.6-stroke line paths.
+
+- **Copy changed to a HeyGen job** (all ours): chat title "Product launch video"; user "Make a 60-second
+  launch video with my avatar"; reply "On it. I'll write the script and render it with your HeyGen avatar,
+  then line up a Spanish version."; steps "Write a 60-second launch script" / "Render the video with HeyGen
+  Avatar V" / "Translate to Spanish with lip-sync"; "Your launch video and its Spanish cut are in the canvas.
+  Want captions or a vertical version for social next?"; model chip "HeyGen Avatar V"; footer "EverAsk can
+  make mistakes…" (the Figma said Starty). Canvas tab "Videos"; settings popover "Video settings": Model
+  HeyGen, Aspect ratio 16:9, Avatar "Avatar V", Voice "Warm"; first tile actions Edit / Captions /
+  Translate; duration chips on every tile.
+- **Tiles**: only clean presenter stills (the hero renders with baked captions were left out): six new GPT
+  Image 2 stills in the hero tiles' pale-blue studio look, `studio-tile-1…6.jpg` (720 px, ~30 KB; assets
+  `854239ed`, `405afaa2`, `b30941ca`, `7c42b0a4`, `b52b453b`, `c0b630e3`), plus hero-portfolio, -counsel,
+  -productivity, -interview, -home, -therapist and translation-poster; the partly hidden bottom row repeats
+  three. None of the Figma's stock generations are used.
+- `studio-app.png` removed (in commit `0a5b7e3`). Checked at 1280 (all images load, no overflow) and 375
+  (scales to a 279×174 miniature, as the old image did).

@@ -2,8 +2,8 @@ import { FeatureCard } from "../FeatureCard";
 import { ProofRow } from "../ProofRow";
 import { SectionHead } from "../SectionHead";
 import { heygenConfig } from "../config";
-import { HG_MEDIA } from "../media.constants";
 import { STUDIO_CARDS } from "./AiStudio.constants";
+import { StudioApp } from "./StudioApp";
 
 export function AiStudio() {
   return (
@@ -14,12 +14,8 @@ export function AiStudio() {
         storytelling.
       </SectionHead>
       <div className="mt-[60px] rounded-[36px] bg-hg-green-soft p-3 md:p-4">
-        <div className="card overflow-hidden p-3"><div className="tile">
-          <img
-            src={HG_MEDIA.studioApp}
-            alt="A video creation app showing a script editor on the left and an AI avatar presenting on the right"
-            className="w-full object-cover"
-          />
+        <div className="card overflow-hidden p-3"><div className="tile ring-1 ring-black/[0.06]">
+          <StudioApp />
         </div></div>
         <div className="mt-5 grid gap-5 md:grid-cols-3">
           {STUDIO_CARDS.map((card) => (
