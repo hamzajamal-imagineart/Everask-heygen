@@ -885,3 +885,15 @@ Hamza asked whether Magnific has modes like Topaz's models, then "add a Creative
   `ca663114`, 1400², man in a grey knit by a slate wall), and `up-classic-before.jpg` derived from it
   (340 px + blur + q42 JPEG, upsized) to show the Classic model's "compressed, low-res" case. `SuiteRow`
   takes an optional `compare`.
+- **Modes section redesigned** (Hamza: "could you redesign or try a different layout for this section? it
+  doesn't feel a mature design"): the sidebar picker is replaced on /magnific by an editorial showcase
+  (`views/mag/Modes/index.tsx`, client, no longer uses the Topaz picker): a `seg` Creative / Precision
+  switch with the mode's line at the right; one large 16:9 before/after (`HeroCompare`) with a
+  "Creative · Standard" kicker caption and Before/After kickers; the presets as a filmstrip of thumbnails
+  (`public/assets/mag/modes/*-thumb.jpg`, 400×225, 208 KB total) with wrapping labels (all nine fit at
+  1280, short rows use fixed 180 px thumbs); then a two-tone `t-section` line (preset name, its use case
+  muted), the mode overview and "Try Creative/Precision" on the left, the capabilities as a two-column
+  hairline list on the right. Switch, example, filmstrip and details share one centred width,
+  `min(100%, (100svh − 300px) × 16/9)`, so the first three fit a laptop screen (1067×600 example at
+  1280×900). Phones: full-width example, the filmstrip scrolls. The picker's `variantLayout="list"`
+  option was removed again (unused).

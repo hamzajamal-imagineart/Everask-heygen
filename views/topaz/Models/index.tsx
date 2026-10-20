@@ -11,9 +11,7 @@ import type { ModelMedia, TopazModel } from "./Models.types";
    model's own before/after example on the right with Topaz's overview and key capabilities under
    it. A model with variants (Dione, Theia, Artemis, Gaia) lists them under its row once picked.
    Every example keeps its own ratio, nothing crops (see Stage). */
-/* `variantLayout="list"` (Magnific, Hamza 20 Oct: "it can be as a list, instead of buttons") shows a model's
-   variants as a vertical list, one per line, instead of the segmented grid; Topaz keeps the grid. */
-export function Models({ id, title, description, models, cta, variantLayout = "grid" }: { id: string; title: ReactNode; description: string; models: TopazModel[]; cta: { href: string; label: string }; variantLayout?: "grid" | "list" }) {
+export function Models({ id, title, description, models, cta }: { id: string; title: ReactNode; description: string; models: TopazModel[]; cta: { href: string; label: string } }) {
   const [m, setM] = useState(0);
   const [v, setV] = useState(0);
   const model = models[m];
@@ -45,12 +43,12 @@ export function Models({ id, title, description, models, cta, variantLayout = "g
             {models.map((x, i) => {
               const on = i === m;
               return (
-                <li key={x.name} className={`shrink-0 lg:rounded-2xl lg:transition-colors ${variantLayout === "list" ? "lg:rounded-none lg:px-1 lg:pb-2 lg:[&+li]:mt-1 lg:[&+li]:border-t lg:[&+li]:border-[#ededed] lg:[&+li]:pt-2" : on ? "lg:bg-fill-1" : ""}`}>
+                <li key={x.name} className={`shrink-0 lg:rounded-2xl lg:transition-colors ${on ? "lg:bg-fill-1" : ""}`}>
                   <button
                     type="button"
                     onClick={() => pick(i)}
                     aria-pressed={on}
-                    className={`group flex w-full cursor-pointer items-start justify-between gap-4 rounded-full px-4 py-2 text-left transition-colors lg:rounded-2xl lg:bg-transparent lg:py-3 ${variantLayout === "list" ? "lg:hidden" : ""} ${on ? "bg-ink text-white lg:text-ink" : "bg-fill-1 text-ink hover:bg-fill-2 lg:hover:bg-fill-1/60"}`}
+                    className={`group flex w-full cursor-pointer items-start justify-between gap-4 rounded-full px-4 py-2 text-left transition-colors lg:rounded-2xl lg:bg-transparent lg:py-3 ${on ? "bg-ink text-white lg:text-ink" : "bg-fill-1 text-ink hover:bg-fill-2 lg:hover:bg-fill-1/60"}`}
                   >
                     <span className="min-w-0">
                       <span className={`t-item block whitespace-nowrap ${on ? "!text-white lg:!text-ink" : "lg:!text-black/75 lg:group-hover:!text-ink"}`}>{x.name}</span>
@@ -64,27 +62,7 @@ export function Models({ id, title, description, models, cta, variantLayout = "g
                       </span>
                     )}
                   </button>
-                  {variantLayout === "list" && (
-                    /* List layout from lg: every group open all the time, a plain heading (no tick) over
-                       its variants; picking a variant picks its group (Hamza, 20 Oct: "it shouldn't be
-                       accordion, it should be open all times, remove the top right tick too"). */
-                    <div className="hidden lg:block">
-                      <p className="px-3 pt-3 pb-2">
-                        <span className="t-item block">{x.name}</span>
-                        <span className="mt-0.5 block text-black/45">{x.line}</span>
-                      </p>
-                      <VariantList
-                        variants={x.variants}
-                        family={x.name}
-                        v={on ? v : -1}
-                        setV={(j) => {
-                          setM(i);
-                          setV(j);
-                        }}
-                      />
-                    </div>
-                  )}
-                  {on && model.variants.length > 1 && variantLayout === "grid" && (
+                  {on && model.variants.length > 1 && (
                     <div className="seg mx-3 mb-3 !hidden grid-cols-2 lg:!grid" aria-label={`${x.name} variants`}>
                       {model.variants.map((y, j) => (
                         <button
@@ -106,12 +84,7 @@ export function Models({ id, title, description, models, cta, variantLayout = "g
 
           <div className="min-w-0 lg:col-span-8">
             <Stage key={`${m}-${v}`} media={variant.media} />
-            {model.variants.length > 1 && variantLayout === "list" && (
-              <div className="mt-4 rounded-2xl border border-[#ededed] p-2 lg:hidden">
-                <VariantList variants={model.variants} family={model.name} v={v} setV={setV} />
-              </div>
-            )}
-            {model.variants.length > 1 && variantLayout === "grid" && (
+            {model.variants.length > 1 && (
               <div className="seg mt-4 max-w-full overflow-x-auto [scrollbar-width:none] lg:!hidden" aria-label={`${model.name} variants`}>
                 {model.variants.map((y, j) => (
                   <button
@@ -179,35 +152,6 @@ function Stage({ media }: { media: ModelMedia }) {
       )}
       <Pills />
     </div>
-  );
-}
-
-/* Variants as a vertical list: one per line in body type, the picked one on a soft fill with a small
-   azure check, the rest muted until hovered. */
-function VariantList({ variants, family, v, setV }: { variants: TopazModel["variants"]; family: string; v: number; setV: (j: number) => void }) {
-  return (
-    <ul className="space-y-0.5" aria-label={`${family} variants`}>
-      {variants.map((y, j) => {
-        const on = j === v;
-        return (
-          <li key={y.label}>
-            <button
-              type="button"
-              onClick={() => setV(j)}
-              aria-pressed={on}
-              className={`flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl px-3 py-2 text-left transition-colors ${on ? "bg-fill-1 font-medium text-ink" : "text-black/55 hover:bg-fill-1/60 hover:text-ink"}`}
-            >
-              {short(y.label, family)}
-              {on && (
-                <svg viewBox="0 0 16 16" className="size-3.5 shrink-0 text-action" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="m3.5 8.5 3 3 6-7" />
-                </svg>
-              )}
-            </button>
-          </li>
-        );
-      })}
-    </ul>
   );
 }
 
