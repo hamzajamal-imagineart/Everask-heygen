@@ -805,3 +805,6 @@ EverAsk's own social proof.
 - **Still on the HeyGen page, not a testimonial but worth a look**: the Trust/compliance section shows
   GDPR, SOC 2 Type II, CCPA, AI Act and DPF badges with its intro reading "EverAsk", i.e. HeyGen's
   certifications presented as EverAsk's.
+- **Model section headings on two lines** (Hamza, 20 Oct): "Precision video upscale / and enhancement" and, to
+  match, "Precision upscaling / for images", via an explicit `<br />`. `SectionHead`'s `title` (views/mag) and
+  `Models`' `title` now take a `ReactNode`; every other caller still passes a string.

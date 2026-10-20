@@ -25,7 +25,7 @@ export default function TopazVideoView() {
         <Hero kind="video" subhead={HERO_SUBHEAD_VIDEO} cta={cta} />
         <Models
           id="models"
-          title="Precision video upscale and enhancement"
+          title={<>Precision video upscale<br />and enhancement</>}
           description="Topaz's Proteus family: essential video enhancement models designed for quality, precision, and control. Precision models attempt to improve quality without changing the source characteristics."
           models={VIDEO_MODELS}
           cta={{ href: topazVideoConfig.links.start, label: "Upscale a video" }}

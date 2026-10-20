@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { HeroCompare } from "@/views/mag/Hero/HeroCompare";
 import { SectionHead } from "@/views/mag/SectionHead";
 import { VideoCompare } from "../VideoCompare";
@@ -11,7 +11,7 @@ import type { ModelMedia, TopazModel } from "./Models.types";
    model's own before/after example on the right with Topaz's overview and key capabilities under
    it. A model with variants (Dione, Theia, Artemis, Gaia) lists them under its row once picked.
    Every example keeps its own ratio, nothing crops (see Stage). */
-export function Models({ id, title, description, models, cta }: { id: string; title: string; description: string; models: TopazModel[]; cta: { href: string; label: string } }) {
+export function Models({ id, title, description, models, cta }: { id: string; title: ReactNode; description: string; models: TopazModel[]; cta: { href: string; label: string } }) {
   const [m, setM] = useState(0);
   const [v, setV] = useState(0);
   const model = models[m];

@@ -28,7 +28,7 @@ export default function TopazImageView() {
         <Hero kind="image" subhead={HERO_SUBHEAD_IMAGE} cta={cta} />
         <Models
           id="models"
-          title="Precision upscaling for images"
+          title={<>Precision upscaling<br />for images</>}
           description="Topaz's Gigapixel models: essential image enhancement designed for quality, precision, and control. Precision models attempt to improve quality without changing the source characteristics."
           models={IMAGE_MODELS}
           cta={{ href: topazImageConfig.links.start, label: "Upscale an image" }}
