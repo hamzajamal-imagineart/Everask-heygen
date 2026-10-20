@@ -13,6 +13,7 @@ export function Modes() {
       description="Use Upscaler Precision for faithful super-resolution without hallucinations, best for logos, UI, text, and product photos. Choose Creative when you want to add or infer detail and stylize results via prompts."
       models={MAG_MODES}
       cta={{ href: magConfig.links.start, label: "Start upscaling" }}
+      variantLayout="list"
     />
   );
 }

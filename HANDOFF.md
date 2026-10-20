@@ -870,3 +870,7 @@ Hamza asked whether Magnific has modes like Topaz's models, then "add a Creative
   as a few letters; swap if it bothers.
 - Checked at 1280 (all 12 pairs load and switch; preset grid aligned) and 375 (no overflow).
 - The brand artwork skill is installed locally at `.claude/skills/computer-creative` (`.claude/` is gitignored, so it is not in the repo; the zip is `~/Downloads/everask-creative-skill.zip`).
+- **Variants as a list on /magnific** (Hamza: "for this page, it can be as a list, instead of buttons"): the
+  picker takes `variantLayout="list"`: the picked row's variants as a vertical list, one per line in body
+  type, the picked one raised on white with a small azure check (phones: the same list in a grey panel under
+  the example). Topaz keeps the default segmented grid.

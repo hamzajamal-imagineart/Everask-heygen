@@ -11,7 +11,9 @@ import type { ModelMedia, TopazModel } from "./Models.types";
    model's own before/after example on the right with Topaz's overview and key capabilities under
    it. A model with variants (Dione, Theia, Artemis, Gaia) lists them under its row once picked.
    Every example keeps its own ratio, nothing crops (see Stage). */
-export function Models({ id, title, description, models, cta }: { id: string; title: ReactNode; description: string; models: TopazModel[]; cta: { href: string; label: string } }) {
+/* `variantLayout="list"` (Magnific, Hamza 20 Oct: "it can be as a list, instead of buttons") shows a model's
+   variants as a vertical list, one per line, instead of the segmented grid; Topaz keeps the grid. */
+export function Models({ id, title, description, models, cta, variantLayout = "grid" }: { id: string; title: ReactNode; description: string; models: TopazModel[]; cta: { href: string; label: string }; variantLayout?: "grid" | "list" }) {
   const [m, setM] = useState(0);
   const [v, setV] = useState(0);
   const model = models[m];
@@ -62,7 +64,12 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
                       </span>
                     )}
                   </button>
-                  {on && model.variants.length > 1 && (
+                  {on && model.variants.length > 1 && variantLayout === "list" && (
+                    <div className="mx-2 mb-2 hidden lg:block">
+                      <VariantList variants={model.variants} family={x.name} v={v} setV={setV} />
+                    </div>
+                  )}
+                  {on && model.variants.length > 1 && variantLayout === "grid" && (
                     <div className="seg mx-3 mb-3 !hidden grid-cols-2 lg:!grid" aria-label={`${x.name} variants`}>
                       {model.variants.map((y, j) => (
                         <button
@@ -84,7 +91,12 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
 
           <div className="min-w-0 lg:col-span-8">
             <Stage key={`${m}-${v}`} media={variant.media} />
-            {model.variants.length > 1 && (
+            {model.variants.length > 1 && variantLayout === "list" && (
+              <div className="mt-4 rounded-2xl bg-fill-1 p-2 lg:hidden">
+                <VariantList variants={model.variants} family={model.name} v={v} setV={setV} />
+              </div>
+            )}
+            {model.variants.length > 1 && variantLayout === "grid" && (
               <div className="seg mt-4 max-w-full overflow-x-auto [scrollbar-width:none] lg:!hidden" aria-label={`${model.name} variants`}>
                 {model.variants.map((y, j) => (
                   <button
@@ -152,6 +164,35 @@ function Stage({ media }: { media: ModelMedia }) {
       )}
       <Pills />
     </div>
+  );
+}
+
+/* Variants as a vertical list: one per line in body type, the picked one raised on white with a small
+   azure check, the rest muted until hovered. */
+function VariantList({ variants, family, v, setV }: { variants: TopazModel["variants"]; family: string; v: number; setV: (j: number) => void }) {
+  return (
+    <ul className="space-y-0.5" aria-label={`${family} variants`}>
+      {variants.map((y, j) => {
+        const on = j === v;
+        return (
+          <li key={y.label}>
+            <button
+              type="button"
+              onClick={() => setV(j)}
+              aria-pressed={on}
+              className={`flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl px-3 py-2 text-left transition-colors ${on ? "bg-white font-medium text-ink shadow-[0_1px_2px_rgba(0,0,0,0.06)] ring-1 ring-black/[0.06]" : "text-black/55 hover:bg-white/60 hover:text-ink"}`}
+            >
+              {short(y.label, family)}
+              {on && (
+                <svg viewBox="0 0 16 16" className="size-3.5 shrink-0 text-action" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d="m3.5 8.5 3 3 6-7" />
+                </svg>
+              )}
+            </button>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
