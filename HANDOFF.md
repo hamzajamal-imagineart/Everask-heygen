@@ -762,3 +762,9 @@ the grid closes. No pills, no bullets. Same component on /topaz-image and /topaz
   width. The two portrait examples were re-cut from Topaz's sources as 4:3 landscape regions around the face
   (High Fidelity V2: 368×276 of the 400×600 source; Faces: 460×345 of 500×889; both 1600×1200) so no frame
   runs taller than the page. Checked: all seven frames match their image's ratio at 1280; phone fits.
+- **List reverted and refined** (Hamza: "the left panel doesn't look good, the previous one was better, just
+  make adjustment to it"): back to the boxed panel (border, name + one-liner rows, grey fill on the picked
+  row). Adjustments: the picked row is one soft grey block that also holds its variants as a segmented row
+  of white pills (family name dropped, as before); the black check box is now an 18px azure circle with a
+  white check; unpicked names sit at `text-black/75` and their lines at `text-black/40` until hovered; lines
+  clamp to two. Phones: the previous pill row (ink pill for the picked model) and bordered variant chips.

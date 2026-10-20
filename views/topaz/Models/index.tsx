@@ -33,35 +33,42 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
       <div className="mag-container">
         <SectionHead title={title} description={description} />
         <div className="mt-10 grid gap-6 lg:grid-cols-12 lg:gap-8">
-          {/* The list (Hamza, 20 Oct: "make this panel good in design"), in the manner of EverAsk's own
-              pickers (CinemaEdit): no boxed panel and no check marks. From lg a hairline index: every
-              model's name in muted ink, the picked one in ink with a thin azure rule on its left and
-              Topaz's one-liner under it; a model's variants sit under that as a quiet row of text
-              toggles. On phones the names are a scrolling row of text tabs with an azure underline. */}
-          <ul className="-mx-4 flex gap-5 overflow-x-auto border-b border-[#ededed] px-4 [scrollbar-width:none] lg:col-span-4 lg:mx-0 lg:block lg:self-start lg:border-b-0 lg:px-0" aria-label="Models">
+          {/* The list: Topaz's dropdown as a panel from lg, a row of pills on phones. Hamza preferred
+              this panel to the hairline index (20 Oct), refined: the picked model is one soft grey
+              block holding its one-liner and, when it has variants, a segmented row of white pills;
+              a small azure check instead of the black box; the other rows quieter until hovered. */}
+          <ul className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] lg:col-span-4 lg:mx-0 lg:block lg:space-y-0.5 lg:self-start lg:rounded-[24px] lg:border lg:border-[#ededed] lg:p-2" aria-label="Models">
             {models.map((x, i) => {
               const on = i === m;
               return (
-                <li key={x.name} className="relative shrink-0 lg:border-t lg:border-[#ededed] lg:last:border-b">
-                  <span aria-hidden className={`absolute inset-x-0 bottom-0 h-[2px] bg-action transition-opacity lg:inset-y-0 lg:right-auto lg:left-0 lg:h-auto lg:w-[2px] ${on ? "opacity-100" : "opacity-0"}`} />
+                <li key={x.name} className={`shrink-0 lg:rounded-2xl lg:transition-colors ${on ? "lg:bg-fill-1" : ""}`}>
                   <button
                     type="button"
                     onClick={() => pick(i)}
                     aria-pressed={on}
-                    className={`block w-full cursor-pointer whitespace-nowrap py-3 text-left transition-colors lg:whitespace-normal lg:py-4 lg:pl-5 ${on ? "text-ink" : "text-black/40 hover:text-ink"}`}
+                    className={`group flex w-full cursor-pointer items-start justify-between gap-4 rounded-full px-4 py-2 text-left transition-colors lg:rounded-2xl lg:bg-transparent lg:py-3 ${on ? "bg-ink text-white lg:text-ink" : "bg-fill-1 text-ink hover:bg-fill-2 lg:hover:bg-fill-1/60"}`}
                   >
-                    <span className="block font-display text-[16px] font-medium leading-snug tracking-[-0.015em] lg:text-[18px]">{x.name}</span>
-                    {on && <span className="mt-1 hidden max-w-[34ch] text-[14px] leading-snug text-black/50 lg:block">{x.line}</span>}
+                    <span className="min-w-0">
+                      <span className={`block whitespace-nowrap text-[15px] font-medium leading-snug lg:text-[16px] ${on ? "" : "lg:text-black/75 lg:group-hover:text-ink"}`}>{x.name}</span>
+                      <span className={`mt-0.5 hidden text-[13px] leading-snug lg:line-clamp-2 ${on ? "text-black/55" : "text-black/40"}`}>{x.line}</span>
+                    </span>
+                    {on && (
+                      <span aria-hidden className="mt-0.5 hidden size-[18px] shrink-0 place-items-center rounded-full bg-action text-white lg:grid">
+                        <svg viewBox="0 0 16 16" className="size-2.5" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+                          <path d="m3.5 8.5 3 3 6-7" />
+                        </svg>
+                      </span>
+                    )}
                   </button>
                   {on && model.variants.length > 1 && (
-                    <div className="-mt-1 hidden flex-wrap gap-x-4 gap-y-1.5 pb-4 pl-5 lg:flex" aria-label={`${x.name} variants`}>
+                    <div className="hidden flex-wrap gap-1 px-3 pb-3 lg:flex" aria-label={`${x.name} variants`}>
                       {model.variants.map((y, j) => (
                         <button
                           key={y.label}
                           type="button"
                           onClick={() => setV(j)}
                           aria-pressed={j === v}
-                          className={`cursor-pointer border-b pb-0.5 text-[13px] transition-colors ${j === v ? "border-ink text-ink" : "border-transparent text-black/40 hover:text-ink"}`}
+                          className={`cursor-pointer rounded-full px-3 py-1 text-[13px] transition-colors ${j === v ? "bg-white font-medium text-ink shadow-[0_1px_2px_rgba(0,0,0,0.06)] ring-1 ring-black/[0.06]" : "text-black/50 hover:text-ink"}`}
                         >
                           {short(y.label, x.name)}
                         </button>
@@ -76,14 +83,14 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
           <div className="min-w-0 lg:col-span-8">
             <Stage key={`${m}-${v}`} media={variant.media} />
             {model.variants.length > 1 && (
-              <div className="mt-4 flex gap-4 overflow-x-auto [scrollbar-width:none] lg:hidden" aria-label={`${model.name} variants`}>
+              <div className="mt-4 flex gap-2 overflow-x-auto [scrollbar-width:none] lg:hidden" aria-label={`${model.name} variants`}>
                 {model.variants.map((y, j) => (
                   <button
                     key={y.label}
                     type="button"
                     onClick={() => setV(j)}
                     aria-pressed={j === v}
-                    className={`shrink-0 cursor-pointer border-b pb-0.5 text-[13px] ${j === v ? "border-ink text-ink" : "border-transparent text-black/40"}`}
+                    className={`shrink-0 cursor-pointer rounded-full border px-3 py-1.5 text-[13px] ${j === v ? "border-ink text-ink" : "border-[#e2e2e2] text-black/50"}`}
                   >
                     {short(y.label, model.name)}
                   </button>
