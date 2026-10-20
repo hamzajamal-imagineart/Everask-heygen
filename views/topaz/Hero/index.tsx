@@ -13,8 +13,8 @@ const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:anima
    copy centred over a neutral dark overlay: the Topaz wordmark + "inside
    EverAsk", their line, a white button. The copy block lets pointer events
    through so the loupe follows the pointer everywhere but on the button. */
-/* `kind="video"` (the Topaz Video page) fills the frame with Topaz's own video-upscale clip
-   instead of the image loupe. */
+/* `kind="video"` (the Topaz Video page) runs the same loupe on Topaz Video's own hero clips
+   (their face.mp4 under the frame, the Rhea result inside the loupe). */
 export function Hero({ kind, subhead, cta }: { kind: "image" | "video"; subhead: string; cta: { href: string; label: string } }) {
   return (
     <>
@@ -23,17 +23,7 @@ export function Hero({ kind, subhead, cta }: { kind: "image" | "video"; subhead:
           {kind === "image" ? (
             <EnhanceLoupe fill before={TOPAZ_MEDIA.tz.clarity.before} after={TOPAZ_MEDIA.tz.clarity.after} />
           ) : (
-            <video
-              src={TOPAZ_MEDIA.tz.videoUpscale.src}
-              poster={TOPAZ_MEDIA.tz.videoUpscale.poster}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              aria-hidden="true"
-              className="absolute inset-0 -z-10 size-full object-cover"
-            />
+            <EnhanceLoupe fill video before={TOPAZ_MEDIA.tz.videoFace.before} after={TOPAZ_MEDIA.tz.videoFace.after} poster={TOPAZ_MEDIA.tz.videoFace.poster} />
           )}
           <span aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-black/35" />
           <span

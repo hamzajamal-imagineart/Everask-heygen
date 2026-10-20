@@ -12,8 +12,10 @@ export const TOPAZ_MEDIA = {
     face: { before: "/assets/topaz/tz-face-before.jpg", after: "/assets/topaz/tz-face-after.jpg", ratio: 1100 / 1284 },
     lighting: { before: "/assets/topaz/tz-lighting-before.jpg", after: "/assets/topaz/tz-lighting-after.jpg", ratio: 5294 / 2264 },
     remove: { before: "/assets/topaz/tz-remove-before.jpg", after: "/assets/topaz/tz-remove-after.jpg", ratio: 2670 / 2412 },
-    /* Topaz's video-upscale hero clip (Hamza's file), 1920×1920 → 1280, 30 fps, no audio. */
-    videoUpscale: { src: "/assets/topaz/tz-video-upscale.mp4", poster: "/assets/topaz/tz-video-upscale-poster.jpg", ratio: 1 },
+    /* Topaz Video's hero pair (topazlabs.com/topaz-video, downloads.topazlabs.com/web-assets/face.mp4 and
+       face-rhea1.mp4): the 426×240 source encoded at 852×480 and the Rhea 4K result at 1920×1080, 6 s, 25 fps,
+       no audio. Same 16:9 shape, so both layers line up at any encode size. */
+    videoFace: { before: "/assets/topaz/tz-video-face-before.mp4", after: "/assets/topaz/tz-video-face-after.mp4", poster: "/assets/topaz/tz-video-face-poster.jpg" },
   },
   hero: {
     denoise: { before: "/assets/topaz/hero-denoise-before.jpg", after: "/assets/topaz/hero-denoise-after.jpg" },

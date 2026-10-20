@@ -696,3 +696,16 @@ mention these things? ... use the images and video assets from their pages".
   chunk after a git stash).
 - **Review**: the image page's Meet/Years/Features still describe Topaz Photo's tools (denoise, sharpen,
   lighting…), not only upscaling; say if those should go. The "through Topaz's API" claims as before.
+
+## Topaz Video hero: the loupe on Topaz Video's own clips (20 Oct 2026)
+
+Hamza pasted Topaz Video's hero markup (`before-after-enhance-box`, `--scale: 1.5`, `face.mp4` under the
+frame, `face-rhea1.mp4` inside the box, "Tap and hold"). The /topaz-video hero now runs the same
+`EnhanceLoupe` as the image page, in a new `video` mode: the before clip loops under the frame, the after
+clip plays inside the loupe and follows the before's playhead (re-synced on `timeupdate` past 0.1 s), and the
+loupe hides with `visibility` instead of unmounting so the after clip isn't reloaded (the image loupe uses
+the same hide now). Clips: `tz-video-face-before.mp4` (their 426×240 source at 852×480, 300 KB) and
+`tz-video-face-after.mp4` (the Rhea 4K result at 1920×1080, 1.2 MB), 6.16 s, 25 fps, no audio, poster
+`tz-video-face-poster.jpg`. The square `tz-video-upscale.mp4` and its poster were no longer used anywhere
+and were removed (in `df15712`). Checked at 1280: both clips play, drift about 0.04 s, loupe shows; the
+image page's loupe still works.

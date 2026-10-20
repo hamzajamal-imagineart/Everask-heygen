@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState, type PointerEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type PointerEvent } from "react";
 
 /* Topaz's "before-after-enhance-box": the soft picture fills the frame and a
    square window follows the pointer, showing the enhanced picture inside it
@@ -9,8 +9,26 @@ import { useCallback, useRef, useState, type PointerEvent } from "react";
    keeps the pair's own ratio, nothing is cropped. */
 /* `fill`: cover a parent frame (absolute inset-0) instead of keeping the pair's ratio; both layers are
    object-cover at the same size, so the loupe stays aligned. */
-export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false }: { before: string; after: string; ratio?: number; scale?: number; fill?: boolean }) {
+/* `video` (Topaz Video's hero, Hamza 20 Oct): before and after are clips. The before loops under
+   the frame and the after, inside the loupe, follows its playhead; the loupe hides with visibility
+   rather than unmounting so the after clip is not reloaded each time the pointer comes back. */
+export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false, video = false, poster }: { before: string; after: string; ratio?: number; scale?: number; fill?: boolean; video?: boolean; poster?: string }) {
   const frame = useRef<HTMLDivElement>(null);
+  const beforeClip = useRef<HTMLVideoElement>(null);
+  const afterClip = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const b = beforeClip.current;
+    if (!video || !b) return;
+    const sync = () => {
+      const a = afterClip.current;
+      if (!a) return;
+      if (Math.abs(a.currentTime - b.currentTime) > 0.1) a.currentTime = b.currentTime;
+      if (a.paused && !b.paused) a.play().catch(() => {});
+    };
+    b.addEventListener("timeupdate", sync);
+    return () => b.removeEventListener("timeupdate", sync);
+  }, [video]);
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
   const [pressed, setPressed] = useState(false);
   const [touch, setTouch] = useState(false);
@@ -57,22 +75,40 @@ export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false }
       }}
       onContextMenu={(e) => e.preventDefault()}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={before} alt="" draggable={false} fetchPriority="high" className="absolute inset-0 size-full object-cover" />
-      {show && W > 0 && (
+      {video ? (
+        <video ref={beforeClip} src={before} poster={poster} autoPlay loop muted playsInline preload="auto" aria-hidden="true" className="absolute inset-0 size-full object-cover" />
+      ) : (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={before} alt="" draggable={false} fetchPriority="high" className="absolute inset-0 size-full object-cover" />
+      )}
+      {W > 0 && (
         <div
           aria-hidden
           className="pointer-events-none absolute overflow-hidden rounded-[18px] shadow-[0_0_0_2px_rgba(255,255,255,0.9),0_18px_50px_rgba(0,0,0,0.35)]"
-          style={{ width: s, height: s, left: p.x - s / 2, top: p.y - s / 2 }}
+          style={{ width: s, height: s, left: p.x - s / 2, top: p.y - s / 2, visibility: show ? "visible" : "hidden" }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={after}
-            alt=""
-            draggable={false}
-            className="absolute max-w-none object-cover"
-            style={{ width: W * scale, height: H * scale, left: -(p.x * scale) + s / 2, top: -(p.y * scale) + s / 2 }}
-          />
+          {video ? (
+            <video
+              ref={afterClip}
+              src={after}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute max-w-none object-cover"
+              style={{ width: W * scale, height: H * scale, left: -(p.x * scale) + s / 2, top: -(p.y * scale) + s / 2 }}
+            />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={after}
+              alt=""
+              draggable={false}
+              className="absolute max-w-none object-cover"
+              style={{ width: W * scale, height: H * scale, left: -(p.x * scale) + s / 2, top: -(p.y * scale) + s / 2 }}
+            />
+          )}
           <span className="absolute left-3 top-3 rounded-pill bg-white px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-ink">After · {scale}×</span>
           {/* Centre mark: the cursor is hidden over the photo, so this ring shows where the pointer is. */}
           <span className="absolute left-1/2 top-1/2 size-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-[1.5px] border-white shadow-[0_0_0_1px_rgba(0,0,0,0.18),0_2px_8px_rgba(0,0,0,0.25)]" />
