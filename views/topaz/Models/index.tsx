@@ -63,14 +63,14 @@ export function Models({ id, title, description, models, cta }: { id: string; ti
                     )}
                   </button>
                   {on && model.variants.length > 1 && (
-                    <div className="seg mx-3 mb-3 !hidden flex-wrap lg:!inline-flex" aria-label={`${x.name} variants`}>
+                    <div className="seg mx-3 mb-3 !hidden grid-cols-2 lg:!grid" aria-label={`${x.name} variants`}>
                       {model.variants.map((y, j) => (
                         <button
                           key={y.label}
                           type="button"
                           onClick={() => setV(j)}
                           aria-pressed={j === v}
-                          className={`seg-item cursor-pointer ${j === v ? "seg-item-on" : ""}`}
+                          className={`seg-item w-full cursor-pointer ${j === v ? "seg-item-on" : ""} ${j === model.variants.length - 1 && model.variants.length % 2 ? "col-span-2" : ""}`}
                         >
                           {short(y.label, x.name)}
                         </button>

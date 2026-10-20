@@ -808,3 +808,8 @@ EverAsk's own social proof.
 - **Model section headings on two lines** (Hamza, 20 Oct): "Precision video upscale / and enhancement" and, to
   match, "Precision upscaling / for images", via an explicit `<br />`. `SectionHead`'s `title` (views/mag) and
   `Models`' `title` now take a `ReactNode`; every other caller still passes a string.
+- **Variant control aligned** (Hamza, 20 Oct: "this looks misaligned"): the desktop `seg` wrapped Dione's five
+  variants into a ragged second line. It is now a two-column grid inside the same track, every item full
+  cell width (160 px at 1280), the last item spanning both columns when the count is odd (Dione "Robust
+  Dehalo", Artemis "Low Quality"). Theia and Gaia sit on one row. No label clips. Phones keep the scrolling
+  segmented row.
