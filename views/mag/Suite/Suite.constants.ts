@@ -3,7 +3,8 @@ import { MAG_MEDIA } from "../media.constants";
 /* Magnific's upscalers, copy verbatim from magnific.com/ai/image-upscaler and
    /ai/video-upscaler, their own images and clip (media.magnific.com). */
 /** `ratio` is the media's own width/height, so the frame never crops it. */
-export type SuiteRow = { title: string; body: string; image?: string; video?: string; ratio: number };
+/** `compare` shows a draggable before/after instead of a still. */
+export type SuiteRow = { title: string; body: string; image?: string; video?: string; compare?: { before: string; after: string }; ratio: number };
 
 export const SUITE_ROWS: SuiteRow[] = [
   {
@@ -21,7 +22,9 @@ export const SUITE_ROWS: SuiteRow[] = [
   {
     title: "Fast, clean upscaling",
     body: "Use the Classic model to quickly improve image resolution and quality. It's the easiest way to sharpen compressed, low-res images. Great for everyday use and general fixes.",
-    image: MAG_MEDIA.upClassic,
+    /* Hamza, 20 Oct: the slider still "doesn't make any sense" (UI drawn into a photo, no before/after).
+       Now a real before/after: a compressed low-res copy against the clean picture. */
+    compare: { before: MAG_MEDIA.upClassicBefore, after: MAG_MEDIA.upClassicAfter },
     ratio: 1,
   },
   {

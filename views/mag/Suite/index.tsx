@@ -1,3 +1,4 @@
+import { HeroCompare } from "../Hero/HeroCompare";
 import { SUITE_ROWS } from "./Suite.constants";
 
 /* Magnific's upscalers in the magnific.com suite layout (Hamza, 19 Oct): a
@@ -16,8 +17,14 @@ export function Suite() {
           {SUITE_ROWS.map((row, i) => (
             <li key={row.title} className="mag-zfold-row grid items-center gap-6 sm:grid-cols-2 sm:gap-12 md:gap-14 lg:gap-20">
               <div className={`w-full ${i % 2 === 0 ? "sm:order-2" : ""}`}>
-                <div className="relative overflow-hidden rounded-2xl bg-fill-1" style={{ aspectRatio: row.ratio }}>
-                  {row.video ? (
+                <div className="relative isolate overflow-hidden rounded-2xl bg-fill-1" style={{ aspectRatio: row.ratio }}>
+                  {row.compare ? (
+                    <>
+                      <HeroCompare before={row.compare.before} after={row.compare.after} handleY={50} />
+                      <span className="kicker pointer-events-none absolute bottom-4 left-4 rounded-pill bg-black/45 px-2.5 py-1 text-white backdrop-blur-md">Before</span>
+                      <span className="kicker pointer-events-none absolute right-4 bottom-4 rounded-pill bg-white/90 px-2.5 py-1 text-ink">After</span>
+                    </>
+                  ) : row.video ? (
                     <video src={row.video} aria-label={row.title} autoPlay loop muted playsInline preload="metadata" className="absolute inset-0 size-full object-cover" />
                   ) : (
                     <img src={row.image} alt={row.title} loading="lazy" className="absolute inset-0 size-full object-cover" />

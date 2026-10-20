@@ -874,3 +874,14 @@ Hamza asked whether Magnific has modes like Topaz's models, then "add a Creative
   picker takes `variantLayout="list"`: the picked row's variants as a vertical list, one per line in body
   type, the picked one raised on white with a small azure check (phones: the same list in a grey panel under
   the example). Topaz keeps the default segmented grid.
+- **List always open** (Hamza: "it shouldn't be accordion, it should be open all times, remove the top right
+  tick too"): in `variantLayout="list"` from lg, every group is a plain heading (name + one-liner, no tick, no
+  grey block) over its full variant list, groups split by a hairline; picking any variant picks its group.
+  The picked variant sits on a soft fill with the small azure check. Phones keep the model pills and a
+  bordered list under the example.
+- **Suite "Fast, clean upscaling"** (Hamza: "this image doesn't make any sense"): `up2-classic.jpg` (a
+  portrait with Sharpness/Grain sliders drawn into it) is gone. The row is now a draggable before/after
+  (`HeroCompare`, Before/After kickers): `up-classic-after.jpg`, a clean GPT Image 2 portrait (asset
+  `ca663114`, 1400², man in a grey knit by a slate wall), and `up-classic-before.jpg` derived from it
+  (340 px + blur + q42 JPEG, upsized) to show the Classic model's "compressed, low-res" case. `SuiteRow`
+  takes an optional `compare`.
