@@ -10,7 +10,6 @@ import { Research } from "./Research";
 import { Tools } from "./Tools";
 import { Translation } from "./Translation";
 import { Trust } from "./Trust";
-import { TrustBar } from "./TrustBar";
 import { VideoAgent } from "./VideoAgent";
 
 export default function HeygenView() {
@@ -19,7 +18,6 @@ export default function HeygenView() {
       <SiteHeader />
       <main className="hg-page flex-1">
         <Hero />
-        <TrustBar />
         <AvatarSection />
         <Research />
         <VideoAgent />

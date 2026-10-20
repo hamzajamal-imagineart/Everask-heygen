@@ -1,8 +1,9 @@
 import { topazImageConfig as topazConfig } from "../config";
 import { TOPAZ_MEDIA } from "../media.constants";
 
-/* Topaz's "Trusted by pro photographers for 20+ years." two-column block: the
-   claim, paragraph and CTA on the left; their four audiences as a 2×2 on the
+/* Topaz's two-column audiences block. Their "Trusted by pro photographers for 20+ years." heading and
+   the Trustpilot quote were removed with the other testimonials (Hamza, 20 Oct); the heading now comes
+   from their own paragraph ("two decades of photo enhancement technology"). Paragraph and CTA on the left; their four audiences as a 2×2 on the
    right, each with our picture above it (theirs have a small icon). */
 const USE_CASES = [
   { title: "Wildlife & Astro Photography", body: "Zoom in with lossless crop, sharpen details, and denoise high ISO shots captured in unpredictable conditions.", image: TOPAZ_MEDIA.usecaseWildlife },
@@ -16,10 +17,7 @@ export function Years() {
     <section id="years" className="py-20 lg:py-28">
       <div className="container-page grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
-          <p className="text-[14px] text-black/50">
-            <span className="font-medium text-ink">“Topaz Photo is an indispensable part of my editing workflow.”</span> Charles D, Trustpilot review
-          </p>
-          <h2 className="mt-8 font-display text-[36px] font-medium leading-[1.05] tracking-[-0.03em] text-ink sm:text-[48px]">Trusted by pro photographers for 20+ years.</h2>
+          <h2 className="font-display text-[36px] font-medium leading-[1.05] tracking-[-0.03em] text-ink sm:text-[48px]">Two decades of photo enhancement.</h2>
           <p className="mt-5 max-w-md text-[16px] leading-relaxed text-black/55">
             You're getting the culmination of two decades of photo enhancement technology, all in Topaz Photo. What started as standalone denoising and sharpening tools are now more advanced than ever, in an all-in-one application.
           </p>

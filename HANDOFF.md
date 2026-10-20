@@ -779,3 +779,29 @@ the grid closes. No pills, no bullets. Same component on /topaz-image and /topaz
   with `!` because `t-item` sets ink. Pane note: the browser pane freezes CSS transitions at t=0 when
   backgrounded, so a just-picked pill can read as grey in a check; `el.getAnimations().forEach(a => a.finish())`
   shows the settled state.
+
+## Trust bars and testimonials removed from every page (20 Oct 2026)
+
+Hamza: "remove trust bars ... or any other testimonial type of things", after the copyright review: these
+were partners' customers, ratings and quotes shown uncredited on EverAsk-branded pages, which reads as
+EverAsk's own social proof.
+
+- **HeyGen**: `TrustBar` deleted (G2 4.8/5 from 1,000+ reviews, G2 #1 Most realistic avatars, Forbes AI 50,
+  "Trusted by over 1,000,000 developers…" and 13 customer logos: Google, Spring Health, Workday, trivago,
+  Miro, J.P. Morgan, Bosch, HubSpot, HP, Intel, DHL, Autodesk, Coursera). `ProofRow` (in Avatar,
+  Translation, Video Agent, AI Studio) lost its G2 badge and "1,000+ reviews. Trusted by 85% of the Fortune
+  100"; it is now just the centred "Get started for free" button.
+- **Magnific**: the "Magnific is trusted by 1M+ subscribers…" line and its customer-logo row (Coca-Cola,
+  Ogilvy, R/GA, Wonder, Guess, Delivery Hero) under the hero; `HERO_LOGOS` removed.
+- **Topaz** (both pages): the `Trusted` strip ("Over 2 billion images processed." / "3 million users." /
+  "Trusted by pros everywhere." + Google, Coca-Cola, Target, NVIDIA, Tesla, Quora) deleted. Years: the
+  Charles D Trustpilot quote removed and the heading "Trusted by pro photographers for 20+ years." replaced
+  by "Two decades of photo enhancement." (from their own paragraph). Meet: Julia Cook's quote tile removed;
+  Upscale now spans rows 5–8 so the 4×8 bento still closes.
+- **Genspark**: "Genspark is trusted by 7,000+ world-class teams" removed. **Manus**: nothing to remove.
+- Assets pruned: `public/assets/heygen/logo-01…13.png`, `icon-g2.svg`, `icon-star.svg`, `icon-forbes.svg`,
+  `badge-g2.png`; `public/assets/mag/logo-{coca-cola,deliveryhero,guess,ogilvy,rga,wonder}.svg`. All in
+  commit `5668642` if wanted back. All six pages render; their HTML has none of these lines.
+- **Still on the HeyGen page, not a testimonial but worth a look**: the Trust/compliance section shows
+  GDPR, SOC 2 Type II, CCPA, AI Act and DPF badges with its intro reading "EverAsk", i.e. HeyGen's
+  certifications presented as EverAsk's.

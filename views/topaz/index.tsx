@@ -12,7 +12,6 @@ import { HERO_SUBHEAD_IMAGE } from "./Hero/Hero.constants";
 import { Meet } from "./Meet";
 import { Models } from "./Models";
 import { IMAGE_MODELS } from "./Models/image-models";
-import { Trusted } from "./Trusted";
 import { Years } from "./Years";
 import { topazImageConfig } from "./config";
 
@@ -27,7 +26,6 @@ export default function TopazImageView() {
       <main className="mag-page flex-1">
         <Breadcrumbs label="Topaz Image" />
         <Hero kind="image" subhead={HERO_SUBHEAD_IMAGE} cta={cta} />
-        <Trusted lead="Over 2 billion images processed." sub="3 million users." />
         <Models
           id="models"
           title="Precision upscaling for images"

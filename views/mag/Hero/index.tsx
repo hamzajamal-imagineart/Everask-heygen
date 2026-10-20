@@ -3,7 +3,7 @@ import { MAG_MEDIA } from "../media.constants";
 import { EVERASK_BRAND } from "../Lockup/Lockup.constants";
 import { HeroCompare } from "./HeroCompare";
 import { MagnificWordmark } from "./MagnificWordmark";
-import { HERO_HEADLINE, HERO_LOGOS, HERO_RISE_DELAYS, HERO_SUBHEAD, HERO_TONE } from "./Hero.constants";
+import { HERO_HEADLINE, HERO_RISE_DELAYS, HERO_SUBHEAD, HERO_TONE } from "./Hero.constants";
 import { magConfig } from "../config";
 
 const rise = (ms: number) => ({ className: "animate-sky-rise motion-reduce:animate-none", style: { animationDelay: `${ms}ms` } as CSSProperties });
@@ -57,16 +57,6 @@ export function Hero() {
         </div>
       </section>
       <div className="hero-end" />
-      <div className="container-page flex flex-col items-center gap-5 pt-10 pb-4">
-        <p className="text-center text-sm text-[#131318]/70">Magnific is trusted by 1M+ subscribers: creatives, enterprises, agencies and studios</p>
-        <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
-          {HERO_LOGOS.map((logo) => (
-            <li key={logo.alt} className={logo.muted ? "opacity-40" : "opacity-70"}>
-              <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} className="brightness-0" />
-            </li>
-          ))}
-        </ul>
-      </div>
     </>
   );
 }

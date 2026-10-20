@@ -5,12 +5,6 @@ export const MAG_MEDIA = {
   iconArrowRight13: "/assets/mag/icon-arrow-right-13.svg",
   iconArrowRight16: "/assets/mag/icon-arrow-right-16.svg",
   iconArrowRightXs: "/assets/mag/icon-arrow-right-xs.svg",
-  logoCocaCola: "/assets/mag/logo-coca-cola.svg",
-  logoDeliveryhero: "/assets/mag/logo-deliveryhero.svg",
-  logoGuess: "/assets/mag/logo-guess.svg",
-  logoOgilvy: "/assets/mag/logo-ogilvy.svg",
-  logoRga: "/assets/mag/logo-rga.svg",
-  logoWonder: "/assets/mag/logo-wonder.svg",
   /* Recreated with GPT Image 2 after magnific.com's upscaler pages: same compositions, different people, subjects and palettes. */
   upSharper: "/assets/mag/up-sharper.jpg",
   upTextures: "/assets/mag/up-textures.jpg",

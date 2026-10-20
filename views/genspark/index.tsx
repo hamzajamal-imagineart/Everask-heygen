@@ -19,7 +19,6 @@ export default function GensparkView() {
       <main className="mag-page flex-1">
         <Breadcrumbs />
         <Hero />
-        <p className="container-page pt-10 pb-4 text-center text-sm text-[#131318]/70">Genspark is trusted by 7,000+ world-class teams</p>
         <Surfaces />
         <Capabilities />
         <Connections />

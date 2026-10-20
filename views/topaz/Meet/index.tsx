@@ -20,7 +20,7 @@ const TILES = [
   { label: "Lighting", pair: TOPAZ_MEDIA.tz.lighting, handleY: 55, cell: "md:col-start-3 md:col-span-2 md:row-start-4 md:row-span-2" },
   { label: "Color", pair: TOPAZ_MEDIA.hero.color, handleY: 50, cell: "md:col-start-3 md:col-span-1 md:row-start-6 md:row-span-3" },
   { label: "Remove", pair: TOPAZ_MEDIA.tz.remove, handleY: 50, cell: "md:col-start-4 md:col-span-1 md:row-start-6 md:row-span-3" },
-  { label: "Upscale", pair: TOPAZ_MEDIA.hero.upscale, handleY: 55, cell: "md:col-start-1 md:col-span-2 md:row-start-7 md:row-span-2" },
+  { label: "Upscale", pair: TOPAZ_MEDIA.hero.upscale, handleY: 55, cell: "md:col-start-1 md:col-span-2 md:row-start-5 md:row-span-4" },
 ];
 
 export function Meet() {
@@ -52,15 +52,6 @@ export function Meet() {
               <CompareTile before={t.pair.before} after={t.pair.after} label={t.label} handleY={t.handleY} />
             </div>
           ))}
-          <blockquote className="flex flex-col justify-between rounded-2xl bg-[#f6f6f7] p-6 md:col-start-1 md:col-span-2 md:row-start-5 md:row-span-2 lg:p-7">
-            <p className="font-display text-[18px] font-medium leading-snug tracking-[-0.01em] text-ink lg:text-[21px]">
-              “The sun had already set and it was almost too dark. With some editing adjustments and denoise with @topazlabs, I was able to save the image.”
-            </p>
-            <footer className="mt-4 flex items-center gap-3 text-[13px] text-black/50">
-              <span className="grid size-8 place-items-center rounded-full bg-ink font-medium text-white">J</span>
-              Julia Cook, Wildlife Photographer
-            </footer>
-          </blockquote>
         </div>
 
         <div className="mt-16 grid gap-4 md:grid-cols-2">

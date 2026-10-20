@@ -9,7 +9,6 @@ import { Hero } from "./Hero";
 import { HERO_SUBHEAD_VIDEO } from "./Hero/Hero.constants";
 import { Models } from "./Models";
 import { VIDEO_MODELS } from "./Models/video-models";
-import { Trusted } from "./Trusted";
 import { VideoUpscale } from "./VideoUpscale";
 import { topazVideoConfig } from "./config";
 
@@ -24,7 +23,6 @@ export default function TopazVideoView() {
       <main className="mag-page flex-1">
         <Breadcrumbs label="Topaz Video" />
         <Hero kind="video" subhead={HERO_SUBHEAD_VIDEO} cta={cta} />
-        <Trusted lead="3 million users." sub="Trusted by pros everywhere." />
         <Models
           id="models"
           title="Precision video upscale and enhancement"
