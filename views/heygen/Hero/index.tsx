@@ -32,12 +32,13 @@ export function Hero() {
             replaces the old pill and the "AI videos starring you, made in minutes" line. */}
         <h1
           className="flex max-w-full flex-nowrap items-center justify-center gap-x-[0.3em] whitespace-nowrap font-display font-medium leading-none tracking-[-0.03em] text-white [text-shadow:0_2px_24px_rgba(0,30,80,0.45)]"
-          style={{ fontSize: "clamp(20px, 3vw, 44px)" }}
+          style={{ fontSize: "clamp(22px, 3.9vw, 58px)" }}
         >
-          {/* The wordmark's cap height spans about 46 of the lockup's 67 units, so 1.3em sits it on the line's cap height. */}
-          <HeyGenLockup className="h-[1.3em] w-auto shrink-0 drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]" />
+          {/* Measured from the rendered ink (21 Oct): the wordmark's "H" spans 64% of the lockup's height and the
+              display face's caps are 0.67em, so 1.045em matches the caps; 0.02em up puts it on the text baseline. */}
+          <HeyGenLockup className="h-[1.045em] w-auto -translate-y-[0.02em] shrink-0 drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]" />
           <span>
-            inside <span className="font-serif text-[1.08em] font-normal italic tracking-[-0.01em]">EverAsk</span>
+            inside <span className="font-serif text-[1.02em] font-normal italic tracking-[-0.01em]">EverAsk</span>
           </span>
         </h1>
         <p className="mt-5 max-w-[440px] text-[18px] font-medium tracking-[-0.01em] text-white/90">Use HeyGen&apos;s AI avatars and video tools right inside EverAsk.</p>

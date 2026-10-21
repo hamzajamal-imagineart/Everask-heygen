@@ -41,9 +41,11 @@ export function Hero({ kind, subhead, cta }: { kind: "image" | "video"; subhead:
               className="flex max-w-full flex-nowrap items-center justify-center gap-x-[0.3em] whitespace-nowrap font-display font-medium leading-none tracking-[-0.03em] text-white [text-shadow:0_2px_24px_rgba(0,30,80,0.55)]"
               style={{ fontSize: "clamp(22px, 3.9vw, 58px)" }}
             >
-              <TopazWordmark className="h-[0.92em] w-auto shrink-0 drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]" />
+              {/* Measured from the rendered ink (21 Oct): the caps span 59% of the SVG's height, so 1.145em matches the
+                  display face's 0.67em caps and lands it on the text baseline. */}
+              <TopazWordmark className="h-[1.145em] w-auto shrink-0 drop-shadow-[0_2px_18px_rgba(0,40,110,0.3)]" />
               <span>
-                {HERO_HEADLINE} <span className="font-serif text-[1.08em] font-normal italic tracking-[-0.01em]">{EVERASK_BRAND.name}</span>
+                {HERO_HEADLINE} <span className="font-serif text-[1.02em] font-normal italic tracking-[-0.01em]">{EVERASK_BRAND.name}</span>
               </span>
             </h1>
             <p {...rise(160)}>

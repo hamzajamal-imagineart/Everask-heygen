@@ -1010,3 +1010,13 @@ Blocking time 0 ms and layout shift ≈ 0 on every page throughout; the cost was
   lifetimes; whatever serves `out/` should cache `/_next/static/*` and `/assets/*` long-term, e.g.
   `Cache-Control: public, max-age=31536000, immutable`). The remaining "unused / legacy JavaScript"
   (~53 KB / ~13 KB) is Next's own runtime.
+
+## Hero headline balance (21 Oct 2026)
+- Hamza: "the logo and text doesn't look balanced". All three heroes (`views/heygen|mag|topaz/Hero/index.tsx`)
+  now share `fontSize: clamp(22px, 3.9vw, 58px)` (HeyGen was `clamp(20px, 3vw, 44px)`). Each wordmark's height
+  was set from its rendered ink so its caps match Clash's 0.67em caps and sit on the text baseline:
+  HeyGen lockup `h-[1.045em] -translate-y-[0.02em]` (was 1.3em, caps 24% too tall), Magnific `h-[1.1em]`
+  (was 1.14em), Topaz `h-[1.145em]` (was 0.92em, caps 21% short and 3.6px high). "EverAsk" serif is
+  `text-[1.02em]` (was 1.08em; its caps ran 12% taller than the sans).
+- HeyGen's "EverAsk" was rendering in the system serif (Georgia/Times): `globals.css` had no `--font-serif`
+  and the HeyGen layout didn't load Instrument Serif. Both added, so it matches Magnific/Topaz.

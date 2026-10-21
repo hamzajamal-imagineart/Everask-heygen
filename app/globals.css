@@ -3,6 +3,8 @@
 @theme {
   --font-display: var(--font-clash), "Clash Grotesk", var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  /* The "EverAsk" in each hero headline; the Magnific/Topaz layout sets the same in magnific.css. */
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
 
   --color-cobalt: #0046e7;
   --color-core: #0f6aee;
