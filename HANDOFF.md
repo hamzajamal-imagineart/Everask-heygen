@@ -965,3 +965,38 @@ are history only.
 - **/heygen** (Hamza, 21 Oct: "put Heygen on also /heygen"): `app/(heygen)/heygen/page.tsx` re-exports the
   `/` page, so the HeyGen page is served at both `/` and `/heygen/` (same layout and metadata; static export,
   so no server redirect). Checked: both 200 with the same title.
+
+## Production performance pass, measured with Lighthouse (21 Oct 2026)
+
+Hamza: "Make sure these 4 pages are performance optimized". Measured on a real production build (a detached
+worktree of HEAD with a cloned `node_modules`; Turbopack rejects a symlinked one), served statically on
+:3499 and audited with Lighthouse 12.6 (performance only, default mobile: Moto G class, slow 4G, 2.6 DPR).
+Blocking time 0 ms and layout shift ≈ 0 on every page throughout; the cost was the largest paint.
+
+- **Responsive images**: `scripts/image-variants.mjs` writes `<name>-640w.webp` and `<name>-1280w.webp`
+  beside every WebP wider than 1.1× the target (112 of 139 images) and `lib/image-variants.json`;
+  `lib/responsive.ts` → `srcSetFor(src)` (srcset string) and `posterFor(src)` (the 1280w copy for
+  `<video poster>`). Wired with real `sizes` into `HeroCompare` (new `sizes` prop; `CompareTile` passes one),
+  `EnhanceLoupe` (before 100vw, after 150vw), the HeyGen hero tiles, FeatureCard, Research, Tools, Video Agent
+  slides, AI Studio tiles, the Magnific use cases, suite rows and modes example, the Topaz model picker and
+  Years. Posters on the HeyGen hero, translation clip and `VideoCompare` use `posterFor`. **Re-run
+  `node scripts/image-variants.mjs` after adding images**; an image without variants just has no srcset.
+- **Hero clips at 720p**: `heygen/hero-sky-720.mp4` (384 KB, was 1 MB at 1080p) and
+  `topaz/tz-video-face-after-720.mp4` (453 KB, was 1.2 MB); both sit under a dark overlay.
+- `useInView` preload margin 400 → 200 px, so the Topaz Video model picker's first clips don't load with the
+  page on a phone.
+- **Results** (score, largest contentful paint, page weight):
+
+  | Page | Before | After |
+  | --- | --- | --- |
+  | HeyGen | 79, 5.8 s, 2.4 MB | 86, 4.2 s, 1.25 MB |
+  | Magnific | 82, 4.9 s, 1.1 MB | 89, 3.7 s, 0.93 MB |
+  | Topaz Image | 76, 7.2 s, 2.1 MB | 89–90, 3.7 s, 1.4 MB |
+  | Topaz Video | 90, 3.7 s, 4.2 MB | 90–91, 3.5 s, 1.2 MB |
+
+- **Tried and reverted**: `experimental.inlineCss` (first paint −0.2–0.3 s, but LCP and score unchanged
+  within noise, every HTML ~2× larger and the CSS no longer cacheable across pages).
+- **Left for the host**: Lighthouse's "efficient cache policy" audit (the test server sends short cache
+  lifetimes; whatever serves `out/` should cache `/_next/static/*` and `/assets/*` long-term, e.g.
+  `Cache-Control: public, max-age=31536000, immutable`). The remaining "unused / legacy JavaScript"
+  (~53 KB / ~13 KB) is Next's own runtime.
