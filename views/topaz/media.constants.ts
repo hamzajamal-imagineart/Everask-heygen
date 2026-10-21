@@ -15,7 +15,7 @@ export const TOPAZ_MEDIA = {
     /* Topaz Video's hero pair (topazlabs.com/topaz-video, downloads.topazlabs.com/web-assets/face.mp4 and
        face-rhea1.mp4): the 426×240 source encoded at 852×480 and the Rhea 4K result at 1920×1080, 6 s, 25 fps,
        no audio. Same 16:9 shape, so both layers line up at any encode size. */
-    videoFace: { before: "/assets/topaz/tz-video-face-before.mp4", after: "/assets/topaz/tz-video-face-after.mp4", poster: "/assets/topaz/tz-video-face-poster.webp" },
+    videoFace: { before: "/assets/topaz/tz-video-face-before.mp4", after: "/assets/topaz/tz-video-face-after-720.mp4", poster: "/assets/topaz/tz-video-face-poster.webp" },
   },
   hero: {
     color: { before: "/assets/topaz/hero-color-before.webp", after: "/assets/topaz/hero-color-after.webp" },

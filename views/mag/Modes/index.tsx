@@ -70,6 +70,7 @@ export function Modes() {
                 after={media.after}
                 handleY={50}
                 demoDelay={500}
+              sizes="(min-width: 1280px) 1100px, 100vw"
               />
               <span className="kicker pointer-events-none absolute top-4 left-4 rounded-pill bg-black/40 px-3 py-1.5 text-white backdrop-blur-md sm:top-5 sm:left-5">
                 {mode.name} · {variant.label}

@@ -1,5 +1,7 @@
 "use client";
 
+import { posterFor } from "@/lib/responsive";
+
 import { useEffect, useRef } from "react";
 import { useInView } from "@/lib/use-in-view";
 import { FeatureCard } from "../FeatureCard";
@@ -35,7 +37,7 @@ export function Translation() {
               ref={video}
               key={TRANSLATION_LANGUAGES[active].video}
               src={near ? TRANSLATION_LANGUAGES[active].video : undefined}
-              poster={HG_MEDIA.translationPoster}
+              poster={posterFor(HG_MEDIA.translationPoster)}
               autoPlay={visible}
               loop
               muted={muted}

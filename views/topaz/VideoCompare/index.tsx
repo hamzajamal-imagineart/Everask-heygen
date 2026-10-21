@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { useInView } from "@/lib/use-in-view";
+import { posterFor } from "@/lib/responsive";
 
 /* The before/after slider for a pair of clips: two muted loops kept in step
    (the before is re-synced to the after whenever it drifts), the before
@@ -149,8 +150,8 @@ export function VideoCompare({ before, after, poster, ratio, label, initial = 50
 
   return (
     <div ref={frame} className={`select-none ${fill ? "absolute inset-0 -z-10" : "relative isolate overflow-hidden rounded-2xl bg-fill-1"}`} style={{ aspectRatio: fill ? undefined : ratio, "--glide": pos === 0 && gliding ? "1800ms" : "1300ms" } as React.CSSProperties}>
-      <video ref={a} src={near ? after : undefined} poster={poster} loop muted playsInline preload={near ? "auto" : "none"} aria-hidden="true" className="absolute inset-0 size-full object-cover" />
-      <video ref={b} src={near ? before : undefined} poster={poster} loop muted playsInline preload={near ? "auto" : "none"} aria-hidden="true" className={`absolute inset-0 size-full object-cover ${glide}`} style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+      <video ref={a} src={near ? after : undefined} poster={posterFor(poster)} loop muted playsInline preload={near ? "auto" : "none"} aria-hidden="true" className="absolute inset-0 size-full object-cover" />
+      <video ref={b} src={near ? before : undefined} poster={posterFor(poster)} loop muted playsInline preload={near ? "auto" : "none"} aria-hidden="true" className={`absolute inset-0 size-full object-cover ${glide}`} style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
       <span aria-hidden className={`pointer-events-none absolute inset-y-0 w-px -translate-x-1/2 bg-white/80 ${glide}`} style={{ left: `${pos}%` }} />
       {label && (
         <>

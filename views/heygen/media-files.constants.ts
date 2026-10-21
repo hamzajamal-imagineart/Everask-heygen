@@ -23,7 +23,7 @@ export const HG_ASSET_FILES = {
   heroPortfolio: "hero-portfolio.webp",
   heroProductivity: "hero-productivity.webp",
   heroSky: "hero-sky.webp",
-  heroSkyVideo: "hero-sky-web.mp4",
+  heroSkyVideo: "hero-sky-720.mp4",
   heroBreathe: "hero-breathe.webp",
   heroTherapist: "hero-therapist.webp",
   researchGenerated: "research-generated.webp",

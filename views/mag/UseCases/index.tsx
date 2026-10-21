@@ -1,3 +1,4 @@
+import { srcSetFor } from "@/lib/responsive";
 import { Cta } from "../Cta";
 import { magConfig } from "../config";
 import { MAG_MEDIA } from "../media.constants";
@@ -28,6 +29,8 @@ export function UseCases() {
               <div className="relative overflow-hidden rounded-[24px] bg-fill-1" style={{ aspectRatio: USE_CASE_RATIO }}>
                 <img
                   src={card.image}
+                  srcSet={srcSetFor(card.image)}
+                  sizes="(min-width: 640px) 50vw, 100vw"
                   alt={card.title}
                   loading="lazy"
                   className="absolute inset-0 size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02] motion-reduce:transition-none"

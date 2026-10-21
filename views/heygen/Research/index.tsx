@@ -1,3 +1,4 @@
+import { srcSetFor } from "@/lib/responsive";
 import { Badge } from "../Badge";
 import { HG_MEDIA } from "../media.constants";
 
@@ -20,11 +21,11 @@ export function Research() {
         <div className="card relative overflow-hidden p-3">
           <div className="relative grid gap-4 sm:grid-cols-2">
             <div className="tile relative aspect-[4/5]">
-              <img src={HG_MEDIA.researchOriginal} loading="lazy" decoding="async" alt="Original footage" className="size-full object-cover" />
+              <img src={HG_MEDIA.researchOriginal} srcSet={srcSetFor(HG_MEDIA.researchOriginal)} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" loading="lazy" decoding="async" alt="Original footage" className="size-full object-cover" />
               <span className="glass-dark absolute bottom-3 left-3 rounded-full px-2.5 py-1 text-[12px] font-medium">Original Footage</span>
             </div>
             <div className="tile relative aspect-[4/5]">
-              <img src={HG_MEDIA.researchGenerated} loading="lazy" decoding="async" alt="Avatar V generated" className="size-full object-cover" />
+              <img src={HG_MEDIA.researchGenerated} srcSet={srcSetFor(HG_MEDIA.researchGenerated)} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" loading="lazy" decoding="async" alt="Avatar V generated" className="size-full object-cover" />
               <span className="glass-dark absolute bottom-3 left-3 rounded-full px-2.5 py-1 text-[12px] font-medium">Avatar V Generated</span>
             </div>
           </div>

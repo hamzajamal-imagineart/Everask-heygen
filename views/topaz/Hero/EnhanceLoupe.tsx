@@ -1,5 +1,7 @@
 "use client";
 
+import { srcSetFor } from "@/lib/responsive";
+
 import { useCallback, useEffect, useRef, useState, type PointerEvent } from "react";
 
 /* Topaz's "before-after-enhance-box": the soft picture fills the frame and a
@@ -79,7 +81,7 @@ export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false, 
         <video ref={beforeClip} src={before} poster={poster} autoPlay loop muted playsInline preload="auto" aria-hidden="true" className="absolute inset-0 size-full object-cover" />
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={before} alt="" draggable={false} fetchPriority="high" className="absolute inset-0 size-full object-cover" />
+        <img src={before} srcSet={srcSetFor(before)} sizes="100vw" alt="" draggable={false} fetchPriority="high" className="absolute inset-0 size-full object-cover" />
       )}
       {W > 0 && (
         <div
@@ -103,6 +105,8 @@ export function EnhanceLoupe({ before, after, ratio, scale = 1.5, fill = false, 
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={after}
+              srcSet={srcSetFor(after)}
+              sizes="150vw"
               alt=""
               draggable={false}
               className="absolute max-w-none object-cover"

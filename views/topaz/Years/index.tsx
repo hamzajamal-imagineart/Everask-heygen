@@ -1,3 +1,4 @@
+import { srcSetFor } from "@/lib/responsive";
 import { topazImageConfig as topazConfig } from "../config";
 import { TOPAZ_MEDIA } from "../media.constants";
 
@@ -33,7 +34,7 @@ export function Years() {
           {USE_CASES.map((u) => (
             <li key={u.title}>
               <div className="relative overflow-hidden rounded-2xl bg-fill-1" style={{ aspectRatio: 16 / 9 }}>
-                <img src={u.image} alt={u.title} loading="lazy" className="absolute inset-0 size-full object-cover" />
+                <img src={u.image} srcSet={srcSetFor(u.image)} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw" alt={u.title} loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
               </div>
               <h3 className="mt-4 flex items-center gap-2 font-display text-[17px] font-medium tracking-[-0.01em] text-ink">
                 <span className="size-1.5 rounded-full bg-action" />

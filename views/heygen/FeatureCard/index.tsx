@@ -1,3 +1,4 @@
+import { srcSetFor } from "@/lib/responsive";
 import { LineIcon } from "../LineIcon";
 import type { FeatureCardProps } from "./FeatureCard.types";
 
@@ -6,7 +7,7 @@ export function FeatureCard({ title, text, image, icon }: FeatureCardProps) {
     <div className="card group flex h-full flex-col p-3">
       {image ? (
         <div className="tile h-[260px]">
-          <img src={image} loading="lazy" decoding="async" alt="" className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] motion-reduce:transition-none" />
+          <img src={image} srcSet={srcSetFor(image)} sizes="(min-width: 768px) 50vw, 100vw" loading="lazy" decoding="async" alt="" className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] motion-reduce:transition-none" />
         </div>
       ) : null}
       <div className="flex flex-1 flex-col gap-4 p-5 pt-6 md:p-6">

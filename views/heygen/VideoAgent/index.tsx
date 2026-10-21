@@ -1,5 +1,7 @@
 "use client";
 
+import { srcSetFor } from "@/lib/responsive";
+
 import type { CSSProperties } from "react";
 import { FeatureCard } from "../FeatureCard";
 import { ProofRow } from "../ProofRow";
@@ -27,7 +29,7 @@ export function VideoAgent() {
               {AGENT_SLIDES.map((slide, slideIndex) => (
                 <div key={`${slide}-${slideIndex}`} className="shrink-0 pl-5">
                   <div className={`h-[260px] w-[var(--hg-slide-w)] overflow-hidden rounded-[24px] bg-[#e8f3ff] transition-opacity duration-500 md:h-[444px] ${slideIndex === index ? "" : "opacity-40"}`}>
-                    <img src={slide} loading="lazy" decoding="async" alt="" className="size-full object-cover" />
+                    <img src={slide} srcSet={srcSetFor(slide)} sizes="(min-width: 768px) 789px, 100vw" loading="lazy" decoding="async" alt="" className="size-full object-cover" />
                   </div>
                 </div>
               ))}

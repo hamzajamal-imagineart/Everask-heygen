@@ -1,5 +1,7 @@
 "use client";
 
+import { srcSetFor } from "@/lib/responsive";
+
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 
 /* The hero's before/after comparison as a real slider (Hamza, 19 Oct: "make
@@ -16,7 +18,7 @@ import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type Poin
    comes back to where it started, on timers with a CSS transition (no animation
    frames, so it also runs in throttled tabs). Any drag or key press ends
    it. Off under reduced motion. */
-export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = true, demoDelay = 1500, priority = false }: { before: string; after: string; initial?: number; handleY?: number; demo?: boolean; /** The page hero: load eagerly at high priority (performance pass, 20 Oct); every other use loads lazily. */ priority?: boolean; /** ms after the slider is in view before the sweep starts */ demoDelay?: number }) {
+export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = true, demoDelay = 1500, priority = false, sizes = "100vw" }: { before: string; after: string; initial?: number; handleY?: number; demo?: boolean; /** The page hero: load eagerly at high priority (performance pass, 20 Oct); every other use loads lazily. */ priority?: boolean; /** How wide the pair renders, for srcset (21 Oct). */ sizes?: string; /** ms after the slider is in view before the sweep starts */ demoDelay?: number }) {
   const [pos, setPos] = useState(initial);
   const frame = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -129,10 +131,12 @@ export function HeroCompare({ before, after, initial = 50, handleY = 80, demo = 
   return (
     <div ref={frame} className="absolute inset-0 -z-10 select-none" style={{ "--glide": pos === 0 && gliding ? "1800ms" : "1300ms" } as React.CSSProperties}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={after} alt="" fetchPriority={priority ? "high" : "auto"} loading={priority ? "eager" : "lazy"} decoding="async" draggable={false} className="absolute inset-0 size-full object-cover object-[60%_50%]" />
+      <img src={after} srcSet={srcSetFor(after)} sizes={sizes} alt="" fetchPriority={priority ? "high" : "auto"} loading={priority ? "eager" : "lazy"} decoding="async" draggable={false} className="absolute inset-0 size-full object-cover object-[60%_50%]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={before}
+        srcSet={srcSetFor(before)}
+        sizes={sizes}
         alt=""
         loading={priority ? "eager" : "lazy"}
         decoding="async"

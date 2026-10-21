@@ -43,7 +43,7 @@ export function Meet() {
 
         <div className="mt-14">
           <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.08em] text-black/40">Enhanced by Denoise</p>
-          <CompareTile before={TOPAZ_MEDIA.tz.wren.before} after={TOPAZ_MEDIA.tz.wren.after} label="Denoise" ratio={TOPAZ_MEDIA.tz.wren.ratio} handleY={80} />
+          <CompareTile sizes="(min-width: 1280px) 1200px, 100vw" before={TOPAZ_MEDIA.tz.wren.before} after={TOPAZ_MEDIA.tz.wren.after} label="Denoise" ratio={TOPAZ_MEDIA.tz.wren.ratio} handleY={80} />
         </div>
 
         <div className="mt-4 grid grid-cols-1 gap-4 md:aspect-square md:grid-cols-4 md:grid-rows-8">

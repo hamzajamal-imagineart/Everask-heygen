@@ -3,10 +3,10 @@
 import { useEffect, useState, type RefObject } from "react";
 
 /* Two flags for media that should not cost anything off screen (performance pass, 20 Oct):
-   `near` turns true once the element comes within `margin` of the viewport and stays true (attach
+   `near` turns true once the element comes within `margin` (200 px) of the viewport and stays true (attach
    the source then), `visible` follows whether it is on screen now (play / pause). Without
    IntersectionObserver both are true. */
-export function useInView<T extends Element>(ref: RefObject<T | null>, margin = "400px") {
+export function useInView<T extends Element>(ref: RefObject<T | null>, margin = "200px") {
   const [near, setNear] = useState(false);
   const [visible, setVisible] = useState(false);
   useEffect(() => {

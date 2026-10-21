@@ -1,3 +1,4 @@
+import { srcSetFor } from "@/lib/responsive";
 import { HeroCompare } from "../Hero/HeroCompare";
 import { SUITE_ROWS } from "./Suite.constants";
 
@@ -20,14 +21,14 @@ export function Suite() {
                 <div className="relative isolate overflow-hidden rounded-2xl bg-fill-1" style={{ aspectRatio: row.ratio }}>
                   {row.compare ? (
                     <>
-                      <HeroCompare before={row.compare.before} after={row.compare.after} handleY={50} />
+                      <HeroCompare before={row.compare.before} after={row.compare.after} handleY={50} sizes="(min-width: 640px) 50vw, 100vw" />
                       <span className="kicker pointer-events-none absolute bottom-4 left-4 rounded-pill bg-black/45 px-2.5 py-1 text-white backdrop-blur-md">Before</span>
                       <span className="kicker pointer-events-none absolute right-4 bottom-4 rounded-pill bg-white/90 px-2.5 py-1 text-ink">After</span>
                     </>
                   ) : row.video ? (
                     <video src={row.video} aria-label={row.title} autoPlay loop muted playsInline preload="metadata" className="absolute inset-0 size-full object-cover" />
                   ) : (
-                    <img src={row.image} alt={row.title} loading="lazy" className="absolute inset-0 size-full object-cover" />
+                    <img src={row.image} srcSet={srcSetFor(row.image)} sizes="(min-width: 640px) 50vw, 100vw" alt={row.title} loading="lazy" className="absolute inset-0 size-full object-cover" />
                   )}
                 </div>
               </div>

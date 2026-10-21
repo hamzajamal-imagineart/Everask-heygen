@@ -1,5 +1,7 @@
 "use client";
 
+import { srcSetFor } from "@/lib/responsive";
+
 import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { HG_MEDIA } from "../media.constants";
 
@@ -218,7 +220,7 @@ export function StudioApp() {
             {TILES.map((src, i) => (
               <div key={i} className={`relative overflow-hidden rounded-2xl bg-[#f1f1f3] ${i < 4 ? "h-[262px]" : "h-[238px]"}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={src} alt="" loading="lazy" className="size-full object-cover" />
+                <img src={src} srcSet={srcSetFor(src)} sizes="(min-width: 1024px) 200px, 120px" alt="" loading="lazy" decoding="async" className="size-full object-cover" />
                 <span className="absolute bottom-2.5 left-2.5 flex items-center gap-1 rounded-full bg-black/45 px-2 py-0.5 text-[11px] font-medium text-white backdrop-blur-sm">
                   <I d={P.play} className="size-2.5" fill />
                   {DURATIONS[i]}

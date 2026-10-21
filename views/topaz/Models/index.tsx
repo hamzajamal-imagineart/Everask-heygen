@@ -1,5 +1,7 @@
 "use client";
 
+import { srcSetFor } from "@/lib/responsive";
+
 import { useState, type ReactNode } from "react";
 import { HeroCompare } from "@/views/mag/Hero/HeroCompare";
 import { SectionHead } from "@/views/mag/SectionHead";
@@ -145,10 +147,10 @@ function Stage({ media }: { media: ModelMedia }) {
   return (
     <div className="relative isolate w-full overflow-hidden rounded-[24px] bg-fill-1 sm:rounded-[32px]" style={{ aspectRatio: r }}>
       {media.kind === "image" ? (
-        <HeroCompare before={media.before} after={media.after} handleY={50} demoDelay={600} />
+        <HeroCompare before={media.before} after={media.after} handleY={50} demoDelay={600} sizes="(min-width: 1024px) 66vw, 100vw" />
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={media.src} loading="lazy" decoding="async" alt="Before and after, side by side" className="absolute inset-0 size-full object-cover" />
+        <img src={media.src} srcSet={srcSetFor(media.src)} sizes="(min-width: 1024px) 66vw, 100vw" loading="lazy" decoding="async" alt="Before and after, side by side" className="absolute inset-0 size-full object-cover" />
       )}
       <Pills />
     </div>
