@@ -962,3 +962,6 @@ media constant was left unused by the removal (the shared `cta-sky-2` image is s
 Topaz). The repo now serves `/` (HeyGen), `/magnific`, `/topaz-image`, `/topaz-video` (and `/topaz` →
 `/topaz-image`); `/genspark` and `/manus` return 404. The Genspark and Manus sections earlier in this file
 are history only.
+- **/heygen** (Hamza, 21 Oct: "put Heygen on also /heygen"): `app/(heygen)/heygen/page.tsx` re-exports the
+  `/` page, so the HeyGen page is served at both `/` and `/heygen/` (same layout and metadata; static export,
+  so no server redirect). Checked: both 200 with the same title.
