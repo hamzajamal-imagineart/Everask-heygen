@@ -23,7 +23,7 @@ for (const f of files) {
   const { width, height } = await sharp(f).metadata();
   const variants = [];
   for (const w of TARGETS) {
-    if (width < w * 1.25) continue; // not worth a variant
+    if (width < w * 1.1) continue; // not worth a variant
     const out = f.replace(/\.webp$/, `-${w}w.webp`);
     if (!fs.existsSync(out)) await sharp(f).resize({ width: w }).webp({ quality: /-before\./.test(f) ? 70 : 78, effort: 5 }).toFile(out);
     variants.push(["/" + path.relative(path.join(ROOT, "public"), out).split(path.sep).join("/"), w]);
