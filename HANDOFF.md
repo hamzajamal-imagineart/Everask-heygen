@@ -952,3 +952,13 @@ page is performance optimized".
   before"): `views/topaz/Hero/EnhanceLoupe.tsx` restored from `3665878` (hide-off-photo fix and centre ring
   included) on the WebP clarity pair; Topaz Video keeps the full-frame clip slider. The loupe's `video`
   mode is currently unused.
+
+## Genspark and Manus removed (21 Oct 2026)
+
+Hamza: "remove Manus and Genspark code and everything". Deleted `app/(magnific)/genspark`,
+`app/(magnific)/manus`, `views/genspark`, `views/manus`, `public/assets/genspark`, `public/assets/manus`
+(all recoverable from commit `8afc5c1`). Nothing else linked to them. No shared `views/mag` component or
+media constant was left unused by the removal (the shared `cta-sky-2` image is still used by /magnific and
+Topaz). The repo now serves `/` (HeyGen), `/magnific`, `/topaz-image`, `/topaz-video` (and `/topaz` →
+`/topaz-image`); `/genspark` and `/manus` return 404. The Genspark and Manus sections earlier in this file
+are history only.

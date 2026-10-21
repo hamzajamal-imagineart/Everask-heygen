@@ -1,8 +1,0 @@
-/* manus.im/features, verbatim: five groups and their one-line items. */
-export const GROUPS = [
-  { name: "Build", title: "Build apps and games", items: [["Web app", "Build full-stack, AI-powered sites"], ["Mobile app", "Build native iOS & Android apps"], ["Game development", "Make your own game"], ["Figma to code", "Turn designs into working web apps"], ["App publishing", "Share test builds on real phones"]] },
-  { name: "Create", title: "Create videos, slides and designs", items: [["Video", "Turn an idea into a film"], ["Video Editor", "Make every cut your own"], ["AI slides", "Use Nano Banana Pro to create slides"], ["AI design", "Automates the entire design journey"]] },
-  { name: "Research", title: "Research and browse the web", items: [["Wide Research", "Parallel research at scale"], ["Manus browser operator", "Lend a tab to Manus"], ["Cloud Computer", "Keep agents and bots running 24/7"]] },
-  { name: "Automate", title: "Automate and organize your work", items: [["Automations", "Let recurring work run with AI"], ["Mail Manus", "Turn any email into action"], ["Agent Skills", "Automate your expertise"], ["Projects", "Keep project knowledge together"], ["Meta Ads reporting", "Turn campaign performance into next steps"]] },
-  { name: "Connectors", title: "Connect your apps", items: [["MCP connectors", "Connect apps and custom MCP servers"], ["Zapier", "Take real actions across 8,000+ apps"], ["GitHub", "Review, fix and ship code"], ["Notion", "Turn your pages into finished work"], ["Linear", "Triage issues and report on projects"], ["HubSpot", "Update deals and report on your pipeline"]] },
-] as const;
