@@ -66,10 +66,13 @@ Push only when Hamza says so.
   with burned-in captions, so its card sets `captioned: true` and skips the drawn title; it still gets the play button.
   A matching legal tile ("it's not complicated.") failed to generate and could not be retried:
   the ImagineArt (Official) org ran out of credits.
-- **Hero tile videos** (21 Oct, Hamza: "when user hovers, the videos play"): each tile has a 5 s muted clip
-  `hero-<name>.mp4` (Seedance 2.5 image-to-video from that tile's still, 720p, re-encoded to 480w H.264,
-  60–190 KB, no audio). `Hero/HeroCardMedia` (client) keeps the still as the poster and attaches the clip
-  only on first hover (`preload="none"`), plays on mouse enter, rewinds on leave; touch/pen taps toggle.
+- **Hero tile videos** (21 Oct, Hamza: "when user hovers, the videos play"): each tile has a 5 s clip
+  `hero-<name>.mp4` (Seedance 2.5 image-to-video from that tile's still, 720p, re-encoded to 480w H.264 with
+  Seedance's generated voice as 64k mono AAC, 110–240 KB). `Hero/HeroCardMedia` (client) keeps the still
+  over a `preload="none"` video (nothing downloads until played), plays on mouse enter, rewinds on leave;
+  touch/pen taps toggle. Each play tries with sound and falls back to muted when the browser blocks it
+  (no click/tap on the page yet). Don't swap `src` in on hover: pointer-enter renders aren't flushed
+  synchronously, so `play()` ran before the source existed and nothing played.
   The play button fades out while a clip plays. Seedance only takes ImagineArt-hosted images, so the stills
   went in via `enhance_image` on their raw.githubusercontent URLs (repo is public). Kling 2.6 Pro versions
   were also made first and discarded.
