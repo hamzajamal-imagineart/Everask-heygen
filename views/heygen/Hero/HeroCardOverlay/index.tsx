@@ -1,6 +1,6 @@
 import type { HeroCard } from "../Hero.types";
 
-export function HeroCardOverlay({ card }: { card: HeroCard }) {
+export function HeroCardOverlay({ card, playing = false }: { card: HeroCard; playing?: boolean }) {
   return (
     <>
       {card.captioned ? null : (
@@ -12,7 +12,10 @@ export function HeroCardOverlay({ card }: { card: HeroCard }) {
           </span>
         </>
       )}
-      <span className="absolute top-1/2 left-1/2 flex size-[clamp(34px,17cqi,44px)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_6px_18px_-6px_rgba(0,0,0,0.35)]">
+      {/* The play button fades out while the clip plays and comes back when it stops. */}
+      <span
+        className={`pointer-events-none absolute top-1/2 left-1/2 flex size-[clamp(34px,17cqi,44px)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_6px_18px_-6px_rgba(0,0,0,0.35)] transition-[opacity,scale] duration-300 ${playing ? "scale-75 opacity-0" : "opacity-100"}`}
+      >
         <svg viewBox="0 0 24 24" className="ml-0.5 size-[45%] fill-[#131318]" aria-hidden="true">
           <path d="M7 4.5v15a1 1 0 0 0 1.53.85l12-7.5a1 1 0 0 0 0-1.7l-12-7.5A1 1 0 0 0 7 4.5Z" />
         </svg>
