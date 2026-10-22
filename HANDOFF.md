@@ -1020,3 +1020,19 @@ Blocking time 0 ms and layout shift ≈ 0 on every page throughout; the cost was
   `text-[1.02em]` (was 1.08em; its caps ran 12% taller than the sans).
 - HeyGen's "EverAsk" was rendering in the system serif (Georgia/Times): `globals.css` had no `--font-serif`
   and the HeyGen layout didn't load Instrument Serif. Both added, so it matches Magnific/Topaz.
+
+## SEO pages ported from EverAsk's site (22 Oct 2026)
+- Hamza: build the SEO cluster from the Everask-Slug-Map "Monid App Map" tab (5 rows: local SEO audit,
+  competitor keyword research, AI SEO audit, traffic estimator, keyword gap analysis), then "port the five SEO
+  pages into heygen-landing with their images in public/" so they deploy on Vercel.
+- The source build is in Vyro's private `everask-landing-pages`, branch `seo-pages` (worktree
+  `Claude Projects/everask-seo-pages`, uncommitted): `content/seo.ts`, art briefs in `scripts/media-plan.mjs`.
+  Approved there by Hamza: object art in the Computer Creative look (not realistic photos, not coded tiles),
+  line glyphs in How it works, the Who it's for rows on the section title's edge.
+- Here: `/seo/` (hub) and `/seo/<slug>/` in `app/(magnific)/seo/`, view in `views/seo/`. Copy is verbatim
+  (`views/seo/pages.ts`), art in `public/assets/seo/<slug>/` (`views/seo/art.ts`: hero = card/share image,
+  examples, Who it's for rows with a vertical crop `focus`), the sky world and one cloud loop copied from
+  everask-lp-assets into `public/assets/seo/sky/`. Sections are compact ports of EverAsk's SkyHero (composer
+  cut to a link into EverAsk plus starter chips), Examples, Steps, Features, z-fold, StartBuilding, FinalCta;
+  header, footer, breadcrumbs, FAQ and app cards reuse `views/mag` (Breadcrumbs, Faq, AppTouchpoints now take
+  props, defaults unchanged). `scripts/image-variants.mjs` covers `seo` too.

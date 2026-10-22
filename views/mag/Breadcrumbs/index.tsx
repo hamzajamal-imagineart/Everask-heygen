@@ -3,12 +3,12 @@ import { BREADCRUMB_TRAIL } from "./Breadcrumbs.constants";
 /* Ported from EverAsk's components/landing/Breadcrumbs.tsx: 14px, secondary
    text, chevron separators, the current page in ink, on white between the
    header and the hero frame. */
-export function Breadcrumbs() {
+export function Breadcrumbs({ trail = BREADCRUMB_TRAIL }: { trail?: { name: string; href: string }[] }) {
   return (
     <nav aria-label="Breadcrumb" className="bg-white">
       <ol className="container-page flex flex-wrap items-center gap-1.5 py-3.5 text-sm text-body">
-        {BREADCRUMB_TRAIL.map((crumb, i) => {
-          const isLast = i === BREADCRUMB_TRAIL.length - 1;
+        {trail.map((crumb, i) => {
+          const isLast = i === trail.length - 1;
           return (
             <li key={crumb.href} className="inline-flex items-center gap-1.5">
               {isLast ? (

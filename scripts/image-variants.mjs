@@ -1,4 +1,4 @@
-// Responsive image variants (performance pass, 21 Oct): for every WebP under public/assets/{heygen,mag,topaz}
+// Responsive image variants (performance pass, 21 Oct): for every WebP under public/assets/{heygen,mag,topaz,seo}
 // wider than a target, write `<name>-640w.webp` / `<name>-1280w.webp` beside it and record them in
 // lib/image-variants.json, which lib/responsive.ts turns into srcset strings. Re-run after adding images:
 //   node scripts/image-variants.mjs
@@ -7,7 +7,7 @@ import path from "node:path";
 import sharp from "sharp";
 
 const ROOT = process.cwd();
-const DIRS = ["heygen", "mag", "topaz"].map((d) => path.join(ROOT, "public/assets", d));
+const DIRS = ["heygen", "mag", "topaz", "seo"].map((d) => path.join(ROOT, "public/assets", d));
 const TARGETS = [640, 1280];
 const manifest = {};
 const files = [];

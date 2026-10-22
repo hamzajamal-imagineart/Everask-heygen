@@ -53,8 +53,8 @@ function ProductMark({ className = "" }: { className?: string }) {
   return <span role="img" aria-label={BRAND_NAME} className={className} style={LOCKUP_MARK_STYLE} />;
 }
 
-export function AppTouchpoints() {
-  const c = TOUCHPOINT_COPY;
+export function AppTouchpoints({ copy = TOUCHPOINT_COPY }: { copy?: TouchpointCopy }) {
+  const c = copy;
   return (
     <Section title={`${BRAND_NAME} on your phone and your Mac`}>
       <div className="grid gap-4 lg:grid-cols-2">

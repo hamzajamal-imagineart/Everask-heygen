@@ -1,19 +1,20 @@
 "use client";
 
 import { FAQ_ITEMS } from "./Faq.constants";
+import type { FaqItem } from "./Faq.types";
 import { useFaq } from "./use-faq";
 
-export function Faq() {
-  const { open, toggle } = useFaq();
+export function Faq({ items = FAQ_ITEMS, title = "Answers to your top questions" }: { items?: FaqItem[]; title?: string }) {
+  const { open, toggle } = useFaq(items.length);
 
   return (
     <section id="faq" className="border-t border-[#ededed] py-20">
       <div className="mag-container flex flex-col gap-10 lg:flex-row lg:gap-20">
         <div className="flex shrink-0 flex-col items-start gap-6 lg:w-[300px]">
-          <h2 className="font-display text-[24px] leading-[1.25] font-medium tracking-[-0.03em] text-[#131318]">Answers to your top questions</h2>
+          <h2 className="font-display text-[24px] leading-[1.25] font-medium tracking-[-0.03em] text-[#131318]">{title}</h2>
         </div>
         <ul className="flex min-w-0 flex-1 flex-col">
-          {FAQ_ITEMS.map((item, index) => {
+          {items.map((item, index) => {
             const isOpen = open[index];
             const panelId = `faq-panel-${index}`;
             return (
