@@ -44,24 +44,106 @@ export const SEO_PAGES: SeoPage[] = [
         body: "Rank for every search you named, not one blended score. Strong for the service but missing on near me reads differently from missing everywhere.",
       },
       {
+        title: "Rank across the whole area",
+        body: "The same search checked from several points you choose, so you see where you show up near the door and where you drop out across town.",
+      },
+      {
         title: "The businesses above you",
-        body: "Each competitor that outranks you, with their rating, review count and primary category side by side with yours, so the gap is concrete.",
+        body: "Each competitor that outranks you, with their category, rating, review count and photos side by side with yours, so the gap is concrete.",
       },
       {
-        title: "Review comparison",
-        body: "Your average rating and review volume against the local leaders, and what recent reviews keep mentioning, good and bad.",
+        title: "Reviews, read properly",
+        body: "Your rating and review count against the leaders, how many new reviews you get a month, which have no reply, and how long you take to answer.",
       },
       {
-        title: "Category and listing checks",
-        body: "Whether your primary category matches the businesses that win these searches, and which listing details theirs carry that yours does not.",
+        title: "Category and profile checks",
+        body: "Whether your primary category matches the businesses that win, whether the profile is claimed, and whether hours, phone and website are filled in.",
       },
       {
         title: "Fixes ranked by effort",
         body: "Changes ordered from an afternoon's work to a quarter's, so you start with what costs least and see what the bigger moves are worth.",
       },
+    ],
+    sample: {
+      intro: "Four parts, each built from live Google Maps data. Shown here for a fictional practice in Austin.",
+      tabs: [
+        {
+          kind: "table",
+          label: "Map position",
+          summary: "Where you rank for each search, who sits above you, and how their category, rating, reviews and photos compare.",
+          caption: "dentist near me, Austin, on mobile",
+          columns: ["Rank", "Business", "Primary category", "Rating", "Reviews", "Photos"],
+          rows: [
+            ["1", "Bright Smile Dental", "Dentist", "4.9", "612", "188"],
+            ["2", "Lakeview Family Dentistry", "Dentist", "4.8", "431", "142"],
+            ["3", "South Congress Dental", "Cosmetic dentist", "4.7", "288", "96"],
+            ["4", "Barton Creek Dental", "Dentist", "4.8", "175", "120"],
+            ["5", "Harbor Dental", "Dental clinic", "4.6", "94", "23"],
+          ],
+          you: 4,
+        },
+        {
+          kind: "grid",
+          label: "Rank across the area",
+          summary: "The same search from points spread over your service area, so a strong spot and a weak one both show.",
+          caption: "dentist near me, from nine points 1.5 km apart",
+          ranks: [3, 2, 4, 2, 1, 3, 6, 5, 9],
+          note: "Top three near the practice, falling to ninth across the river. The fix list starts with what moves the outer points.",
+          legend: "Deeper blue is a better rank. The centre square is the practice.",
+        },
+        {
+          kind: "list",
+          label: "Your profile",
+          summary: "Primary category, claim status, contact details, hours and photos, each against the businesses that win.",
+          caption: "Harbor Dental against the top three",
+          rows: [
+            { label: "Primary category", value: "Dental clinic", note: "Two of the top three use Dentist", ok: false },
+            { label: "Profile claimed", value: "Yes", ok: true },
+            { label: "Phone and website", value: "Listed", ok: true },
+            { label: "Saturday hours", value: "Closed", note: "All of the top three open on Saturday", ok: false },
+            { label: "Photos", value: "23", note: "The top three average 142", ok: false },
+          ],
+        },
+        {
+          kind: "list",
+          label: "Reviews",
+          summary: "Rating and volume against the leaders, new reviews per month, unanswered ones and how fast you reply, and what keeps coming up.",
+          caption: "Google reviews, newest first",
+          rows: [
+            { label: "Average rating", value: "4.6", note: "Top three average 4.8" },
+            { label: "Total reviews", value: "94", note: "Top three average 444", ok: false },
+            { label: "New in the last month", value: "3", note: "Top three average 21", ok: false },
+            { label: "Reviews with no reply", value: "12 of the last 30", ok: false },
+            { label: "Time to reply", value: "6 days on average", note: "The leader replies within a day", ok: false },
+            { label: "Mentioned most", value: "Gentle with nervous patients, hard to reach by phone" },
+          ],
+        },
+      ],
+    },
+    prompts: [
+      { title: "One search, one area", prompt: "Local SEO audit for Harbor Dental in Austin for dentist near me" },
+      { title: "Every service you sell", prompt: "Audit our map rank in Leeds for plumber, emergency plumber, boiler repair and drain unblocking" },
+      { title: "Rank across the city", prompt: "Check where we rank for physio near me from nine points across central Bristol" },
+      { title: "Against one rival", prompt: "Compare our Google profile and reviews with Lakeview Family Dentistry, side by side" },
+      { title: "Every branch", prompt: "Run the same local audit for our five Denver locations and rank them by visibility" },
+      { title: "Reviews only", prompt: "Read our Google reviews from the last month, lowest rated first, and tell me what to fix" },
+    ],
+    factorsIntro: "Google says it ranks local results on three things. The audit reads your listing against each.",
+    factors: [
       {
-        title: "Rerun it next month",
-        body: "Ask for the same audit again and compare. The searches and competitors are kept, so the second report shows what moved.",
+        title: "Relevance",
+        body: "How well a profile matches the search. Your categories and the services you list carry most of it.",
+        check: "Your categories against the businesses that win your searches.",
+      },
+      {
+        title: "Distance",
+        body: "How far the business is from the person searching. You cannot move, but you can see where you are strong.",
+        check: "Your rank from several points across the area.",
+      },
+      {
+        title: "Prominence",
+        body: "How well known the business is. Reviews, ratings and mentions across the web all count.",
+        check: "Your reviews and rating against the leaders, how steadily new ones arrive, and how fast you reply.",
       },
     ],
     useCases: [
@@ -81,23 +163,47 @@ export const SEO_PAGES: SeoPage[] = [
     faqs: [
       {
         q: "What does a local SEO audit check?",
-        a: "Where the business ranks in Google Maps results for the searches that matter, which businesses rank above it, and how its rating, review count and category compare with theirs. The output is a prioritised list of fixes.",
+        a: "Where a business ranks in Google Maps for the searches that matter, which businesses rank above it, and how its category, profile and reviews compare with theirs. The output is a prioritised list of fixes.",
       },
       {
-        q: "Where does the ranking data come from?",
-        a: `${brandName} runs each search through DataForSEO's Google Maps results for the location you name and reads place and review details from Google Maps. It reports what those results show on the day it runs.`,
+        q: "What is the map pack?",
+        a: "The map pack, or local pack, is the block of three businesses with a map that Google shows for searches with local intent, such as dentist near me. The audit reads Google Maps results for each search; the top of those usually matches the pack on Search, though not always.",
       },
       {
-        q: "Does rank change across the city?",
-        a: "Yes. Map results depend on where the searcher is. Name the neighbourhood or area you care about, or ask for several, and each is checked separately.",
+        q: "Where does the data come from?",
+        a: `Rankings come from DataForSEO's live Google Maps results for the location you name. Place and review details come through AnyAPI's Google Maps endpoints: for each review, its rating, date and text, and the owner's reply with when it was posted. The report shows the map as it is that day.`,
       },
       {
-        q: "Can it change my Google Business Profile?",
-        a: `No. ${brandName} reads public results and tells you what to change. You make the edits in your own profile.`,
+        q: "Why does my ranking change across the city?",
+        a: "Distance is one of the three things Google says it ranks local results by, so the same search gives different results a few streets apart. The audit can run each search from exact map points, a grid across your service area, to show where you are strong and where you drop off.",
+      },
+      {
+        q: "What should I fix first?",
+        a: "Usually the primary category, then a complete profile: hours, phone, website and photos. After that, replies to reviews and a steady flow of new ones. The audit orders the fixes for your listing, cheapest first.",
+      },
+      {
+        q: "How long does a local SEO audit take?",
+        a: "A few minutes for a handful of searches in one area. More searches, or more points across a city, take longer, since each is a separate check.",
       },
       {
         q: "How often should I run a local SEO audit?",
         a: "Monthly is enough for most businesses. Map rankings move with reviews and competitors, so a monthly rerun shows whether the fixes are working.",
+      },
+      {
+        q: "Can it show my worst or most recent reviews?",
+        a: "Yes. Reviews can be read newest first or lowest rated first, and limited to the last day, week, month or year, so you can see what changed since your last audit.",
+      },
+      {
+        q: "Can I audit a competitor's listing?",
+        a: "Yes. Any business that shows up in Google Maps can be audited, and you can put yours and a rival's side by side in one request.",
+      },
+      {
+        q: "Does it check directory listings like Yelp?",
+        a: "No. The audit covers Google Maps: rankings, profiles and Google reviews. Listings on other directories are not part of it.",
+      },
+      {
+        q: "Can it change my Google Business Profile?",
+        a: `No. ${brandName} reads public results and tells you what to change. You make the edits in your own profile.`,
       },
     ],
     related: [
@@ -115,9 +221,9 @@ export const SEO_PAGES: SeoPage[] = [
     metrics: { kd: 39, volume: 1400, trafficPotential: 74000, cpc: 9 },
     title: `Competitor Keyword Research: What Your Rivals Rank For | ${brandName}`,
     description:
-      `Name a competitor's site. ${brandName} lists every keyword it ranks for, with position, volume, difficulty and the page that ranks, sorted into a sheet.`,
+      `Name a competitor's site. ${brandName} lists the keywords it ranks for, with position, volume, difficulty and the page that ranks, sorted into a sheet.`,
     h1: "Competitor keyword research",
-    subhead: "Every keyword a rival ranks for, with volume, difficulty and the page that ranks.",
+    subhead: "The keywords a rival ranks for, with volume, difficulty and the page that ranks.",
     primaryCta: "Research a competitor",
     promptExample: "Every keyword notion.so ranks for in the top 10, US, sorted by traffic",
     steps: [
@@ -136,29 +242,115 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     features: [
       {
-        title: "The ranking URL for each keyword",
-        body: "See which page wins each keyword, so you know whether a rival ranks with a blog post, a landing page or a tool.",
+        title: "The ranking page for each keyword",
+        body: "See which page wins each keyword, so you know whether a rival ranks with a blog post, a landing page or a free tool.",
       },
       {
-        title: "Volume, difficulty and CPC",
+        title: "Volume, difficulty and cost per click",
         body: "Monthly searches, keyword difficulty and paid cost per click on every row, from Ahrefs and DataForSEO, not guessed by a model.",
       },
       {
-        title: "Grouped by topic",
-        body: "Hundreds of keywords sorted into topic groups, so a long export becomes a short list of themes your rival owns.",
+        title: "Search intent on every row",
+        body: "Each keyword marked as informational, commercial, transactional or navigational, so you can tell research traffic from buyers.",
       },
       {
-        title: "Filters in plain words",
-        body: "Ask for positions 4 to 20, questions only, or anything over 500 searches a month. No filter panels to learn.",
+        title: "Grouped into topics",
+        body: "Thousands of rows sorted into the topics a rival owns, each with its traffic and the page that leads it.",
+      },
+      {
+        title: "New and lost keywords",
+        body: "Which keywords a rival has started ranking for, and which it has lost, so you see where they are pushing and where they are slipping.",
       },
       {
         title: "Several rivals at once",
-        body: "Run three competitors in one request and see which keywords they share and which only one of them ranks for.",
+        body: "Run three competitors in one request and see which keywords they share and which only one of them owns.",
+      },
+    ],
+    sample: {
+      title: "What’s in the sheet",
+      intro: "Four views of one rival’s search traffic. Shown for a fictional project management app in the US.",
+      tabs: [
+        {
+          kind: "table",
+          label: "Top keywords",
+          summary: "Every keyword the rival ranks for, sorted by estimated traffic, with position, volume, difficulty and the page that ranks.",
+          caption: "planly.com, United States, the top 5 of 2,140 keywords",
+          columns: ["Keyword", "Position", "Volume", "KD", "Traffic", "Ranking page"],
+          numeric: [1, 2, 3, 4],
+          rows: [
+            ["project management software", "3", "40,500", "82", "3,900", "/"],
+            ["gantt chart maker", "1", "12,100", "41", "3,100", "/gantt"],
+            ["free project tracker", "2", "8,100", "35", "1,500", "/templates/tracker"],
+            ["team task list app", "1", "2,900", "22", "890", "/tasks"],
+            ["kanban board online", "4", "6,600", "38", "640", "/kanban"],
+          ],
+        },
+        {
+          kind: "table",
+          label: "Easy wins",
+          summary: "Keywords with low difficulty where the rival sits between 4 and 20, the ones you can catch soonest.",
+          caption: "Difficulty 30 or under, rival in positions 4 to 20",
+          columns: ["Keyword", "Rival position", "Volume", "KD", "Intent"],
+          numeric: [1, 2, 3],
+          rows: [
+            ["project timeline template", "6", "5,400", "18", "Informational"],
+            ["sprint planning tool", "9", "2,400", "27", "Commercial"],
+            ["resource planning spreadsheet", "12", "1,900", "14", "Informational"],
+            ["client portal software", "7", "1,600", "29", "Commercial"],
+          ],
+        },
+        {
+          kind: "list",
+          label: "Topics they own",
+          summary: "The keywords grouped into topics, with the traffic each brings and the page that leads it.",
+          caption: "Topics by estimated monthly traffic",
+          rows: [
+            { label: "Gantt charts", value: "9,800 visits", note: "38 keywords, led by /gantt" },
+            { label: "Templates", value: "7,200 visits", note: "64 keywords, led by /templates" },
+            { label: "Kanban", value: "2,100 visits", note: "21 keywords, led by /kanban" },
+            { label: "Integrations", value: "1,400 visits", note: "45 keywords, mostly tool names" },
+          ],
+        },
+        {
+          kind: "list",
+          label: "Search intent",
+          summary: "How their traffic splits between people researching, comparing and ready to buy.",
+          caption: "Share of estimated traffic by intent",
+          rows: [
+            { label: "Informational", value: "54%", note: "Guides and templates" },
+            { label: "Commercial", value: "31%", note: "Comparisons and best-of searches" },
+            { label: "Transactional", value: "9%", note: "Sign-up and pricing searches" },
+            { label: "Navigational", value: "6%", note: "Mostly their own brand name" },
+          ],
+        },
+      ],
+    },
+    factorsTitle: "What the numbers mean",
+    factorsIntro: "Every row carries the same numbers. This is how to read them.",
+    factors: [
+      {
+        title: "Volume",
+        body: "Average monthly searches for the keyword in the country you choose, modelled from ad planner and clickstream data.",
+        check: "Use it to compare keywords, not to forecast visits.",
       },
       {
-        title: "Ready for a brief",
-        body: `Turn any topic group into a content brief or a ${brandName} doc for your writers, with the target keyword and the page to beat.`,
+        title: "Difficulty",
+        body: "A 0 to 100 score for how hard it is to reach the top 10, based on the backlinks of the pages already there.",
+        check: "It counts links, not content quality, so look at the live results too.",
       },
+      {
+        title: "Traffic",
+        body: "Volume times the click-through rate for the rival’s position, so a third place on a big keyword can beat a first on a small one.",
+        check: "Sort by it to see where their visits really come from.",
+      },
+    ],
+    prompts: [
+      { title: "One rival, top keywords", prompt: "Every keyword planly.com ranks for in the US top 10, sorted by traffic" },
+      { title: "Easy wins only", prompt: "Keywords our rival ranks 4 to 20 for with difficulty under 30" },
+      { title: "One page, not the site", prompt: "What keywords does this rival article rank for? Here is the link" },
+      { title: "Buyers, not readers", prompt: "Only the commercial and transactional keywords our top competitor ranks for" },
+      { title: "What they gained", prompt: "Keywords our competitor started ranking for in the last month" },
+      { title: "Three rivals side by side", prompt: "Compare the top keywords of these three competitors and show which they share" },
     ],
     useCases: [
       {
@@ -177,19 +369,35 @@ export const SEO_PAGES: SeoPage[] = [
     faqs: [
       {
         q: "How do I find the keywords a competitor ranks for?",
-        a: `Name their domain. ${brandName} pulls the keywords that domain ranks for in organic search from Ahrefs and DataForSEO, with position, volume, difficulty and the ranking URL for each.`,
+        a: `Name their domain. ${brandName} pulls the keywords that domain ranks for from Ahrefs and DataForSEO, with position, volume, difficulty, intent and the ranking page for each.`,
+      },
+      {
+        q: "Is this every keyword they rank for?",
+        a: "No tool sees every keyword. The providers track the keywords people search most, so the list covers almost all of a site's search traffic but not every rare query.",
+      },
+      {
+        q: "Can I research a single page instead of the whole site?",
+        a: "Yes. Paste a full page address and the list covers only that page, which helps when a rival's one article or tool takes most of their traffic.",
+      },
+      {
+        q: "What does keyword difficulty mean?",
+        a: "A 0 to 100 score for how hard it is to reach the top 10, based on the backlinks of the pages ranking now. It counts links only, so check the live results before you commit.",
+      },
+      {
+        q: "How accurate are the volumes and traffic?",
+        a: "Both are estimates. Volume is modelled from ad planner and clickstream data, and traffic multiplies volume by the click-through rate for each position. Use them to compare, not to forecast.",
       },
       {
         q: "Which country does the data cover?",
         a: "Say the country with the request. Rankings and volumes differ by market, so each run is for one country unless you ask for several.",
       },
       {
-        q: "How accurate are the volumes?",
-        a: "Search volume and traffic are estimates from the providers' data, good for comparing keywords against each other. For your own site, your analytics remain the source of truth.",
+        q: "Can I see keywords a competitor gained or lost?",
+        a: "Yes. Ask for new or lost keywords and the sheet shows where a rival recently started ranking and where it dropped out.",
       },
       {
         q: "Can I compare several competitors?",
-        a: "Yes. Name up to a handful of domains in one request and the sheet shows each keyword with every rival's position side by side.",
+        a: "Yes. Name a handful of domains in one request and the sheet shows each keyword with every rival's position side by side.",
       },
       {
         q: "What is the difference from a keyword gap analysis?",
@@ -223,7 +431,7 @@ export const SEO_PAGES: SeoPage[] = [
       },
       {
         title: "It gathers the data",
-        body: `${brandName} pulls the domain's authority and backlinks, the keywords it ranks for and its estimated traffic, then reads the page itself: title, headings, copy and links.`,
+        body: `${brandName} pulls the domain's authority and backlinks, the keywords it ranks for and its estimated traffic, then reads the page itself: title, description, headings, structured data, links and images.`,
       },
       {
         title: "Read the fix list",
@@ -233,15 +441,15 @@ export const SEO_PAGES: SeoPage[] = [
     features: [
       {
         title: "Authority and links",
-        body: "Domain rating, referring domains and the strongest backlinks, so you know whether the problem is the page or the site's standing.",
+        body: "Domain rating, referring domains and the strongest backlinks, with which are followed and which are new or lost.",
       },
       {
         title: "What it ranks for now",
-        body: "The keywords the page and domain already rank for, with positions, so the fixes build on traffic you have instead of guessing at new terms.",
+        body: "The keywords the page and domain already rank for, with positions, so the fixes build on traffic you have.",
       },
       {
-        title: "On-page read",
-        body: "The title, meta description, headings and copy checked against the searches the page ranks for and the ones it should.",
+        title: "The page, read in full",
+        body: "Title, meta description, headings, structured data, canonical and robots tags, links and image alt text, checked against what the page should rank for.",
       },
       {
         title: "Against your rivals",
@@ -252,9 +460,80 @@ export const SEO_PAGES: SeoPage[] = [
         body: "Each recommendation says what to change, why it matters for this page, and roughly how much work it is.",
       },
       {
-        title: "Shareable report",
-        body: `The audit arrives as a ${brandName} doc you can send to a client or a developer, with the data tables attached.`,
+        title: "Clear about scope",
+        body: "It reads the page you give it, not your whole site, and says so. Page speed and index status are left to the tools that measure them.",
       },
+    ],
+    sample: {
+      intro: "Three parts, from one address. Shown for a fictional pricing page.",
+      tabs: [
+        {
+          kind: "list",
+          label: "The page",
+          summary: "Title, description, headings, structured data, canonical and robots tags, links and image alt text, read from the page itself.",
+          caption: "acme.com/pricing, as read",
+          rows: [
+            { label: "Title", value: "Pricing | Acme", note: "Leaves out the term buyers search: project software pricing", ok: false },
+            { label: "Meta description", value: "Missing", note: "Google will write its own snippet", ok: false },
+            { label: "Headings", value: "One H1, six H2s", ok: true },
+            { label: "Structured data", value: "None", note: "Rival pages mark up their plans and FAQs", ok: false },
+            { label: "Images", value: "4 of 9 without alt text", ok: false },
+          ],
+        },
+        {
+          kind: "list",
+          label: "Search standing",
+          summary: "What the page and domain rank for now, the estimated traffic, and the keywords it is close to winning.",
+          caption: "acme.com/pricing, United States",
+          rows: [
+            { label: "Keywords ranking", value: "41", note: "Rivals’ pricing pages: over 100 each", ok: false },
+            { label: "Estimated traffic", value: "1,300 a month", note: "From search, an estimate" },
+            { label: "Closest win", value: "project software pricing", note: "Position 11, one step off page one" },
+            { label: "Domain rating", value: "52", note: "Top rival: 68" },
+          ],
+        },
+        {
+          kind: "table",
+          label: "Links",
+          summary: "Referring domains and the strongest backlinks to the page, against the rivals that outrank it.",
+          caption: "Referring domains to each pricing page",
+          columns: ["Page", "Referring domains", "Followed", "New this month"],
+          numeric: [1, 2, 3],
+          rows: [
+            ["rival-one.com/pricing", "212", "71%", "9"],
+            ["rival-two.com/plans", "148", "64%", "4"],
+            ["acme.com/pricing", "37", "58%", "1"],
+          ],
+          you: 2,
+        },
+      ],
+    },
+    factorsTitle: "What a one-page audit can see",
+    factorsIntro: "The audit puts three kinds of evidence together. It also tells you what it cannot see.",
+    factors: [
+      {
+        title: "The page",
+        body: "Everything on it that search engines read: title, description, headings, structured data, links and images.",
+        check: "Not other pages on your site, so no site-wide crawl.",
+      },
+      {
+        title: "Search data",
+        body: "The keywords the page and domain rank for, their positions and an estimate of the traffic they bring.",
+        check: "Estimates, good for priorities, not for forecasts.",
+      },
+      {
+        title: "Links",
+        body: "Domain rating, referring domains and the backlinks that point at the page.",
+        check: "Page speed and index status need their own tools, and the audit says so.",
+      },
+    ],
+    prompts: [
+      { title: "One page", prompt: "SEO audit of acme.com/pricing" },
+      { title: "Against two rivals", prompt: "SEO audit of our pricing page against our top two competitors' pricing pages" },
+      { title: "Why they outrank us", prompt: "Why does this rival article rank above ours? Here are both links" },
+      { title: "A new page before launch", prompt: "Audit this draft landing page for the keyword invoice software for freelancers" },
+      { title: "Links only", prompt: "Who links to our homepage, and which of those links are new or lost this month?" },
+      { title: "For a client", prompt: "Write an SEO audit of this client's homepage I can send them as a doc" },
     ],
     useCases: [
       {
@@ -272,24 +551,40 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     faqs: [
       {
-        q: "What does an AI SEO audit include?",
-        a: "Domain authority and backlinks, the keywords the site ranks for, estimated organic traffic, an on-page read of the URL you paste, and a prioritised list of fixes written in plain language.",
+        q: "What is an AI SEO audit?",
+        a: "An AI agent reads your page and combines it with search data, rankings, backlinks and authority, to write a prioritised list of fixes in plain language.",
+      },
+      {
+        q: "How is it different from a site audit tool?",
+        a: "Site audit tools crawl many pages and count issues. This reads one page in depth, adds ranking and link data, and explains what to fix first and why.",
       },
       {
         q: "Where does the data come from?",
-        a: `Authority, rankings, traffic and backlink data come from Ahrefs and DataForSEO. ${brandName} reads the page itself with Context.dev. The model writes the analysis; it does not invent the numbers.`,
+        a: `Domain rating and organic keywords come from Ahrefs; ranking keywords, backlinks and traffic estimates from DataForSEO. ${brandName} reads the page itself with Context.dev. The model writes the analysis; it does not invent the numbers.`,
       },
       {
         q: "Does it crawl my whole site?",
-        a: "No. It reads the pages you give it and pulls ranking and link data for the domain. For a technical crawl of every URL, redirects and page speed, use a crawler alongside it.",
+        a: "No. It reads the pages you give it and pulls ranking and link data for the domain. For site-wide issues like broken links, redirects and duplicate pages, use a crawler alongside it.",
       },
       {
-        q: "Can I audit a competitor's site?",
-        a: "Yes. Any public URL works, and you can audit your page and a rival's in one request to see why theirs ranks higher.",
+        q: "Does it check page speed or Core Web Vitals?",
+        a: "No. Those need measurements from real visitors. Use PageSpeed Insights or Search Console for them.",
       },
       {
-        q: "Is an AI SEO audit as good as a manual one?",
-        a: "It is quick and grounded in real ranking data, which covers most of what a first audit is for. A specialist still adds judgement on strategy, site structure and technical issues a page read cannot see.",
+        q: "What is domain rating?",
+        a: "Ahrefs’ 0 to 100 score for the strength of a site’s backlinks compared with other sites. It is not a Google metric, and there is no single good score: compare with similar sites.",
+      },
+      {
+        q: "Can I audit a competitor's page?",
+        a: "Yes. Any public page works, and you can audit yours and a rival’s in one request to see why theirs ranks higher.",
+      },
+      {
+        q: "Does it work on JavaScript-heavy pages?",
+        a: "Yes. The page is rendered before it is read, so content that loads with JavaScript is included.",
+      },
+      {
+        q: "Do I need special optimisation for AI search?",
+        a: "Google says no special steps are needed for its AI features: a page that is indexable and useful for search is eligible. The audit focuses on those basics.",
       },
     ],
     related: [
@@ -328,29 +623,105 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     features: [
       {
-        title: "Hundreds of sites in one go",
-        body: "Bulk estimates from DataForSEO cover long lists, so a market map or a prospect list is one request, not an afternoon of lookups.",
+        title: "Up to a thousand sites in one go",
+        body: "Bulk estimates from DataForSEO take up to 1,000 sites per request, so a market map or a prospect list is one ask, not an afternoon of lookups.",
       },
       {
-        title: "Organic and paid",
-        body: "Estimated organic traffic for every site, and paid search traffic where the data has it, in separate columns.",
+        title: "Organic and paid, apart",
+        body: "Estimated organic and paid search traffic in separate columns, with how many keywords each site ranks for.",
       },
       {
         title: "The pages behind the number",
-        body: "For any site, see the pages that earn the most search traffic and the keywords sending it.",
+        body: "For any site, the pages that earn the most search traffic and the keywords sending it.",
       },
       {
         title: "Authority alongside",
-        body: "Add domain rating from Ahrefs to the sheet, so you can tell a big site from a strong one.",
+        body: "Domain rating from Ahrefs and referring domains from DataForSEO beside the traffic, so a big site and a strong one are easy to tell apart.",
       },
       {
-        title: "Sorted and segmented",
-        body: "Ask for the sheet sorted, bucketed by size or split by category, in plain words.",
+        title: "Any country, any part of a site",
+        body: "Estimate for one country or worldwide, and for a whole domain, a subdomain or a single page.",
       },
       {
         title: "Honest about estimates",
-        body: "Every figure is labelled as a modelled estimate of search traffic. It is for comparing sites, not for replacing anyone's analytics.",
+        body: "Every figure is labelled as a modelled estimate of search traffic. It is for comparing sites, not for replacing anyone’s analytics.",
       },
+    ],
+    sample: {
+      title: "What’s in the sheet",
+      intro: "A list of sites, estimated side by side. Shown for fictional project tools in the US.",
+      tabs: [
+        {
+          kind: "table",
+          label: "Traffic by site",
+          summary: "Estimated monthly organic and paid search traffic for every site, with how many keywords each ranks for.",
+          caption: "Six sites, United States, estimated monthly visits from search",
+          columns: ["Site", "Organic", "Paid", "Keywords"],
+          numeric: [1, 2, 3],
+          rows: [
+            ["planly.com", "182,000", "12,400", "21,300"],
+            ["taskhive.io", "96,500", "0", "9,800"],
+            ["boardly.app", "41,200", "3,100", "6,100"],
+            ["linearly.app", "22,800", "1,200", "3,400"],
+            ["rivala.com", "18,900", "0", "2,700"],
+            ["sprintdesk.co", "7,400", "900", "1,150"],
+          ],
+          you: 3,
+        },
+        {
+          kind: "table",
+          label: "Where it comes from",
+          summary: "For any site, the pages and keywords that bring the most search traffic.",
+          caption: "planly.com, top pages by estimated traffic",
+          columns: ["Page", "Traffic", "Keywords", "Top keyword"],
+          numeric: [1, 2],
+          rows: [
+            ["/", "41,000", "1,900", "planly"],
+            ["/gantt", "9,800", "380", "gantt chart maker"],
+            ["/templates", "7,200", "640", "project plan template"],
+            ["/blog/raci-chart", "3,300", "210", "raci chart"],
+          ],
+        },
+        {
+          kind: "list",
+          label: "Size and strength",
+          summary: "Traffic beside authority and referring domains, so a big site and a strong one are easy to tell apart.",
+          caption: "Domain rating and referring domains",
+          rows: [
+            { label: "planly.com", value: "DR 74", note: "4,900 referring domains" },
+            { label: "taskhive.io", value: "DR 61", note: "1,800 referring domains" },
+            { label: "boardly.app", value: "DR 58", note: "2,300 referring domains, less traffic than its links suggest", ok: false },
+            { label: "linearly.app", value: "DR 46", note: "640 referring domains" },
+          ],
+        },
+      ],
+    },
+    factorsTitle: "How the estimate works",
+    factorsIntro: "Search traffic estimates are built the same way across providers. Knowing how tells you how far to trust them.",
+    factors: [
+      {
+        title: "Rankings",
+        body: "Every keyword the site ranks for in the top 100, and its position for each.",
+        check: "Keywords a provider does not track are missing from the total.",
+      },
+      {
+        title: "Volume",
+        body: "How often each keyword is searched a month in the country you choose.",
+        check: "Modelled from ad planner and clickstream data, so it is an estimate too.",
+      },
+      {
+        title: "Click-through",
+        body: "The share of searchers who click each position. Volume times that share, added up, is the estimate.",
+        check: "Strong for comparing sites, loose for any single number.",
+      },
+    ],
+    prompts: [
+      { title: "A list of rivals", prompt: "Estimate monthly organic traffic for these 40 competitor domains, US" },
+      { title: "Qualify a prospect list", prompt: "Sort this sheet of 300 companies by search traffic and flag the top 50" },
+      { title: "One site, in depth", prompt: "How much search traffic does planly.com get, and which pages bring it?" },
+      { title: "Size and strength", prompt: "Traffic, domain rating and referring domains for these ten sites, side by side" },
+      { title: "Just the blog", prompt: "Estimate traffic for blog.planly.com and help.planly.com separately" },
+      { title: "By country", prompt: "Compare these five sites' search traffic in the UK and in Germany" },
     ],
     useCases: [
       {
@@ -369,23 +740,35 @@ export const SEO_PAGES: SeoPage[] = [
     faqs: [
       {
         q: "How do I check a website's traffic?",
-        a: `Paste the domain. ${brandName} returns its estimated monthly organic search traffic, plus the pages and keywords that bring it in. Paste a list and every site comes back side by side.`,
+        a: `Paste the domain. ${brandName} returns its estimated monthly organic and paid search traffic, plus the pages and keywords that bring it in. Paste a list and every site comes back side by side.`,
       },
       {
         q: "How accurate are traffic estimates?",
-        a: "They are modelled from rankings and search volumes, so they track search traffic only and can differ from a site's own analytics. They are reliable for comparing sites against each other.",
+        a: "They are good for comparing sites and weaker for any single number. Ahrefs’ own study against Search Console data found a median gap of about 50%, with some sites within 5% and others far off.",
+      },
+      {
+        q: "Why doesn't it match my analytics?",
+        a: "Analytics counts every visit. The estimate models search clicks only, from rankings, search volume and click-through rates, and misses keywords the providers do not track.",
       },
       {
         q: "Does it include direct and social traffic?",
-        a: "No. The estimate covers search: organic, and paid where the data has it. Direct visits, social and referral traffic are not included.",
+        a: "No. The estimate covers search: organic, and paid where the site runs ads. Direct visits, social and referral traffic are not included.",
       },
       {
         q: "How many sites can I check at once?",
-        a: "Long lists work in a single request. Paste them in or upload a sheet and the results come back as one sorted sheet.",
+        a: "Up to 1,000 in a single request. Paste them in or upload a sheet and the results come back as one sorted sheet.",
+      },
+      {
+        q: "Can I check one page or a subdomain?",
+        a: "Yes. Each line can be a domain, a subdomain or a single page, so you can size a blog, a help centre or one landing page.",
       },
       {
         q: "Can I check traffic by country?",
-        a: "Yes. Say the country with the request and the estimate is for search traffic in that market.",
+        a: "Yes. Say the country with the request and the estimate is for search traffic in that market, or leave it out for worldwide.",
+      },
+      {
+        q: "Where does the data come from?",
+        a: "Traffic and keyword counts come from DataForSEO’s bulk traffic estimates. Domain rating comes from Ahrefs, and referring domains from DataForSEO.",
       },
     ],
     related: [
@@ -429,24 +812,95 @@ export const SEO_PAGES: SeoPage[] = [
       },
       {
         title: "Shared by several rivals",
-        body: "Keywords that two or more competitors rank for rise to the top. When the whole field ranks for a term and you do not, it is rarely chance.",
+        body: "Keywords two or more competitors rank for rise to the top. When the whole field ranks for a term and you do not, it is rarely chance.",
       },
       {
         title: "Grouped into pages",
-        body: "Gaps are grouped into topics a single page could cover, so the output is a list of pages to write, not two thousand rows.",
+        body: "Gaps grouped into topics a single page could cover, so the output is a list of pages to write, not two thousand rows.",
       },
       {
         title: "Volume and difficulty on each",
-        body: "Monthly volume and keyword difficulty from Ahrefs and DataForSEO on every keyword, so easy wins stand out.",
+        body: "Monthly volume and keyword difficulty from Ahrefs and DataForSEO on every keyword, so the easy wins stand out.",
       },
       {
         title: "The page to beat",
-        body: "For each topic, the rival URL that ranks best, so the brief starts from what already works.",
+        body: "For each topic, the rival page that ranks best, so the brief starts from what already works.",
       },
       {
-        title: "Into briefs and docs",
-        body: `Turn any group into a content brief or a ${brandName} doc in the same conversation.`,
+        title: "Real rivals, not giants",
+        body: "When it finds your competitors for you, it leaves out sites like Wikipedia and Amazon, so the comparison is with businesses like yours.",
       },
+    ],
+    sample: {
+      intro: "Your site against three rivals. Shown for a fictional project tool in the US.",
+      tabs: [
+        {
+          kind: "table",
+          label: "Missing keywords",
+          summary: "Keywords at least one rival ranks for in the top 10 while you are not in the top 100.",
+          caption: "linearly.app against three rivals, sorted by volume. 100+ means not in the top 100",
+          columns: ["Keyword", "Volume", "KD", "Rival A", "Rival B", "Rival C", "You"],
+          numeric: [1, 2, 3, 4, 5, 6],
+          rows: [
+            ["bug tracking software", "9,900", "61", "4", "3", "11", "100+"],
+            ["sprint retrospective template", "4,400", "12", "2", "5", "8", "100+"],
+            ["product roadmap examples", "3,600", "19", "1", "9", "6", "100+"],
+            ["issue tracker for startups", "1,300", "24", "7", "2", "100+", "100+"],
+          ],
+        },
+        {
+          kind: "table",
+          label: "Weak keywords",
+          summary: "Keywords you rank for, but well behind every rival, often the fastest wins.",
+          caption: "You outside the top 10, all three rivals inside it",
+          columns: ["Keyword", "Volume", "KD", "Best rival", "You"],
+          numeric: [1, 2, 3, 4],
+          rows: [
+            ["agile project management", "22,200", "74", "2", "18"],
+            ["kanban vs scrum", "6,600", "33", "1", "14"],
+            ["product backlog template", "2,900", "21", "3", "27"],
+          ],
+        },
+        {
+          kind: "list",
+          label: "Pages to write",
+          summary: "The gaps grouped into topics one page could cover, each with total volume and the rival page to beat.",
+          caption: "Topics by total monthly searches",
+          rows: [
+            { label: "Bug tracking", value: "15,400 searches", note: "9 keywords, difficulty above 50, a longer job" },
+            { label: "Retrospectives", value: "11,200 searches", note: "14 keywords, page to beat on Rival A" },
+            { label: "Roadmaps", value: "8,900 searches", note: "22 keywords, page to beat on Rival A" },
+            { label: "Backlog", value: "4,100 searches", note: "7 keywords, you already rank, improve the page" },
+          ],
+        },
+      ],
+    },
+    factorsTitle: "Three kinds of gap",
+    factorsIntro: "A gap analysis sorts keywords by where you stand against your rivals. Each kind calls for different work.",
+    factors: [
+      {
+        title: "Missing",
+        body: "Your rivals rank for it and you do not rank at all.",
+        check: "Usually a page you have not written yet.",
+      },
+      {
+        title: "Weak",
+        body: "You rank, but far behind them.",
+        check: "Usually a page you have that needs work, and often quicker to fix.",
+      },
+      {
+        title: "Shared",
+        body: "Several rivals rank for it, not just one.",
+        check: "The strongest signal of all: the whole field has found demand you have not.",
+      },
+    ],
+    prompts: [
+      { title: "You against three", prompt: "Keyword gap between linearly.app and jira.com, asana.com and clickup.com, US" },
+      { title: "Find the rivals first", prompt: "Who are our search competitors? Then show the keywords they rank for and we don't" },
+      { title: "Only the easy ones", prompt: "Our keyword gaps with difficulty under 30 and at least 500 searches a month" },
+      { title: "Where we are losing", prompt: "Keywords we rank for but all our rivals beat us on" },
+      { title: "Pages, not keywords", prompt: "Group our keyword gaps into pages we should write, biggest first" },
+      { title: "Paid gaps", prompt: "Keywords our competitors bid on in Google Ads that we don't" },
     ],
     useCases: [
       {
@@ -465,23 +919,35 @@ export const SEO_PAGES: SeoPage[] = [
     faqs: [
       {
         q: "What is a keyword gap analysis?",
-        a: "A comparison of the keywords your site ranks for with your competitors' keywords, keeping the ones they rank for and you do not. It shows the topics you are missing.",
+        a: "A comparison of the keywords your site ranks for with your competitors’ keywords, keeping the ones they rank for and you do not. It shows the topics you are missing.",
       },
       {
         q: "How many competitors should I compare?",
         a: "Two to five. Fewer misses patterns; more adds noise. Pick rivals that compete with you in search, not only in sales.",
       },
       {
+        q: "What if I don't know who my search competitors are?",
+        a: "Ask it to find them. It lists the domains that share the most ranking keywords with yours, leaving out giants like Wikipedia and Amazon.",
+      },
+      {
         q: "Where does the keyword data come from?",
-        a: `${brandName} pulls each domain's ranked keywords, volumes and difficulty from Ahrefs and DataForSEO, then compares them. The grouping and recommendations are the agent's; the numbers are the providers'.`,
+        a: `${brandName} compares each rival with your site through DataForSEO, and adds volumes and difficulty from Ahrefs and DataForSEO. The grouping and recommendations are the agent’s; the numbers are the providers’.`,
       },
       {
         q: "Can it find keywords where I rank but poorly?",
         a: "Yes. Besides the keywords you are missing, it lists the ones where a rival ranks well ahead of you, often the faster wins.",
       },
       {
+        q: "Does it cover paid keywords too?",
+        a: "Yes. Ask for paid search as well and it shows the keywords rivals bid on that you do not.",
+      },
+      {
         q: "What do I do with the results?",
-        a: "Pick the topic groups with the best volume for their difficulty and write or improve a page for each. Each group can become a brief in the same conversation.",
+        a: "Pick the topics with the best volume for their difficulty and write or improve a page for each. Each topic can become a brief in the same conversation.",
+      },
+      {
+        q: "How is this different from competitor keyword research?",
+        a: "Competitor keyword research lists everything one rival ranks for. A gap analysis puts your site beside several rivals and keeps only what you are missing or losing.",
       },
     ],
     related: [

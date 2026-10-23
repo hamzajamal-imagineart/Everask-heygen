@@ -2,6 +2,7 @@ import { srcSetFor } from "@/lib/responsive";
 import type { SeoArt } from "./art.types";
 import { SEO_GLYPHS, startHref } from "./config";
 import { Glyph, type GlyphName } from "./Icons";
+import { SampleAudit } from "./SampleAudit";
 import { Section } from "./Section";
 import type { SeoPage } from "./types";
 
@@ -65,17 +66,58 @@ export function Steps({ page }: { page: SeoPage }) {
   );
 }
 
-type Tone = "azure" | "royal" | "navy" | "sky" | "paper";
-const surface: Record<Tone, string> = {
-  azure: "bg-[radial-gradient(110%_120%_at_92%_100%,#7cc6ff_0%,#0088ff_55%,#0070e0_100%)]",
-  royal: "bg-[radial-gradient(110%_120%_at_92%_100%,#7aa6ff_0%,#2a6cf0_55%,#1a50cc_100%)]",
-  navy: "bg-[radial-gradient(110%_120%_at_92%_100%,#3b6fd1_0%,#123a8a_55%,#0b2462_100%)]",
-  sky: "bg-[radial-gradient(110%_120%_at_92%_100%,#f2f9ff_0%,#bfe0ff_55%,#a3d1ff_100%)]",
-  paper: "bg-[radial-gradient(110%_120%_at_92%_100%,#eaf4ff_0%,#ffffff_55%,#ffffff_100%)] ring-1 ring-inset ring-line-soft",
-};
-const light: Tone[] = ["sky", "paper"];
-const grainy: Tone[] = ["azure", "royal", "navy"];
-const tones: Tone[] = ["azure", "sky", "paper", "royal", "paper", "navy"];
+/* What's in the report: the parts and a sample of each (SampleAudit.tsx). */
+export function Sample({ page }: { page: SeoPage }) {
+  if (!page.sample) return null;
+  return (
+    <Section id="report" title={page.sample.title ?? "What’s in the report"} intro={page.sample.intro}>
+      <SampleAudit tabs={page.sample.tabs} />
+    </Section>
+  );
+}
+
+/* Requests to start from, as a hairline list (LinkList on EverAsk's site):
+   the request in full, what it is for in muted type, one arrow into EverAsk. */
+export function Prompts({ page }: { page: SeoPage }) {
+  if (!page.prompts?.length) return null;
+  return (
+    <Section id="prompts" title="Ask it like this">
+      <ul className="border-t border-line-soft">
+        {page.prompts.map((p) => (
+          <li key={p.title} className="border-b border-line-soft">
+            <a href={startHref(page.slug)} className="group grid items-baseline gap-1 py-5 sm:grid-cols-[minmax(0,4fr)_minmax(0,8fr)_auto] sm:gap-12">
+              <span className="text-[14px] text-muted">{p.title}</span>
+              <span className="text-[17px] leading-snug text-ink transition-colors group-hover:text-action">{p.prompt}</span>
+              <svg aria-hidden viewBox="0 0 16 16" className="hidden size-4 text-muted transition-transform group-hover:translate-x-0.5 group-hover:text-action sm:block" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  );
+}
+
+/* How Google ranks local results, set as an editorial row: Google's three
+   words in the serif, each with what it means and what the audit reads,
+   divided by hairlines. No cards, no icons. */
+export function Factors({ page }: { page: SeoPage }) {
+  if (!page.factors?.length) return null;
+  return (
+    <Section id="how-it-works-under" title={page.factorsTitle ?? "How Google ranks local results"} intro={page.factorsIntro}>
+      <ol className="grid border-t border-line-soft sm:grid-cols-3">
+        {page.factors.map((factor, i) => (
+          <li key={factor.title} className={`py-7 sm:px-8 sm:py-2 sm:first:pl-0 sm:last:pr-0 ${i > 0 ? "border-t border-line-soft sm:border-t-0 sm:border-l" : ""} sm:mt-8`}>
+            <h3 className="font-serif text-[34px] leading-none font-normal italic text-ink">{factor.title}</h3>
+            <p className="mt-4 text-[15px] leading-relaxed text-muted">{factor.body}</p>
+            <p className="mt-3 text-[15px] leading-relaxed text-ink">{factor.check}</p>
+          </li>
+        ))}
+      </ol>
+    </Section>
+  );
+}
 
 /* Where a page starts the tone order (variant.ts there): an FNV-1a hash of
    the url with a murmur3 finish, stable per page. */
@@ -89,6 +131,18 @@ function variant(url: string, section: string, count: number): number {
   h ^= h >>> 16;
   return (h >>> 0) % count;
 }
+
+type Tone = "azure" | "royal" | "navy" | "sky" | "paper";
+const surface: Record<Tone, string> = {
+  azure: "bg-[radial-gradient(110%_120%_at_92%_100%,#7cc6ff_0%,#0088ff_55%,#0070e0_100%)]",
+  royal: "bg-[radial-gradient(110%_120%_at_92%_100%,#7aa6ff_0%,#2a6cf0_55%,#1a50cc_100%)]",
+  navy: "bg-[radial-gradient(110%_120%_at_92%_100%,#3b6fd1_0%,#123a8a_55%,#0b2462_100%)]",
+  sky: "bg-[radial-gradient(110%_120%_at_92%_100%,#f2f9ff_0%,#bfe0ff_55%,#a3d1ff_100%)]",
+  paper: "bg-[radial-gradient(110%_120%_at_92%_100%,#eaf4ff_0%,#ffffff_55%,#ffffff_100%)] ring-1 ring-inset ring-line-soft",
+};
+const light: Tone[] = ["sky", "paper"];
+const grainy: Tone[] = ["azure", "royal", "navy"];
+const tones: Tone[] = ["azure", "sky", "paper", "royal", "paper", "navy"];
 
 /* A title split about halfway, on a word: strong, then soft. */
 function split(title: string): [string, string] {
@@ -180,6 +234,31 @@ export function UseCases({ page, art }: { page: SeoPage; art: SeoArt }) {
             </li>
           );
         })}
+      </ul>
+    </Section>
+  );
+}
+
+/* The page's sibling SEO pages as a hairline list (LinkList on EverAsk's
+   site): the page's own related links first, then the other SEO pages. */
+export function Related({ page, pages }: { page: SeoPage; pages: SeoPage[] }) {
+  const linked = page.related.map((url) => pages.find((p) => p.url === url)).filter((p): p is SeoPage => !!p && p.slug !== page.slug);
+  const siblings = [...linked, ...pages.filter((p) => p.slug !== page.slug && !linked.includes(p))].slice(0, 4);
+  if (!siblings.length) return null;
+  return (
+    <Section title="More SEO tools">
+      <ul className="border-t border-line-soft">
+        {siblings.map((p) => (
+          <li key={p.slug} className="border-b border-line-soft">
+            <a href={`/seo/${p.slug}/`} className="group grid items-baseline gap-1 py-5 sm:grid-cols-[minmax(0,4fr)_minmax(0,8fr)_auto] sm:gap-12">
+              <span className="t-item transition-colors group-hover:text-action">{p.h1.charAt(0).toUpperCase() + p.h1.slice(1)}</span>
+              <span className="text-[15px] leading-relaxed text-muted">{p.subhead}</span>
+              <svg aria-hidden viewBox="0 0 16 16" className="hidden size-4 text-muted transition-transform group-hover:translate-x-0.5 group-hover:text-action sm:block" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </a>
+          </li>
+        ))}
       </ul>
     </Section>
   );

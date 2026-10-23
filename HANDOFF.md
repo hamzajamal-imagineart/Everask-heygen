@@ -1036,3 +1036,27 @@ Blocking time 0 ms and layout shift ≈ 0 on every page throughout; the cost was
   cut to a link into EverAsk plus starter chips), Examples, Steps, Features, z-fold, StartBuilding, FinalCta;
   header, footer, breadcrumbs, FAQ and app cards reuse `views/mag` (Breadcrumbs, Faq, AppTouchpoints now take
   props, defaults unchanged). `scripts/image-variants.mjs` covers `seo` too.
+
+## SEO pages: provider research, longer copy, redesign (23 Oct 2026)
+- Hamza's flow for every SEO page: take the sheet's **provider** column, research those providers' own sites
+  (product pages, docs, help centres), and write the page from what they actually return. No claims beyond it.
+  - Local SEO audit: DataForSEO (Maps SERP: rank by coordinates + zoom, category, rating spread, claimed,
+    photos, hours) and AnyAPI (`maps.reviews`: owner reply + reply date, date filter, lowest-rated sort).
+  - Competitor research / keyword gap / traffic: Ahrefs (organic keywords, DR; KD = backlinks only; traffic =
+    volume x CTR, Ahrefs' own median error vs GSC ~50%) and DataForSEO Labs (`ranked_keywords` takes a page
+    URL, intent, new/lost; `domain_intersection` for gaps; `competitors_domain` with `exclude_top_domains`;
+    `bulk_traffic_estimation` up to 1,000 targets). DataForSEO ETV changes method on 1 Nov 2026.
+  - AI SEO audit: Context.dev scrape (`/v1/web/scrape`, markdown + metadata: title, description, h1-h6,
+    JSON-LD, canonical/robots, links, image alt; JS rendered). Never claim a site crawl, Core Web Vitals,
+    index status, or that DR is a Google metric.
+- Hamza: "looks AI generated, think like a senior product designer". The fix: no repeated content, one
+  tinted surface per page (the report), everything else type and hairlines, no uppercase captions or
+  pass/fail badges, vermilion once (the business being audited), blue tints only.
+- Page shape now (`views/seo/index.tsx`): hero, examples, how it works, the report in parts
+  (`SampleAudit.tsx`: part list left, sample right, all parts stacked in one cell so the height never jumps),
+  a three-column explainer (`factors`, serif titles), features, who it's for, "Ask it like this" (hairline
+  list), FAQ, "More SEO tools" (hairline list), closing band, apps. Data per page in `views/seo/pages.ts`
+  (`sample`, `factorsTitle`, `factors`, `prompts`). Sample figures are illustrative, fictional businesses.
+- Images: provider sites (DataForSEO, Ahrefs, AnyAPI) only show their own UI, code and illustrations; not
+  usable (their brand, no permission, off the EverAsk art system). The local page's "Reviews compared"
+  example is now two stacks of review cards (regenerated, ImagineArt `8c79c50c`).

@@ -20,7 +20,7 @@ export const SEO_ART: Record<string, SeoArt> = {
       },
       {
         src: "/assets/seo/local-seo-audit/example-2.webp",
-        alt: "Three cream cards in a row on a sunlit white ledge, each with a row of five small star shapes, the stars on the last card filled in vermilion, blue sky behind",
+        alt: "A tall stack of review cards beside a short one, the short stack's stars in vermilion",
         caption: "Reviews compared"
       },
       {
