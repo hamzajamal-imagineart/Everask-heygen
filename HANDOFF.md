@@ -1060,3 +1060,10 @@ Blocking time 0 ms and layout shift ≈ 0 on every page throughout; the cost was
 - Images: provider sites (DataForSEO, Ahrefs, AnyAPI) only show their own UI, code and illustrations; not
   usable (their brand, no permission, off the EverAsk art system). The local page's "Reviews compared"
   example is now two stacks of review cards (regenerated, ImagineArt `8c79c50c`).
+- **Each SEO page now has its own layout** (Hamza: "why do these pages look the same"). `views/seo/index.tsx`
+  `Body` picks a signature and a section order per slug; data in `views/seo/signature.ts`, sections in
+  `Signatures.tsx` and `KeywordSheet.tsx`. Local: report in parts + area grid (unchanged). Competitor research:
+  a filterable keyword sheet (All / Easy wins / Buyers, fixed height) + "Reading a row" (one row, each number
+  labelled). Keyword gap: Missing / Weak / Shared columns under the hero + "Pages to write" with volume bars.
+  Traffic: sites as organic/paid bars + the estimate as an equation (Rankings x Volume x Click-through =
+  Estimate). AI audit: a wireframe page with its findings tagged + "What it reads, and what it leaves".
